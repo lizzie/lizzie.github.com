@@ -1,0 +1,77 @@
+Short URL算法及实现
+======================================
+
+:date: 2010-04-02 05:04:34
+:tags: Python
+
+
+Way1
+---------------------
+
+先说第二种方式, 将长网址根据一种映射规则转换成短网址, 数据库中保存长/短网址, 重复长网址只读对应的短网址, 请求短网址,在数据库中查找对应的长网址并redirect.
+映射规则如下:
+
+1)将长网址md5生成32位签名串,分为4段, 每段8个字节;
+2)对这四段循环处理, 取8个字节, 将他看成16进制串与0x3fffffff(30位1)与操作, 即超过30位的忽略处理;
+3)这30位分成6段, 每5位的数字作为字母表的索引取得特定字符, 依次进行获得6位字符串;
+4)总的md5串可以获得4个6位串; 取里面的任意一个就可作为这个长url的短url地址;
+
+这种方式, 挺容易理解的, 说白了就是把长网址根据自身的信息(md5)根据一定策略映射成短网址...
+缺点: 产生冲突, 虽说md5值不太会产生冲突, 不过只取里面的连续8个字节,,,冲突也许可能maybe. 但因为还有3个备选字串, 可以先查找一下是否已经使用, 如果使用就在这3个里面再选一个, 这4个串全部冲突的概率应该是非常小的...
+
+
+Way2
+---------------------
+
+而第一种方式, 话说刚看, 还以为错了, 就像有人留言中抛出了异常, 因为我们很容易理解为是对某个url进行处理生成短url, 这样执行后肯定会抛出TypeError: unsupported operand type(s) for &: 'str' and 'long'的错误.
+仔细看一下的话, 原来他不对长url进行处理, 而是完全不管这个长url, 只把它存入数据库(当然存入之前看一下有没重复的...),然后根据这条记录的唯一的id来生成一个短url. id到短url的映射规则看代码吧, 主要是使用了类似洗牌算法... 话说, 里面有一大堆的移位, 与操作,,,晕乎晕乎的, 有兴趣的话再仔细看吧.
+
+
+附上博文的大概意思:
+
+    Python implementation for generating Tiny URL- and bit.ly-like URLs.
+    生成如TinyURL或和bit.ly类似的URL.
+
+    A bit-shuffling approach is used to avoid generating consecutive, predictable URLs. However, the algorithm is deterministic and will guarantee that no collisions will occur.
+    使用位洗牌尽可能避免生成连续的, 可预测的URLs. 这个算法具有确定性, 并能保证不发生冲突.
+
+    The URL alphabet is fully customizable and may contain any number of characters. By default, digits, upper- and lower-case letters are used, with some removed to avoid confusion between characters like o, O and 0. The default alphabet is shuffled and has a prime number of characters to further improve the results of the algorithm.
+
+    URL字符是可自定义的, 可以包含任意字符, 默认是数字,大小写字符, 其中还有些容易混淆的字符,如0,o,O被去除了. 默认的字符表是可shuffled并且,他的个数是质数以进一步保证算法结果.
+
+
+    The block size specifies how many bits will be shuffled. The lower BLOCK_SIZE bits are reversed. Any bits higher than BLOCK_SIZE will remain as is. BLOCK_SIZE of 0 will leave all bits unaffected and the algorithm will simply be converting your integer to a different base.
+    块的大小指明了需要洗牌的位数. 较低的BLOCK_SIZE位被逆转, 其余较高的位保持原样. 0的BLOCK_SIZE保持不变, 在这种情况下, 算法简单的将其转换成其他进制数.
+
+    The intended use is that incrementing, consecutive integers will be used as keys to generate the short URLs. For example, when creating a new URL, the unique integer ID assigned by a database could be used to generate the URL by using this module. Or a simple counter may be used. As long as the same integer is not used twice, the same short URL will not be generated twice.
+    目的是使用递增的,连续的数字作为key来生成短URL. 例如, 当创建一个新的URL时, 数据库赋予一个唯一的整型数ID, 此ID经过该模块后生成URL. 或者是使用一个简单的计数器. 只要保证不要重复使用同一个整数, 那么就能保证短URL不会重复.
+
+    The module supports both encoding and decoding of URLs. The min_length parameter allows you to pad the URL if you want it to be a specific length.
+    这个模块支持URL的编码和解码. min_length参数设定URL字符的长度.
+
+    Sample Usage:>>> import short_url
+    >>> url = short_url.encode_url(12)
+    >>> print url
+    LhKA
+    >>> key = short_url.decode_url(url)
+    >>> print key
+    12
+
+
+    Use the functions in the top-level of the module to use the default encoder. Otherwise, you may create your own UrlEncoder object and use its encode_url and decode_url methods.
+    也可以使用模块封装好的encode_url和decode_url.
+
+
+Experimentation
+---------------------
+
+最后做了个小测试, 使用id方式, 因为GAE本身就有唯一的key, 非常方便...
+获得短网址, http://liz.appspot.com/url/?a=http://www.google.com/, 获得短的url http://liz.appspot.com/hm3B/
+请求短网址时, 转到对应的长网址, 如果不存在直接404.
+
+
+其他
+---------------------
+
+http://code.activestate.com/recipes/576918-python-short-url-generator/
+http://www.snippetit.com/2009/04/php-short-url-algorithm-implementation/

@@ -3,15 +3,15 @@
     <title>SunsetSunrising</title>
     <link href="http://sunsetsunrising.com/feed.xml" rel="self" />
     <link href="http://sunsetsunrising.com/" />
-    <updated>2012-11-20T16:09:11+08:00</updated>
+    <updated>2012-11-21T12:43:37+08:00</updated>
     <id>http://sunsetsunrising.com/</id>
     <entry>
         <title type="html"><![CDATA[WaterFall Layout]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2011/waterfall-layout.html"/>
+        <link href="http://sunsetsunrising.com/2011/waterfall_layout.html"/>
         <published>2011-09-10T18:12:00+08:00</published>
         <updated>2012-11-20T11:29:34+08:00</updated>
-        <id>http://sunsetsunrising.com/2011/waterfall-layout.html</id>
+        <id>http://sunsetsunrising.com/2011/waterfall_layout.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
         <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
@@ -254,10 +254,10 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
     </entry><entry>
         <title type="html"><![CDATA[CSS Button]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2011/cssbutton.html"/>
+        <link href="http://sunsetsunrising.com/2011/css_button.html"/>
         <published>2011-01-18T11:01:30+08:00</published>
-        <updated>2012-11-20T12:31:28+08:00</updated>
-        <id>http://sunsetsunrising.com/2011/cssbutton.html</id>
+        <updated>2012-11-21T12:43:37+08:00</updated>
+        <id>http://sunsetsunrising.com/2011/css_button.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
             <![CDATA[ <p>一个CSS做的小button, 还是挺漂亮的. 支持ff, chrome, safari, opera, 忽略IE</p>
@@ -271,10 +271,10 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
     </entry><entry>
         <title type="html"><![CDATA[Sliding Label]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/slidinglabel.html"/>
+        <link href="http://sunsetsunrising.com/2010/sliding_label.html"/>
         <published>2010-12-23T07:12:25+08:00</published>
         <updated>2012-11-20T12:53:15+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/slidinglabel.html</id>
+        <id>http://sunsetsunrising.com/2010/sliding_label.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#KISSY" term="KISSY" label="KISSY" />
         <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
@@ -313,10 +313,10 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
     </entry><entry>
         <title type="html"><![CDATA[Test Swarm]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/testswarm.html"/>
+        <link href="http://sunsetsunrising.com/2010/test_swarm.html"/>
         <published>2010-10-17T11:10:56+08:00</published>
         <updated>2012-11-20T12:59:27+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/testswarm.html</id>
+        <id>http://sunsetsunrising.com/2010/test_swarm.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Tools" term="Tools" label="Tools" />
         <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
@@ -1721,10 +1721,10 @@ X-UA-Compatible的值有:</p>
     </entry><entry>
         <title type="html"><![CDATA[MyBuildUtil]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/mybuildutil.html"/>
+        <link href="http://sunsetsunrising.com/2010/my_build_util.html"/>
         <published>2010-08-07T11:08:02+08:00</published>
         <updated>2012-11-20T15:51:42+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/mybuildutil.html</id>
+        <id>http://sunsetsunrising.com/2010/my_build_util.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Python" term="Python" label="Python" />
         <category scheme="http://sunsetsunrising.com/tag/#Tools" term="Tools" label="Tools" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">

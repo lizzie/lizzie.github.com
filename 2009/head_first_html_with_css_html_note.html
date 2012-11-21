@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Head First HTML with CSS &amp; XHTML零散笔记 - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/head_first_html_with_css_html_note.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Head First HTML with CSS &amp; XHTML零散笔记</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-11-04T23:11:10+08:00">
+        <a href="/2009/">2009-11-04</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>标签 &lt;q&gt;&lt;/q&gt; 用于引用文字, inline element, 适用于短小文本的引用;
+标签 &lt;blockquote&gt;&lt;/blockquote&gt; 块引用, block element.</p>
+<p>典型的inline元素: &lt;q&gt; &lt;a&gt; &lt;em&gt; &lt;img&gt;(这个有点特别,但确是行内元素)
+block元素: h1, h2, ..., h6, p, blockquote, 块元素和行内元素的主要区别, 块元素之前之后都换行. Each block element is displayed on its own, as if it has a linebreak before and after it. Block elements separate content into blocks.
+Remember: block elements stand on their own; inline elements go with the flow.</p>
+<p>&lt;br&gt; &lt;img&gt;: empty element, 不包含任何内容; &lt;br&gt; does create a linebreak, but isn't typically displayed with space above and blow it like block elments are.</p>
+<p>&lt;ol&gt;: orderlist; &lt;ul&gt;: unorderedlist; &lt;li&gt;: list item
+&lt;dl&gt;: definition lists; &lt;dt&gt;: definition term; &lt;dd&gt;: description.</p>
+<p>特殊字符 &amp; 由&amp;amp;表示</p>
+<p>&quot;No matter where you go, there you are.&quot;</p>
+<p>&lt;code&gt;
+&lt;address&gt;
+&lt;strong&gt;: to mark up text you want emphasized with extra strength. make a big point
+&lt;em&gt;: use this element to mark up text you want emphasized. emphasizing.
+&lt;hr&gt;: horizontal rules, like to start a new section without a heading.
+&lt;a id=&quot;chai&quot;&gt; some tee &lt;/a&gt; &lt;-- anchors, index#chai</p>
+<p>images: JPEG和GIF
+JPEG, for photos and complex graphics; 16万种颜色, 不支持透明, 有损压缩;
+GIF, for images solid colors, logos and geometric shapes. 256种颜色, 无损压缩, 支持透明.
+PNG, support both JPEG and GIF styles of image, width, height.
+&lt;img&gt; is an inline element.</p>
+<p>文档类型定义</p>
+<p>HTML4.01的 &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;<a class="reference external" href="http://www.w3.org/TR/html4/loose.dtd">http://www.w3.org/TR/html4/loose.dtd</a>&quot;&gt;  还有strict.dtd
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=ISO-8859-1&quot;&gt; 作为head的第一个子元素, 告诉浏览器此文档的content type, what kinds of characters are used to encode it.
+meta元素都是告诉浏览器一些信息的, 这个meta是说, 该文档类型为text/html, 字符集是ISO-8859-1.</p>
+<p>XHTML 1.0的&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;<a class="reference external" href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd</a>&quot;&gt;
+XHTML中每个元素都以/&gt;结尾. html元素需要包含xmlns, lang, xml:lang属性.</p>
+<p>&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;lounge.css&quot; /&gt;  rel表示relationship between XHTML and the thing you're linking to.</p>
+<p>serif(衬体): 印刷, 像这种字体, 有明显边角
+sans-serif(无衬体): 屏幕, 边角圆滑,</p>
+<p>/* comments in css <a href="#id1"><span class="problematic" id="id2">*</span></a>/</p>
+<div class="system-message" id="id1">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 55); <em><a href="#id2">backlink</a></em></p>
+Inline emphasis start-string without end-string.</div>
+<p>&quot;conflict&quot; in css properity: If one rule is more specific than others, then it wins. If you can't reolve a conflict because two selectors are equally specific, you use the ordering of rules in your style sheet file. 如果对于class来说, order指在css中定义的class的顺序, 而不是元素中声明class值的顺序.
+css validator: <a class="reference external" href="http://jigsaw.w3.org/css-validater/">http://jigsaw.w3.org/css-validater/</a></p>
+<p>关于字体的</p>
+<p>font-family(顺序是先详细字体名, 后字体族), font-size, font-weight(lighter, normal, bold, bolder)
+color关键词: Aqua, FuchSia, Lime, Olive, Red, Black, Gray, Maroon, Orange, Silver, Blue, Green, Navy, Purple, Teal,,,,
+text-decoration(none, underline, overline, line-through, blink), 最后一个很少用.
+font-family五种字体族</p>
+<ol class="arabic simple">
+<li>sans-serif: Verdana Arial, 可读性更好</li>
+<li>serif: Time New Roman, 报纸上常用的字体</li>
+<li>monospace: Curier Mono, 等宽字体, 常作代码</li>
+<li>cursive: Comic Sans, 手写体</li>
+<li>fantasy: Last MINIA, 装饰体,   4和5字体很多.</li>
+</ol>
+<dl class="docutils">
+<dt>body {</dt>
+<dd>font-family: Verdana, Geneva, Arial, sans-serif;</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 77)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>}</p>
+<p>逗号分隔, 字体名区分大小写, 字体名若有空格的话,可以使用&quot;xx xx&quot; serif, sans-serif是字体族, 都有默认的哪种字体.
+上面的body字体设置为: 大多数PC使用Verdana, Mac上Geneva, 都没有使用Arial(多种系统上都是常见的字体). 字体声明时最好是包括多种os平台上支持的字体.</p>
+<p>font-size: 14px; 14像素表示字体的字符最高到最低共有14px. p确切告诉显示多大, 以像素单位. x%表相对大小, 为父元素*x的大小. em为相对大小, Scaling factor).
+h2 {</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">&lt;string&gt;</tt>, line 85)</p>
+Unexpected indentation.</div>
+<blockquote>
+<p>font-size: 1.2em; /* 父元素的1.2倍 <a href="#id3"><span class="problematic" id="id4">*</span></a>/</p>
+<div class="system-message" id="id3">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 85); <em><a href="#id4">backlink</a></em></p>
+Inline emphasis start-string without end-string.</div>
+</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 86)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p>}</p>
+<p>大小关键词: xx-small, x-small, small, medium, large, x-large, xx-large. 一般是20%的间隔大小, 12px的高度. 关键字定义大小对于每种浏览器的大小定义都是不同的.</p>
+<p>如何选择?
+1) 选择keyword(small or medium)指定为body的font-size;
+2) 使用em/percentages 对于其他子元素. &quot;慎用绝对, 妙用相对大小&quot;
+默认的body的font-size为16px 情况下, h1=200%*body, h2=150%*body, h3=120%*body, h4:100%, h5:90%, h6:60%
+body设置为90%的话,表示body的默认大小的90%, 即16*90% = 14</p>
+<p>font-style: italic,不是所有字体都支持斜体, 则可用oblique, 虽然也是斜体, 但两者有区别.
+颜色名不区分大小写. rgb(80%, 40%, 0%) == rgb(204, 102, 0) == #CC6600 == #C60   80%*255 = 204
+text-decoration: underline overline; /* 既有上线又有下线 <a href="#id5"><span class="problematic" id="id6">*</span></a>/ 多值以空格分隔.</p>
+<div class="system-message" id="id5">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 98); <em><a href="#id6">backlink</a></em></p>
+Inline emphasis start-string without end-string.</div>
+<p>标签&lt;del&gt;表示删除的文本
+标签&lt;ins&gt;表示插入的文本
+Blink装饰, is a holdover from an old Netscape style.</p>
+<p>background-position, sets the position of the image and can be specified in pixels or as a percentage, or by using keywords like top, left, right, bottom, and center.
+background-repeat: no-repeat, repeat-x, repeat-y, inhreit(看父元素)
+border-style: solid, double, groove, outset, dotted, dashed, inset, ridge.</p>
+<p>style sheets的顺序是有关的, 从上到下, 下的优先.</p>
+<p>&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;xxx.css&quot; media=&quot;screen&quot; /&gt; media指定设备类型, 不指定media表示对所有设备. screen表示屏幕, print表示打印机, handheld表示小型设备. 之间顺序还是从上到下的优先级从小到大. 注意, 不是所有浏览器都支持media属性的</p>
+<p>css盒模型控制元素的显示.</p>
+<p>&lt;p&gt;中不能包含块元素.</p>
+<p>Use, don't abuse, &lt;div&gt;s in your pages. Add additional structure where it helps you separate a page into logical sections for clarity and styling. Adding &lt;div&gt;s just for the sake of creating a lot of structure in your pages in complicates them with no real benifit.
+&lt;div&gt; 只是结构.
+text-align will align all inline content(for inline element) in a block element. this property should be set on block elements only.</p>
+<p>#elixirs &gt; h2: css中选择元素的直接后继使用&quot;&gt;&quot;, 空格表示所有后继.</p>
+<p>多个property合起来写
+background: white url(image/cocktail.gif) repeat-x;
+font: font-style font-variant font-weight font-size/line-height font-family;</p>
+<p>&lt;span&gt; give you a way to logically separate inline content in the same way with divs allow you to create logical separation for block level content. just change the style of certain words.</p>
+<p>对于inline元素的margin和padding, 和块元素表现有所不同. if you add a margin on all sided of an inline element, you'll only see space added to the left and right. you can add padding to the top and bottom of an inline element but the padding doesn't affact the spacing of the other inline elements around it, so the padding will overlap other inline elements. 但image和其他inline元素有所不同, 更像块元素.</p>
+<p>伪类 a:link(未访问时) a:visited(访问之后) a:hover(鼠标移上去时) a:focus a:action(这两个已不被支持)</p>
+<p>!important...</p>
+<p>flow, 对于块元素, put a linebreak between each one. 从上到下依次显示, 每个元素间linebreak, 而inline元素, 水平上, 从左到右排列, 只要有空间就排列, inline在block元素内排列.</p>
+<p>inline的margin的间距就是设置的space. 但对于block元素来说, 上下边距会合并起来, 去两者的大者. 嵌套元素的边距也可能被合并起来.
+whenever you have two veritical margins touching, they will collapse, even if one element is nested inside the other.
+Notice that if the outer element has a border, the margins will never touch, so they won't collapse. But if you remove the border, they will.</p>
+<p>float, 从当前flow中删除该float元素, 其余块元素继续被填入, 但对于行内元素的边界为float元素所在之处. they flow around the borders of the floating element.</p>
+<p>clear 元素, 用于清除当前flow, 如clear: right; 在该元素的左部不允许有floating的内容.
+float只能是right和left, 没有center.
+float元素边距不会重叠.
+inline元素也可设置float, 常见的是img设置float.</p>
+<p>liquid vs frozen
+前者可缩放, 后者固定大小, 锁定.</p>
+<p>&quot;righty tighty, lefty loosey.&quot;</p>
+<p>position为absolute时, top right, bootom left, 也从当前flow中移除, 独立开来; 有继承性, 其子元素看最近父元素的设置.
+position默认为static, 即由flow来决定.
+position为fixed时, is relative to the browser window rather than page, so fixed elements never move. 固定, IE6不支持fixed.
+position为relative时, take an elemnet and flows it on the page just like normal, but then offsets it before displaying it on the page. 仍然是flow中.</p>
+<p>position数值最好用%表示, 不要用px.</p>
+<dl class="docutils">
+<dt>&lt;table summary=&quot;xxx&quot;&gt;</dt>
+<dd>&lt;caption&gt;XXX&lt;/caption&gt; 相当于表格的标题</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 172)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>...</p>
+<p>border-spacing 边与边之间的距离
+border-collapse: collapse
+caption-side: bottom, 表格标题位置
+td的rowspan=&quot;2&quot;表示合并2行, 上一行设置rowspan, 下一行空出, 不需要
+text-align, vertical-align, 设置表格中文字对齐方式.
+colspan: 合并列</p>
+<dl class="docutils">
+<dt>&lt;tr&gt;</dt>
+<dd>&lt;th&gt;&lt;/th&gt;
+&lt;td&gt;&lt;/td&gt;</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 184)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>&lt;/tr&gt; &lt;th&gt;即可在每行中设置, 也可独立到某一行中.</p>
+<p>list样式
+list-style-type: disc(默认, 实心圆); circle(空心圆); square(实心方块); none(不显示)
+list-style-image: url(images/back.gif);</p>
+<p>order list样式
+list-style-type: decimal(数字); upper-alpha; lower-alpha; upper-roman; lower-roman
+list-style-position: inside(text wrap under the marker); outside(wrap under the text above it)</p>
+<p>checkbox等多值标签可以命名为含[]的字符串形式.</p>
+<p>GET请求限制为256个字符; POST没有限制.
+form中标签</p>
+<dl class="docutils">
+<dt>&lt;fieldset&gt;</dt>
+<dd>&lt;legend&gt;xxx&lt;/legend&gt;
+&lt;input /&gt;</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 205)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>&lt;/fieldset&gt;</p>
+<p>&lt;label for=&quot;hot&quot;&gt;hot&lt;/label&gt;  for后面是别的元素id
+multiple=&quot;multiple&quot; --&gt; select的多选</p>
+<ol class="arabic simple">
+<li>伪类 pseudo-classes, pseudo-elements,,,:first-letter, :first-line</li>
+<li>属性选择器,,,img[width], img[height=&quot;200&quot;], img[alt~=&quot;flowers&quot;] alt中包含flowers的</li>
+<li>h1+p, &quot;+&quot;表示h1的兄弟p</li>
+<li>frames, 切分网页</li>
+</ol>
+<dl class="docutils">
+<dt>&lt;frameset rows=&quot;30%, <a href="#id7"><span class="problematic" id="id8">*</span></a>, 20%&quot;&gt;</dt>
+<dd><div class="first system-message" id="id7">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 219); <em><a href="#id8">backlink</a></em></p>
+Inline emphasis start-string without end-string.</div>
+<p class="last">&lt;frame name=&quot;header&quot; src=&quot;header.html&quot; /&gt;
+&lt;frame name=&quot;content&quot; src=&quot;content.html&quot; /&gt;
+&lt;frame name=&quot;footer&quot; src=&quot;footer.html&quot; /&gt;</p>
+</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 221)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>&lt;/frameset&gt;
+&lt;a href=&quot;newpage.html&quot; target=&quot;content&quot;&gt;new content&lt;/a&gt; 链接到content这个frame上
+iframe: inline frame element. 允许你在一个网页中任意安放一个frame
+&lt;iframe name=&quot;inlinecontent&quot; src=&quot;newcontent.html&quot; width=&quot;400&quot; height=&quot;200&quot; /&gt;</p>
+<p>使用frames需要设置特殊的DOCTYPE
+HTML4.01 &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;<a class="reference external" href="http://www.w3.org/TR/html4/frameset.dtd">http://www.w3.org/TR/html4/frameset.dtd</a>&quot;&gt;
+XHTML1.0 &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;<a class="reference external" href="http://www.w3.org/TR/xthml1/DTD/xhtml1-frameset.dtd">http://www.w3.org/TR/xthml1/DTD/xhtml1-frameset.dtd</a>&quot;&gt;</p>
+<ol class="arabic simple" start="5">
+<li>&lt;object&gt; &lt;embed&gt; 多媒体标签</li>
+<li>Emacs</li>
+<li>js/client-side scripting</li>
+<li>server-side scripting</li>
+</ol>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 236)</p>
+Enumerated list ends without a blank line; unexpected unindent.</div>
+<p>9) meta的name和content
+&lt;meta name=&quot;description&quot; content=&quot;一些描述&quot; /&gt;
+&lt;meta name=&quot;keywords&quot; content=&quot;关键词定义&quot; /&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;noindex,nofollow&quot; /&gt; 告诉搜索引擎忽略此页</p>
+<p>看完, 总结下来, 这书比较基础, 简单易懂, 但对于布局那边还不是很明白, 有空再好好看看.</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#HTML">HTML</a><a href="/tag/#CSS">CSS</a><a href="/tag/#note">note</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

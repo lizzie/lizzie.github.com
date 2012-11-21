@@ -96,12 +96,12 @@ header {
   }
 
   .entry-list {
-    .entry-item {
+    li.entry-item {
       padding-left: @liLeftPadding*2;
       background-image: url(bullet_black_lr.png);
       background-position: @liLeftPadding 6px;
     }
-    .entry-item-title {
+    li.entry-item-title {
       padding-left: @liLeftPadding;
       background-image: url(bullet_black.png);
       background-position: left 6px;
@@ -109,7 +109,13 @@ header {
   }
 }
 
+.pagination {
+  text-align: center;
 
+  a {
+    border-bottom: none;
+  }
+}
 footer {
   text-align: center;
   color: darken(@lightGray, 10%);

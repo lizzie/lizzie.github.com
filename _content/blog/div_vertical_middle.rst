@@ -1,4 +1,4 @@
-divVerticalMiddle
+div Vertical Middle
 ========================
 
 :date: 2010-06-22 11:06:13

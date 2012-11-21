@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Notes - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/web_notes.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Web Notes</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-12-09T12:12:12+08:00">
+        <a href="/2009/">2009-12-09</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p><a class="reference external" href="http://koyoz.com/blog/?action=show&amp;id=235">ETag</a>:</p>
+<blockquote>
+HTTP协议规格说明定义ETag为“被请求变量的实体值”。 另一种说法是，ETag是一个可以与Web资源关联的记号（token）。典型的Web资源可以一个Web页，但也可能是JSON或XML文档。服务器单独负责判断记号是什么及其含义，并在HTTP响应头中将其传送到客户端。</blockquote>
+<p>聪明的服务器开发者会把ETags和GET请求的“If-None-Match”头一起使用，这样可利用客户端（例如浏览器）的缓存。因为服务器首先产生ETag，服务器可在稍后使用它来判断页面是否已经被修改。本质上，客户端通过将该记号传回服务器要求服务器验证其（客户端）缓存。</p>
+<p>其过程如下:</p>
+<blockquote>
+<ol class="arabic simple">
+<li>客户端请求一个页面（A）。</li>
+<li>服务器返回页面A，并在给A加上一个ETag。</li>
+<li>客户端展现该页面，并将页面连同ETag一起缓存。</li>
+<li>客户再次请求页面A，并将上次请求时服务器返回的ETag一起传递给服务器。</li>
+<li>服务器检查该ETag，并判断出该页面自上次客户端请求之后还未被修改，直接返回响应304（未修改——Not Modified）和一个空的响应体。</li>
+</ol>
+</blockquote>
+<p><a class="reference external" href="http://koyoz.com/blog/?action=show&amp;id=250">js引擎单线程及定时机制</a></p>
+<p><a class="reference external" href="http://www.w3schools.com/Css/css_image_transparency.asp">css透明</a>
+可以使用opacity（非IE），filter（IE）</p>
+<div class="highlight"><pre><span class="c">/* for IE */</span>
+<span class="nt">filter</span><span class="nd">:alpha</span><span class="o">(</span><span class="nt">opacity</span><span class="o">=</span><span class="nt">60</span><span class="o">);</span>
+<span class="c">/* CSS3 standard */</span>
+<span class="nt">opacity</span><span class="nd">:0</span><span class="nc">.6</span><span class="o">;</span>
+</pre></div>
+<div class="highlight"><pre><span class="nx">onmouseover</span><span class="o">=</span><span class="s2">&quot;this.style.opacity=1;this.filters.alpha.opacity=100&quot;</span>
+<span class="nx">onmouseout</span><span class="o">=</span><span class="s2">&quot;this.style.opacity=0.4;this.filters.alpha.opacity=40&quot;</span>
+</pre></div>
+<p><a class="reference external" href="http://www.qianduan.net/css-shadow-xiangjie.html">文字阴影</a></p>
+<div class="highlight"><pre><span class="nt">text-shadow</span><span class="o">:[</span><span class="err">颜色</span> <span class="nt">x</span><span class="err">轴</span> <span class="nt">y</span><span class="err">轴</span> <span class="err">模糊半径</span><span class="o">],[</span><span class="err">颜色</span> <span class="nt">x</span><span class="err">轴</span> <span class="nt">y</span><span class="err">轴</span> <span class="err">模糊半径</span><span class="o">]...</span>
+<span class="nt">text-shadow</span><span class="nd">:black</span> <span class="nt">2px</span> <span class="nt">2px</span> <span class="nt">2px</span><span class="o">;</span>
+<span class="c">/* for IE */</span>
+<span class="nt">filter</span><span class="o">:</span> <span class="nt">Shadow</span><span class="o">(</span><span class="nt">Color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="o">,</span> <span class="nt">Direction</span><span class="o">=</span><span class="s1">&#39;135&#39;</span><span class="o">,</span> <span class="nt">Strength</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="o">)</span>
+</pre></div>
+<p><a class="reference external" href="http://nathanborror.com/posts/2009/dec/1/less-more/">css变量</a></p>
+<div class="highlight"><pre><span class="nc">.border-radius</span> <span class="o">(</span><span class="k">@radius</span><span class="o">=</span><span class="nt">4px</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nt">-webkit-border-radius</span><span class="o">:</span> <span class="k">@radius</span><span class="p">;</span>
+    <span class="nt">-moz-border-radius</span><span class="o">:</span> <span class="k">@radius</span><span class="p">;</span>
+    <span class="nt">border-radius</span><span class="o">:</span> <span class="k">@radius</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">div</span> <span class="p">{</span> <span class="o">.</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="p">(</span><span class="m">8px</span><span class="p">);</span> <span class="p">}</span>
+</pre></div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#HTML">HTML</a><a href="/tag/#CSS">CSS</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

@@ -628,15 +628,21 @@ header #search {
 .container .tagcloud a:hover {
   border: none;
 }
-.container .entry-list .entry-item {
+.container .entry-list li.entry-item {
   padding-left: 32px;
   background-image: url(bullet_black_lr.png);
   background-position: 16px 6px;
 }
-.container .entry-list .entry-item-title {
+.container .entry-list li.entry-item-title {
   padding-left: 16px;
   background-image: url(bullet_black.png);
   background-position: left 6px;
+}
+.pagination {
+  text-align: center;
+}
+.pagination a {
+  border-bottom: none;
 }
 footer {
   text-align: center;

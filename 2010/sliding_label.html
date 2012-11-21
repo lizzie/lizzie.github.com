@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sliding Label - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/sliding_label.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Sliding Label</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-12-23T07:12:25+08:00">
+        <a href="/2010/">2010-12-23</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>以前看到 <a class="reference external" href="http://danyi.codetea.co.uk/2010/03/16/sliding-label/">http://danyi.codetea.co.uk/2010/03/16/sliding-label/</a> 上的表单中, label元素的飘动设计很有动感.
+后来试了下, 用 KISSY 实现了这个小功能, 并放在 kissy gallery (<a class="reference external" href="http://kissyteam.github.com/kissy-gallery/">http://kissyteam.github.com/kissy-gallery/</a>) 中.</p>
+<p>当我们页面空间比较紧张, 可以将表单每项的提示信息和输入区域合并起来, 当输入区域获得焦点时, 清空输入区域以便用户正常输入. 同时这些提示信息还可以是写默认值, 也给用户一个如何填写当前输入框的示例.</p>
+<p>先上个截图</p>
+<img alt="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGLHRAQw" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGLHRAQw" />
+<p>输入区域只要获得焦点(用户点击或tab键), 即可触发移动.</p>
+<p>当js禁用, 或者js不可访问时, 也不会影响正常的用户输入, 呈现普通的表单提示和输入框, 如</p>
+<img alt="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGMnJAQw" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGMnJAQw" />
+<p>使用的话, 接口比较简单, like:</p>
+<blockquote>
+<div class="highlight"><pre><span class="k">new</span> <span class="nx">S</span><span class="p">.</span><span class="nx">SlidingLabels</span><span class="p">(</span><span class="s1">&#39;#info&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">blurStyle</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#aaa&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">focusStyle</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#000&#39;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<p>也就是:</p>
+<ul class="simple">
+<li>focusStyle/blurStyle 获得焦点和失去焦点时的label样式都可以自定义;</li>
+<li>axis 运动方向可以是水平方向, 也可以是垂直方向上</li>
+<li>offset labels 和 input之间的距离</li>
+<li>duration 运动速度</li>
+</ul>
+<p>等等, 具体可以看源码吧.</p>
+<p>简单Demo: <a class="reference external" href="http://kissyteam.github.com/kissy-gallery/slidinglabels/demo.html">http://kissyteam.github.com/kissy-gallery/slidinglabels/demo.html</a></p>
+<p>有兴趣的话, 可以在您的留言板中尝试下看~~</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#KISSY">KISSY</a><a href="/tag/#Javascript">Javascript</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

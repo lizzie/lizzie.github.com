@@ -26,9 +26,9 @@
 <hr class="end" />
 <nav class="pagination" role="pagination">
     {% if pagination.has_prev %}
-    <a class="prev" href="{{ content_url(pagination.root, 'page', pagination.prev_num) }}">«Prev</a>
+    <a class="prev" href="{{ content_url(pagination.root, 'page', pagination.prev_num) }}"> &laquo; Prev </a>
     {% else %}
-    <span class="prev">«Prev</span>
+    <span class="prev"> &laquo; Prev </span>
     {% endif %}
 
     <span class="current">
@@ -36,9 +36,9 @@
     </span>
 
     {% if pagination.has_next %}
-    <a class="next" href="{{ content_url(pagination.root, 'page', pagination.next_num) }}">Next»</a>
+    <a class="next" href="{{ content_url(pagination.root, 'page', pagination.next_num) }}"> Next &raquo; </a>
     {% else %}
-    <span class="next">Next»</span>
+    <span class="next"> Next &raquo; </span>
     {% endif %}
 </nav>
 {% endif %}

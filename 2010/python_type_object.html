@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Type and Object - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/python_type_object.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Type and Object</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-01-14T14:01:02+08:00">
+        <a href="/2010/">2010-01-14</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p><a class="reference external" href="http://www.cafepy.com/article/python_types_and_objects/python_types_and_objects.html">原文</a></p>
+<p>这篇文章讲Python中的Type和Object的关系.</p>
+<p>英文描述较多, 还是看里面的两幅图比较清楚些:</p>
+<img alt="http://www.cafepy.com/article/python_types_and_objects/images/types_map.png" src="http://www.cafepy.com/article/python_types_and_objects/images/types_map.png" />
+<p>这图很形象的表示Python中的type和object的关系.</p>
+<ul class="simple">
+<li>虚箭头表示__class__关系, 即A是B的实例; 实箭头表示__base__关系, A是B的子类;</li>
+<li>type 'type' 是个metaclass,type 'type' 是自身的实例, 又是type 'object'的子类 ----metaclass</li>
+<li>type 'object'是type 'type'的实例, 也是最基类(is a subclass of no object), type 'list', type 'dict'等其他type继承type 'object' ---class</li>
+<li>object是class的实例.</li>
+</ul>
+<img alt="http://www.cafepy.com/article/python_types_and_objects/images/relationships_transitivity.png" src="http://www.cafepy.com/article/python_types_and_objects/images/relationships_transitivity.png" />
+<p>上图说明了 Transitivity of Relationships, 即:</p>
+<ul class="simple">
+<li>Dashed Arrow Up Rule : If X is an instance of A, and A is a subclass of B, then X is an instance of B as well.</li>
+<li>Dashed Arrow Down Rule : If B is an instance of M, and A is a subclass of B, then A is an instance of M as well.</li>
+</ul>
+<p>乍看这文章, 貌似是越来越糊涂, 不过只要记住这个就ok:
+Python中只分为types和Non-types, types等价于class,即type(xxx) == xxx.__class__, xxx的类型等于xxx的__class__属性, 所对应的类, 而Non-types==instance, 就是类的实例化,</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Python">Python</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

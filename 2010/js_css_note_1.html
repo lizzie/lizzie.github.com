@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS &amp; CSS Notes - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/js_css_note_1.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">JS &amp; CSS Notes</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-04-19T08:04:32+08:00">
+        <a href="/2010/">2010-04-19</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>近期笔记整理, 大多关于js, css... 有兴趣的, 可以深入下去</p>
+<div class="section" id="javascript">
+<h2>理解JavaScript面向对象的思路</h2>
+<p><a class="reference external" href="http://www.cnblogs.com/winter-cn/archive/2009/05/16/1458390.html">http://www.cnblogs.com/winter-cn/archive/2009/05/16/1458390.html</a></p>
+<p>js 中的类型布可扩展, 无法添加新的类型. js设计了6种数据类型: Boolean, Number, String, Null, Undefined, Object.</p>
+<p>js允许对一个已经创建的对象添加/删除属性. 对一个不存在的属性赋值即向其添加属性, delete关键字被用于删除属性.</p>
+<p>js引入原型(prototype), 对每个对象规定一个私有属性, 当读取一个对象的属性时, 如果对象本身没有这个属性, 会访问这个prototype. prototype所指向的对象仍然可以有prototype, 链式操作, 直到找到这个属性或者prototype为空, 所以常听到prototype链的说法. 防止prototype出现循环, js引擎会在任何对象的prototype属性被修改时检查.</p>
+<p>__proto__</p>
+<p>js规定一个内建对象作为所有对象的最终 prototype, 也就是说即使用{}创建的对象, 也会有prototype指向这个内建对象.
+js中, 函数仅仅是一种特殊的对象, js设计了()运算符和function关键字让js的函数看起来更像是传统的语言, 只要实现了私有方法call的对象都被认为是函数对象,, 这与Function.prototype.call不是同一回事.</p>
+<p>new会调用私有方法construct, 实现了construct的对象都可以被new接受, js并没有额外提供构造这种对象方法, 所以所有通过function关键字构造的函数对象被设计成实现了construct方法. 这也就是js的new很奇怪地针对函数的原因. 并非只有函数可以被new, js的宿主环境可能提供一些其他对象, 典型的例子是IE中的ActiveXObject.</p>
+<p>所有函数的 construct方法都是类似的, 创建一个新对象, 将它的prototype设为函数对象的共有属性prototype, 以新对象作为this指针的值., 执行函数对象. 拥有共同的原型prototype, 被同一函数处理.</p>
+<blockquote>
+<div class="highlight"><pre><span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">prop</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prop</span><span class="p">)</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nb">Function</span><span class="p">.</span><span class="nx">prop</span><span class="p">)</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">prop</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prop</span><span class="p">)</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nb">Function</span><span class="p">.</span><span class="nx">prop</span><span class="p">)</span>
+<span class="nb">Function</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">.</span><span class="nx">prop</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prop</span><span class="p">)</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nb">Function</span><span class="p">.</span><span class="nx">prop</span><span class="p">)</span>
+<span class="kd">function</span> <span class="nx">Class</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="nx">Class</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">;</span>
+<span class="nx">Class</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">.</span><span class="nx">prop</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nx">alert</span><span class="p">((</span><span class="k">new</span> <span class="nx">Class</span><span class="p">).</span><span class="nx">prop</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nx">Class</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="nx">Class</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">;</span>
+<span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">prop</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">((</span><span class="k">new</span> <span class="nx">Class</span><span class="p">()).</span><span class="nx">prop</span><span class="p">)</span>
+<span class="kd">function</span> <span class="nx">Class</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="nx">Class</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">.</span><span class="nx">prop</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">Class</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">((</span><span class="k">new</span> <span class="nx">Class</span><span class="p">).</span><span class="nx">prop</span><span class="p">);</span>
+</pre></div>
+</blockquote>
+</div>
+<div class="section" id="repaintreflow">
+<h2>如何减少浏览器repaint和reflow</h2>
+<ul class="simple">
+<li>原文链接: <a class="reference external" href="http://blog.csdn.net/baiduforum/archive/2010/03/25/5415527.aspx">http://blog.csdn.net/baiduforum/archive/2010/03/25/5415527.aspx</a></li>
+<li>Understanding Internet Explorer Rendering Behaviour: <a class="reference external" href="http://blog.dynatrace.com/2009/12/12/understanding-internet-explorer-rendering-behaviour/">http://blog.dynatrace.com/2009/12/12/understanding-internet-explorer-rendering-behaviour/</a></li>
+<li>Notes on HTML Reflow: <a class="reference external" href="http://www.mozilla.org/newlayout/doc/reflow.html">http://www.mozilla.org/newlayout/doc/reflow.html</a></li>
+<li>Efficient JavaScript: <a class="reference external" href="http://dev.opera.com/articles/view/efficient-javascript/?page=3#reflow">http://dev.opera.com/articles/view/efficient-javascript/?page=3#reflow</a></li>
+</ul>
+</div>
+<div class="section" id="when-repaint-reflow">
+<h2>when repaint/reflow</h2>
+<ul class="simple">
+<li>dom元素的添加,修改(内容), 删除(reflow+repaint)</li>
+<li>仅修改dom元素的字体颜色, 这个只有repaint, 不需要调整布局</li>
+<li>应用新的样式或者修改任何影响元素外观的属性</li>
+<li>resize 浏览器窗口, 滚动页面</li>
+<li>读取元素的Layout属性(offsetLeft, offsetTop, offsetHeight, offsetWidth, scrollTop/Left/Width/Height, clientTop/Left/Width/Height, getComputedStyle(), currentStyle(in IE)), 这点在测试中并没有体现出来.</li>
+</ul>
+<p>一款强大的性能分析工具, dynaTrace <a class="reference external" href="http://www.dynatrace.com/en/">http://www.dynatrace.com/en/</a>,,, 可以看到页面的展示情况.
+测试发现, 只要修改元素的cssText属性, 不论它值是什么, 都会导致浏览器reflow和repaint, 因此在某些时候选择特定的样式属性赋值会有更好的效果.
+每一个渲染动作并不是立即执行, 而是维护一个渲染任务对象, 浏览器根据具体的需要分批集中执行其中的任务(定期调度). 脚本中的某些操作会导致浏览器立即执行渲染任务, 如读取元素的Layout属性.</p>
+</div>
+<div class="section" id="id1">
+<h2>优化注意</h2>
+<ol class="arabic">
+<li><p class="first">避免在document上直接进行频繁的DOM操作, 如果确实需要, 可以采用off-document的方式进行:</p>
+<blockquote>
+<ul class="simple">
+<li>先将元素从document中删除, 完成修改后再把元素放回原来的位置.</li>
+<li>将元素的display设置为&quot;none&quot;, 完成修改后再把display修改为原来的值</li>
+<li>如果需要创建多个dom节点, 可以使用documentFragment创建完后一次性的加入document, 如下例.</li>
+</ul>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">appendLast</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">frag</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createDocumentFragment</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">;</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
+        <span class="nx">n</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;node&quot;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">;</span>
+        <span class="nx">frag</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">frag</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">集中修改样式</p>
+<blockquote>
+<ul class="simple">
+<li>尽可能少的修改元素style上的属性;</li>
+<li>尽量通过修改className来修改样式;</li>
+<li>通过cssText属性设置样式值.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">缓存Layout属性值</p>
+<blockquote>
+<ul class="simple">
+<li>多次访问则可以在一次访问时先存储到局部变量中, 之后读取这个局部变量值. 避免每次读取属性时造成浏览器的渲染.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">设置元素的position为absolute或fixed</p>
+<blockquote>
+<ul class="simple">
+<li>在元素的position为static和relative时, 元素处于Dom树中, 当对元素的某个操作需要重新渲染, 浏览器会渲染整个页面, 而将position设置为absolute和fixed可以使元素从Dom树结构中脱离出来独立的存在, 渲染时只需要渲染该元素以及位于该元素下方的元素...</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p>最后介绍两个工具, 一个是css3 生成样式的网站, 另外一个随机生成文字.</p>
+</div>
+<div class="section" id="css3-generator">
+<h2>CSS3 Generator</h2>
+<ol class="arabic simple">
+<li>CSS3 Generator: <a class="reference external" href="http://css3generator.com/">http://css3generator.com/</a></li>
+<li>CSS3 Gradient Generator: <a class="reference external" href="http://gradients.glrzad.com/">http://gradients.glrzad.com/</a></li>
+<li>CSS3 Sandbox: <a class="reference external" href="http://westciv.com/tools/index.html">http://westciv.com/tools/index.html</a></li>
+<li>CSS Border Radius: <a class="reference external" href="http://border-radius.com/">http://border-radius.com/</a></li>
+<li>Font-Face Kit Generator: <a class="reference external" href="http://www.fontsquirrel.com/fontface/generator">http://www.fontsquirrel.com/fontface/generator</a></li>
+<li>Border Image Generator: <a class="reference external" href="http://www.incaseofstairs.com/border-image-generator/">http://www.incaseofstairs.com/border-image-generator/</a>} 话说border上的图片貌似怎么弄都不好看,,,这特性有必要么?</li>
+<li>Cross Browser CSS3 Rule Generator: <a class="reference external" href="http://css3please.com/">http://css3please.com/</a></li>
+</ol>
+<p>PS下: 淘宝首页的工具条上的下拉菜单小按钮, 鼠标hover上去可以看到小按钮旋转的效果, 挺精致的. 它使用的是</p>
+<blockquote>
+<div class="highlight"><pre><span class="nf">#site-nav</span> <span class="nc">.menu-hd</span> <span class="nt">b</span> <span class="p">{</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+  <span class="k">right</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">top</span><span class="o">:</span> <span class="m">11px</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">border-width</span><span class="o">:</span> <span class="m">4px</span> <span class="m">4px</span><span class="p">;</span>
+  <span class="k">border-style</span><span class="o">:</span> <span class="k">solid</span><span class="p">;</span>
+  <span class="k">border-color</span><span class="o">:</span> <span class="m">#1f3d99</span> <span class="m">#f7f7f7</span> <span class="m">#f7f7f7</span> <span class="m">#f7f7f7</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span> <span class="m">.2s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span> <span class="m">.2s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="p">;</span>
+  <span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span> <span class="m">.2s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="p">;</span>
+  <span class="n">transition</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span> <span class="m">.2s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#site-nav</span> <span class="nc">.hover</span> <span class="nc">.menu-hd</span> <span class="nt">b</span> <span class="p">{</span>
+  <span class="k">border-color</span><span class="o">:</span> <span class="m">#1f3d99</span> <span class="m">#fff</span> <span class="m">#fff</span> <span class="m">#fff</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">180</span><span class="n">deg</span><span class="p">);</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">transform</span><span class="o">-</span><span class="n">origin</span><span class="o">:</span> <span class="m">50</span><span class="o">%</span> <span class="m">30</span><span class="o">%</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">180</span><span class="n">deg</span><span class="p">);</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span><span class="o">-</span><span class="n">origin</span><span class="o">:</span> <span class="m">50</span><span class="o">%</span> <span class="m">30</span><span class="o">%</span><span class="p">;</span>
+  <span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">180</span><span class="n">deg</span><span class="p">);</span>
+  <span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="n">transform</span><span class="o">-</span><span class="n">origin</span><span class="o">:</span> <span class="m">50</span><span class="o">%</span> <span class="m">30</span><span class="o">%</span><span class="p">;</span>
+  <span class="n">transform</span><span class="o">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">180</span><span class="n">deg</span><span class="p">);</span>
+  <span class="n">transform</span><span class="o">-</span><span class="n">origin</span><span class="o">:</span> <span class="m">50</span><span class="o">%</span> <span class="m">30</span><span class="o">%</span><span class="p">;</span>
+  <span class="n">filter</span><span class="o">:</span><span class="n">progid</span><span class="o">:</span><span class="n">DXImageTransform</span><span class="o">.</span><span class="n">Microsoft</span><span class="o">.</span><span class="n">BasicImage</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="m">2</span><span class="p">);</span>
+  <span class="k">top</span><span class="o">:</span> <span class="m">7</span> <span class="k">px</span><span class="err">\</span><span class="m">9</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+</div>
+<div class="section" id="moretext">
+<h2>moretext</h2>
+<p><a class="reference external" href="http://more.handlino.com/">http://more.handlino.com/</a> 网页中随机生成一段中文文字,</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://more.handlino.com/javascripts/moretext-1.0.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;lipsum&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+</pre></div>
+</blockquote>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a><a href="/tag/#CSS">CSS</a><a href="/tag/#note">note</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Note Part I - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/ajax_note_1.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Ajax Note Part I</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-01-07T10:01:00+08:00">
+        <a href="/2010/">2010-01-07</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <div class="section" id="html">
+<h2>HTML</h2>
+<p>SGML: Standard Generalized Markup Language. 标记元语言(metalanguage).
+HTML: 基于SGML, 但SGML太过庞大, HTML仅采用了部分SGML标准.
+XML: Extensible Markup Language.</p>
+<p>HTML 4.01 并不与XML兼容, 所以, W3C又提出XHMTML, 一个HTML的重写版本, 以使其能够与XML兼容.
+HTML/XML标准定义主要原则: 内容高于视觉表现. 你要以设计HTML和XHTML的方式使用它们, 表明文档的结构以便浏览器能够正确显示他们的内容.</p>
+</div>
+<div class="section" id="id1">
+<h2>调试工具</h2>
+<ul>
+<li><p class="first">firebug.</p>
+<blockquote>
+<ul class="simple">
+<li>console.log(); // 控制台输出信息</li>
+<li>console.debug(); // 链接显示</li>
+<li>console.info(); // 信息图标</li>
+<li>console.warn(); // 警告</li>
+<li>console.error(); // 错误</li>
+<li>console.assert(); // 断言 表达式值true时不输出信息, 为false输出</li>
+<li>console.dir(); // 直接将对象或html元素的详细信息输出到firebug</li>
+<li>console.dirxml(); // xml</li>
+<li>console.trace(); // 调用过程信息</li>
+<li>console.group(&quot;AAA&quot;); // 分组标识,</li>
+<li>console.groupEnd(); // 分组结束</li>
+<li>console.time(&quot;AAA&quot;); // 计时某段代码执行时间</li>
+<li>console.timeEnd(&quot;AAA&quot;); // 停止计时</li>
+<li>console.profile(&quot;AAA&quot;); // 对所包含的代码段的性能测试数据</li>
+<li>console.profileEnd(&quot;AAA&quot;);</li>
+<li>console.count(&quot;FuncA&quot;); // 统计其自身被执行的次数</li>
+<li>控制台命令:</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">alert</p>
+</li>
+<li><p class="first">run</p>
+</li>
+<li><p class="first">clear</p>
+</li>
+<li><p class="first">copy</p>
+<blockquote>
+<ul class="simple">
+<li>其他浏览器下firebug使用firebuglite(www.getfirebug.com/firebuglite/lite.html), 下载其js, css, html, png等. firebug/firebug.js</li>
+<li>window.console[names[i]] = function(){} // 屏蔽console对象中所有调试信息</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Fidder(IE下类似firebug的工具).</p>
+</li>
+<li><p class="first">Firefox 插件: web developer, Scrapbook, JsView</p>
+</li>
+</ul>
+</div>
+<div class="section" id="javscript">
+<h2>Javscript 基础</h2>
+<p>AJAX: Asynchronous JS and XML</p>
+</div>
+<div class="section" id="id2">
+<h2>数据类型</h2>
+<ul>
+<li><p class="first">数字, 不区分整数和其他, 都以浮点数来表示.</p>
+<blockquote>
+<ul class="simple">
+<li>IEEE754 64位浮点格式;</li>
+<li>Infinity(无穷大值);</li>
+<li>-Infinity(无穷小值);</li>
+<li>非数字值, NaN, 与自己在内的任何值都不想等, isNaN()检测NaN;</li>
+<li>isFinity()检测NaN, [-]Infinity;</li>
+<li>Infinity, NaN, Number.NaN, Number.MAX_VALUE, Number.MIN_VALUE, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">字符串, unicode字符序列.</p>
+<blockquote>
+<ul class="simple">
+<li>xXX: 2位十六进制的latin-1字符;</li>
+<li>uXXXX: 4位...unicode字符;</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">布尔值.</p>
+</li>
+<li><p class="first">null(空), 没有值;</p>
+</li>
+<li><p class="first">undefined(未定义), undefined == null 为true, undefined === null为false;</p>
+</li>
+<li><p class="first">js中的 <em>函数</em> 是一个数据类型, 类.</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;xxx&quot;</span><span class="p">;</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">sex</span> <span class="o">=</span> <span class="s1">&#39;F&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span> <span class="nx">sex</span><span class="o">:</span><span class="s1">&#39;F&#39;</span><span class="p">};</span>
+<span class="nx">person</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span> <span class="c1">// 关联数组, 所谓也</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">js中的数组每个元素都有一个名字, 每个元素都有一个编号(下标), new Array(); [1,2,3]; new Array(8);</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">test</span><span class="p">(){</span>
+    <span class="nx">a</span> <span class="o">=</span> <span class="s2">&quot;global&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// a是隐式声明, 全局性, 所以在函数体外也能访问.</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="s2">&quot;global&quot;</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">test</span><span class="p">(){</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// undefined</span>
+    <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span><span class="p">;</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// local</span>
+<span class="p">}</span>
+<span class="nx">test</span><span class="p">();</span>
+<span class="c1">// 因为函数体内有局部变量b的定义, 隐藏了全局变量.</span>
+</pre></div>
+</blockquote>
+</li>
+</ul>
+<p>基本类型: 简单数据类型
+引用类型(引用): 符合数据类型(对象, 数组, 函数)</p>
+</div>
+<div class="section" id="id3">
+<h2>&quot;==&quot; &amp; &quot;===&quot;</h2>
+<ul>
+<li><p class="first">==, 对于引用类型, 比较的是两个变量是否引用同一个.</p>
+<blockquote>
+<ul class="simple">
+<li>类型转换, 两个值的类型相同, 比较它们的值或引用是否完全相同;</li>
+<li>两个值的类型不同时,</li>
+<li>null, undefined相等;</li>
+<li>数字字符串,先将字符串转换为数字,再比较;</li>
+<li>布尔值先转换位数字, true为1, false为0;</li>
+<li>对象比较时, 先将对象转换为简单数据类型, 再进行比较, 依次 valueOf(), toString(), 而Date则是先是toString();</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">===, 不进行类型转换, null 与 undefined不等</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>语法</h2>
+<ul>
+<li><p class="first">a in b:</p>
+<blockquote>
+<ul class="simple">
+<li>检查a 是否为b 的属性名;</li>
+<li>若b 是数组, 则检查a 是否为b的索引之一, 不是值;</li>
+<li>for (a in b) {} 列出b的属性, for / in语句并不能列出对象所有的属性, 因为一些对象的属性被标记成只读, 永久的(不可删除)或不可列举的, 这些属性不能被列举出来.</li>
+</ul>
+</blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>a instanceof b:</dt>
+<dd><ul class="first last simple">
+<li>检查a是否为b的实例;</li>
+<li>date instanceof Date; //true</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>break/continue:</dt>
+<dd><ul class="first simple">
+<li>break + label, 跳出label, 主要用于跳出外部循环;</li>
+</ul>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 141)</p>
+<p>Bullet list ends without a blank line; unexpected unindent.</p>
+</div>
+<p>outerloop:</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="nx">innerloop</span><span class="o">:</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="nx">j</span><span class="o">&lt;=</span><span class="mi">10</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">j</span> <span class="o">==</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span> <span class="k">break</span> <span class="nx">innerloop</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">i</span><span class="o">*</span><span class="nx">j</span> <span class="o">==</span> <span class="mi">24</span><span class="p">)</span> <span class="p">{</span> <span class="k">break</span> <span class="nx">outerloop</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<ul class="last simple">
+<li>continue + label;</li>
+<li>return, 不带返回值时, 这是函数的返回值为undefined.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">throw 异常信息:</p>
+<blockquote>
+<ul class="simple">
+<li>throw new Error(&quot;xx&quot;);</li>
+<li>try{ } catch(varible){ } finally{ };</li>
+</ul>
+</blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>函数:</dt>
+<dd><ul class="first simple">
+<li>function Name(arg){}</li>
+<li>var Name = function(arg){}</li>
+<li>var Name = new Function(arg, &quot;函数体&quot;), eg var add = new Function('x', 'y', 'return x+y');</li>
+<li>当某些函数只需要执行一次, 可以声明匿名函数并立即调用, eg,</li>
+</ul>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="p">;</span>
+<span class="p">})(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+<ul class="simple">
+<li>实际参数可遇形参列表不一致, 实参都被存到函数的arguments属性中, arguments.length, arguments.callee(x, y); // callee为该当前函数的引用, 这就很容易实现递归了</li>
+</ul>
+<div class="last"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * 十/二进制转换</span>
+<span class="cm"> */</span>
+<span class="kd">function</span> <span class="nx">recursion</span><span class="p">(</span><span class="nx">x</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;undefined&quot;</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">x</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+    <span class="nx">num</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">+</span> <span class="nx">num</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+        <span class="k">return</span> <span class="s1">&#39;1&#39;</span> <span class="o">+</span> <span class="nx">num</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">num</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">callee</span><span class="p">(</span><span class="nx">y</span><span class="p">,</span> <span class="nx">num</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">num</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div></dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="array">
+<h2>Array</h2>
+<ul>
+<li><p class="first">a.length = 5; // 长度可变</p>
+</li>
+<li><p class="first">a.unshift(32); // 将一个新的元素添加到数组开头</p>
+</li>
+<li><p class="first">a.push(1); // ...末尾</p>
+</li>
+<li><p class="first">a.shift(); // 删除第一个元素</p>
+</li>
+<li><p class="first">a.pop(); // 删除末尾一个元素</p>
+</li>
+<li><p class="first">a.splice(a, [b]); // 删除从a到b(末尾)的元素</p>
+</li>
+<li><p class="first">a.splice(a, b, extra); // 删除从a到b的元素后掺入extra</p>
+</li>
+<li><p class="first">a.slice(a, b); // 切片</p>
+</li>
+<li><p class="first">a.reverse(); // 反转数组</p>
+</li>
+<li><p class="first">a.join('..'); // 以..链接数组成字符串</p>
+</li>
+<li><p class="first">a.sort(); // 排序, 可自定义函数, 每次取2个元素, 类似于冒泡</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">y</span><span class="o">-</span><span class="nx">x</span><span class="p">;</span> <span class="c1">// 若需要前一元素排在后裔元素后面, 则返回大于0的数, 反之. 位置不变, 返回0.</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="string">
+<h2>String</h2>
+<ul class="simple">
+<li>&quot;aaa&quot;.length;</li>
+<li>&quot;aaa&quot;.substring(a,b); // 从a到b截取, 不包含b</li>
+<li>&quot;aaa&quot;.replace(a, b); // 以b代替a, a可以为正则式</li>
+<li>&quot;aaa&quot;.toUpperCase(); // 大写</li>
+<li>&quot;aaa&quot;.toLowerCase(); // 小写</li>
+<li>&quot;aaa&quot;.split(''); // 将字符串转换成数组</li>
+<li>[&quot;aaa&quot;, &quot;bbb&quot;].join(''); // 拼接字符串</li>
+</ul>
+</div>
+<div class="section" id="regexp">
+<h2>RegExp</h2>
+<ul class="simple">
+<li>RegExp(&quot;...&quot;); new RegExp(&quot;\d+&quot;, 'gi');</li>
+<li>/.../; /d+/gi;</li>
+<li>i: 忽略大小写, g: 全局匹配, m: 多行匹配</li>
+<li>reg.source： 获得正则式文本</li>
+<li>reg.global: 是否开启全局匹配模式</li>
+<li>reg.ignoreCase</li>
+<li>reg.multiline</li>
+<li>reg.lastIndex: 记录在全局匹配模式下, 在字符串中下一次开始匹配的位置</li>
+<li>str.search(/.../); // 返回第一个与之匹配的字符串的开始位置, 如果没有任何子字符串与之匹配, 则返回-1</li>
+<li>str.replace</li>
+<li>str.match 返回的第一个元素是匹配的子字符串, 从第二个元素开始是分组所匹配的内容, 如果是全局匹配模式, 则返回的数组是字符串中所有匹配的子字符串;</li>
+<li>在非全局模式, index表所匹配的子字符串在原字符串中的位置; input保存了原字符的一个副本.</li>
+<li>str.split(reg)</li>
+<li>reg.test(str) // true/false</li>
+<li>reg.exec(str) // 每次只匹配一个结果, lastIndex 当匹配结束时, lastIndex为0, 返回null</li>
+</ul>
+</div>
+<div class="section" id="date">
+<h2>Date</h2>
+<ul class="simple">
+<li>new Date(数字) 日期的内部数字表示, 单位ms</li>
+<li>new Date(字符串) 含日期的字符串</li>
+<li>new Date(year, month, day, hours, minutes, secondes, ms);</li>
+<li>d.getFullYear();</li>
+<li>d.getMonth();</li>
+<li>d.getDate();</li>
+<li>d.getHours();</li>
+<li>d.getMinutes();</li>
+<li>d.getSeconds();</li>
+<li>d.getMilliseconds();</li>
+<li>d.getTime(); // 内部毫秒表示</li>
+<li>d.getTimezoneOffset(); // 本地时间与UTC时间之差, 以分钟为单位</li>
+<li>d.set同上</li>
+</ul>
+</div>
+<div class="section" id="math">
+<h2>Math</h2>
+<ul class="simple">
+<li>Math.ceil(a); // 上舍</li>
+<li>Math.floor(a); // 下舍</li>
+<li>Math.random(); // 返回一个介于0~1的随机数</li>
+<li>Math.pow(a, b); // a^b</li>
+<li>Math.max(...); // 0个参数, 则返回-Infinity</li>
+<li>Math.min(...); //...返回Infinity</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>全局对象</h2>
+<ul class="simple">
+<li>alert(...);</li>
+<li>confirm(...); // true/false</li>
+<li>prompt(...); // 输入的值/null</li>
+<li>window.status // 状态栏</li>
+<li>setTimeout,,,clearTimeout(id);</li>
+<li>setInterval,,,clearInterval(id);</li>
+<li>window.location,,,window.location.href</li>
+<li>history.back();</li>
+<li>history.forward();</li>
+<li>history.go(n);</li>
+<li>window.resizeTo(width, height); // 绝对</li>
+<li>window.resizeBy(x, y); // 相对原来窗口大小, 像素为单位</li>
+<li>window.moveTo(x, y); // 移动窗口到x, y坐标</li>
+<li>window.moveBy(x, y); // 相对</li>
+<li>var newwindow = window.open(&quot;窗口url&quot;, &quot;窗口名字&quot;, &quot;height=100, width=400, top=0, left=0, toolbar=no, menubar=no等特性&quot;, false); // 最后的false指定是否是已存在的窗口</li>
+<li>只有在open方法是用一个已经存在的窗口时才会生效, 其作用是声明由第一个参数指定的url是应该替换历史记录的当前项, 还是创建一个新项, 默认为后者.</li>
+<li>focus/blur: 获得/失去焦点</li>
+<li>screen.availWidth 实际可用的显示器大小</li>
+<li>screen.availHeight</li>
+<li>screen.colorDepth 可显示的颜色数, 以2为底的对数</li>
+<li>navigator 属性保存客户端浏览器的总体信息</li>
+<li>navigator.appName Web浏览器名称</li>
+<li>navigator.appVersion 内部版本号</li>
+<li>navigator.userAgent HTTP请求时, USER-AGENT头信息中的数据</li>
+<li>navigator.appCodeName 浏览器的代码名</li>
+<li>navigator.platform 运行浏览器的硬件平台</li>
+</ul>
+</div>
+<div class="section" id="document">
+<h2>document对象</h2>
+<p>描述HTML文档的整体信息属性</p>
+<ul class="simple">
+<li>document.write();</li>
+<li>document.writeln();</li>
+<li>document.title;</li>
+<li>document.images; // 一数组, 保存了对当前HTML文档中所有图像的引用</li>
+<li>document.getElementById(&quot;xxx&quot;).style.border...</li>
+<li>document.links; // 一数组, 保存了文档中所有超链接的引用</li>
+<li>document.forms; // 一数组, 保存当前文档中所有表单的引用</li>
+</ul>
+<p>DOM: Document Object Module, 文档对象模型, 表示文档, 访问和操作文档元组的API. 树型结构</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="67%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">结点类型</th>
+<th class="head">nodeType</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Element</td>
+<td>1</td>
+</tr>
+<tr><td>Attr</td>
+<td>2</td>
+</tr>
+<tr><td>Text</td>
+<td>3</td>
+</tr>
+<tr><td>Comment</td>
+<td>8</td>
+</tr>
+<tr><td>Document</td>
+<td>9</td>
+</tr>
+<tr><td>DocumentFragment</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p class="first">Element.innerHTML</p>
+</li>
+<li><p class="first">document.getElementsByName(&quot;xxx&quot;); // 指定name的属性的结点集合</p>
+</li>
+<li><p class="first">document.getElementsByTagName(&quot;xxx&quot;); // 查找所有标签名为xxx的下属节点, 返回一数组</p>
+</li>
+<li><p class="first">Node.parentNode.id // 当前节点的父节点</p>
+</li>
+<li><p class="first">Node.childNodes</p>
+</li>
+<li><p class="first">Node.firstChild</p>
+</li>
+<li><p class="first">Node.lastChild</p>
+</li>
+<li><p class="first">Node.previousSibling //节点的上一个兄弟节点的引用</p>
+</li>
+<li><p class="first">Node.nextSibling //...下一个</p>
+</li>
+<li><p class="first">document.createElement(&quot;标签名&quot;); // 使用createElement创建元素结点后, 元素并没有被立即加入到当前的DOM树中, 而被存放到内存中. 只有使用添加结点的相关方法进行操作. 才真正将元素加入到DOM树中.</p>
+</li>
+<li><p class="first">document.createTextNode(&quot;this is text&quot;); // 创建文本结点后并没有立即被添加到DOM树中</p>
+</li>
+<li><p class="first">node.appendChild(newNode); // 添加结点</p>
+</li>
+<li><p class="first">parentNode.insertBefore(newNode, childNode); // 插入子结点</p>
+</li>
+<li><p class="first">parentNode.replaceChild(newNode, childNode); // 替换子结点</p>
+</li>
+<li><p class="first">newchone = node.cloneNode(true/false); // 复制结点, true和false表示是否包含原节点的子结点</p>
+</li>
+<li><p class="first">parentNode.removeChild(childNode); // 删除子结点</p>
+<blockquote>
+<div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * 删除一个直属子结点</span>
+<span class="cm"> */</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">evt</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">||</span> <span class="nx">event</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">elm</span> <span class="o">=</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">target</span> <span class="o">||</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">srcElement</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">elm</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">&quot;button&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">elm</span><span class="p">.</span><span class="nx">classname</span> <span class="o">==</span> <span class="s2">&quot;btn&quot;</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">li</span> <span class="o">=</span> <span class="nx">elm</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">;</span>
+        <span class="nx">li</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">node.getAttribute(...); // 获得结点的某一属性的值, 或直接使用. 属性</p>
+</li>
+<li><p class="first">node.setAttribute(attName, attValue);</p>
+</li>
+<li><p class="first">node.removeAttribute(attName);</p>
+</li>
+</ul>
+<p>控制元素样式:</p>
+<ul>
+<li><p class="first">设置class属性, setAttribute(&quot;class&quot;, &quot;xxx&quot;);</p>
+</li>
+<li><p class="first">element.className = &quot;link&quot;;</p>
+</li>
+<li><p class="first">node.style.css样式 = 值;</p>
+<blockquote>
+<ul class="simple">
+<li>'-' 去掉, 第二个单词首字母大写</li>
+<li>css属性名与js保留字冲突的话, 则单词前面加上style, 如styleFloat</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>事件处理</h2>
+<p>IE事件模型和标准时间模型的区别两点:</p>
+<ul>
+<li><p class="first">事件对象的差异:</p>
+<blockquote>
+<ul class="simple">
+<li>IE事件模型, window对象提供一个event属性保存当前事件对象, 所以, 可在程序中直接访问时间对象event;</li>
+<li>标准时间模型, 事件对象是在时间被触发时生成, 然后作为参数传递给时间处理程序, 所以在标准时间模型中, 事件是局部的.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">事件的传播机制:</p>
+<blockquote>
+<ul class="simple">
+<li>标准事件传播分为3个阶段:</li>
+<li>捕捉阶段(capturing), 时间从document对象沿着文档树向下往目标节点传播, 如果在传播过程中的任何一结点注册了处理该事件的事件处理程序, 则程序会被执行. 即在这个阶段目标节点的任何祖先结点都有机会来处理事件.</li>
+<li>发生在目标节点自身, 注册在目标节点上的合适的事件处理程序将被执行.</li>
+<li>起泡阶段, 事件将会沿着文档树从目标结点回传给document对象. 所有的事件都受捕捉机制的支配, 但并非所有的事件都起泡.</li>
+<li>事件分为两类: 输入事件和高级语义事件. 输入事件指用户操作产生的事件; 语义事件指由系统内部触发的事件. 所有语义事件不会起泡.</li>
+<li>在IE事件模型中, 只支持起泡形式的事件传播, 而不支持捕捉形式的事件传播.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">注册事件处理程序:</p>
+<blockquote>
+<ul class="simple">
+<li>当作属性: node.onclick = function(){}</li>
+<li>在标准事件模型中: obj.addEventListener(eventName, eventHandler, useCapture); // useCapture: bool, true表指定的事件处理程序将在事件传播的捕捉阶段用于捕捉事件; false表当事件直接发生的对象上, 或发生砸iduixiang的子结点并起泡到对象上的, 调用处理函数, 默认为false.</li>
+<li>注: 使用addEventListener可给目标的同一事件注册多个事件处理程序, 好处是使程序可模块化开发, 不用担心冲突.</li>
+<li>IE事件模型中, 使用obj.attachEvent(&quot;on&quot;+eventName, eventHandler);</li>
+</ul>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">addEvent</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">handler</span><span class="p">,</span> <span class="nx">useCapture</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">event</span><span class="p">){</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span><span class="s2">&quot;on&quot;</span><span class="o">+</span><span class="nx">name</span><span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">handler</span><span class="p">,</span> <span class="nx">useCapture</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">注销事件处理程序:</p>
+<blockquote>
+<ul class="simple">
+<li>将对象的响应属性设置为null来注销</li>
+<li>detachEvent()/removeEventListener()</li>
+</ul>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">removeEvent</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">handler</span><span class="p">,</span> <span class="nx">useCapture</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">event</span><span class="p">){</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">detachEvent</span><span class="p">(</span><span class="s2">&quot;on&quot;</span><span class="o">+</span><span class="nx">name</span><span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">handler</span><span class="p">,</span> <span class="nx">useCapture</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="24%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">标准事件模型</th>
+<th class="head">IE事件模型</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>target</td>
+<td>srcElement</td>
+<td>发生事件的目标元素</td>
+</tr>
+<tr><td>type</td>
+<td>type</td>
+<td>发生事件的类型</td>
+</tr>
+<tr><td>keyCode</td>
+<td>keyCode</td>
+<td>声明了keydown, keyup事件的按键代码</td>
+</tr>
+<tr><td>clientX, clientY</td>
+<td>clientX, clientY</td>
+<td>相对于窗口左上角的坐标</td>
+</tr>
+<tr><td>preventDefault()</td>
+<td>returnValue</td>
+<td>returnValue为false阻止浏览器执行与事件相关的默认动作</td>
+</tr>
+<tr><td>stopPropagation()</td>
+<td>cancelBubble</td>
+<td>cancelBubble为true阻止事件起泡</td>
+</tr>
+<tr><td>altKey,ctrlKey,shiftKey</td>
+<td>altKey,ctrlKey,shiftKey</td>
+<td>布尔属性, 事件发生时, 是否按住了这些键</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * 实例事件处理</span>
+<span class="cm"> */</span>
+<span class="kd">function</span> <span class="nx">mouseoverEventHandler</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">evt</span> <span class="o">=</span> <span class="nx">e</span> <span class="o">||</span> <span class="nx">event</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">elm</span> <span class="o">=</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">target</span> <span class="o">||</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">srcElement</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">elm</span><span class="p">.</span><span class="nx">tagName</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;td&quot;</span><span class="p">){</span>
+        <span class="nx">elm</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="s2">&quot;1px ...&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a><a href="/tag/#note">note</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>
