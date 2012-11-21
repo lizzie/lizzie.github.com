@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Padding - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=6d655"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/input_padding.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Input Padding</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-08-10T12:08:40+08:00">
+        <a href="/2010/">2010-08-10</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <div class="section" id="id1">
+<h2>现象</h2>
+<p>今天看到个以前从没注意到的现象.</p>
+<p>先看图1</p>
+<img alt="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGPm5AQw" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGPm5AQw" />
+<p>这是正常情况下的,</p>
+<p>再来看下图2</p>
+<img alt="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGOHBAQw" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGOHBAQw" />
+<p>看到问题了么?</p>
+<p>当输入框内的文字太长, IE6下导致 前面的搜索图片不见了.
+这里的小图片原本是设置成input元素的背景图, 再设置padding-left 调整文字的起始位置.</p>
+<p>这样实现, 在Firefox/chrome下完全没有问题, 但IE6,7, 后来测试在IE8 下也有这个问题.
+查找IE下的原因, 因为input的宽度固定, 当内容超过宽度时, 随着光标显示, 文字一直往左移, 同时也包括背景图片也一起往左移动, 所以展示出来图片消失.</p>
+<p>如果再深入一些, 就又要看css盒模型, 传统的盒模型, 如IE的实现, 盒子的宽度包含margin, border, padding, 内容. 而W3C的盒模型, 如Firefox的实现, 定义宽度只包含内容, 不包含margin, border, padding. 详细见http://www.quirksmode.org/css/box.html.
+而这边, 从input上可以看到, 背景图片设置在盒子上, Firefox中, 随着输入内容的增多, 文本内容不断伸展, 但不会影响到padding和margin, 所以看到背景图片还是在原来的位置上. 而IE下, 随着输入内容的增加, 整个盒子宽度伸展, 因为包括padding和margin, 伸展时也连同它们一起移动.</p>
+</div>
+<div class="section" id="id2">
+<h2>解决</h2>
+<p>为了解决这个问题, 做了以下尝试</p>
+<ol class="arabic simple">
+<li>首先想到的是IE下, 将背景图片的background-attachment: fixed; 见 <a class="reference external" href="http://liz.appspot.com/static/show.html">demo1</a> 但带来的问题是: 1) 文字覆盖在背景图片上, 2) ie7下图片不能显示出来</li>
+<li>有人说用将背景图片的位置设置为bottom right即可, 但这种方式需要你的背景图片大小和你的输入框一致; 见 <a class="reference external" href="http://liz.appspot.com/static/show.html">demo2</a> 出来的效果, 在IE下, 一个一个字符输入, 可以看到文字也会覆盖背景图片, 而且鼠标选择时还会出现背景图片位置不再原来的位置上了.</li>
+<li>将背景图片设置在input的父元素上, 但这就需要改变DOM结构了.</li>
+</ol>
+<p>不知道这个问题有没有更好的解决方式...</p>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#CSS">CSS</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

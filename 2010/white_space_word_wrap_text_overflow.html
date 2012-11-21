@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>threeCSSProperty - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=6d655"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/white_space_word_wrap_text_overflow.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">threeCSSProperty</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-07-21T12:07:50+08:00">
+        <a href="/2010/">2010-07-21</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <div class="section" id="white-space">
+<h2>white-space</h2>
+<p><a class="reference external" href="https://developer.mozilla.org/en/CSS/white-space">https://developer.mozilla.org/en/CSS/white-space</a></p>
+<p>用于控制容器内的空格如何处理.
+针对所有元素, 可继承.</p>
+<p>值:</p>
+<ul class="simple">
+<li>normal(默认值): 空格序列被合并起来, 换行字符如同空格, 会断行(长单词内不会断行)以尽可能的填充整个盒子</li>
+<li>pre: 空格序列被保留, 一行只有碰到换行字符才换行, 文本内部不会换行(but suppresses line breaks (text wrapping) within text).</li>
+<li>nowrap: 空格被合并, 但文本内部不会被强行换行. 如果溢出容器也不会被换行.</li>
+<li>pre-wrap: firefox3+ 空格序列被保留, 一行只有碰到换行字符才换行, 也是尽可能填充行盒子, firefox2可以用-moz-pre-wrap.</li>
+<li>pre-line: firefox3.5+ 空格序列被合并. 碰到换行字符才换行, 尽可能填充行盒子.</li>
+</ul>
+</div>
+<div class="section" id="word-wrap">
+<h2>word-wrap</h2>
+<p><a class="reference external" href="https://developer.mozilla.org/en/CSS/word-wrap">https://developer.mozilla.org/en/CSS/word-wrap</a></p>
+<p>是否允许字内断行, 阻止文本太长而导致溢出(specify whether or not the browser is allowed to break lines within words in order to prevent overflow when an otherwise unbreakable string is too long to fit.)</p>
+<ul class="simple">
+<li>normal(默认值): 断行仅在正常词语结束后, 完整的一个词不会被强行截断;</li>
+<li>break-word: 词语可能会在任意点上被截断.</li>
+</ul>
+<p>white-space: nowrap 针对一行文本, 如果超出容器, 不要自动换行,,就是除非你手写换行字符是绝对不会换行的;</p>
+<p>word-wrap: break-word; 针对一行中的一个词, 本来这个词是不可断的, 但设置之后会强行截断.</p>
+</div>
+<div class="section" id="text-overflow">
+<h2>text-overflow</h2>
+<p>当文本内容溢出容器时, 是否显示...号. (杯具的firefox不支持)</p>
+<p>ellipse: 显示省略号
+clip: 默认值, 不显示</p>
+<p>例子: <a class="reference external" href="http://www.quirksmode.org/css/textoverflow.html">http://www.quirksmode.org/css/textoverflow.html</a></p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">p</span> <span class="p">{</span>
+    <span class="k">white-space</span><span class="o">:</span> <span class="k">nowrap</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>                   <span class="c">/* IE6 needs any width */</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>              <span class="c">/* &quot;overflow&quot; value must be different from &quot;visible&quot; */</span>
+
+    <span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="k">text</span><span class="o">-</span><span class="k">overflow</span><span class="o">:</span> <span class="n">ellipsis</span><span class="p">;</span>    <span class="c">/* Opera */</span>
+    <span class="k">text</span><span class="o">-</span><span class="k">overflow</span><span class="o">:</span>    <span class="n">ellipsis</span><span class="p">;</span>    <span class="c">/* IE, Safari (WebKit) */</span>
+
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<p>三个地方, 设置white-space, 设置width, 设置overflow, 最后的text-overflow.</p>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#CSS">CSS</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

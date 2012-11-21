@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyBuildUtil - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=6d655"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/mybuildutil.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">MyBuildUtil</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-08-07T11:08:02+08:00">
+        <a href="/2010/">2010-08-07</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>话说Java ant实在用不惯, 而现有的build配置尝试了好久还是不懂, 再次鄙视下xml. 汗个那么多的标签~</p>
+<p>正因如此, 周末赶紧写了个js/css打包压缩小脚本, 目前能够已满足我的小需求:</p>
+<ul class="simple">
+<li>写个依赖(配置)文件, 定义哪些js/css合并成xx文件;</li>
+<li>生成压缩文件;</li>
+</ul>
+<p>暂时还不支持的功能:</p>
+<ul class="simple">
+<li>替换html的js/css, ps: 话说有时候, 程序并不能清楚的知道哪个页面上需要哪些功能, 这些功能在哪些文件中, 所以目前手工替换. 或许也可在生成html时根据配置替换调试时的js/css文件. 再议吧..</li>
+<li>自动检测文件编码功能, 目前默认都是utf-8, 可以考虑用chardet试试.</li>
+</ul>
+<p>这里不贴代码了, 完整的在 <a class="reference external" href="http://code.google.com/p/lizworkspace/source/browse/trunk/tools">http://code.google.com/p/lizworkspace/source/browse/trunk/tools</a>, 有兴趣的可以试一下.
+简单的使用:</p>
+<blockquote>
+<pre class="literal-block">
+D:\workspace\myserver\tools&gt;python mybuild.py --help
+Usage: mybuild.py [options] xxx
+
+Options:
+  -h, --help            show this help message and exit
+  -c CONFIG, --config=CONFIG
+                        config file # 配置文件
+  -z, --zip             zip or not # 需不需要压缩, 如果设置-z 就需要用到yuicompressor
+  -d DEST, --dest=DEST  dest dir # 生成目标目录, 默认是当前目录的tmp下
+
+
+如:
+D:\workspace\myserver\tools&gt;python mybuild.py -z -c configfile -d destdir
+</pre>
+</blockquote>
+<p>config的写法, 很简单</p>
+<blockquote>
+<pre class="literal-block">
+ks-mkt
+&lt;script src=&quot;../../libs/kissy/1.1.0/build/anim/anim-pkg-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../libs/kissy/1.1.0/build/datalazyload/datalazyload-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../libs/kissy/1.1.0/build/switchable/switchable-pkg-min.js&quot;&gt;&lt;/script&gt;
+
+=====
+mkt-base
+&lt;script src=&quot;../../src/js/market/m/base.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/pagenation.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/searchbox.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/imageshow.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/sortorder.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/starscore.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+=====
+mkt-dialog
+&lt;script src=&quot;../../libs/yui/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../libs/yui/2.8.1/build/connection/connection-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/tshop.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/ds/widgets/dialog.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/ds/request-manager.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/ds/widgets/dialogable.js&quot;&gt;&lt;/script&gt;
+
+=====
+mkt-editor
+&lt;script src=&quot;../../libs/yui/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../libs/yui/2.8.1/build/connection/connection-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../libs/kissy/1.0.4/build/editor/editor-min.js&quot;&gt;&lt;/script&gt;
+
+=====
+mkt-validate
+&lt;script src=&quot;../../src/js/market/m/signin.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/order4.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/report.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/upload1.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/upload2.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/close.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+</pre>
+</blockquote>
+<p>Note: <tt class="docutils literal"><span class="pre">=====</span></tt> 为分隔符, 接下来的第一行是压缩后的文件名字, 余下的都是所需原js文件,
+咔咔, 这里直接从html里拷贝过来(偷懒ing), 其实只要文件名就可以了, 路径是相对于config文件
+来说的, 不是运行时目录. 不然可能会找不到文件~</p>
+<p>最简单的实现. 以后需要再扩充吧~~</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Python">Python</a><a href="/tag/#Tools">Tools</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+ImageZoom
+===================
+
+:date: 2010-07-15 13:07:37
+:tags: Javascript, KISSY
+
+图片放大效果 imagezoom `slide <http://liz.appspot.com/static/imagezoom/my.html>`_
+
+组里的第二个小分享, 话说这个小组件是来公司后写的第一个程序..从刚开始不熟悉kissy, 就是通过编写这个慢慢熟悉起来.
+
+
+已有的实现
+---------------------
+
+* `jqzoom <http://www.mind-projects.it/projects/jqzoom/>`_: 基于jQuery的图片放大功能,
+
+    - 实现了多种显示方式;
+    - 图片预加载;
+    - 提供n种配置参数, 方便设置, 也有些特效参数;
+
+* `imagezoom <http://www.cnblogs.com/cloudgamer/archive/2010/04/01/ImageZoom.html>`_:
+
+    - 实现多种显示方式;
+    - 可设置放大系数;
+    - 支持滑轮滚动缩放;
+
+* `imageScaler <http://yiminghe.javaeye.com/blog/388872>`_: 基于Ext的,
+
+    - 承玉实现的一款;
+    - 也有缩放功能, 支持拖拽, 移动;
+
+* `AnythingZoomer <http://css-tricks.com/examples/AnythingZoomer/image.php>`_:
+
+    - 功能比较简单, 只有跟随模式;
+
+多种显示方式
+---------------------
+
+. 最一般的:
+
+    图片放大效果, 鼠标移到那里的一个特定范围内的图片被放大显示, 显示框在原图旁边;
+    file: pics/Snap3.gif
+
+. 显示镜片(又称手柄模式):
+
+    同上类似, 但在原图上显示出半透明的镜片效果, 指明被放大的区域是哪个;
+    file: pics/Snap4.gif
+
+. 跟随模式:
+
+    显示框跟随鼠标移动, 即被放大的图片显示在原图上方, 并以鼠标为轴心; 如: AnythingZoomer
+    file: pics/Snap2.gif
+
+. 反转模式:
+
+    同第二种类似, 只是原图变成半透明, 镜片覆盖的区域清晰显示;
+    file: pics/Snap1.gif
+
+其他考虑因素
+---------------------
+
+. 放大系数
+
+    小图到大图的放大系数;
+
+. 图片加载
+
+    大图片一般都会很大, 可以考虑预加载. 可仿照jqzoom;
+    如果大图没有加载完成时, 可直接使用原图;
+
+. 放大镜图标
+
+    如淘宝商品页面: 默认有一个放大镜在小图右下角，提醒用户有放大的功能，用户引导性比较好。鼠标移至小图上方，放大镜消失。
+
+
+
+剩下的直接看 `这里 <http://code.google.com/p/kissy/source/browse/#svn/trunk/experimental/imagezoom>`_ 吧
+
+
+顺便记下最近碰到的一些小问题:
+
+* input检测变化, 最好不要用keyup, keypress, keydown等事件监听, 因为(有些情况下, 比如中文输入法, 在拼写中文字时会触发n多key事件,...), 而是使用定时器, focus是开启定时器, blur是关闭定时器, 定时器检测input值的变化;
+* ajax请求如果很多的话, 可以在请求结束时将该script节点从DOM中删除, 如this.parentNode.removeChild(this), 防止DOM树越来越大.
+* e.preventDefault(), e.halt(), 都可以阻止事件. e.stopPropagation()阻止冒泡, 但a链接触发的url转换, 不能阻止click事件的冒泡, 因为这是浏览器自己的行为, 只能先e.preventDefault(), 然后window.open;
+* td, tr, tbody, 只读属性, 且不能为relative, 也不能设置margin, padding

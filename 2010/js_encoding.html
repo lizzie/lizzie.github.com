@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Encoding - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=6d655"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/js_encoding.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">JS Encoding</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-07-04T06:07:12+08:00">
+        <a href="/2010/">2010-07-04</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <div class="section" id="escape-encodeuricomponent-encodeuri">
+<h2>escape, encodeURIComponent, encodeURI</h2>
+<p>都是将字符转换成百分比编码, 但各自排除编码的字符不同:</p>
+<blockquote>
+以上函数对 [0-9A-Za-z] 都不作变换。
+escape() 不变换的字符是 <em>+-./&#64;_ 。
+encodeURI() 不变换的字符是 !#$'()*+,-./:;=?&#64;_~ 。
+encodeURIComponent() 不变换的字符只有 !'()</em>-._~ 。</blockquote>
+<p>from <a class="reference external" href="http://my.opera.com/jlake/blog/2009/02/20/escape-encodeuri-encodeuricomponent">http://my.opera.com/jlake/blog/2009/02/20/escape-encodeuri-encodeuricomponent</a></p>
+<p>escape() 变换的结果是 %uXXXX，encodeURL() 以及 encodeURIComponent() 的变换结果是 %XX%XX%XX, %uXXXX是非标准Pecent-encoding, 现已没有标准支持.</p>
+<p>from <a class="reference external" href="http://lifesinger.org/blog/2009/03/escape-encodeuricomponent-cencodeuri/">http://lifesinger.org/blog/2009/03/escape-encodeuricomponent-cencodeuri/</a></p>
+<p>而标准的Pecent-encoding中, %xx%xx%xx, xx为一个字符在unicode字符集中数字序号二进制按照utf-8编码后得到不等长字节(这里是3个)的十六进制编码.</p>
+<p>NCR编码, 口, 21475 同样是unicode编码(十进制) 口(十六进制的), 利用此在html能显示任何一个字符.</p>
+<p>base64, 传输层传输任何二进制数据, 包括图片和音频.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://ued.koubei.com/?p=537">HTML与javascript中常用编码浅析</a></li>
+<li><a class="reference external" href="http://stauren.net/lab">Hex, NCR, Percent encode, Base64解码编码工具</a></li>
+</ul>
+</div>
+<div class="section" id="referrer">
+<h2>referrer</h2>
+<p>document.referrer: The referrer property returns the URL of the document that loaded the current document.</p>
+</div>
+<div class="section" id="iframe">
+<h2>iframe</h2>
+<p><a class="reference external" href="http://sxlkk.javaeye.com/blog/558352">http://sxlkk.javaeye.com/blog/558352</a></p>
+<ul class="simple">
+<li>&quot;window.location.href&quot;、&quot;location.href&quot;是本页面跳转</li>
+<li>&quot;parent.location.href&quot;是上一层页面跳转</li>
+<li>&quot;top.location.href&quot;是最外层的页面跳转</li>
+</ul>
+<p>举例说明：</p>
+<p>如果A,B,C,D都是jsp，D是C的iframe，C是B的iframe，B是A的iframe，如果D中js这样写</p>
+<blockquote>
+<ul class="simple">
+<li>&quot;window.location.href&quot;、&quot;location.href&quot;：D页面跳转</li>
+<li>&quot;parent.location.href&quot;：C页面跳转</li>
+<li>&quot;top.location.href&quot;：A页面跳转</li>
+</ul>
+</blockquote>
+<p>如果D页面中有form的话,</p>
+<blockquote>
+<pre class="literal-block">
+&lt;form&gt;: form提交后D页面跳转
+&lt;form target=&quot;_blank&quot;&gt;: form提交后弹出新页面
+&lt;form target=&quot;_parent&quot;&gt;: form提交后C页面跳转
+&lt;form target=&quot;_top&quot;&gt; : form提交后A页面跳转
+</pre>
+</blockquote>
+<p>关于页面刷新，D 页面中这样写：</p>
+<blockquote>
+<pre class="literal-block">
+&quot;parent.location.reload();&quot;: C页面刷新 （当然，也可以使用子窗口的 opener 对象来获得父窗口的对象：window.opener.document.location.reload(); ）
+&quot;top.location.reload();&quot;: A页面刷新
+</pre>
+</blockquote>
+</div>
+<div class="section" id="test">
+<h2>Test</h2>
+<p>test.html</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;p&gt;</span>test.html<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">&quot;test1.html&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">referrer</span><span class="p">);</span> <span class="c1">//test.html的referrer. eg: localhost:8083/</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+</blockquote>
+<p>test1.html</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;p&gt;</span>test1.html<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parent</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">referrer</span><span class="p">);</span> <span class="c1">// 如果test1.html被iframe的话, parent则为父对象, 为父对象的referrer, 否则为parent空</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">location</span> <span class="o">!=</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">location</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 如果是被iframe的话, 当前location 不等于parent.location</span>
+        <span class="nx">consle</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">referrer</span><span class="p">);</span>      <span class="c1">// 并且, 子对象的document.referrer就为父对象, 即document.referrer==parent.location;</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">location</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">parent</span><span class="p">.</span><span class="nx">location</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// 不是iframe的话, 这两个是相等的</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">location</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">parent</span><span class="p">.</span><span class="nx">location</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+</blockquote>
+<p>再测试一个.
+test1.html再嵌一个test11.html</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;p&gt;</span>test11.html<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="nb">document</span><span class="p">.</span><span class="nx">referrer</span><span class="p">,</span> <span class="nx">parent</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">referrer</span><span class="p">,</span> <span class="nx">top</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">referrer</span><span class="p">]);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">([</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">,</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">,</span> <span class="nx">top</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">]);</span>
+    <span class="c1">//  [&quot;http://localhost:8083/test1.html&quot;, &quot;http://localhost:8083/test.html&quot;, &quot;http://localhost:8083/&quot;]</span>
+    <span class="c1">//  [&quot;http://localhost:8083/test11.html&quot;, &quot;http://localhost:8083/test1.html&quot;, &quot;http://localhost:8083/test.html&quot;]</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+</blockquote>
+<p>结论: document.referrer == parent.location</p>
+<p>最后.</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">wd</span> <span class="o">=</span> <span class="nx">wd</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/_0db[\d]/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">bids</span> <span class="o">=</span> <span class="p">(</span><span class="nx">wd</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span> <span class="o">?</span> <span class="p">[]</span> <span class="o">:</span> <span class="nx">wd</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">bids</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="nx">bids</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="s2">&quot;1&quot;</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;\x03&quot;</span><span class="p">));</span> <span class="c1">// 还是没明白为何需要这样??</span>
+<span class="p">}</span>
+
+<span class="k">return</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;\x02&quot;</span><span class="p">));</span>
+
+<span class="c1">// 话说\x03和\x02是干嘛的?</span>
+</pre></div>
+</blockquote>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

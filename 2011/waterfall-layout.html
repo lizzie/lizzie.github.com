@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WaterFall Layout - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=6d655"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2011/waterfall-layout.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">WaterFall Layout</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2011-09-10T18:12:00+08:00">
+        <a href="/2011/">2011-09-10</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <div class="section" id="id1">
+<h2>简介</h2>
+<p>最近有很多网站, 在设计上采用了多栏布局, 类似于 Pinterest (这貌似是最早使用这种布局的网站了), Mark之, 蘑菇街, 哇哦 等等. 这种类似的布局, 很像是一夜之间出现国内大大小小的网站上, 倒是很流行哈~
+这种布局更适合于小而重复的数据块排列, 每个数据块没有侧重, 而且大多情况下, 这种布局下, 随着滚动条向下滚动, 不断加载数据块至当前最后, 鉴于此, 他又有另外一个名字 -- <strong>瀑布流式布局</strong>.</p>
+</div>
+<div class="section" id="id2">
+<h2>几种实现方式</h2>
+<p>随着越来越多设计师爱用这种布局了, 我们作为前端, 也尽可能满足视觉/交互设计师的需求. 整理了下这种布局的几种实现方式, 有三种:</p>
+<ol class="arabic simple">
+<li>传统多列浮动, 即 蘑菇街和哇哦 采用的方式, 如下图所示:</li>
+</ol>
+<img alt="传统多列浮动" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGOnoAQw" />
+<ul class="simple">
+<li>各列固定宽度, 并且左浮动;</li>
+<li>一列中的数据块为一组, 列中的每个数据块依次排列即可;</li>
+<li>跟多数据加载时, 需要分别插入到不同的列上;</li>
+<li><a class="reference external" href="http://wow.taobao.com/">线上例子1</a>;</li>
+</ul>
+<dl class="docutils">
+<dt>优点:</dt>
+<dd><ul class="first last simple">
+<li>布局简单, 应该说没啥特别的难点;</li>
+<li>不用明确知道数据块高度, 当数据块中有图片时, 就不需要指定;</li>
+</ul>
+</dd>
+<dt>缺点:</dt>
+<dd><ul class="first last simple">
+<li>列数固定, 扩展不易, 当浏览器窗口大小变化时, 只能固定的x列, 如果要添加一列, 很难调整出来数据块;</li>
+<li>滚动加载更多数据时, 还要指定插入到第几列中, 还是不方便;</li>
+</ul>
+</dd>
+</dl>
+<ol class="arabic simple" start="2">
+<li>CSS3 定义, W3C 中有讲述关于 <a class="reference external" href="http://www.w3.org/TR/css3-multicol/">多列布局的文档</a> , 排列出来的样子:</li>
+</ol>
+<img alt="多列布局" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGNHwAQw" />
+<ul>
+<li><p class="first">由 chrome/ff 浏览器直接渲染出来, 可以指定容器的列个数, 列间距, 列中间边框, 列宽度来实现:</p>
+<blockquote>
+<div class="highlight"><pre><span class="nf">#container</span> <span class="p">{</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">5</span><span class="p">;</span>
+    <span class="c">/*-webkit-column-gap: 10px;</span>
+<span class="c">    -webkit-column-rule: 5px solid #333;</span>
+<span class="c">    -webkit-column-width: 210px;*/</span>
+
+    <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">5</span><span class="p">;</span>
+    <span class="c">/*-moz-column-gap: 20px;</span>
+<span class="c">    -moz-column-rule: 5px solid #333;</span>
+<span class="c">    -moz-column-width: 210px;*/</span>
+
+    <span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">5</span><span class="p">;</span>
+    <span class="c">/*column-gap: 10px;</span>
+<span class="c">    column-rule: 5px solid #333;</span>
+<span class="c">    column-width: 210px;*/</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">column-count 为列数; column-gap 为每列间隔距离; column-rule 为间隔边线大小; column-width 为每列宽度; 当只设置 column-width 时, 浏览器窗口小于一列宽度时, 列中内容自动隐藏了;当只设置 column-count 时, 平均计算每列宽度, 列内内容超出则隐藏; 都设了 column-count 和column-width, 浏览器会根据 count 计算宽度和 width 比较, 取大的那个值作为每列宽度, 然后当窗口缩小时, width 的值为每列最小宽度. 这边其实很简单, 简易自己尝试下, 详细可参考 <a class="reference external" href="https://developer.mozilla.org/en/CSS3_Columns">https://developer.mozilla.org/en/CSS3_Columns</a> 中的说明;</p>
+</li>
+<li><p class="first"><a class="reference external" href="http://lizzie.github.com/kissy/src/waterfall/demo/css3.html">线上列子2</a> ;</p>
+</li>
+</ul>
+<dl class="docutils">
+<dt>优点:</dt>
+<dd><ul class="first last simple">
+<li>直接 CSS 定义, 最方便了;</li>
+<li>扩展方便, 直接往容器里添加内容即可;</li>
+</ul>
+</dd>
+<dt>缺点:</dt>
+<dd><ul class="first last simple">
+<li>只有高级浏览器中才能使用;</li>
+<li>还有一个缺点, 他的数据块排列是从上到下排列到一定高度后, 再把剩余元素依次添加到下一列, 这个本质上就不一样了;</li>
+<li>鉴于这两个主要缺点, 注定了该方法只能局限于高端浏览器, 而且, 更适合于文字多栏排列;</li>
+</ul>
+</dd>
+</dl>
+<ol class="arabic simple" start="3">
+<li>绝对定位, 即 Pinterest , Mark之, KISSY 采用的方式:</li>
+</ol>
+<img alt="绝对定位" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGLn4AQw" />
+<ul class="simple">
+<li>可谓是最优的一种方案, 方便添加数据内容, 窗口变化, 列数/数据块都会自动调整;</li>
+<li><a class="reference external" href="http://docs.kissyui.com/docs/html/static/demo/waterfall/demo2.html">线上列子3</a></li>
+</ul>
+<dl class="docutils">
+<dt>缺点:</dt>
+<dd><ul class="first last simple">
+<li>需要实现知道数据块高度, 如果其中包含图片, 需要知道图片高度;</li>
+<li>JS 动态计算数据块位置, 当窗口缩放频繁, 可能会狂耗性能;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="kissy-waterfall">
+<h2>KISSY.Waterfall 实现思路</h2>
+<p><a class="reference external" href="http://docs.kissyui.com/docs/html/api/component/waterfall/">KISSY 的 Waterfall 组件</a> 主要包含两个部分, 一个是对现有数据块进行排列计算各自所在的位置; 二是下拉滚动时, 触发加载数据操作, 并把数据添加到目标容器中;</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>数据块排列, 算法步骤简述下:</dt>
+<dd><ul class="first last simple">
+<li>初始化时, 对容器中已有数据块元素进行第一次的计算, 需要用户给定: a, 容器元素 -- 以此获取容器总宽度; b, 列宽度; c, 最小列数; 最终列数取的是容器宽度/列宽度和最小列数的最大值, 这样保证了, 当窗口很小时, 仍然出现最小列数的数据;</li>
+<li>获得列数后, 需要保存每个列的当前高度, 这样在添加每个数据块时, 才知道起始高度是多少;</li>
+<li>依次取容器中的所有数据块, 先寻找当前高度最小的某列, 之后根据列序号, 确定数据块的left, top值, left 为所在列的序号乘以列宽, top 为所在列的当前高度, 最后更新所在列的当前高度加上这个数据块元素的高度, 至此, 插入一个元素结束;</li>
+<li>当所有元素插入完毕后, 调整容器的高度为各列最大的高度值, 结束依次调整;</li>
+<li>性能效率上的注意点: a, 如果当前正在调整中, 又触发了 resize 事件, 需要将上次调整暂停后执行这次调整(见 timedChunk 函数); b, resize 触发会很频繁, 可以将回调函数缓存一段时候后执行, 即当这段时间内多次触发了resize事件, 但回调函数只会执行一次(见 S.buffer 函数)</li>
+<li>感兴趣的可以参见 <a class="reference external" href="https://github.com/kissyteam/kissy/blob/master/src/waterfall/base.js">源码1</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>异步加载数据, 前面讲的是如何对容器中已有元素进行排列, 但很多情况下, 还需要不断加载新数据块, 为此专门设计了一个独立的模块 KISSY.Waterfall.Loader, 其实这个功能就更简单了, 仅包含两个步骤:</dt>
+<dd><ul class="first last simple">
+<li>绑定滚动事件, 并确定预加载线高度值, 即滚动到哪个高度后, 需要去加载数据, 其实这个就是列的最小高度值, 这样当前滚动值和最小高度值比较一下即可判断出来, 是否要触发加载数据;</li>
+<li>加载数据, 为了不对数据源做太多限制, 完全由使用者自己决定数据源从哪边获取和其格式, 这样更好的方便用户使用. 为此, 该组件只提供一个load(success, end) 接口, 怎样load 由用户自己去定义, 而其中的 success/end, 分别给出如何添加新数据(suceess 即同 addItems)/如何停止加载的接口. 这样真是太方便了~~</li>
+<li>感兴趣的可以参见 <a class="reference external" href="https://github.com/kissyteam/kissy/blob/master/src/waterfall/loader.js">源码2</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="id10">
+<h2>KISSY.Waterfall 示例和文档</h2>
+<p>看到这边, 是不是很想试用一下~~, 嗯嗯, 这里给出一些相关学习资料和示例, 以供参考:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.kissyui.com/docs/html/api/component/waterfall/%3Cbr%20/%3E">Waterfall API 文档</a> , 相关构造器, 配置项, 方法都在这里;</li>
+<li><a class="reference external" href="http://docs.kissyui.com/docs/html/demo/component/waterfall/%3Cbr%20/%3E">示例</a>, 包含静态和动态两种;</li>
+</ul>
+<p>欢迎试用和提出意见~~</p>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a><a href="/tag/#CSS">CSS</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

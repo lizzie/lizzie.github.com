@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reSub - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=6d655"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/python_resub.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">reSub</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-07-17T10:07:33+08:00">
+        <a href="/2010/">2010-07-17</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>Python中, re的sub方法,</p>
+<p>doc <a class="reference external" href="http://docs.python.org/library/re.html#re.sub">http://docs.python.org/library/re.html#re.sub</a></p>
+<blockquote>
+<pre class="literal-block">
+re.sub(pattern, repl, string[, count, flags])
+Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl. If the pattern isn’t found, string is returned unchanged. repl can be a string or a function; if it is a string, any backslash escapes in it are processed. That is, \n is converted to a single newline character, \r is converted to a linefeed, and so forth. Unknown escapes such as \j are left alone. Backreferences, such as \6, are replaced with the substring matched by group 6 in the pattern.
+</pre>
+</blockquote>
+<ul class="simple">
+<li>pattern为目标替换串,</li>
+<li>repl为新的串,</li>
+<li>string为原始串,</li>
+<li>count为替换个数, 默认全部替换,</li>
+<li>flags为re的一些全局标志, 比如忽略大小写, 换行等</li>
+</ul>
+<p>得到的是, 在原串string中将符合一定模式pattern的字符串使用repl替换掉并返回.
+pattern, 没话好说, 就是一般的正则式,
+repl, 可以是正则, 也可以是一个函数, 如果是函数, 函数的传入参数就为match对象, 函数内可直接操作这个match对象, 返回处理后的字符串结果.</p>
+<p>看几个例子:</p>
+<ol class="arabic">
+<li><p class="first">最普通的:</p>
+<blockquote>
+<pre class="literal-block">
+&gt;&gt;&gt; re.sub(r'def\s+([a-zA-Z_][a-zA-Z_0-9]*)\s*\(\s*\):',
+...        r'static PyObject*\npy_\1(void)\n{',
+...        'def myfunc():')
+'static PyObject*\npy_myfunc(void)\n{'
+## \n会保留的
+</pre>
+</blockquote>
+</li>
+<li><p class="first">使用函数的例子:</p>
+<blockquote>
+<pre class="literal-block">
+&gt;&gt;&gt; def dashrepl(matchobj):
+...     if matchobj.group(0) == '-': return ' '
+...     else: return '-'
+&gt;&gt;&gt; re.sub('-{1,2}', dashrepl, 'pro----gram-files')
+'pro--gram files'
+</pre>
+</blockquote>
+</li>
+<li><p class="first">我的例子, 想把模板中生成出完整的html代码并保存下来, 在模板中有些不想输出, 用&lt;!-- delete ---&gt;和&lt;!-- delete END ---&gt;标记出来, 输出时将这之间的内容去除.</p>
+<blockquote>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">ac</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;. abcd &lt;!--delete--&gt; abcd. &lt;!--delete End--&gt;abcd &lt;!--delete--&gt; abcd. &lt;!--delete End--&gt;fs&quot;&quot;&quot;</span>
+<span class="n">ad</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">... abcd</span>
+<span class="s">... &lt;!--delete--&gt;</span>
+<span class="s">... abcd</span>
+<span class="s">... &lt;!--delete End--&gt;</span>
+<span class="s">abcd</span>
+
+<span class="s">... &lt;!--delete--&gt;</span>
+<span class="s">... abcd</span>
+<span class="s">... &lt;!--delete End--&gt;</span>
+<span class="s">abcd</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+<span class="c">#print re.sub(r&#39;&lt;!--delete--&gt;.*&lt;!--delete End--&gt;&#39;, r&#39;&#39;, ac)</span>
+<span class="c">#print re.sub(r&#39;&lt;!--delete--&gt;(.|\n)*&lt;!--delete End--&gt;&#39;, r&#39;&#39;, ac)</span>
+<span class="k">print</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;&lt;!--delete--&gt;(.|\n)*?&lt;!--delete End--&gt;&#39;</span><span class="p">,</span> <span class="s">r&#39;&#39;</span><span class="p">,</span> <span class="n">ac</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;---------------------&#39;</span>
+<span class="k">print</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;&lt;!--delete--&gt;(.|\n)*?&lt;!--delete End--&gt;&#39;</span><span class="p">,</span> <span class="s">r&#39;&#39;</span><span class="p">,</span> <span class="n">ad</span><span class="p">)</span>
+
+<span class="c">#print re.sub(r&#39;.*&#39;, r&#39;&#39;, ac) --- 机上python2.5, 还不支持flags=re.DOTALL, 所以换行的话压根替换不了. 但诡异的是, 文档上说2.4之后就能用flags, 但机器上2.5版本竟然不支持!</span>
+<span class="c">#print re.sub(r&#39;(.|\n)*&#39;, r&#39;&#39;, ac) --- 加上\n,支持换行了,,,不过是最大贪婪匹配了, 最前一个delete和最后一个delete END之间的完全替换掉了..</span>
+<span class="c">#print re.sub(r&#39;(.|\n)*?&#39;, r&#39;&#39;, ac) --- 嗯嗯, 加个?, 改成非贪婪模式就好了..</span>
+</pre></div>
+</blockquote>
+</li>
+</ol>
+<p>最后, re.subn(pattern, repl, string[, count, flags]) Perform the same operation as sub(), but return a tuple (new_string, number_of_subs_made). 和sub唯一的区别就是返回的是一个元组, 新字符串和被替换的次数.</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Python">Python</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

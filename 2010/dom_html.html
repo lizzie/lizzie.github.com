@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM.html - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=6d655"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/dom_html.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">DOM.html</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-09-24T09:09:00+08:00">
+        <a href="/2010/">2010-09-24</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>KISSY DOM系列之三, 有关 html 内容的设置</p>
+<div class="section" id="dom-create-js">
+<h2>dom-create.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-create.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-create.js</a></p>
+<p>dom.create() 创建 DOM 元素</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">create</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="nx">props</span><span class="p">,</span> <span class="nx">ownerDoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nodeTypeIs</span><span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">||</span> <span class="nx">nodeTypeIs</span><span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="k">return</span> <span class="nx">cloneNode</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">isKSNode</span><span class="p">(</span><span class="nx">html</span><span class="p">))</span> <span class="k">return</span> <span class="nx">cloneNode</span><span class="p">(</span><span class="nx">html</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">html</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">trim</span><span class="p">(</span><span class="nx">html</span><span class="p">)))</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">creators</span> <span class="o">=</span> <span class="nx">DOM</span><span class="p">.</span><span class="nx">_creators</span><span class="p">,</span>
+        <span class="nx">m</span><span class="p">,</span> <span class="nx">tag</span> <span class="o">=</span> <span class="nx">DIV</span><span class="p">,</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">nodes</span><span class="p">;</span>
+
+    <span class="c1">// 简单 tag, 比如 DOM.create(&#39;&lt;p&gt;&#39;)</span>
+    <span class="k">if</span> <span class="p">((</span><span class="nx">m</span> <span class="o">=</span> <span class="nx">RE_SIMPLE_TAG</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">html</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="nx">ret</span> <span class="o">=</span> <span class="p">(</span><span class="nx">ownerDoc</span> <span class="o">||</span> <span class="nx">doc</span><span class="p">).</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="c1">// 复杂情况，比如 DOM.create(&#39;&lt;img src=&quot;sprite.png&quot; /&gt;&#39;)</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="nx">m</span> <span class="o">=</span> <span class="nx">RE_TAG</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">html</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">k</span> <span class="o">=</span> <span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nx">S</span><span class="p">.</span><span class="nx">isFunction</span><span class="p">(</span><span class="nx">creators</span><span class="p">[(</span><span class="nx">k</span> <span class="o">=</span> <span class="nx">k</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())]))</span> <span class="p">{</span>
+            <span class="nx">tag</span> <span class="o">=</span> <span class="nx">k</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">nodes</span> <span class="o">=</span> <span class="nx">creators</span><span class="p">[</span><span class="nx">tag</span><span class="p">](</span><span class="nx">html</span><span class="p">,</span> <span class="nx">ownerDoc</span><span class="p">).</span><span class="nx">childNodes</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// return single node, breaking parentNode ref from &quot;fragment&quot;</span>
+            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="nx">PARENT_NODE</span><span class="p">].</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// return multiple nodes as a fragment</span>
+            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">nl2frag</span><span class="p">(</span><span class="nx">nodes</span><span class="p">,</span> <span class="nx">ownerDoc</span> <span class="o">||</span> <span class="nx">doc</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">attachProps</span><span class="p">(</span><span class="nx">ret</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
+<span class="p">},</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>如果是文本或元素节点, 直接克隆返回, 使用 elem.cloneNode(true) , ie&lt;8时还需设置innerHTML;</li>
+<li>如果是 kissy 的 Node, 返回 克隆这个node 对应的 element;</li>
+<li>简单的html, 比如只有标签的, 使用 doc.createElement(xxx);</li>
+<li>比较复杂的html, 通过创建一个父元素(一般为div)包裹这些html, 获得这个父元素的所有孩子节点 nodelist (分开处理一个孩子或多个孩子), 还得将 nodelist 转换成 fragment 返回;</li>
+<li>如果有属性设置, 通过 DOM.attr 设置, 所以支持 DOM.create('tag', {text:'xxxx', title:'xxx', css:{color: 'white'}});</li>
+<li>还有如 table, thead, th, tfoot, 等元素, 需要特殊处理;</li>
+</ul>
+<p>dom.html() 获取/设置元素内的内容
+// getter
+* 取 elm.innerHTML
+// setter ----&gt; setHTML(elem, val, loadScripts, callback);</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">setHTML</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">html</span><span class="p">,</span> <span class="nx">loadScripts</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">loadScripts</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">setHTMLSimple</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">html</span><span class="p">);</span>
+        <span class="nx">S</span><span class="p">.</span><span class="nx">isFunction</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">callback</span><span class="p">();</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">guid</span><span class="p">(</span><span class="s1">&#39;ks-tmp-&#39;</span><span class="p">),</span>
+        <span class="nx">re_script</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">RE_SCRIPT</span><span class="p">);</span> <span class="c1">// 防止</span>
+
+    <span class="nx">html</span> <span class="o">+=</span> <span class="s1">&#39;&lt;span id=&quot;&#39;</span> <span class="o">+</span> <span class="nx">id</span> <span class="o">+</span> <span class="s1">&#39;&quot;&gt;&lt;/span&gt;&#39;</span><span class="p">;</span>
+
+    <span class="c1">// 确保脚本执行时，相关联的 DOM 元素已经准备好</span>
+    <span class="nx">S</span><span class="p">.</span><span class="nx">available</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">hd</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">),</span>
+            <span class="nx">match</span><span class="p">,</span> <span class="nx">attrs</span><span class="p">,</span> <span class="nx">srcMatch</span><span class="p">,</span> <span class="nx">charsetMatch</span><span class="p">,</span>
+            <span class="nx">t</span><span class="p">,</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">text</span><span class="p">;</span>
+
+        <span class="nx">re_script</span><span class="p">.</span><span class="nx">lastIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">((</span><span class="nx">match</span> <span class="o">=</span> <span class="nx">re_script</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">html</span><span class="p">)))</span> <span class="p">{</span>
+            <span class="nx">attrs</span> <span class="o">=</span> <span class="nx">match</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+            <span class="nx">srcMatch</span> <span class="o">=</span> <span class="nx">attrs</span> <span class="o">?</span> <span class="nx">attrs</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">RE_SCRIPT_SRC</span><span class="p">)</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="c1">// script via src</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">srcMatch</span> <span class="o">&amp;&amp;</span> <span class="nx">srcMatch</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nx">s</span> <span class="o">=</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
+                <span class="nx">s</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">srcMatch</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+                <span class="c1">// set charset</span>
+                <span class="k">if</span> <span class="p">((</span><span class="nx">charsetMatch</span> <span class="o">=</span> <span class="nx">attrs</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">RE_SCRIPT_CHARSET</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="nx">charsetMatch</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="p">{</span>
+                    <span class="nx">s</span><span class="p">.</span><span class="nx">charset</span> <span class="o">=</span> <span class="nx">charsetMatch</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="nx">s</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// make sure async in gecko</span>
+                <span class="nx">hd</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="c1">// inline script</span>
+            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="nx">text</span> <span class="o">=</span> <span class="nx">match</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nx">text</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">S</span><span class="p">.</span><span class="nx">globalEval</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 删除探测节点</span>
+        <span class="p">(</span><span class="nx">t</span> <span class="o">=</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="nx">DOM</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
+
+        <span class="c1">// 回调</span>
+        <span class="nx">S</span><span class="p">.</span><span class="nx">isFunction</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">callback</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="nx">setHTMLSimple</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">html</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>通过 elm.innerHTML 设置, 但一些特殊元素 table/tr/td 等在IE下, innerHTML 是只读属性, 不能通过它来设置, 而是先 removeChild, 然后再 appendChild;</li>
+<li>如果包含 script 脚本, 首先确保在 DOM ready 后执行(通过创建一个临时节点来判断是否 ready ), 若是脚本文件插入到 head 末尾, 且设置其 async 为 true, 即异步加载, 不阻塞浏览器, 若是内联脚本, 使用 S.globalEval(text) 立即执行该脚本;</li>
+</ul>
+<p>dom.remove()</p>
+<ul class="simple">
+<li>el.parentNode.removeChild(el);</li>
+<li>是否需要删除expando和event, 如 jQuery 的处理?</li>
+</ul>
+</div>
+<div class="section" id="dom-inseartion-js">
+<h2>dom-inseartion.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-insertion.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-insertion.js</a></p>
+<ul class="simple">
+<li>appendChild, removeChild, replaceChild 直接用原生的方法;</li>
+<li>添加 insertBefore/insertAfter 方法, 实现时转换成父元素的 insertBefore 来, 只是被参照的元素不同.</li>
+</ul>
+</div>
+<div class="section" id="dom-traversal-js">
+<h2>dom-traversal.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-traversal.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-traversal.js</a></p>
+<p>DOM 的遍历</p>
+<p>parent()/next()/prev() 这种只取单个元素的方法, ---&gt; nth(elem, filter, direction, extraFilter)</p>
+<ul class="simple">
+<li>获取 elem 满足 filter 的第一个 parentNode, nextSibling, previousSibling 元素.</li>
+<li>filter 为数字时, 表示深度, 从0开始, 0 表示当前 elem;</li>
+</ul>
+<p>siblings()/children() 这类取一批元素的方法, ---&gt; getSiblings(selector, filter, parent)</p>
+<ul class="simple">
+<li>获取 elem 满足条件的所有siblings</li>
+<li>利用 parentNode.firstChild 和 next.nextSibling , siblings() 取 elem.parentNode 的 孩子 且不是 elem 的元素.</li>
+</ul>
+<p>contains() 判断一个节点(contained)是否在另外一个节点(container)内</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">contains</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span> <span class="nx">contained</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">((</span><span class="nx">container</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">container</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">contained</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">contained</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">contains</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">container</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="nx">contained</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">compareDocumentPosition</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="o">!!</span><span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">compareDocumentPosition</span><span class="p">(</span><span class="nx">contained</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">16</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">ret</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">contained</span> <span class="o">=</span> <span class="nx">contained</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nx">ret</span> <span class="o">=</span> <span class="nx">contained</span> <span class="o">==</span> <span class="nx">container</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>最容易想到的方法, 判断 contained.parentNode 是否为 container, 如果不是, 再次判断parentNode.parentNode,依次下去, ps: document.parentNode 为 null;</li>
+<li>Firefox, Opera 支持 compareDocumentPosition , 就可以直接使用该方法, 具体见下链接;</li>
+<li>如果对象已经包含 contains 方法, 则用他的 contains 方法;</li>
+</ul>
+</div>
+<div class="section" id="dom-class-js">
+<h2>dom-class.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-class.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-class.js</a></p>
+<p>hasClass()/addClass()/removeClass() 处理 elem.className
+replaceClass() 先删removeClass()后加addClass()
+toggleClass() 有某个 cls, 则removClass, 没有则addClass()</p>
+<ul class="simple">
+<li>这几个方法大多用到 batch(selector, value, fn, resultIsBool) 方法, 用于批量操作, 对符合条件的一批元素进行.</li>
+</ul>
+</div>
+<div class="section" id="selector-js">
+<h2>selector.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/selector.js">http://github.com/kissyteam/kissy/blob/master/src/dom/selector.js</a></p>
+<p>终于到 selector 了. 可谓是 DOM 的核心了. 所以留到最后.
+S.get()/S.query()/S.filter()/S.test() ---&gt; query()
+优先级及先后处理顺序#id, cls, tag, 先出现的作为 context;</p>
+<ul>
+<li><p class="first">#id ----&gt; getElementById;</p>
+</li>
+<li><p class="first">#id .cls | #id tag.cls | .cls | tag.cls ----&gt; getElementsByClassName or querySelectorAll or getElementsByTagName 自个儿判断;</p>
+<blockquote>
+<div class="highlight"><pre><span class="c1">// query .cls</span>
+    <span class="kd">function</span> <span class="nx">getElementsByClassName</span><span class="p">(</span><span class="nx">cls</span><span class="p">,</span> <span class="nx">tag</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">els</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="nx">cls</span><span class="p">),</span>
+            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">els</span><span class="p">,</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">els</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">el</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">tag</span> <span class="o">&amp;&amp;</span> <span class="nx">tag</span> <span class="o">!==</span> <span class="nx">ANY</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">ret</span> <span class="o">=</span> <span class="p">[];</span>
+            <span class="nx">tag</span> <span class="o">=</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+            <span class="k">for</span> <span class="p">(;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">el</span> <span class="o">=</span> <span class="nx">els</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">el</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">===</span> <span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">ret</span><span class="p">[</span><span class="nx">j</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nx">el</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">doc</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 降级使用 querySelectorAll</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">getElementsByClassName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cls</span><span class="p">,</span> <span class="nx">tag</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">context</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">((</span><span class="nx">tag</span> <span class="o">?</span> <span class="nx">tag</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">cls</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">// 降级到普通方法</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">getElementsByClassName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cls</span><span class="p">,</span> <span class="nx">tag</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">els</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">tag</span> <span class="o">||</span> <span class="nx">ANY</span><span class="p">),</span>
+                    <span class="nx">ret</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">els</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">t</span><span class="p">;</span>
+
+                <span class="nx">cls</span> <span class="o">=</span> <span class="nx">SPACE</span> <span class="o">+</span> <span class="nx">cls</span> <span class="o">+</span> <span class="nx">SPACE</span><span class="p">;</span>
+                <span class="k">for</span> <span class="p">(;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">el</span> <span class="o">=</span> <span class="nx">els</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+                    <span class="nx">t</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">className</span><span class="p">;</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nx">t</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">SPACE</span> <span class="o">+</span> <span class="nx">t</span> <span class="o">+</span> <span class="nx">SPACE</span><span class="p">).</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">cls</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">ret</span><span class="p">[</span><span class="nx">j</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nx">el</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">这里的 getElementsByClassName 方法, 处理比较复杂,</p>
+</li>
+<li><p class="first">传入 S.Node or S.NodeList, 会转成 DOM Node 返回;</p>
+</li>
+<li><p class="first">filter, 过滤满足条件的元素, 在 query 基础上;</p>
+</li>
+<li><p class="first">S.query('.x').each(fn, context) 等价于 S.each(S.query('.x'), fn, context)</p>
+</li>
+<li><p class="first">S.ExternalSelector 额外的选择器, 比如 sizzle.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="node-js-nodelist-js">
+<h2>node.js/nodelist.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/node">http://github.com/kissyteam/kissy/blob/master/src/node</a></p>
+<p>代替 DOM 原生的 Node, KISSY 的 Node/NodeList, 以支持链式操作.</p>
+<ul class="simple">
+<li>S.one()/S.all()</li>
+<li>node.getDOMNode(), nodelist.item(idx), .getDOMNodes(), .each(fn, context), 貌似没啥好说的.</li>
+</ul>
+</div>
+<div class="section" id="node-attach-js">
+<h2>node-attach.js</h2>
+<p>给 Node/NodeList, 添加一些 DOM 中实现的方法.</p>
+<ul class="simple">
+<li>.one/.all, 同S.one/S.all;</li>
+<li>.append/.appendTo, 追加html/添加到父节点的末尾上;</li>
+<li>核心: attach/normalGetterSetter, 用于将 Node/NodeList 的方法 转移到 DOM 方法实现.</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>相关资源链接</h2>
+<ul class="simple">
+<li><a class="reference external" href="https://developer.mozilla.org/en/DOM/Node.compareDocumentPosition">compareDocumentPosition: Compares the position of the current node against another node in any other document.</a></li>
+<li>DOM.contains(): <a class="reference external" href="http://ejohn.org/blog/comparing-document-position/">http://ejohn.org/blog/comparing-document-position/</a> 和 <a class="reference external" href="http://www.quirksmode.org/blog/archives/2006/01/contains_for_mo.html">http://www.quirksmode.org/blog/archives/2006/01/contains_for_mo.html</a></li>
+</ul>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a><a href="/tag/#KISSY">KISSY</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>近期一些Tips - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=6d655"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/recent_tips.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">近期一些Tips</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-09-03T13:09:32+08:00">
+        <a href="/2010/">2010-09-03</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <ul>
+<li><p class="first">JS 访问被拒, 很有可能是跨域引起的.</p>
+</li>
+<li><p class="first">a的target值可取:</p>
+<blockquote>
+<ul class="simple">
+<li>_blank 总在一个新窗口/新标签页中打开文档.</li>
+<li>_self 默认值, 在当前这个页/框架上打开.</li>
+<li>_parent 在父窗口/框架中打开.</li>
+<li>_top 清除现有所有被包含的框架, 在整个窗口中打开.</li>
+<li>framename 在名字为framename的框架中打开.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">position</p>
+<blockquote>
+<ul class="simple">
+<li>position: relative, 是说相对于正常情况下该元素在文档流中的位置而言, 仍占据原来元素在文档流的位置. 设置left,top, right, bottom, 可是长度, 百分比, auto;</li>
+<li>position: absolute, 是**完全**移出文档流, 不占据元素原来在文档流中的位置;</li>
+<li>position: static, 默认值, 元素在预设的地方, 就是正常出现在文档流中的位置;</li>
+</ul>
+<p>父容器设置relative之后, 其内部元素随之relative, 如果再设置子元素absolute, 就可以定位到父元素的任意位置. <a class="reference external" href="http://www.w3.org/TR/CSS2/visuren.html#positioning-scheme">http://www.w3.org/TR/CSS2/visuren.html#positioning-scheme</a></p>
+</blockquote>
+</li>
+<li><p class="first">设置背景透明</p>
+<blockquote>
+<ul class="simple">
+<li>background: rgba(122, 122, 122, .5);</li>
+<li>不支持rgba的IE使用</li>
+</ul>
+<div class="highlight"><pre><span class="nt">filter</span><span class="o">:</span> <span class="nt">progid</span><span class="nd">:DXImageTransform</span><span class="nc">.Microsoft.gradient</span><span class="o">(</span><span class="nt">startColorStr</span><span class="o">=</span><span class="s1">&#39;#7f7A7A7A&#39;</span><span class="o">,</span><span class="nt">EndColorStr</span><span class="o">=</span><span class="s1">&#39;#7f7A7A7A&#39;</span><span class="o">);</span>
+</pre></div>
+<p>渐变使用的时候, 要注意被设置元素hasLayout, 加个zoom:1, 或者设置一下height就可以, 不然渐变会出不来, 估计渐变是需要计算高度才能渲染出来, 不然未知高度下也不好确定渐变幅度什么的.</p>
+</blockquote>
+</li>
+</ul>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#CSS">CSS</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simile Widgets - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=6d655"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/simile_widgets.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Simile Widgets</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-06-25T11:06:14+08:00">
+        <a href="/2010/">2010-06-25</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>介绍个生成数据图的开源js库----simileWidgets</p>
+<ul class="simple">
+<li>website: <a class="reference external" href="http://www.simile-widgets.org/">http://www.simile-widgets.org/</a></li>
+<li>Google Code: <a class="reference external" href="http://code.google.com/p/simile-widgets/">http://code.google.com/p/simile-widgets/</a></li>
+<li>timeplot入门: <a class="reference external" href="http://www.simile-widgets.org/timeplot/docs/">http://www.simile-widgets.org/timeplot/docs/</a></li>
+</ul>
+<p>simile-widgets不比google visualization api差多少, 而且画出的图更加漂亮些. 但是期间会加载很多js文件,,所以反应比较慢.</p>
+<p>里面的timeline倒是有loadJSON方法, 但我使用的timeplot居然没实现..所以只能增加loadJSON方法, 可以扩展原来的timePlot, 如下代码, Timeplot的loadJson和Timeplot.DefaultEventSource的loadJSON可以独立起来, 就是如果不想用Timeplot的ajax请求, 自己获得一段json数据, 就可以直接实现Timeplot.DefaultEventSource的loadJSON,, 话说只扩展后者, 这样更加方便.
+详细例子可见 <a class="reference external" href="http://www.ericmmartin.com/traffic-charts-for-my-commute/">http://www.ericmmartin.com/traffic-charts-for-my-commute/</a></p>
+<div class="highlight"><pre><span class="cm">/* Extend Timeplot functions */</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Mimic the timeplot.loadText function</span>
+<span class="cm"> * - Only needed to change eventSource.loadText to eventSource.loadJSON</span>
+<span class="cm"> */</span>
+<span class="nx">Timeplot</span><span class="p">.</span><span class="nx">_Impl</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">loadJSON</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">separator</span><span class="p">,</span><span class="nx">eventSource</span><span class="p">,</span><span class="nx">filter</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_active</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">tp</span><span class="o">=</span><span class="k">this</span><span class="p">;</span>
+
+        <span class="kd">var</span> <span class="nx">fError</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">statusText</span><span class="p">,</span><span class="nx">status</span><span class="p">,</span><span class="nx">xmlhttp</span><span class="p">){</span>
+            <span class="nx">tp</span><span class="p">.</span><span class="nx">hideLoadingMessage</span><span class="p">();</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#my-timeplot&#39;</span><span class="p">).</span><span class="nx">empty</span><span class="p">().</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;&lt;span class=&#39;error&#39;&gt;Failed to load JSON data from &quot;</span><span class="o">+</span><span class="nx">url</span><span class="o">+</span><span class="s2">&quot;. Error: &quot;</span><span class="o">+</span><span class="nx">statusText</span><span class="o">+</span><span class="s2">&quot;&lt;/span&quot;</span><span class="p">);</span>
+        <span class="p">};</span>
+
+        <span class="kd">var</span> <span class="nx">fDone</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">xmlhttp</span><span class="p">){</span>
+            <span class="k">try</span><span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">responseText</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(\[|\])/g</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">length</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span>
+                    <span class="nx">eventSource</span><span class="p">.</span><span class="nx">loadJSON</span><span class="p">(</span><span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">responseText</span><span class="p">,</span><span class="nx">separator</span><span class="p">,</span><span class="nx">url</span><span class="p">,</span><span class="nx">filter</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#my-timeplot&#39;</span><span class="p">).</span><span class="nx">empty</span><span class="p">().</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;&lt;span class=&#39;error&#39;&gt;No data found&lt;/span&gt;&quot;</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+                <span class="nx">SimileAjax</span><span class="p">.</span><span class="nx">Debug</span><span class="p">.</span><span class="nx">exception</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+            <span class="p">}</span><span class="k">finally</span><span class="p">{</span>
+                <span class="nx">tp</span><span class="p">.</span><span class="nx">hideLoadingMessage</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">};</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">showLoadingMessage</span><span class="p">();</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">SimileAjax</span><span class="p">.</span><span class="nx">XmlHttp</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">fError</span><span class="p">,</span><span class="nx">fDone</span><span class="p">);},</span><span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Mimic the eventSource.loadText function</span>
+<span class="cm"> * - Do not parse all data, only the JSON value when creating an evt</span>
+<span class="cm"> * - Parse the JSON into an Object</span>
+<span class="cm"> */</span>
+<span class="nx">Timeplot</span><span class="p">.</span><span class="nx">DefaultEventSource</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">loadJSON</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">jsonText</span><span class="p">,</span><span class="nx">separator</span><span class="p">,</span><span class="nx">url</span><span class="p">,</span><span class="nx">filter</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">jsonText</span><span class="o">==</span><span class="kc">null</span><span class="p">){</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">jsonText</span><span class="p">.</span><span class="nx">parseJSON</span><span class="p">();</span> <span class="c1">// 依赖json.js</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="p">.</span><span class="nx">maxValues</span><span class="o">=</span><span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">base</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">_getBaseURL</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">dateTimeFormat</span><span class="o">=</span><span class="s1">&#39;iso8601&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">parseDateTimeFunction</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="p">.</span><span class="nx">getUnit</span><span class="p">().</span><span class="nx">getParser</span><span class="p">(</span><span class="nx">dateTimeFormat</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">added</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">filter</span><span class="p">){</span>
+        <span class="nx">data</span><span class="o">=</span><span class="nx">filter</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="kd">var</span> <span class="nx">row</span><span class="o">=</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">row</span><span class="p">.</span><span class="nx">date</span><span class="p">){</span>
+                <span class="kd">var</span> <span class="nx">evt</span><span class="o">=</span><span class="k">new</span> <span class="nx">Timeplot</span><span class="p">.</span><span class="nx">DefaultEventSource</span><span class="p">.</span><span class="nx">NumericEvent</span><span class="p">(</span>
+                    <span class="nx">parseDateTimeFunction</span><span class="p">(</span><span class="nx">row</span><span class="p">.</span><span class="nx">date</span><span class="p">),</span>
+                    <span class="k">this</span><span class="p">.</span><span class="nx">_parseJSONValue</span><span class="p">(</span><span class="nx">row</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span><span class="nx">separator</span><span class="p">)</span>
+                <span class="p">);</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">evt</span><span class="p">);</span>
+                <span class="nx">added</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">added</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_fire</span><span class="p">(</span><span class="s1">&#39;onAddMany&#39;</span><span class="p">,[]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Turn the JSON value into an array so that it can be correctly processed</span>
+<span class="cm"> * by Timeplot</span>
+<span class="cm"> */</span>
+<span class="nx">Timeplot</span><span class="p">.</span><span class="nx">DefaultEventSource</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_parseJSONValue</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span><span class="nx">separator</span><span class="p">){</span>
+    <span class="nx">value</span><span class="o">=</span><span class="nx">value</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\r\n?/g</span><span class="p">,</span><span class="s1">&#39;\n&#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">pos</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">len</span><span class="o">=</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">line</span><span class="o">=</span><span class="p">[];</span>
+    <span class="k">while</span><span class="p">(</span><span class="nx">pos</span><span class="o">&lt;</span><span class="nx">len</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">nextseparator</span><span class="o">=</span><span class="nx">value</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">separator</span><span class="p">,</span><span class="nx">pos</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">nextnline</span><span class="o">=</span><span class="nx">value</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">,</span><span class="nx">pos</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">nextnline</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span><span class="nx">nextnline</span><span class="o">=</span><span class="nx">len</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">nextseparator</span><span class="o">&gt;-</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="nx">nextseparator</span><span class="o">&lt;</span><span class="nx">nextnline</span><span class="p">){</span>
+            <span class="nx">line</span><span class="p">[</span><span class="nx">line</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span><span class="o">=</span><span class="nx">value</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="nx">pos</span><span class="p">,</span><span class="nx">nextseparator</span><span class="o">-</span><span class="nx">pos</span><span class="p">);</span>
+            <span class="nx">pos</span><span class="o">=</span><span class="nx">nextseparator</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="nx">line</span><span class="p">[</span><span class="nx">line</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span><span class="o">=</span><span class="nx">value</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="nx">pos</span><span class="p">,</span><span class="nx">nextnline</span><span class="o">-</span><span class="nx">pos</span><span class="p">);</span>
+            <span class="nx">pos</span><span class="o">=</span><span class="nx">nextnline</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">line</span><span class="p">.</span><span class="nx">length</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span><span class="k">return</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">line</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<p>用用还是不错的,,,如果自己写就够呛了.^-^</p>
+<p>条状bar, 内容空的div, 只设置高度/宽度的话, 设置背景色使其成为一个长条状时, ie6下需要注意, 也要将其font-size设为0, 不然会多出font-size的高度, 虽然里面没有字, 但还是会被撑开了.</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

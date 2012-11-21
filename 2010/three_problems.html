@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Three Problems - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=6d655"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/three_problems.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Three Problems</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-10-10T08:10:51+08:00">
+        <a href="/2010/">2010-10-10</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <div class="section" id="window-length">
+<h2>window.length</h2>
+<p>window.length:</p>
+<blockquote>
+<ul class="simple">
+<li>Returns the number of frames in the window.</li>
+<li>或是有 length 变量的全局定义;</li>
+<li><a class="reference external" href="https://developer.mozilla.org/en/DOM/window">https://developer.mozilla.org/en/DOM/window</a></li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id1">
+<h2>渐变的一个例子</h2>
+<p>水平渐变，33%处为绿色，66%处为橙色：</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">background-image</span><span class="nd">:-webkit-gradient</span><span class="o">(</span><span class="nt">linear</span><span class="o">,</span><span class="nt">0</span><span class="o">%</span> <span class="nt">0</span><span class="o">%,</span><span class="nt">100</span><span class="o">%</span> <span class="nt">0</span><span class="o">%,</span><span class="nt">from</span><span class="o">(</span><span class="nf">#2A8BBE</span><span class="o">),</span><span class="nt">color-stop</span><span class="o">(</span><span class="nt">0</span><span class="nc">.33</span><span class="o">,</span><span class="nf">#AAD010</span><span class="o">),</span><span class="nt">color-stop</span><span class="o">(</span><span class="nt">0</span><span class="nc">.33</span><span class="o">,</span><span class="nf">#FF7F00</span><span class="o">),</span><span class="nt">to</span><span class="o">(</span><span class="nf">#FE280E</span><span class="o">));</span>
+</pre></div>
+</blockquote>
+<p>一直以为浏览器中的渐变只能两种颜色, 其他可以有很多~ 更多见 <a class="reference external" href="http://www.cnblogs.com/yuntian/archive/2010/10/08/1827993.html">http://www.cnblogs.com/yuntian/archive/2010/10/08/1827993.html</a></p>
+</div>
+<div class="section" id="ie-image">
+<h2>IE下创建 Image 的宽高问题</h2>
+<p>在使用 document.createElement 或 new Image() 创建 img 时, IE6/7/8下会给 img 元素设置 width/height 属性, 如:</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;http://img01.taobaocdn.com/imgextra/i1/T1s.pHXlFIXXbVn43V_021049.jpg&quot;</span> <span class="na">width=</span><span class="s">720</span> <span class="na">height=</span><span class="s">478</span> <span class="nt">/&gt;</span>
+</pre></div>
+</blockquote>
+<p>且之后如果再次更改 src , width/height 还是原来的值.</p>
+<p>这似乎是一个bug, 创建一个img, 我并不想设置 width/height ! 替代方法是使用 <tt class="docutils literal"><span class="pre">S.DOM.create('&lt;img</span> <span class="pre">src=&quot;http://img01.taobaocdn.com/imgextra/i1/T1s.pHXlFIXXbVn43V_021049.jpg&quot;</span> <span class="pre">/&gt;');</span></tt>
+她实现时不用 document.createElement 而是创建一个父 div, 设置其 innerHTML 为目标字符串, 所以能避免自动设置 width/height;</p>
+<p>这里, 比较奇怪的一个:</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">);</span> <span class="c1">// or new Image(); or S.DOM.create(&#39;&amp;lt;img&gt;&#39;);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="nx">img</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">),</span> <span class="nx">img</span><span class="p">.</span><span class="nx">width</span><span class="p">]);</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;http://img01.taobaocdn.com/imgextra/i1/T1s.pHXlFIXXbVn43V_021049.jpg&#39;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="nx">img</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">),</span> <span class="nx">img</span><span class="p">.</span><span class="nx">width</span><span class="p">]);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">img</span><span class="p">);</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="nx">img</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">),</span> <span class="nx">img</span><span class="p">.</span><span class="nx">width</span><span class="p">]);</span>
+<span class="p">}</span>
+
+
+<span class="c1">// 日志: 1,,0,</span>
+<span class="c1">// 日志: 2,720,720,   &lt;---- 图片还没有加载完, 但已经能获得图片宽高</span>
+<span class="c1">// 日志: 3,720,720,</span>
+</pre></div>
+</blockquote>
+<p>width/height 获取并不是当图片加载完成之后设置, 而是一设置 src 后, 发出请求获取图片文件头后, 就能获取其宽高(jpg, png, gif文件头信息中都包含图像宽高信息).
+从这点上, IE中, 不用等待图片加载完成就能获取其高宽, 这样有些情况下 onload 都不用写, 可惜~其他浏览器下不能这么做!</p>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/226847/what-is-the-best-javascript-code-to-create-an-img-element">http://stackoverflow.com/questions/226847/what-is-the-best-javascript-code-to-create-an-img-element</a></li>
+<li><a class="reference external" href="http://dev.gameres.com/Program/Visual/Other/PNGFormat.htm">http://dev.gameres.com/Program/Visual/Other/PNGFormat.htm</a></li>
+<li><a class="reference external" href="http://www.onicos.com/staff/iz/formats/gif.html">http://www.onicos.com/staff/iz/formats/gif.html</a></li>
+</ul>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a><a href="/tag/#CSS">CSS</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

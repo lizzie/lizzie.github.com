@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDB - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=6d655"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/pdb.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">PDB</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-05-20T01:05:50+08:00">
+        <a href="/2010/">2010-05-20</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>看到一篇Pdb的入门文章, 简单记录一下.</p>
+<blockquote>
+<ul class="simple">
+<li>原文: <a class="reference external" href="http://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python/">http://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python/</a></li>
+<li>pdb文档: <a class="reference external" href="http://docs.python.org/library/pdb.html">http://docs.python.org/library/pdb.html</a></li>
+</ul>
+</blockquote>
+<p>pdb为python中的调试模块.</p>
+<p>最简单的例子:</p>
+<blockquote>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">pdb</span>  <span class="c"># pdb模块</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s">&quot;aaa&quot;</span>
+<span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>  <span class="c"># 设置跟踪点</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s">&quot;bbb&quot;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="s">&quot;ccc&quot;</span>
+<span class="n">final</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+<span class="k">print</span> <span class="n">final</span>
+</pre></div>
+</blockquote>
+<p>当运行该脚本之后, 进入pdb的调试界面. 主要是一些命令的使用:</p>
+<blockquote>
+<ul class="simple">
+<li>n+Enter: 执行下一句;</li>
+<li>直接按Enter, 会重复执行上一命令;.</li>
+<li>q: 退出调试;</li>
+<li>p: 后面加变量, 可打印出变量值;</li>
+<li>c: 退出调试但继续执行余下的程序, 或是有多个set_trace时, c会结束当前这个trace, 下一个trace时仍会进入调试;</li>
+<li>l:　列出当前执行点前后的11行代码;</li>
+<li>s: 进入子模块, step into;</li>
+<li>r: 退出子模块;</li>
+</ul>
+</blockquote>
+<p>就这些. 很简单吧..忘了还有一点.</p>
+<blockquote>
+<div class="highlight"><pre><span class="p">(</span><span class="n">Pdb</span><span class="p">)</span><span class="err">!</span><span class="n">b</span> <span class="o">=</span> <span class="s">&quot;BBB&quot;</span> <span class="c"># 调试时改变某变量值.</span>
+</pre></div>
+</blockquote>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Python">Python</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

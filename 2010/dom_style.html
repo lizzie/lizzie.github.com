@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM.style - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=6d655"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2010/dom_style.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">DOM.style</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2010-09-15T13:09:44+08:00">
+        <a href="/2010/">2010-09-15</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>继续上回的 KISSY DOM 源码学习..今天看了 style, attr, 和 data相关.</p>
+<div class="section" id="dom-style-js">
+<h2>dom-style.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-style.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-style.js</a>
+<a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-style-ie.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-style-ie.js</a></p>
+<p>DOM.css() 先看setter</p>
+<blockquote>
+<div class="highlight"><pre><span class="c1">// setter</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// normalize unsetting</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">val</span> <span class="o">===</span> <span class="nx">EMPTY</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">val</span> <span class="o">=</span> <span class="nx">EMPTY</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// number values may need a unit</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">val</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="nx">RE_NEED_UNIT</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">name</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">val</span> <span class="o">+=</span> <span class="nx">DEFAULT_UNIT</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ignore negative width and height values</span>
+    <span class="k">if</span> <span class="p">((</span><span class="nx">name</span> <span class="o">===</span> <span class="nx">WIDTH</span> <span class="o">||</span> <span class="nx">name</span> <span class="o">===</span> <span class="nx">HEIGHT</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">S</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">S</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="nx">selector</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span> <span class="o">&amp;&amp;</span> <span class="nx">elem</span><span class="p">[</span><span class="nx">STYLE</span><span class="p">])</span> <span class="p">{</span>
+            <span class="nx">name</span><span class="p">.</span><span class="nx">set</span> <span class="o">?</span> <span class="nx">name</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span> <span class="o">:</span> <span class="p">(</span><span class="nx">elem</span><span class="p">[</span><span class="nx">STYLE</span><span class="p">][</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">val</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">===</span> <span class="nx">EMPTY</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">elem</span><span class="p">[</span><span class="nx">STYLE</span><span class="p">].</span><span class="nx">cssText</span><span class="p">)</span>
+                    <span class="nx">elem</span><span class="p">.</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="nx">STYLE</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<p>核心代码 <tt class="docutils literal">name.set ? name.set(elem, val) : <span class="pre">(elem[STYLE][name]</span> = val);</tt> , 也就是直接内敛设置元素的style, 前面的name.set判断 是针对 IE下, 一些特殊属性, 如 opacity, 需要特殊的处理, 所以在 style-ie.js 中增加 opacity 的 get/set 函数;</p>
+<p>PS: IE下的 opacity 通过 elem.filters.DXImageTransform.Microsoft.Alpha.opacity 或者 elem.filters.alpha.opacity 获取, 而设置时, 利用 elem.currentStyle.filter 中有关 opacity 的值进行设置.
+PS: 如果以后还有其他需要特殊处理的 css 属性, 就可以直接通过 类似于opacity 的方式 添加 属性的set和get, 而不用再次修改 style.js 中的代码;</p>
+<p>再看getter</p>
+<blockquote>
+<div class="highlight"><pre><span class="c1">// getter</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// supports css selector/Node/NodeList</span>
+    <span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">selector</span><span class="p">),</span> <span class="nx">ret</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span> <span class="o">&amp;&amp;</span> <span class="nx">elem</span><span class="p">[</span><span class="nx">STYLE</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">ret</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">get</span> <span class="o">?</span> <span class="nx">name</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="o">:</span> <span class="nx">elem</span><span class="p">[</span><span class="nx">STYLE</span><span class="p">][</span><span class="nx">name</span><span class="p">];</span>
+
+        <span class="c1">// 有 get 的直接用自定义函数的返回值</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">ret</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">name</span><span class="p">.</span><span class="nx">get</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">fixComputedStyle</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">DOM</span><span class="p">.</span><span class="nx">_getComputedStyle</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">name</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">ret</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">?</span> <span class="s1">&#39;&#39;</span> <span class="o">:</span> <span class="nx">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li><tt class="docutils literal">ret = name.get ? name.get(elem) : <span class="pre">elem[STYLE][name];</span></tt> name.get 同样是针对需要特殊处理的 属性,</li>
+<li>先尝试 取元素内敛的 style, 如果没有, 则使用 getComputedStyle 里计算当前的 CSS 属性值;</li>
+<li>fixComputedStyle, 对 getComputedStyle 返回的值再次处理, 主要针对 css 属性 left/top 的返回值为 auto 时处理, elem 的 position 为 absolute 时, kissy 取 left/top 值为 offsetLeft/offsetTop 减去 margin-left/margin-top 的值; elem 的 position 为 relative 时, 直接取 0;</li>
+</ul>
+<p>非 IE 下 获取元素 css 值, 使用的是 document.defaultView.getComputedStyle, IE下则用 elem.currentStyle, 所以 KISSY 针对 IE , 覆盖了 DOM._getComputedStyle , 使用 currentStyle.</p>
+<ul class="simple">
+<li>这里, 如果是 height 和 width, 就直接用DOM.height()/width();</li>
+<li>如果是数值, 但没有px指定, 则使用 Dean Edwards 上的巧妙方法 (<a class="reference external" href="http://erik.eae.net/archives/2007/07/27/18.54.15/#comment-102291">http://erik.eae.net/archives/2007/07/27/18.54.15/#comment-102291</a>), 主要是利用 elem.runtimeStyle, 详细见http://yiminghe.javaeye.com/blog/511589.</li>
+</ul>
+<p>还有一些其他的注意点:</p>
+<ul class="simple">
+<li>不同浏览器对 css 属性的命名认识也不一样, webkit 认识 camel-case(有-)的, 其他的只认识camelCase;</li>
+<li>CSS 中 float 和 js 的 float 冲突, 所以浏览器将 CSS 的 float 替代命名, IE 用 styleFloat, 标准浏览器用 cssFloat;</li>
+<li>color获取, 情况也很多, 详见 secrets of the javascrpt p172.</li>
+</ul>
+<p>DOM.width()/height()核心函数</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">getWH</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">selector</span><span class="p">),</span>
+        <span class="nx">which</span> <span class="o">=</span> <span class="nx">name</span> <span class="o">===</span> <span class="nx">WIDTH</span> <span class="o">?</span> <span class="p">[</span><span class="s1">&#39;Left&#39;</span><span class="p">,</span> <span class="s1">&#39;Right&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Top&#39;</span><span class="p">,</span> <span class="s1">&#39;Bottom&#39;</span><span class="p">],</span>
+        <span class="nx">val</span> <span class="o">=</span> <span class="nx">name</span> <span class="o">===</span> <span class="nx">WIDTH</span> <span class="o">?</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">offsetWidth</span> <span class="o">:</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">offsetHeight</span><span class="p">;</span>
+
+    <span class="nx">S</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">which</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">direction</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">val</span> <span class="o">-=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">_getComputedStyle</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="s1">&#39;padding&#39;</span> <span class="o">+</span> <span class="nx">direction</span><span class="p">))</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="nx">val</span> <span class="o">-=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">_getComputedStyle</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="s1">&#39;border&#39;</span> <span class="o">+</span> <span class="nx">direction</span> <span class="o">+</span> <span class="s1">&#39;Width&#39;</span><span class="p">))</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="nx">val</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>取的是 元素内容宽度, 而 clientWidth()/clientHeight() 是包含 padding 的.</li>
+<li>取的是offsetWidth/offsetHeight, 减去 padding和border 得到;</li>
+</ul>
+<p>DOM.show()/hide()/toggle() 元素显示/隐藏/切换.</p>
+<ul class="simple">
+<li>这里有一个注意的地方, 就是, 元素的 display 值, 再显示的时候, 不是固定设置 block, 而是设置 元素被隐藏之前的值, 当然在隐藏这个元素前会把原来的 display 值保存起来, 这里用到了 DOM.data.</li>
+</ul>
+</div>
+<div class="section" id="dom-data-js">
+<h2>dom-data.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-data.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-data.js</a></p>
+<p>DOM.data()/DOM.removeData()</p>
+<p>分为 winDataCache 和节点上的 dataCache ,</p>
+<ul class="simple">
+<li>如果是设置在 win 上的 data, key 为 expando(dom-data加载时随机生成的字串), cache为 winDataCache, 即 winDataCache[expando][name] = data;</li>
+<li>如果是设置在 某个节点上 的 data, key 为 node[expando](不存在时生成一个全局唯一的id, S.guid() 方法), cache为dataCache, 即dataCache[node[expando]][name] = data;</li>
+</ul>
+</div>
+<div class="section" id="dom-attr-js">
+<h2>dom-attr.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-attr.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-attr.js</a></p>
+<p>// attr getter</p>
+<ul class="simple">
+<li>ie7-, css与js冲突的属性, 如, for/class 名字分别为 htmlFor/className;</li>
+<li>mapping 属性, 如 readonly, checked, selected, 直接使用 elem.name 获取;</li>
+<li>其他用 getAttribute, 但还有一些属性, 在 ie7- 下, 得通过 getAttribute(name, 2) , 就是指定 第2个参数来获取 <a class="reference external" href="http://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx">http://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx</a>;</li>
+<li>style属性, ie7- 下用 elem.style.cssText;</li>
+</ul>
+<p>// attr setter</p>
+<ul class="simple">
+<li>style, 通过elem.style.cssText;</li>
+<li>checked 需要 elem.checked = xxx, 通过setAttribute(checked, xxx) 不行;</li>
+<li>其他用 setAttribute(name, val);</li>
+</ul>
+<p>// removeAttr:</p>
+<ul class="simple">
+<li>elem.removeAttribute(name);// 为何先得置空, DOM.attr(elem, name, EMPTY)??</li>
+</ul>
+<p>// val getter</p>
+<ul class="simple">
+<li>如果是 options 元素, 当没有设定 value 时，标准浏览器 option.value === option.text, ie7- 下，没有设定 value 时，option.value === '', 需要用 el.attributes.value 来判断是否有设定 value;</li>
+<li>如果是 select 元素, 如果是单选框, 就去 selectedIndex 那个 option 的val, 没有选中返回 null ; 如果是多选框, 则便利判断 option 是否被 selected, 是则返回, 最终返回以 val 数组, 没有选择返回[];</li>
+<li>如果 radiobox, 如果是webkit浏览器, 没有设置 value时 默认返回 'on';</li>
+<li>剩余的元素, 统一用 elm.value;</li>
+</ul>
+<p>// val setter</p>
+<blockquote>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">nodeNameIs</span><span class="p">(</span><span class="nx">SELECT</span><span class="p">,</span> <span class="nx">el</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// 强制转换数值为字符串，以保证下面的 inArray 正常工作</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">S</span><span class="p">.</span><span class="nx">isNumber</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">value</span> <span class="o">+=</span> <span class="nx">EMPTY</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">vals</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">makeArray</span><span class="p">(</span><span class="nx">value</span><span class="p">),</span>
+        <span class="nx">opts</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">options</span><span class="p">,</span> <span class="nx">opt</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="nx">len</span> <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">opt</span> <span class="o">=</span> <span class="nx">opts</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="nx">opt</span><span class="p">.</span><span class="nx">selected</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">inArray</span><span class="p">(</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="nx">opt</span><span class="p">),</span> <span class="nx">vals</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">vals</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">el</span><span class="p">.</span><span class="nx">selectedIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">isElementNode</span><span class="p">(</span><span class="nx">el</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">el</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>select文本框时, 处理比较麻烦, 在设置 val 时, 需要将对应的 options 选中, 即对应的 options 的selected 为 True , selectedIndex 更新, 如果是没有选中(? 单选框的话,,应该不会吧), 设置为-1 .</li>
+<li>如果是普通 HTMLELement, 直接设置 elem.value = val 即可;</li>
+</ul>
+<p>// text setter / getter</p>
+<ul class="simple">
+<li>如果是 HTMLElement, 使用 elem.text = val / 或 getter 是为 '';</li>
+<li>如果是 TextNode, 使用 elem.nodeValue = val;</li>
+</ul>
+</div>
+<div class="section" id="attr-expando">
+<h2>attr 和 expando</h2>
+<ul class="simple">
+<li>elem 上的属性 , elem.id 等价于 elem.getAttribute('id');</li>
+<li>elem 上的 dataname, 给elem.dataname = data, 但不同通过 elem.getAttribute(dataname) 获取;</li>
+</ul>
+<p>不过, 上面的data.js中, 并没有把dataname直接加在elem上, 而是另外开辟 dataCache 放置, 或许是为了方便管理这些额外的数据;
+PS: secret of javascript 说, elem.id 要比elem.getAttribute('id') 快很多, 尤其是在IE下. 不知道 直接放在 dataCache 里, 性能如何, 字典应该也挺快的吧..</p>
+</div>
+<div class="section" id="id1">
+<h2>参考资源</h2>
+<ul class="simple">
+<li><a class="reference external" href="http://yiminghe.javaeye.com/blog/583699">CSS属性计算值问题</a></li>
+<li><a class="reference external" href="http://yiminghe.javaeye.com/blog/511589">IE 取得css属性的绝对像素值</a></li>
+<li><a class="reference external" href="https://developer.mozilla.org/en/DOM/document.documentElement">document.documentElement</a>, return the element that is the root element of document;</li>
+<li><a class="reference external" href="https://developer.mozilla.org/en/DOM/document.defaultView">document.defaultView</a>, returns a reference to the default AbstractView for document, or null if none available;</li>
+<li><a class="reference external" href="https://developer.mozilla.org/En/DOM/Node.ownerDocument">elem.ownerDocument</a>, return the top-level document object for this node, document.ownerDocument 为 null,</li>
+<li><a class="reference external" href="https://developer.mozilla.org/en/XUL/Attribute/selectedIndex">selectedIndex</a></li>
+</ul>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a><a href="/tag/#KISSY">KISSY</a>
+</div>
+
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

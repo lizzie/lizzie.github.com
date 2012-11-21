@@ -1,0 +1,2140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>SunsetSunrising</title>
+    <link href="http://sunsetsunrising.com/feed.xml" rel="self" />
+    <link href="http://sunsetsunrising.com/" />
+    <updated>2012-11-20T16:09:11+08:00</updated>
+    <id>http://sunsetsunrising.com/</id>
+    <entry>
+        <title type="html"><![CDATA[WaterFall Layout]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2011/waterfall-layout.html"/>
+        <published>2011-09-10T18:12:00+08:00</published>
+        <updated>2012-11-20T11:29:34+08:00</updated>
+        <id>http://sunsetsunrising.com/2011/waterfall-layout.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
+        <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <div class="section" id="id1">
+<h2>简介</h2>
+<p>最近有很多网站, 在设计上采用了多栏布局, 类似于 Pinterest (这貌似是最早使用这种布局的网站了), Mark之, 蘑菇街, 哇哦 等等. 这种类似的布局, 很像是一夜之间出现国内大大小小的网站上, 倒是很流行哈~
+这种布局更适合于小而重复的数据块排列, 每个数据块没有侧重, 而且大多情况下, 这种布局下, 随着滚动条向下滚动, 不断加载数据块至当前最后, 鉴于此, 他又有另外一个名字 -- <strong>瀑布流式布局</strong>.</p>
+</div>
+<div class="section" id="id2">
+<h2>几种实现方式</h2>
+<p>随着越来越多设计师爱用这种布局了, 我们作为前端, 也尽可能满足视觉/交互设计师的需求. 整理了下这种布局的几种实现方式, 有三种:</p>
+<ol class="arabic simple">
+<li>传统多列浮动, 即 蘑菇街和哇哦 采用的方式, 如下图所示:</li>
+</ol>
+<img alt="传统多列浮动" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGOnoAQw" />
+<ul class="simple">
+<li>各列固定宽度, 并且左浮动;</li>
+<li>一列中的数据块为一组, 列中的每个数据块依次排列即可;</li>
+<li>跟多数据加载时, 需要分别插入到不同的列上;</li>
+<li><a class="reference external" href="http://wow.taobao.com/">线上例子1</a>;</li>
+</ul>
+<dl class="docutils">
+<dt>优点:</dt>
+<dd><ul class="first last simple">
+<li>布局简单, 应该说没啥特别的难点;</li>
+<li>不用明确知道数据块高度, 当数据块中有图片时, 就不需要指定;</li>
+</ul>
+</dd>
+<dt>缺点:</dt>
+<dd><ul class="first last simple">
+<li>列数固定, 扩展不易, 当浏览器窗口大小变化时, 只能固定的x列, 如果要添加一列, 很难调整出来数据块;</li>
+<li>滚动加载更多数据时, 还要指定插入到第几列中, 还是不方便;</li>
+</ul>
+</dd>
+</dl>
+<ol class="arabic simple" start="2">
+<li>CSS3 定义, W3C 中有讲述关于 <a class="reference external" href="http://www.w3.org/TR/css3-multicol/">多列布局的文档</a> , 排列出来的样子:</li>
+</ol>
+<img alt="多列布局" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGNHwAQw" />
+<ul>
+<li><p class="first">由 chrome/ff 浏览器直接渲染出来, 可以指定容器的列个数, 列间距, 列中间边框, 列宽度来实现:</p>
+<blockquote>
+<div class="highlight"><pre><span class="nf">#container</span> <span class="p">{</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">5</span><span class="p">;</span>
+    <span class="c">/*-webkit-column-gap: 10px;</span>
+<span class="c">    -webkit-column-rule: 5px solid #333;</span>
+<span class="c">    -webkit-column-width: 210px;*/</span>
+
+    <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">5</span><span class="p">;</span>
+    <span class="c">/*-moz-column-gap: 20px;</span>
+<span class="c">    -moz-column-rule: 5px solid #333;</span>
+<span class="c">    -moz-column-width: 210px;*/</span>
+
+    <span class="n">column</span><span class="o">-</span><span class="n">count</span><span class="o">:</span> <span class="m">5</span><span class="p">;</span>
+    <span class="c">/*column-gap: 10px;</span>
+<span class="c">    column-rule: 5px solid #333;</span>
+<span class="c">    column-width: 210px;*/</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">column-count 为列数; column-gap 为每列间隔距离; column-rule 为间隔边线大小; column-width 为每列宽度; 当只设置 column-width 时, 浏览器窗口小于一列宽度时, 列中内容自动隐藏了;当只设置 column-count 时, 平均计算每列宽度, 列内内容超出则隐藏; 都设了 column-count 和column-width, 浏览器会根据 count 计算宽度和 width 比较, 取大的那个值作为每列宽度, 然后当窗口缩小时, width 的值为每列最小宽度. 这边其实很简单, 简易自己尝试下, 详细可参考 <a class="reference external" href="https://developer.mozilla.org/en/CSS3_Columns">https://developer.mozilla.org/en/CSS3_Columns</a> 中的说明;</p>
+</li>
+<li><p class="first"><a class="reference external" href="http://lizzie.github.com/kissy/src/waterfall/demo/css3.html">线上列子2</a> ;</p>
+</li>
+</ul>
+<dl class="docutils">
+<dt>优点:</dt>
+<dd><ul class="first last simple">
+<li>直接 CSS 定义, 最方便了;</li>
+<li>扩展方便, 直接往容器里添加内容即可;</li>
+</ul>
+</dd>
+<dt>缺点:</dt>
+<dd><ul class="first last simple">
+<li>只有高级浏览器中才能使用;</li>
+<li>还有一个缺点, 他的数据块排列是从上到下排列到一定高度后, 再把剩余元素依次添加到下一列, 这个本质上就不一样了;</li>
+<li>鉴于这两个主要缺点, 注定了该方法只能局限于高端浏览器, 而且, 更适合于文字多栏排列;</li>
+</ul>
+</dd>
+</dl>
+<ol class="arabic simple" start="3">
+<li>绝对定位, 即 Pinterest , Mark之, KISSY 采用的方式:</li>
+</ol>
+<img alt="绝对定位" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGLn4AQw" />
+<ul class="simple">
+<li>可谓是最优的一种方案, 方便添加数据内容, 窗口变化, 列数/数据块都会自动调整;</li>
+<li><a class="reference external" href="http://docs.kissyui.com/docs/html/static/demo/waterfall/demo2.html">线上列子3</a></li>
+</ul>
+<dl class="docutils">
+<dt>缺点:</dt>
+<dd><ul class="first last simple">
+<li>需要实现知道数据块高度, 如果其中包含图片, 需要知道图片高度;</li>
+<li>JS 动态计算数据块位置, 当窗口缩放频繁, 可能会狂耗性能;</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="kissy-waterfall">
+<h2>KISSY.Waterfall 实现思路</h2>
+<p><a class="reference external" href="http://docs.kissyui.com/docs/html/api/component/waterfall/">KISSY 的 Waterfall 组件</a> 主要包含两个部分, 一个是对现有数据块进行排列计算各自所在的位置; 二是下拉滚动时, 触发加载数据操作, 并把数据添加到目标容器中;</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>数据块排列, 算法步骤简述下:</dt>
+<dd><ul class="first last simple">
+<li>初始化时, 对容器中已有数据块元素进行第一次的计算, 需要用户给定: a, 容器元素 -- 以此获取容器总宽度; b, 列宽度; c, 最小列数; 最终列数取的是容器宽度/列宽度和最小列数的最大值, 这样保证了, 当窗口很小时, 仍然出现最小列数的数据;</li>
+<li>获得列数后, 需要保存每个列的当前高度, 这样在添加每个数据块时, 才知道起始高度是多少;</li>
+<li>依次取容器中的所有数据块, 先寻找当前高度最小的某列, 之后根据列序号, 确定数据块的left, top值, left 为所在列的序号乘以列宽, top 为所在列的当前高度, 最后更新所在列的当前高度加上这个数据块元素的高度, 至此, 插入一个元素结束;</li>
+<li>当所有元素插入完毕后, 调整容器的高度为各列最大的高度值, 结束依次调整;</li>
+<li>性能效率上的注意点: a, 如果当前正在调整中, 又触发了 resize 事件, 需要将上次调整暂停后执行这次调整(见 timedChunk 函数); b, resize 触发会很频繁, 可以将回调函数缓存一段时候后执行, 即当这段时间内多次触发了resize事件, 但回调函数只会执行一次(见 S.buffer 函数)</li>
+<li>感兴趣的可以参见 <a class="reference external" href="https://github.com/kissyteam/kissy/blob/master/src/waterfall/base.js">源码1</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>异步加载数据, 前面讲的是如何对容器中已有元素进行排列, 但很多情况下, 还需要不断加载新数据块, 为此专门设计了一个独立的模块 KISSY.Waterfall.Loader, 其实这个功能就更简单了, 仅包含两个步骤:</dt>
+<dd><ul class="first last simple">
+<li>绑定滚动事件, 并确定预加载线高度值, 即滚动到哪个高度后, 需要去加载数据, 其实这个就是列的最小高度值, 这样当前滚动值和最小高度值比较一下即可判断出来, 是否要触发加载数据;</li>
+<li>加载数据, 为了不对数据源做太多限制, 完全由使用者自己决定数据源从哪边获取和其格式, 这样更好的方便用户使用. 为此, 该组件只提供一个load(success, end) 接口, 怎样load 由用户自己去定义, 而其中的 success/end, 分别给出如何添加新数据(suceess 即同 addItems)/如何停止加载的接口. 这样真是太方便了~~</li>
+<li>感兴趣的可以参见 <a class="reference external" href="https://github.com/kissyteam/kissy/blob/master/src/waterfall/loader.js">源码2</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="id10">
+<h2>KISSY.Waterfall 示例和文档</h2>
+<p>看到这边, 是不是很想试用一下~~, 嗯嗯, 这里给出一些相关学习资料和示例, 以供参考:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.kissyui.com/docs/html/api/component/waterfall/%3Cbr%20/%3E">Waterfall API 文档</a> , 相关构造器, 配置项, 方法都在这里;</li>
+<li><a class="reference external" href="http://docs.kissyui.com/docs/html/demo/component/waterfall/%3Cbr%20/%3E">示例</a>, 包含静态和动态两种;</li>
+</ul>
+<p>欢迎试用和提出意见~~</p>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[G10入手]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2011/g10.html"/>
+        <published>2011-03-20T11:03:54+08:00</published>
+        <updated>2012-11-20T12:22:31+08:00</updated>
+        <id>http://sunsetsunrising.com/2011/g10.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Mobile" term="Mobile" label="Mobile" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>上周入手个 HTC Desire HD(G10, A9191), 纯粹白痴+新手, 从网上找了些资料, 补充下这方面知识;</p>
+<div class="section" id="id1">
+<h2>名词解释</h2>
+<p>名字: HTC Desire HD, G10, A9191 , 这几个名字貌似都是指同一款, 不知为何同一款要取3个名字? google了下, 原来分别是 官方名称, 民间叫法, 行货型号.</p>
+<p>港版/欧版/亚太版/欧版: 其实区别不大, 只有默认选择的语言不同, 比如亚太版的, 默认是中简, 欧版的就是英文, 但也可以刷成中简的,, 欧版的相对便宜些, 但貌似淘宝上很难买到, 问了好多家店, 都没欧版的货.</p>
+<p>刷机: 其实就是重新安装系统
+破解root: 是指获取root 最高权限, 以后你自己安装什么都可以了 , 没限制
+MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http://www.miui.com">http://www.miui.com</a> 是个基于Android2.3原生系统深度开发, 针对中国用户使用习惯，原创特色的全套UI体系), 但因为电池原因, 刷之后充电总是充不上电, 只能通过USB充上, 据卖家说是因为MIUI的问题, 但我搜了下论坛帖子, 怀疑很可能是电池不是原电, 这等拿回来再查~</p>
+<p>OTA: <a class="reference external" href="http://zhidao.baidu.com/question/389270">http://zhidao.baidu.com/question/389270</a>, 一项基于短消息机制，通过手机终端或服务器（网上）方式实现SIM卡内业务菜单的动态下载、删除与更新，使用户获取个性化信息服务的数据增值业务（简称OTA业务）OTA（Over－the－Air Technology）空中下载技术.
+是通过移动通信（GSM或CDMA）的空中接口对SIM卡数据及应用进行远程管理的技术。空中接口可以采用WAP、GPRS、CDMA1X及短消息技术。OTA技术的应用，使得移动通信不仅可以提供语音和数据服务，而且还能提供新业务下载。这样，应用及内容服务商可以不受平台的局限，不断开发出更具个性化的贴近用户需求的服务，如信息点播、互动娱乐、位置服务以及银行交易等。通过OTA空中下载技术，手机用户只要进行简单操作，就可以按照个人喜好把网络所提供的各种业务菜单利用OTA机制下载到手机中，并且还可以根据自己的意愿定制具体业务。</p>
+<p>HD2 和 Desire HD: 两款不同的机型~ 他们最大的区别就是前者 OS 为 Windows mobile 6.5, 后者是 Android OS v2.2, 原先以为是同一款, 看名字挺像... 各参数见 <a class="reference external" href="http://detail.zol.com.cn/pk/248972_203330.shtml">http://detail.zol.com.cn/pk/248972_203330.shtml</a></p>
+<p>PS: DHD, 很耗电, 差不多隔天就要充一次电~</p>
+<p>接下来打算:</p>
+<ul class="simple">
+<li>附上一张照片;</li>
+<li>先熟悉下整个操作, 什么安装/卸载等等 ;</li>
+<li>翻墙;</li>
+<li>待熟悉了后再学刷机: 完整刷机教程 <a class="reference external" href="http://www.miui.com/a-57.html">http://www.miui.com/a-57.html</a></li>
+</ul>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[ImageZoom重构记]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2011/imagezoom_refact.html"/>
+        <published>2011-02-18T11:02:09+08:00</published>
+        <updated>2012-11-20T12:26:44+08:00</updated>
+        <id>http://sunsetsunrising.com/2011/imagezoom_refact.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
+        <category scheme="http://sunsetsunrising.com/tag/#KISSY" term="KISSY" label="KISSY" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>年后回到公司, 花了些时间重构原来写的imagezoom, 主要是重构成基于uibase的组件模块化开发.</p>
+<p>首先, 如果不熟悉 uibase的话, 可以先看承玉写的:</p>
+<ul class="simple">
+<li>基于mixin的组件设计: <a class="reference external" href="http://yiminghe.javaeye.com/blog/808763">http://yiminghe.javaeye.com/blog/808763</a> 及里面的PPT ,</li>
+<li>selectbox的例子 <a class="reference external" href="http://yiminghe.javaeye.com/blog/897229">http://yiminghe.javaeye.com/blog/897229</a>,</li>
+</ul>
+<p>PS: 这两篇文章及里面的ppt, 值得多看几遍, 不然肯定会看不懂~~ 偶就看文章/PPT, 对着代码, 不下看了三四遍后, 终于被我折腾出新的imagezoom. 而且还发现旧版的一个比较严重的bug.</p>
+<div class="section" id="id1">
+<h2>分离</h2>
+<p>将原来放在一起的逻辑分离出来:</p>
+<ul class="simple">
+<li>imagezoom/base.js, 处理初始化逻辑, 及小图, 放大镜图标的DOM构建, 绑定鼠标移入事件 等</li>
+<li>imagezoom/zoomer.js, 放大显示逻辑, 放大层的DOM构建, 绑定鼠标移动事件, 显示对应的图像</li>
+</ul>
+<p>两者独立开来, 功能比较明确;</p>
+</div>
+<div class="section" id="id2">
+<h2>结构分离</h2>
+<p>整个结构如下图所示:</p>
+<img alt="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGJnZAQw" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGJnZAQw" />
+<p>imagezoom主组件扩展于UIBase, 具有基本的box, position, align, mask 功能, 再加上扩展组件zoomer, 就可以写出新的 imagezoom, 而这里的扩展组件 zoomer 也方便其他组件使用.</p>
+<p>这样组织的好处是:</p>
+<ul class="simple">
+<li>利于已有组件, 快速搭建你所需要的新组件;</li>
+<li>设置变量和UI展现分离, 数据通过setter/getter 统一设置, 而数据更改带来的UI变化, 通过_uiSetXX方式自动被调用, 而完成对应的UI变化. 这样分离了便于思维逻辑上的分离;</li>
+<li>开发代码量减少, 因为组件可以重用, 我们自己只要写上对应的逻辑即可. 不过总的代码量没变多少, 重构后, 原先 imagezoom-pkg-min.js 7k , 重构后imagezoom-pkg-min.js, 6k 再加uibase-pkg-min.js 12k 共18k, 从这点上看, 貌似代码还可以优化..</li>
+</ul>
+<p>重构过程中, 还发现旧版本中的一个bug, 情况简化可以描述成, 当mouseenter到小图后, 绑定mousemove到body, 然后 mouseleave小图后, 删除body的mousemove事件, 大致想一下, 这逻辑没问题, 但是问题在小图上覆盖了一层镜片, 当显示大图时, 鼠标正在镜片元素上, 导致立即触发小图的mouseleave事件, 这样就会立刻hide()了, 但就是因为旧版本上, 在 mouseleave小图时, 没有正确删除body的mousemove事件, 即 原本是</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">image</span><span class="p">,</span> <span class="s1">&#39;mouseenter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//..</span>
+    <span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="s1">&#39;mousemove&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">_onMouseMove</span><span class="p">,</span> <span class="nx">self</span><span class="p">);</span>
+    <span class="c1">//..</span>
+<span class="p">});</span>
+<span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">image</span><span class="p">,</span> <span class="s1">&#39;mouseleave&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//..</span>
+    <span class="nx">Event</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="s1">&#39;mousemove&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">_onMouseMove</span><span class="p">);</span>
+    <span class="c1">//..</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<p>而这里事件删除时, 后面的参数应该和on时完全一致, 如</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">image</span><span class="p">,</span> <span class="s1">&#39;mouseenter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//..</span>
+    <span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="s1">&#39;mousemove&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">_onMouseMove</span><span class="p">,</span> <span class="nx">self</span><span class="p">);</span>
+    <span class="c1">//..</span>
+<span class="p">});</span>
+<span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">image</span><span class="p">,</span> <span class="s1">&#39;mouseleave&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//..</span>
+    <span class="nx">Event</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="s1">&#39;mousemove&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">_onMouseMove</span><span class="p">,</span> <span class="nx">self</span><span class="p">);</span>
+    <span class="c1">//..</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<p>这样才对, 不然就body上一直存在mouseleave, 而且每次mouseenter后, 再一次绑定body的mousemove事件, 虽然视觉差异不大, 测试也注意到这个问题, 唉... 说到这里, 好惭愧啊...</p>
+<p>嗯嗯, 下次一定得记住了!</p>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[CSS Button]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2011/cssbutton.html"/>
+        <published>2011-01-18T11:01:30+08:00</published>
+        <updated>2012-11-20T12:31:28+08:00</updated>
+        <id>http://sunsetsunrising.com/2011/cssbutton.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>一个CSS做的小button, 还是挺漂亮的. 支持ff, chrome, safari, opera, 忽略IE</p>
+<iframe src="http://liz.appspot.com/static/button.html" width="300px" height="100px"></iframe><ul class="simple">
+<li>gradient in opera: <a class="reference external" href="http://stackoverflow.com/questions/4084614/how-can-you-create-a-css-3-gradient-in-opera">http://stackoverflow.com/questions/4084614/how-can-you-create-a-css-3-gradient-in-opera</a></li>
+<li>在线 Data uri: <a class="reference external" href="http://www.dopiaza.org/tools/datauri/">http://www.dopiaza.org/tools/datauri/</a></li>
+<li>CSS hack: <a class="reference external" href="http://www.nealgrosskopf.com/tech/thread.php?pid=20">http://www.nealgrosskopf.com/tech/thread.php?pid=20</a></li>
+</ul>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[Sliding Label]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/slidinglabel.html"/>
+        <published>2010-12-23T07:12:25+08:00</published>
+        <updated>2012-11-20T12:53:15+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/slidinglabel.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#KISSY" term="KISSY" label="KISSY" />
+        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>以前看到 <a class="reference external" href="http://danyi.codetea.co.uk/2010/03/16/sliding-label/">http://danyi.codetea.co.uk/2010/03/16/sliding-label/</a> 上的表单中, label元素的飘动设计很有动感.
+后来试了下, 用 KISSY 实现了这个小功能, 并放在 kissy gallery (<a class="reference external" href="http://kissyteam.github.com/kissy-gallery/">http://kissyteam.github.com/kissy-gallery/</a>) 中.</p>
+<p>当我们页面空间比较紧张, 可以将表单每项的提示信息和输入区域合并起来, 当输入区域获得焦点时, 清空输入区域以便用户正常输入. 同时这些提示信息还可以是写默认值, 也给用户一个如何填写当前输入框的示例.</p>
+<p>先上个截图</p>
+<img alt="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGLHRAQw" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGLHRAQw" />
+<p>输入区域只要获得焦点(用户点击或tab键), 即可触发移动.</p>
+<p>当js禁用, 或者js不可访问时, 也不会影响正常的用户输入, 呈现普通的表单提示和输入框, 如</p>
+<img alt="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGMnJAQw" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGMnJAQw" />
+<p>使用的话, 接口比较简单, like:</p>
+<blockquote>
+<div class="highlight"><pre><span class="k">new</span> <span class="nx">S</span><span class="p">.</span><span class="nx">SlidingLabels</span><span class="p">(</span><span class="s1">&#39;#info&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">blurStyle</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#aaa&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">focusStyle</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#000&#39;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<p>也就是:</p>
+<ul class="simple">
+<li>focusStyle/blurStyle 获得焦点和失去焦点时的label样式都可以自定义;</li>
+<li>axis 运动方向可以是水平方向, 也可以是垂直方向上</li>
+<li>offset labels 和 input之间的距离</li>
+<li>duration 运动速度</li>
+</ul>
+<p>等等, 具体可以看源码吧.</p>
+<p>简单Demo: <a class="reference external" href="http://kissyteam.github.com/kissy-gallery/slidinglabels/demo.html">http://kissyteam.github.com/kissy-gallery/slidinglabels/demo.html</a></p>
+<p>有兴趣的话, 可以在您的留言板中尝试下看~~</p>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[Test Swarm]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/testswarm.html"/>
+        <published>2010-10-17T11:10:56+08:00</published>
+        <updated>2012-11-20T12:59:27+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/testswarm.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Tools" term="Tools" label="Tools" />
+        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>TestSwarm <a class="reference external" href="http://github.com/jeresig/testswarm/wiki">http://github.com/jeresig/testswarm/wiki</a></p>
+<p>上次调研 TestSwarm 时, 他官网上给了个使用教程, 后来稍加翻译了下,, 有兴趣玩玩.</p>
+<div class="section" id="id1">
+<h2>简介</h2>
+<p>TestSwarm 提供了 JavaScript 的分布式/持续集成测试功能. 它由 <a class="reference external" href="http://ejohn.org/">John Resig</a> 创建, 当初作为 jQuery 的支持工具, 现已成为 Mozilla Labs 项目之一.</p>
+<p>注意: TestSwarm 现在还处于 Aplha 状态. 主要存在问题: 1) 测试结果丢失数据, 2) 客户端连接断开, 3) 其他非预期的影响因素. 请在使用过程中记住这些问题的存在.</p>
+<p>TestSwarm 的初衷是要解决如下文章中提出的问题:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://ejohn.org/blog/javascript-testing-does-not-scale/">JavaScript Testing Does Not Scale</a></li>
+<li><a class="reference external" href="http://ejohn.org/blog/jsconf-talk-games-performance-testswarm/">the following recorded presentation</a></li>
+</ul>
+<p>TestSwarm 主要的目标是为了简化原本多浏览器中执行很复杂的, 又耗时的 JavaScript test suites 测试过程. TestSwarm 的大致过程可在 <a class="reference external" href="http://www.vimeo.com/6281121">这个视频</a> 中了解到.</p>
+<p>TestSwarm 的最终结果是类似如下的页面:</p>
+<img alt="http://farm4.static.flickr.com/3500/3723002475_d628e85afb.jpg" src="http://farm4.static.flickr.com/3500/3723002475_d628e85afb.jpg" />
+<p>他显示了每次源代码提交(垂直方向上)后, 在不同浏览器(水平方向上)中的运行情况. 绿色表示100%通过, 红色表示至少有一个TC失败, 黑色表示包含了非常严重的错误, 灰色表示还没有进行测试.</p>
+</div>
+<div class="section" id="id3">
+<h2>架构</h2>
+<img alt="http://ejohn.org/files/ts-swarm.png" src="http://ejohn.org/files/ts-swarm.png" />
+<ul class="simple">
+<li>中心服务器, 客户端连接到这里, 并且任务也会被提交到这里(后端使用PHP/MySQL).</li>
+<li>客户端是被加载到浏览器中的 TestSwarm Test runner 实例. 一个用户(如 'john')可以运行多个客户端, 不同浏览器上或是同一浏览器上的不同标签页.</li>
+<li>Test runner 非常简单 - JS 实现. 它每30秒钟 ping 服务器, 查询是否有新的 test suite 需要执行, 如果有, 则执行它(在一个iframe中)并且把结果发送给服务器; 如果没有, 则睡眠/等待.</li>
+<li>一个任务(Job)包含两样东西: test suites 和 browsers. 当一个项目提交一个任务, 指明需要执行哪个 test suites 和需要在哪些浏览器中执行;</li>
+<li>最后, 产生一批 'runs' (一个 run 表示在特定浏览器上执行特定的 test suite 过程). 一个 run 至少执行一次.</li>
+</ul>
+<p>其实, 可以把服务器看成是一个巨大的队列. 任务被添加, 然后被推送到队列中, 客户端不断去取这些新来的任务并执行, 客户端执行之后, 收集这些返回的结果.</p>
+</div>
+<div class="section" id="id4">
+<h2>结果正确性</h2>
+<p>TestSwarm 的一个重要方面是它能主动纠正客户端不正确的结果. 浏览器不靠谱(不一致的结果, 浏览器bugs, 网络问题等), TestSwarm 做了一些尝试来尽可能生成靠谱的结果:</p>
+<ul class="simple">
+<li>如果客户端失去网络连接, 或者停止响应时, 自动被 swarm 清除;</li>
+<li>如果客户端不能与服务端通信, 它会重复尝试连接(甚至重载页面);</li>
+<li>客户端有一个全局的超时检测, 检查 test suites 是否不可通信;</li>
+<li>客户端可以检查自己的测试时间, 允许只发送部分结果给服务端;</li>
+<li>客户端提交的不正确的结果(错误, 失败, 超时等)自动会在一个新客户端中重新执行, 以尽可能通过测试(重复执行次数由提交任务时设定)</li>
+</ul>
+</div>
+<div class="section" id="swarm">
+<h2>设置你自己的Swarm</h2>
+<ul class="simple">
+<li><a class="reference external" href="http://github.com/jeresig/testswarm/tree/master">下载源码</a> . TestSwarm 依赖 PHP 和 MySQL, 确保 Apache 的 rewrite rules 可用. 通过编辑数据库的 useragents 表来配置浏览器列表.</li>
+<li>设置自动发送任务脚本, 'scripts' 目录下有样例脚本. 与 svn/git 一起, 也可作为 crob 任务.</li>
+<li>也可通过Web接口提交, 立即可用.</li>
+<li>TestSwarm 支持如下的测试框架: QUnit(JQuery), UnitTestJS(Prototype), JSSpec(MooTools), JSUnit, Selenium, 和 Dojo Objective Harness.</li>
+<li>示例脚本中有一点很重要, 就是你需要在 suite 中增加一个 script 元素, 其指向服务器上的 /js/inject.js -- 这个注入脚本用于允许 test suites 捕获并与 TestSwarm 通信.</li>
+<li>增加你自己的 test suite, 可以通过一个 HTML 序列化钩子, 重载 window.TestSwarm.serialize. 另外, 一个 test suites 完成后, 你需要调用 window.TestSwarm.submit , 加上 所有失败数, 错误数, 运行次数. 也可在每次测试完成后调用 window.TestSwarm.heartbeat() 来提供更好的测试超时时间.</li>
+<li>提交任务需要 AUTH 标记. 在数据库中的 users 表中查询获得 --- 是在生成用户时自动生成的.</li>
+<li>开始推送 test suites 到 swarm, 允许客户端连接并执行测试.</li>
+</ul>
+</div>
+<div class="section" id="testswarm">
+<h2>TestSwarm区别于</h2>
+<p><a class="reference external" href="http://seleniumhq.org/">Selenium</a> 功能比较全面. 包含 test suite, test driver, 自动启动浏览器, 多台机器上的分布式测试(使用他们的网格功能). 与 TestSwarm 的不同在于:</p>
+<ul class="simple">
+<li>TestSwarm 是不可知的 test suite. 不为特定 test runner 设计, 而是支持一般性 JavaScript test suite.</li>
+<li>TestSwarm 更分散. 任务可被提交到 TestSwarm时不需要客户端连接 -- 只会在最终连接上的客户端上执行一次.</li>
+<li>TestSwarm 自动纠正一些误导的结果.</li>
+<li>TestSwarm 从源码控制到浏览器, 保持连续的体验?</li>
+<li>TestSwarm 不需要任何浏览器插件/扩展 , 不需要在客户端安装任何软件.</li>
+</ul>
+</div>
+<div class="section" id="jstestdriver-and-other-browser-launchers">
+<h2>JSTestDriver and Other Browser Launchers</h2>
+<p>有很多浏览器启动工具( watir ), 但他们都有同样的如上的问题 -- 缺乏高级特征, 如连续集成.</p>
+</div>
+<div class="section" id="server-side-test-running">
+<h2>Server-Side Test Running</h2>
+<p>另外一种替代方式是在仿浏览器(或模拟的浏览器环境, 如 Rhino )中执行测试. 他们存在的严重问题: 不是在真实的浏览器中执行, 结果就不可保证.</p>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[Introduce to Jasmine]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/about_jasmine.html"/>
+        <published>2010-10-17T11:10:07+08:00</published>
+        <updated>2012-11-20T13:27:51+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/about_jasmine.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Javscript" term="Javscript" label="Javscript" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>上次报告中讲到的 Jasmine, 但由于自己讲的太烂 &amp; 没讲清楚, 估计没人在意了. 所以在这再次介绍一下这个工具~</p>
+<div class="section" id="jasmine">
+<h2>Jasmine 介绍</h2>
+<p>这单词本意是 &quot;茉莉花&quot; 的意思, 小而精致的一种花. 同样, JS 测试框架中的 Jasmine 也是一个小巧工具, 但功能不小巧~</p>
+<p>他是一个用于 JS 测试的行为驱动开发(BDD)框架. 独立存在, 不依赖其他 JS 框架.</p>
+<p>借一段文档上的代码:</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;Jasmine&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;makes testing JavaScript awesome!&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">yourCode</span><span class="p">).</span><span class="nx">toBeLotsBetter</span><span class="p">();</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<p>测试代码可以写成如上类似的样子, 代码看上去很自然语言了, 很易读~</p>
+</div>
+<div class="section" id="id1">
+<h2>Jasmine 使用</h2>
+<p>Specs: 说明, 使用 it(description, fn) 来描述;</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should increment a variable&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="nx">foo</span><span class="o">++</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<p>他用来说明 fn 中的动作要达到什么样的效果;</p>
+<p>Expecations: 期望, 存在于 spec 中, 用来描述某值的期望结果, 使用 expect() + matchers;</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should increment a variable&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>            <span class="c1">// set up the world</span>
+      <span class="nx">foo</span><span class="o">++</span><span class="p">;</span>                  <span class="c1">// call your application code</span>
+
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">foo</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// passes because foo == 1</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<p>Suites: Specs 的集合, 相当于 Test　Case, 使用 describe 语句;</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Calculator&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;can add a number&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="p">...</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;has multiply some numbers&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="p">...</span>
+      <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>Suites 的名字一般为你要测试的模块/组件/应用名字;</li>
+<li>Suites 中的每个 Spec 只执行一次, 一个 Suites, 一个作用域, 里面的 Spec 共享;</li>
+<li>支持嵌套的 Describes;</li>
+<li>beforeEach(fn)/afterEach(fn), 在每个 spec 执行之前/之后 执行;</li>
+<li>this.after(fn) 在特定的某个 spec 执行之后执行, 但没有 this.before !</li>
+<li>xit()/xdescribe() 设置 spec/describe 不可用.</li>
+</ul>
+<p>Matchers: 匹配者</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span> <span class="c1">// compares objects or primitives x and y and passes if they are equivalent</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>    <span class="c1">// compares objects or primitives x and y and passes if they are the same object</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toMatch</span><span class="p">(</span><span class="nx">pattern</span><span class="p">);</span> <span class="c1">// compares x to string or regular expression pattern and passes if they match</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>    <span class="c1">// passes if x is not undefined</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBeNull</span><span class="p">();</span>       <span class="c1">// passes if x is null</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBeTruthy</span><span class="p">();</span>     <span class="c1">// passes if x evaluates to true</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBeFalsy</span><span class="p">();</span>      <span class="c1">// passes if x evaluates to false</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toContain</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>     <span class="c1">// passes if array or string x contains y</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBeLessThan</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>  <span class="c1">// passes if x is less than y</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBeGreaterThan</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>  <span class="c1">// passes if x is greater than y</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">fn</span><span class="p">).</span><span class="nx">toThrow</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>         <span class="c1">// passes if function fn throws exception e when executed</span>
+</pre></div>
+</blockquote>
+<ul>
+<li><p class="first">否定只需加 not</p>
+<blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">&lt;string&gt;</tt>, line 102)</p>
+<p>Content block expected for the &quot;sourcecode&quot; directive; none found.</p>
+<pre class="literal-block">
+.. sourcecode:: js
+    expect(x).not.toEqual(y);      // compares objects or primitives x and y and passes if they are not equivalent
+
+
+</pre>
+</div>
+</blockquote>
+</li>
+<li><p class="first">Matcher 是可以自定义的. 使用 <tt class="docutils literal">addMatchers(obj)</tt></p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">toBeLessThan</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">expected</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">actual</span> <span class="o">&lt;</span> <span class="nx">expected</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">addMatchers</span><span class="p">({</span>
+    <span class="nx">toBeVisible</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">actual</span><span class="p">.</span><span class="nx">isVisible</span><span class="p">();</span> <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+</li>
+</ul>
+<p>Spies/Asynchronous Specs</p>
+<ul>
+<li><p class="first">permit many spying, mocking, and faking behaviors. 用于模拟传参, 回调函数, 异步请求/行为监测</p>
+</li>
+<li><p class="first">支持异步测试, 测试 ajax api, 事件回调等, 就是针对在未来某个点上会发生的行为.</p>
+</li>
+<li><p class="first">runs() 阻塞执行, 就像是直接调用一样; 多个runs() 共享作用域.</p>
+</li>
+<li><p class="first">waits(timeout) 等待多长时间后再执行下面的语句.</p>
+</li>
+<li><p class="first">waitsFor(function, optional message, optional timeout) 直到 function 返回 true 才执行下去.</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Spreadsheet&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should calculate the total asynchronously&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">spreadsheet</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Spreadsheet</span><span class="p">();</span>
+    <span class="nx">spreadsheet</span><span class="p">.</span><span class="nx">fillWith</span><span class="p">(</span><span class="nx">lotsOfFixureDataValues</span><span class="p">());</span>
+    <span class="nx">spreadsheet</span><span class="p">.</span><span class="nx">asynchronouslyCalculateTotal</span><span class="p">();</span>
+
+    <span class="nx">waitsFor</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">spreadsheet</span><span class="p">.</span><span class="nx">calculationIsComplete</span><span class="p">();</span>
+    <span class="p">},</span> <span class="s2">&quot;Spreadsheet calculation never completed&quot;</span><span class="p">,</span> <span class="mi">10000</span><span class="p">);</span>
+
+    <span class="nx">runs</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">spreadsheet</span><span class="p">.</span><span class="nx">total</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">123456</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">关于 spies, 偶自己使用时, 有时很奇怪他的行为,,可能是没更好的用. 有待进一步研究. 更多资料参见 <a class="reference external" href="http://pivotal.github.com/jasmine/spies.html">http://pivotal.github.com/jasmine/spies.html</a>.</p>
+</li>
+</ul>
+<p>最后, 只要引入 jasmine 所需的css/js就可以让 Test Runner 跑起来</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;../../../tests/jasmine/jasmine.css&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../../../tests/jasmine/jasmine.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../../../tests/jasmine/jasmine-html.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../../../build/packages/kissy.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../test.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+    <span class="nx">jasmine</span><span class="p">.</span><span class="nx">getEnv</span><span class="p">().</span><span class="nx">addReporter</span><span class="p">(</span><span class="k">new</span> <span class="nx">jasmine</span><span class="p">.</span><span class="nx">TrivialReporter</span><span class="p">());</span>
+    <span class="nx">jasmine</span><span class="p">.</span><span class="nx">getEnv</span><span class="p">().</span><span class="nx">execute</span><span class="p">();</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+</blockquote>
+<p>打开页面就可以看到对应的结果了. 这样就不用人肉地执行重复的工作了!</p>
+</div>
+<div class="section" id="id2">
+<h2>其他</h2>
+<p>既然 jasmine 本身不依赖什么, 那么就可以和现有的其他 JS 测试工具结合使用, 比如和 js-test-driver 结合起来, 这样更加自动化.</p>
+</div>
+<div class="section" id="id3">
+<h2>资料</h2>
+<ul class="simple">
+<li>Jasmine 文档: <a class="reference external" href="http://pivotal.github.com/jasmine/index.html">http://pivotal.github.com/jasmine/index.html</a></li>
+<li>JQuery 的 jasmine 插件: <a class="reference external" href="http://blog.davidpadbury.com/2010/10/11/bdd-testing-of-jquery-plugins-using-jasmine/">http://blog.davidpadbury.com/2010/10/11/bdd-testing-of-jquery-plugins-using-jasmine/</a></li>
+<li>BDD: <a class="reference external" href="http://en.wikipedia.org/wiki/Behavior_Driven_Development">http://en.wikipedia.org/wiki/Behavior_Driven_Development</a></li>
+</ul>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[Three Problems]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/three_problems.html"/>
+        <published>2010-10-10T08:10:51+08:00</published>
+        <updated>2012-11-20T13:14:39+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/three_problems.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
+        <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <div class="section" id="window-length">
+<h2>window.length</h2>
+<p>window.length:</p>
+<blockquote>
+<ul class="simple">
+<li>Returns the number of frames in the window.</li>
+<li>或是有 length 变量的全局定义;</li>
+<li><a class="reference external" href="https://developer.mozilla.org/en/DOM/window">https://developer.mozilla.org/en/DOM/window</a></li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id1">
+<h2>渐变的一个例子</h2>
+<p>水平渐变，33%处为绿色，66%处为橙色：</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">background-image</span><span class="nd">:-webkit-gradient</span><span class="o">(</span><span class="nt">linear</span><span class="o">,</span><span class="nt">0</span><span class="o">%</span> <span class="nt">0</span><span class="o">%,</span><span class="nt">100</span><span class="o">%</span> <span class="nt">0</span><span class="o">%,</span><span class="nt">from</span><span class="o">(</span><span class="nf">#2A8BBE</span><span class="o">),</span><span class="nt">color-stop</span><span class="o">(</span><span class="nt">0</span><span class="nc">.33</span><span class="o">,</span><span class="nf">#AAD010</span><span class="o">),</span><span class="nt">color-stop</span><span class="o">(</span><span class="nt">0</span><span class="nc">.33</span><span class="o">,</span><span class="nf">#FF7F00</span><span class="o">),</span><span class="nt">to</span><span class="o">(</span><span class="nf">#FE280E</span><span class="o">));</span>
+</pre></div>
+</blockquote>
+<p>一直以为浏览器中的渐变只能两种颜色, 其他可以有很多~ 更多见 <a class="reference external" href="http://www.cnblogs.com/yuntian/archive/2010/10/08/1827993.html">http://www.cnblogs.com/yuntian/archive/2010/10/08/1827993.html</a></p>
+</div>
+<div class="section" id="ie-image">
+<h2>IE下创建 Image 的宽高问题</h2>
+<p>在使用 document.createElement 或 new Image() 创建 img 时, IE6/7/8下会给 img 元素设置 width/height 属性, 如:</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;http://img01.taobaocdn.com/imgextra/i1/T1s.pHXlFIXXbVn43V_021049.jpg&quot;</span> <span class="na">width=</span><span class="s">720</span> <span class="na">height=</span><span class="s">478</span> <span class="nt">/&gt;</span>
+</pre></div>
+</blockquote>
+<p>且之后如果再次更改 src , width/height 还是原来的值.</p>
+<p>这似乎是一个bug, 创建一个img, 我并不想设置 width/height ! 替代方法是使用 <tt class="docutils literal"><span class="pre">S.DOM.create('&lt;img</span> <span class="pre">src=&quot;http://img01.taobaocdn.com/imgextra/i1/T1s.pHXlFIXXbVn43V_021049.jpg&quot;</span> <span class="pre">/&gt;');</span></tt>
+她实现时不用 document.createElement 而是创建一个父 div, 设置其 innerHTML 为目标字符串, 所以能避免自动设置 width/height;</p>
+<p>这里, 比较奇怪的一个:</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">);</span> <span class="c1">// or new Image(); or S.DOM.create(&#39;&amp;lt;img&gt;&#39;);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="nx">img</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">),</span> <span class="nx">img</span><span class="p">.</span><span class="nx">width</span><span class="p">]);</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;http://img01.taobaocdn.com/imgextra/i1/T1s.pHXlFIXXbVn43V_021049.jpg&#39;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="nx">img</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">),</span> <span class="nx">img</span><span class="p">.</span><span class="nx">width</span><span class="p">]);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">img</span><span class="p">);</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="nx">img</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">),</span> <span class="nx">img</span><span class="p">.</span><span class="nx">width</span><span class="p">]);</span>
+<span class="p">}</span>
+
+
+<span class="c1">// 日志: 1,,0,</span>
+<span class="c1">// 日志: 2,720,720,   &lt;---- 图片还没有加载完, 但已经能获得图片宽高</span>
+<span class="c1">// 日志: 3,720,720,</span>
+</pre></div>
+</blockquote>
+<p>width/height 获取并不是当图片加载完成之后设置, 而是一设置 src 后, 发出请求获取图片文件头后, 就能获取其宽高(jpg, png, gif文件头信息中都包含图像宽高信息).
+从这点上, IE中, 不用等待图片加载完成就能获取其高宽, 这样有些情况下 onload 都不用写, 可惜~其他浏览器下不能这么做!</p>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/226847/what-is-the-best-javascript-code-to-create-an-img-element">http://stackoverflow.com/questions/226847/what-is-the-best-javascript-code-to-create-an-img-element</a></li>
+<li><a class="reference external" href="http://dev.gameres.com/Program/Visual/Other/PNGFormat.htm">http://dev.gameres.com/Program/Visual/Other/PNGFormat.htm</a></li>
+<li><a class="reference external" href="http://www.onicos.com/staff/iz/formats/gif.html">http://www.onicos.com/staff/iz/formats/gif.html</a></li>
+</ul>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[Image Object in JS]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/image_object.html"/>
+        <published>2010-09-28T10:09:08+08:00</published>
+        <updated>2012-11-20T13:26:31+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/image_object.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>DOM 中的 Image 对象, W3C 定义为:</p>
+<!--  -->
+<blockquote>
+The Image object represents an embedded image.
+For each &lt;img&gt; tag in an HTML document, an Image object is created.
+Notice that images are not technically inserted into an HTML page, images are linked to HTML pages. The &lt;img&gt; tag creates a holding space for the referenced image.</blockquote>
+<p>暂且称 DOM 中的 img 标签元素 和 js 中的 Image 对象. 上面说, img 标签 代表了一个内嵌的图片, 当标签 img 插入到 document 中, 一个 Image 对象就创建了. img 标签在页面上创建一个占位符.</p>
+<p>有个疑问, img 与 Image 之间的关系到底是什么? 找了好半天, 终于在某个网站上 <a class="footnote-reference" href="#f2" id="id1">[2]</a> 的一小段话中找到:</p>
+<!-- The Image Object is the JavaScript object for interfacing with IMG tags. The properties you see between <img> HTML markup map to similar property names that are a part of the DOM and become accessible to client-side scripting. -->
+<p>Image 对象是一个 img 标签的接口对象, img 标签的 src 可以是各种不同的图片类型, 统一通过 Image 封装起来, 其中的属性与 HTMLElement 大体一致, 详细见 <a class="footnote-reference" href="#f2" id="id2">[2]</a> ;</p>
+<p>因为浏览器加载图片是非阻塞的, 通常可以用 onload 或 complet 来判断图片是否加载完成.</p>
+<p>Complete 定义:</p>
+<!--  -->
+<blockquote>
+The complete property returns whether or not the browser is finished loading an image.
+If the image is finished loaded, the complete property returns true, otherwise it returns false.</blockquote>
+<p>onload 事件定义:</p>
+<!--  -->
+<blockquote>
+The onload event occurs immediately after an image is loaded.</blockquote>
+<p>W3C 定义这两个很简单, complete 就是图片加载完了就为 true, 没加载完就是 false; onload 事件在图片加载完成后触发; 但现实总是复杂的!</p>
+<p>如下的一段代码:</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nx">DOM</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span> <span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;xxxx&#39;</span><span class="p">);</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span> <span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;image loaded!&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+</pre></div>
+</blockquote>
+<p>在设置 src 之后并且这个图片很快加载完, 还没等到 onload 事件定义(这里是设置了一个延时, 也有可能图片在页面最上面, 脚本在最下面, 这个页面又很长, 又或者是图片直接取缓存), 就永远执行不到 load 事件;</p>
+<p>一种解决办法是, 将 onload 定义到设置 src 之前;
+但实际中, 不能总是把 load 放在前面的的, 于是乎, 就有 complete 来判断:</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">imgOnLoad</span><span class="p">(</span><span class="nx">imgElem</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">imgElem</span> <span class="o">&amp;&amp;</span> <span class="nx">imgElem</span><span class="p">.</span><span class="nx">complete</span> <span class="o">&amp;&amp;</span> <span class="nx">imgElem</span><span class="p">.</span><span class="nx">width</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">callback</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span> <span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">imgOnLoad</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;image loaded!&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<p>双重判断, 确保都能执行到.</p>
+<p>img.src 是可以动态修改的. 当 src 改变时, 每次修改都会触发 onload 事件(只要有定义到 onload 事件);
+但是, 不同浏览器, 更改图片 src 之后, img.complete 的值奇怪的不同, 做个简单测试;</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nx">DOM</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;#img&#39;</span><span class="p">),</span>
+    <span class="nx">imgCopy</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="nx">img</span><span class="p">.</span><span class="nx">complete</span><span class="p">]);</span>
+
+<span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span> <span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="nx">img</span><span class="p">.</span><span class="nx">complete</span><span class="p">]);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;image loaded!&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">later</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+     <span class="nx">DOM</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span> <span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;http://img05.taobaocdn.com/imgextra/i5/T1DERIXmXsXXa26X.Z_031259.jpg&#39;</span><span class="p">);</span>
+     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;src changed!&#39;</span><span class="p">);</span>
+     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="nx">img</span><span class="p">.</span><span class="nx">complete</span><span class="p">]);</span>
+<span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
+
+<span class="cm">/* 结果</span>
+<span class="cm">firefox 清缓存</span>
+<span class="cm">start</span>
+<span class="cm">1,false</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+<span class="cm">src changed!</span>
+<span class="cm">3,true  &lt;------------</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+<span class="cm">firefox 来自缓存</span>
+<span class="cm">start</span>
+<span class="cm">1,true</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+<span class="cm">src changed!</span>
+<span class="cm">3,true</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+
+<span class="cm">chrome 清缓存</span>
+<span class="cm">start</span>
+<span class="cm">1,false</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+<span class="cm">src changed!</span>
+<span class="cm">3,true    &lt;-------------</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+<span class="cm">chrome来自缓存</span>
+<span class="cm">start</span>
+<span class="cm">1,false</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+<span class="cm">src changed!</span>
+<span class="cm">3,true</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+
+<span class="cm">safari 清缓存</span>
+<span class="cm">start</span>
+<span class="cm">1,false</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+<span class="cm">src changed!</span>
+<span class="cm">3,false   &lt;------------</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+<span class="cm">safari 来自缓存</span>
+<span class="cm">start</span>
+<span class="cm">1,false</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+<span class="cm">src changed!</span>
+<span class="cm">3,false</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+
+<span class="cm">opera 清缓存</span>
+<span class="cm">start</span>
+<span class="cm">1,false</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+<span class="cm">src changed!</span>
+<span class="cm">3,false  &lt;------------</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+<span class="cm">opera 来自缓存</span>
+<span class="cm">start</span>
+<span class="cm">1,true</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+<span class="cm">src changed!</span>
+<span class="cm">3,true</span>
+<span class="cm">2,true</span>
+<span class="cm">image loaded!</span>
+
+<span class="cm">IE8 清缓存</span>
+<span class="cm">日志: start</span>
+<span class="cm">日志: 1,false</span>
+<span class="cm">日志: 2,false</span>
+<span class="cm">日志: image loaded!</span>
+<span class="cm">日志: src changed!</span>
+<span class="cm">日志: 3,true</span>
+<span class="cm">日志: 2,true</span>
+<span class="cm">日志: image loaded!</span>
+
+<span class="cm">IE8 来自缓存</span>
+<span class="cm">日志: start</span>
+<span class="cm">日志: 1,false</span>
+<span class="cm">日志: 2,false</span>
+<span class="cm">日志: image loaded!</span>
+<span class="cm">日志: 2,true</span>
+<span class="cm">日志: image loaded!</span>
+<span class="cm">日志: src changed!</span>
+<span class="cm">日志: 3,true</span>
+
+<span class="cm">*/</span>
+</pre></div>
+</blockquote>
+<p>不管是否来自缓存, 改变 src 之后, img.complete 仍然是 true, 这个貌似 opera 和 safari 才会重置为 false, 这才是想要的状态.
+另外, IE下更为奇怪, load 完了竟然 img.complete 还是为 false.</p>
+<p>所以, 判断两次还是有必要的.</p>
+<p>PS: 对于 img 的宽高, 如果没有另外设置 image 的 height/width, 得到的是图片的真实宽高. 而如果设置了, 通过 image.height/clientHeight/offsetHeight 都不能获取图片的真实宽高.
+如果想获取真实图片宽高, 通过另建一个 new Image().src = img.src 来获取.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><a class="reference external" href="http://www.w3schools.com/jsref/dom_obj_image.asp">http://www.w3schools.com/jsref/dom_obj_image.asp</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>)</em> <a class="reference external" href="http://www.esqsoft.com/javascript-help/javascript-img-image-object.htm">http://www.esqsoft.com/javascript-help/javascript-img-image-object.htm</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td><a class="reference external" href="http://msdn.microsoft.com/en-us/library/cc197055(VS.85).aspx">http://msdn.microsoft.com/en-us/library/cc197055(VS.85).aspx</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td><a class="reference external" href="http://www.thefutureoftheweb.com/blog/image-onload-isnt-being-called">http://www.thefutureoftheweb.com/blog/image-onload-isnt-being-called</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[5]</td><td><a class="reference external" href="http://bytes.com/topic/javascript/answers/626745-image-complete-property-prematurely-true">http://bytes.com/topic/javascript/answers/626745-image-complete-property-prematurely-true</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[6]</td><td><a class="reference external" href="http://www.w3schools.com/jsref/prop_img_complete.asp">http://www.w3schools.com/jsref/prop_img_complete.asp</a></td></tr>
+</tbody>
+</table>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[DOM.html]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/dom_html.html"/>
+        <published>2010-09-24T09:09:00+08:00</published>
+        <updated>2012-11-20T13:36:05+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/dom_html.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
+        <category scheme="http://sunsetsunrising.com/tag/#KISSY" term="KISSY" label="KISSY" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>KISSY DOM系列之三, 有关 html 内容的设置</p>
+<div class="section" id="dom-create-js">
+<h2>dom-create.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-create.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-create.js</a></p>
+<p>dom.create() 创建 DOM 元素</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">create</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="nx">props</span><span class="p">,</span> <span class="nx">ownerDoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nodeTypeIs</span><span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">||</span> <span class="nx">nodeTypeIs</span><span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="k">return</span> <span class="nx">cloneNode</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">isKSNode</span><span class="p">(</span><span class="nx">html</span><span class="p">))</span> <span class="k">return</span> <span class="nx">cloneNode</span><span class="p">(</span><span class="nx">html</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">html</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">trim</span><span class="p">(</span><span class="nx">html</span><span class="p">)))</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">creators</span> <span class="o">=</span> <span class="nx">DOM</span><span class="p">.</span><span class="nx">_creators</span><span class="p">,</span>
+        <span class="nx">m</span><span class="p">,</span> <span class="nx">tag</span> <span class="o">=</span> <span class="nx">DIV</span><span class="p">,</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">nodes</span><span class="p">;</span>
+
+    <span class="c1">// 简单 tag, 比如 DOM.create(&#39;&lt;p&gt;&#39;)</span>
+    <span class="k">if</span> <span class="p">((</span><span class="nx">m</span> <span class="o">=</span> <span class="nx">RE_SIMPLE_TAG</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">html</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="nx">ret</span> <span class="o">=</span> <span class="p">(</span><span class="nx">ownerDoc</span> <span class="o">||</span> <span class="nx">doc</span><span class="p">).</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="c1">// 复杂情况，比如 DOM.create(&#39;&lt;img src=&quot;sprite.png&quot; /&gt;&#39;)</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="nx">m</span> <span class="o">=</span> <span class="nx">RE_TAG</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">html</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">k</span> <span class="o">=</span> <span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nx">S</span><span class="p">.</span><span class="nx">isFunction</span><span class="p">(</span><span class="nx">creators</span><span class="p">[(</span><span class="nx">k</span> <span class="o">=</span> <span class="nx">k</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())]))</span> <span class="p">{</span>
+            <span class="nx">tag</span> <span class="o">=</span> <span class="nx">k</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">nodes</span> <span class="o">=</span> <span class="nx">creators</span><span class="p">[</span><span class="nx">tag</span><span class="p">](</span><span class="nx">html</span><span class="p">,</span> <span class="nx">ownerDoc</span><span class="p">).</span><span class="nx">childNodes</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// return single node, breaking parentNode ref from &quot;fragment&quot;</span>
+            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="nx">PARENT_NODE</span><span class="p">].</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// return multiple nodes as a fragment</span>
+            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">nl2frag</span><span class="p">(</span><span class="nx">nodes</span><span class="p">,</span> <span class="nx">ownerDoc</span> <span class="o">||</span> <span class="nx">doc</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">attachProps</span><span class="p">(</span><span class="nx">ret</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
+<span class="p">},</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>如果是文本或元素节点, 直接克隆返回, 使用 elem.cloneNode(true) , ie&lt;8时还需设置innerHTML;</li>
+<li>如果是 kissy 的 Node, 返回 克隆这个node 对应的 element;</li>
+<li>简单的html, 比如只有标签的, 使用 doc.createElement(xxx);</li>
+<li>比较复杂的html, 通过创建一个父元素(一般为div)包裹这些html, 获得这个父元素的所有孩子节点 nodelist (分开处理一个孩子或多个孩子), 还得将 nodelist 转换成 fragment 返回;</li>
+<li>如果有属性设置, 通过 DOM.attr 设置, 所以支持 DOM.create('tag', {text:'xxxx', title:'xxx', css:{color: 'white'}});</li>
+<li>还有如 table, thead, th, tfoot, 等元素, 需要特殊处理;</li>
+</ul>
+<p>dom.html() 获取/设置元素内的内容
+// getter
+* 取 elm.innerHTML
+// setter ----&gt; setHTML(elem, val, loadScripts, callback);</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">setHTML</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">html</span><span class="p">,</span> <span class="nx">loadScripts</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">loadScripts</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">setHTMLSimple</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">html</span><span class="p">);</span>
+        <span class="nx">S</span><span class="p">.</span><span class="nx">isFunction</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">callback</span><span class="p">();</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">guid</span><span class="p">(</span><span class="s1">&#39;ks-tmp-&#39;</span><span class="p">),</span>
+        <span class="nx">re_script</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">RE_SCRIPT</span><span class="p">);</span> <span class="c1">// 防止</span>
+
+    <span class="nx">html</span> <span class="o">+=</span> <span class="s1">&#39;&lt;span id=&quot;&#39;</span> <span class="o">+</span> <span class="nx">id</span> <span class="o">+</span> <span class="s1">&#39;&quot;&gt;&lt;/span&gt;&#39;</span><span class="p">;</span>
+
+    <span class="c1">// 确保脚本执行时，相关联的 DOM 元素已经准备好</span>
+    <span class="nx">S</span><span class="p">.</span><span class="nx">available</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">hd</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">),</span>
+            <span class="nx">match</span><span class="p">,</span> <span class="nx">attrs</span><span class="p">,</span> <span class="nx">srcMatch</span><span class="p">,</span> <span class="nx">charsetMatch</span><span class="p">,</span>
+            <span class="nx">t</span><span class="p">,</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">text</span><span class="p">;</span>
+
+        <span class="nx">re_script</span><span class="p">.</span><span class="nx">lastIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">((</span><span class="nx">match</span> <span class="o">=</span> <span class="nx">re_script</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">html</span><span class="p">)))</span> <span class="p">{</span>
+            <span class="nx">attrs</span> <span class="o">=</span> <span class="nx">match</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+            <span class="nx">srcMatch</span> <span class="o">=</span> <span class="nx">attrs</span> <span class="o">?</span> <span class="nx">attrs</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">RE_SCRIPT_SRC</span><span class="p">)</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="c1">// script via src</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">srcMatch</span> <span class="o">&amp;&amp;</span> <span class="nx">srcMatch</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nx">s</span> <span class="o">=</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
+                <span class="nx">s</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">srcMatch</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+                <span class="c1">// set charset</span>
+                <span class="k">if</span> <span class="p">((</span><span class="nx">charsetMatch</span> <span class="o">=</span> <span class="nx">attrs</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">RE_SCRIPT_CHARSET</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="nx">charsetMatch</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="p">{</span>
+                    <span class="nx">s</span><span class="p">.</span><span class="nx">charset</span> <span class="o">=</span> <span class="nx">charsetMatch</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="nx">s</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// make sure async in gecko</span>
+                <span class="nx">hd</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="c1">// inline script</span>
+            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="nx">text</span> <span class="o">=</span> <span class="nx">match</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nx">text</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">S</span><span class="p">.</span><span class="nx">globalEval</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 删除探测节点</span>
+        <span class="p">(</span><span class="nx">t</span> <span class="o">=</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="nx">DOM</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
+
+        <span class="c1">// 回调</span>
+        <span class="nx">S</span><span class="p">.</span><span class="nx">isFunction</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">callback</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="nx">setHTMLSimple</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">html</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>通过 elm.innerHTML 设置, 但一些特殊元素 table/tr/td 等在IE下, innerHTML 是只读属性, 不能通过它来设置, 而是先 removeChild, 然后再 appendChild;</li>
+<li>如果包含 script 脚本, 首先确保在 DOM ready 后执行(通过创建一个临时节点来判断是否 ready ), 若是脚本文件插入到 head 末尾, 且设置其 async 为 true, 即异步加载, 不阻塞浏览器, 若是内联脚本, 使用 S.globalEval(text) 立即执行该脚本;</li>
+</ul>
+<p>dom.remove()</p>
+<ul class="simple">
+<li>el.parentNode.removeChild(el);</li>
+<li>是否需要删除expando和event, 如 jQuery 的处理?</li>
+</ul>
+</div>
+<div class="section" id="dom-inseartion-js">
+<h2>dom-inseartion.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-insertion.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-insertion.js</a></p>
+<ul class="simple">
+<li>appendChild, removeChild, replaceChild 直接用原生的方法;</li>
+<li>添加 insertBefore/insertAfter 方法, 实现时转换成父元素的 insertBefore 来, 只是被参照的元素不同.</li>
+</ul>
+</div>
+<div class="section" id="dom-traversal-js">
+<h2>dom-traversal.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-traversal.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-traversal.js</a></p>
+<p>DOM 的遍历</p>
+<p>parent()/next()/prev() 这种只取单个元素的方法, ---&gt; nth(elem, filter, direction, extraFilter)</p>
+<ul class="simple">
+<li>获取 elem 满足 filter 的第一个 parentNode, nextSibling, previousSibling 元素.</li>
+<li>filter 为数字时, 表示深度, 从0开始, 0 表示当前 elem;</li>
+</ul>
+<p>siblings()/children() 这类取一批元素的方法, ---&gt; getSiblings(selector, filter, parent)</p>
+<ul class="simple">
+<li>获取 elem 满足条件的所有siblings</li>
+<li>利用 parentNode.firstChild 和 next.nextSibling , siblings() 取 elem.parentNode 的 孩子 且不是 elem 的元素.</li>
+</ul>
+<p>contains() 判断一个节点(contained)是否在另外一个节点(container)内</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">contains</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span> <span class="nx">contained</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">((</span><span class="nx">container</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">container</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">contained</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">contained</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">contains</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">container</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="nx">contained</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">compareDocumentPosition</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="o">!!</span><span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">compareDocumentPosition</span><span class="p">(</span><span class="nx">contained</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">16</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">ret</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">contained</span> <span class="o">=</span> <span class="nx">contained</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nx">ret</span> <span class="o">=</span> <span class="nx">contained</span> <span class="o">==</span> <span class="nx">container</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>最容易想到的方法, 判断 contained.parentNode 是否为 container, 如果不是, 再次判断parentNode.parentNode,依次下去, ps: document.parentNode 为 null;</li>
+<li>Firefox, Opera 支持 compareDocumentPosition , 就可以直接使用该方法, 具体见下链接;</li>
+<li>如果对象已经包含 contains 方法, 则用他的 contains 方法;</li>
+</ul>
+</div>
+<div class="section" id="dom-class-js">
+<h2>dom-class.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-class.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-class.js</a></p>
+<p>hasClass()/addClass()/removeClass() 处理 elem.className
+replaceClass() 先删removeClass()后加addClass()
+toggleClass() 有某个 cls, 则removClass, 没有则addClass()</p>
+<ul class="simple">
+<li>这几个方法大多用到 batch(selector, value, fn, resultIsBool) 方法, 用于批量操作, 对符合条件的一批元素进行.</li>
+</ul>
+</div>
+<div class="section" id="selector-js">
+<h2>selector.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/selector.js">http://github.com/kissyteam/kissy/blob/master/src/dom/selector.js</a></p>
+<p>终于到 selector 了. 可谓是 DOM 的核心了. 所以留到最后.
+S.get()/S.query()/S.filter()/S.test() ---&gt; query()
+优先级及先后处理顺序#id, cls, tag, 先出现的作为 context;</p>
+<ul>
+<li><p class="first">#id ----&gt; getElementById;</p>
+</li>
+<li><p class="first">#id .cls | #id tag.cls | .cls | tag.cls ----&gt; getElementsByClassName or querySelectorAll or getElementsByTagName 自个儿判断;</p>
+<blockquote>
+<div class="highlight"><pre><span class="c1">// query .cls</span>
+    <span class="kd">function</span> <span class="nx">getElementsByClassName</span><span class="p">(</span><span class="nx">cls</span><span class="p">,</span> <span class="nx">tag</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">els</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="nx">cls</span><span class="p">),</span>
+            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">els</span><span class="p">,</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">els</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">el</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">tag</span> <span class="o">&amp;&amp;</span> <span class="nx">tag</span> <span class="o">!==</span> <span class="nx">ANY</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">ret</span> <span class="o">=</span> <span class="p">[];</span>
+            <span class="nx">tag</span> <span class="o">=</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+            <span class="k">for</span> <span class="p">(;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">el</span> <span class="o">=</span> <span class="nx">els</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">el</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">===</span> <span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">ret</span><span class="p">[</span><span class="nx">j</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nx">el</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">doc</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 降级使用 querySelectorAll</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">getElementsByClassName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cls</span><span class="p">,</span> <span class="nx">tag</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">context</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">((</span><span class="nx">tag</span> <span class="o">?</span> <span class="nx">tag</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">cls</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">// 降级到普通方法</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">getElementsByClassName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cls</span><span class="p">,</span> <span class="nx">tag</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">els</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">tag</span> <span class="o">||</span> <span class="nx">ANY</span><span class="p">),</span>
+                    <span class="nx">ret</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">els</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">t</span><span class="p">;</span>
+
+                <span class="nx">cls</span> <span class="o">=</span> <span class="nx">SPACE</span> <span class="o">+</span> <span class="nx">cls</span> <span class="o">+</span> <span class="nx">SPACE</span><span class="p">;</span>
+                <span class="k">for</span> <span class="p">(;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">el</span> <span class="o">=</span> <span class="nx">els</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+                    <span class="nx">t</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">className</span><span class="p">;</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nx">t</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">SPACE</span> <span class="o">+</span> <span class="nx">t</span> <span class="o">+</span> <span class="nx">SPACE</span><span class="p">).</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">cls</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">ret</span><span class="p">[</span><span class="nx">j</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nx">el</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">这里的 getElementsByClassName 方法, 处理比较复杂,</p>
+</li>
+<li><p class="first">传入 S.Node or S.NodeList, 会转成 DOM Node 返回;</p>
+</li>
+<li><p class="first">filter, 过滤满足条件的元素, 在 query 基础上;</p>
+</li>
+<li><p class="first">S.query('.x').each(fn, context) 等价于 S.each(S.query('.x'), fn, context)</p>
+</li>
+<li><p class="first">S.ExternalSelector 额外的选择器, 比如 sizzle.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="node-js-nodelist-js">
+<h2>node.js/nodelist.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/node">http://github.com/kissyteam/kissy/blob/master/src/node</a></p>
+<p>代替 DOM 原生的 Node, KISSY 的 Node/NodeList, 以支持链式操作.</p>
+<ul class="simple">
+<li>S.one()/S.all()</li>
+<li>node.getDOMNode(), nodelist.item(idx), .getDOMNodes(), .each(fn, context), 貌似没啥好说的.</li>
+</ul>
+</div>
+<div class="section" id="node-attach-js">
+<h2>node-attach.js</h2>
+<p>给 Node/NodeList, 添加一些 DOM 中实现的方法.</p>
+<ul class="simple">
+<li>.one/.all, 同S.one/S.all;</li>
+<li>.append/.appendTo, 追加html/添加到父节点的末尾上;</li>
+<li>核心: attach/normalGetterSetter, 用于将 Node/NodeList 的方法 转移到 DOM 方法实现.</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>相关资源链接</h2>
+<ul class="simple">
+<li><a class="reference external" href="https://developer.mozilla.org/en/DOM/Node.compareDocumentPosition">compareDocumentPosition: Compares the position of the current node against another node in any other document.</a></li>
+<li>DOM.contains(): <a class="reference external" href="http://ejohn.org/blog/comparing-document-position/">http://ejohn.org/blog/comparing-document-position/</a> 和 <a class="reference external" href="http://www.quirksmode.org/blog/archives/2006/01/contains_for_mo.html">http://www.quirksmode.org/blog/archives/2006/01/contains_for_mo.html</a></li>
+</ul>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[DOM.style]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/dom_style.html"/>
+        <published>2010-09-15T13:09:44+08:00</published>
+        <updated>2012-11-20T15:21:59+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/dom_style.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
+        <category scheme="http://sunsetsunrising.com/tag/#KISSY" term="KISSY" label="KISSY" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>继续上回的 KISSY DOM 源码学习..今天看了 style, attr, 和 data相关.</p>
+<div class="section" id="dom-style-js">
+<h2>dom-style.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-style.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-style.js</a>
+<a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-style-ie.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-style-ie.js</a></p>
+<p>DOM.css() 先看setter</p>
+<blockquote>
+<div class="highlight"><pre><span class="c1">// setter</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// normalize unsetting</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">val</span> <span class="o">===</span> <span class="nx">EMPTY</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">val</span> <span class="o">=</span> <span class="nx">EMPTY</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// number values may need a unit</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">val</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="nx">RE_NEED_UNIT</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">name</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">val</span> <span class="o">+=</span> <span class="nx">DEFAULT_UNIT</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ignore negative width and height values</span>
+    <span class="k">if</span> <span class="p">((</span><span class="nx">name</span> <span class="o">===</span> <span class="nx">WIDTH</span> <span class="o">||</span> <span class="nx">name</span> <span class="o">===</span> <span class="nx">HEIGHT</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">S</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">S</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="nx">selector</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span> <span class="o">&amp;&amp;</span> <span class="nx">elem</span><span class="p">[</span><span class="nx">STYLE</span><span class="p">])</span> <span class="p">{</span>
+            <span class="nx">name</span><span class="p">.</span><span class="nx">set</span> <span class="o">?</span> <span class="nx">name</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span> <span class="o">:</span> <span class="p">(</span><span class="nx">elem</span><span class="p">[</span><span class="nx">STYLE</span><span class="p">][</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">val</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">===</span> <span class="nx">EMPTY</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">elem</span><span class="p">[</span><span class="nx">STYLE</span><span class="p">].</span><span class="nx">cssText</span><span class="p">)</span>
+                    <span class="nx">elem</span><span class="p">.</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="nx">STYLE</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<p>核心代码 <tt class="docutils literal">name.set ? name.set(elem, val) : <span class="pre">(elem[STYLE][name]</span> = val);</tt> , 也就是直接内敛设置元素的style, 前面的name.set判断 是针对 IE下, 一些特殊属性, 如 opacity, 需要特殊的处理, 所以在 style-ie.js 中增加 opacity 的 get/set 函数;</p>
+<p>PS: IE下的 opacity 通过 elem.filters.DXImageTransform.Microsoft.Alpha.opacity 或者 elem.filters.alpha.opacity 获取, 而设置时, 利用 elem.currentStyle.filter 中有关 opacity 的值进行设置.
+PS: 如果以后还有其他需要特殊处理的 css 属性, 就可以直接通过 类似于opacity 的方式 添加 属性的set和get, 而不用再次修改 style.js 中的代码;</p>
+<p>再看getter</p>
+<blockquote>
+<div class="highlight"><pre><span class="c1">// getter</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// supports css selector/Node/NodeList</span>
+    <span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">selector</span><span class="p">),</span> <span class="nx">ret</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span> <span class="o">&amp;&amp;</span> <span class="nx">elem</span><span class="p">[</span><span class="nx">STYLE</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">ret</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">get</span> <span class="o">?</span> <span class="nx">name</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="o">:</span> <span class="nx">elem</span><span class="p">[</span><span class="nx">STYLE</span><span class="p">][</span><span class="nx">name</span><span class="p">];</span>
+
+        <span class="c1">// 有 get 的直接用自定义函数的返回值</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">ret</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">name</span><span class="p">.</span><span class="nx">get</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">fixComputedStyle</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">DOM</span><span class="p">.</span><span class="nx">_getComputedStyle</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">name</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">ret</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">?</span> <span class="s1">&#39;&#39;</span> <span class="o">:</span> <span class="nx">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li><tt class="docutils literal">ret = name.get ? name.get(elem) : <span class="pre">elem[STYLE][name];</span></tt> name.get 同样是针对需要特殊处理的 属性,</li>
+<li>先尝试 取元素内敛的 style, 如果没有, 则使用 getComputedStyle 里计算当前的 CSS 属性值;</li>
+<li>fixComputedStyle, 对 getComputedStyle 返回的值再次处理, 主要针对 css 属性 left/top 的返回值为 auto 时处理, elem 的 position 为 absolute 时, kissy 取 left/top 值为 offsetLeft/offsetTop 减去 margin-left/margin-top 的值; elem 的 position 为 relative 时, 直接取 0;</li>
+</ul>
+<p>非 IE 下 获取元素 css 值, 使用的是 document.defaultView.getComputedStyle, IE下则用 elem.currentStyle, 所以 KISSY 针对 IE , 覆盖了 DOM._getComputedStyle , 使用 currentStyle.</p>
+<ul class="simple">
+<li>这里, 如果是 height 和 width, 就直接用DOM.height()/width();</li>
+<li>如果是数值, 但没有px指定, 则使用 Dean Edwards 上的巧妙方法 (<a class="reference external" href="http://erik.eae.net/archives/2007/07/27/18.54.15/#comment-102291">http://erik.eae.net/archives/2007/07/27/18.54.15/#comment-102291</a>), 主要是利用 elem.runtimeStyle, 详细见http://yiminghe.javaeye.com/blog/511589.</li>
+</ul>
+<p>还有一些其他的注意点:</p>
+<ul class="simple">
+<li>不同浏览器对 css 属性的命名认识也不一样, webkit 认识 camel-case(有-)的, 其他的只认识camelCase;</li>
+<li>CSS 中 float 和 js 的 float 冲突, 所以浏览器将 CSS 的 float 替代命名, IE 用 styleFloat, 标准浏览器用 cssFloat;</li>
+<li>color获取, 情况也很多, 详见 secrets of the javascrpt p172.</li>
+</ul>
+<p>DOM.width()/height()核心函数</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">getWH</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">selector</span><span class="p">),</span>
+        <span class="nx">which</span> <span class="o">=</span> <span class="nx">name</span> <span class="o">===</span> <span class="nx">WIDTH</span> <span class="o">?</span> <span class="p">[</span><span class="s1">&#39;Left&#39;</span><span class="p">,</span> <span class="s1">&#39;Right&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Top&#39;</span><span class="p">,</span> <span class="s1">&#39;Bottom&#39;</span><span class="p">],</span>
+        <span class="nx">val</span> <span class="o">=</span> <span class="nx">name</span> <span class="o">===</span> <span class="nx">WIDTH</span> <span class="o">?</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">offsetWidth</span> <span class="o">:</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">offsetHeight</span><span class="p">;</span>
+
+    <span class="nx">S</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">which</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">direction</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">val</span> <span class="o">-=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">_getComputedStyle</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="s1">&#39;padding&#39;</span> <span class="o">+</span> <span class="nx">direction</span><span class="p">))</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="nx">val</span> <span class="o">-=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">_getComputedStyle</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="s1">&#39;border&#39;</span> <span class="o">+</span> <span class="nx">direction</span> <span class="o">+</span> <span class="s1">&#39;Width&#39;</span><span class="p">))</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="nx">val</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>取的是 元素内容宽度, 而 clientWidth()/clientHeight() 是包含 padding 的.</li>
+<li>取的是offsetWidth/offsetHeight, 减去 padding和border 得到;</li>
+</ul>
+<p>DOM.show()/hide()/toggle() 元素显示/隐藏/切换.</p>
+<ul class="simple">
+<li>这里有一个注意的地方, 就是, 元素的 display 值, 再显示的时候, 不是固定设置 block, 而是设置 元素被隐藏之前的值, 当然在隐藏这个元素前会把原来的 display 值保存起来, 这里用到了 DOM.data.</li>
+</ul>
+</div>
+<div class="section" id="dom-data-js">
+<h2>dom-data.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-data.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-data.js</a></p>
+<p>DOM.data()/DOM.removeData()</p>
+<p>分为 winDataCache 和节点上的 dataCache ,</p>
+<ul class="simple">
+<li>如果是设置在 win 上的 data, key 为 expando(dom-data加载时随机生成的字串), cache为 winDataCache, 即 winDataCache[expando][name] = data;</li>
+<li>如果是设置在 某个节点上 的 data, key 为 node[expando](不存在时生成一个全局唯一的id, S.guid() 方法), cache为dataCache, 即dataCache[node[expando]][name] = data;</li>
+</ul>
+</div>
+<div class="section" id="dom-attr-js">
+<h2>dom-attr.js</h2>
+<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-attr.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-attr.js</a></p>
+<p>// attr getter</p>
+<ul class="simple">
+<li>ie7-, css与js冲突的属性, 如, for/class 名字分别为 htmlFor/className;</li>
+<li>mapping 属性, 如 readonly, checked, selected, 直接使用 elem.name 获取;</li>
+<li>其他用 getAttribute, 但还有一些属性, 在 ie7- 下, 得通过 getAttribute(name, 2) , 就是指定 第2个参数来获取 <a class="reference external" href="http://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx">http://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx</a>;</li>
+<li>style属性, ie7- 下用 elem.style.cssText;</li>
+</ul>
+<p>// attr setter</p>
+<ul class="simple">
+<li>style, 通过elem.style.cssText;</li>
+<li>checked 需要 elem.checked = xxx, 通过setAttribute(checked, xxx) 不行;</li>
+<li>其他用 setAttribute(name, val);</li>
+</ul>
+<p>// removeAttr:</p>
+<ul class="simple">
+<li>elem.removeAttribute(name);// 为何先得置空, DOM.attr(elem, name, EMPTY)??</li>
+</ul>
+<p>// val getter</p>
+<ul class="simple">
+<li>如果是 options 元素, 当没有设定 value 时，标准浏览器 option.value === option.text, ie7- 下，没有设定 value 时，option.value === '', 需要用 el.attributes.value 来判断是否有设定 value;</li>
+<li>如果是 select 元素, 如果是单选框, 就去 selectedIndex 那个 option 的val, 没有选中返回 null ; 如果是多选框, 则便利判断 option 是否被 selected, 是则返回, 最终返回以 val 数组, 没有选择返回[];</li>
+<li>如果 radiobox, 如果是webkit浏览器, 没有设置 value时 默认返回 'on';</li>
+<li>剩余的元素, 统一用 elm.value;</li>
+</ul>
+<p>// val setter</p>
+<blockquote>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">nodeNameIs</span><span class="p">(</span><span class="nx">SELECT</span><span class="p">,</span> <span class="nx">el</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// 强制转换数值为字符串，以保证下面的 inArray 正常工作</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">S</span><span class="p">.</span><span class="nx">isNumber</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">value</span> <span class="o">+=</span> <span class="nx">EMPTY</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">vals</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">makeArray</span><span class="p">(</span><span class="nx">value</span><span class="p">),</span>
+        <span class="nx">opts</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">options</span><span class="p">,</span> <span class="nx">opt</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="nx">len</span> <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">opt</span> <span class="o">=</span> <span class="nx">opts</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="nx">opt</span><span class="p">.</span><span class="nx">selected</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">inArray</span><span class="p">(</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="nx">opt</span><span class="p">),</span> <span class="nx">vals</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">vals</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">el</span><span class="p">.</span><span class="nx">selectedIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">isElementNode</span><span class="p">(</span><span class="nx">el</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">el</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>select文本框时, 处理比较麻烦, 在设置 val 时, 需要将对应的 options 选中, 即对应的 options 的selected 为 True , selectedIndex 更新, 如果是没有选中(? 单选框的话,,应该不会吧), 设置为-1 .</li>
+<li>如果是普通 HTMLELement, 直接设置 elem.value = val 即可;</li>
+</ul>
+<p>// text setter / getter</p>
+<ul class="simple">
+<li>如果是 HTMLElement, 使用 elem.text = val / 或 getter 是为 '';</li>
+<li>如果是 TextNode, 使用 elem.nodeValue = val;</li>
+</ul>
+</div>
+<div class="section" id="attr-expando">
+<h2>attr 和 expando</h2>
+<ul class="simple">
+<li>elem 上的属性 , elem.id 等价于 elem.getAttribute('id');</li>
+<li>elem 上的 dataname, 给elem.dataname = data, 但不同通过 elem.getAttribute(dataname) 获取;</li>
+</ul>
+<p>不过, 上面的data.js中, 并没有把dataname直接加在elem上, 而是另外开辟 dataCache 放置, 或许是为了方便管理这些额外的数据;
+PS: secret of javascript 说, elem.id 要比elem.getAttribute('id') 快很多, 尤其是在IE下. 不知道 直接放在 dataCache 里, 性能如何, 字典应该也挺快的吧..</p>
+</div>
+<div class="section" id="id1">
+<h2>参考资源</h2>
+<ul class="simple">
+<li><a class="reference external" href="http://yiminghe.javaeye.com/blog/583699">CSS属性计算值问题</a></li>
+<li><a class="reference external" href="http://yiminghe.javaeye.com/blog/511589">IE 取得css属性的绝对像素值</a></li>
+<li><a class="reference external" href="https://developer.mozilla.org/en/DOM/document.documentElement">document.documentElement</a>, return the element that is the root element of document;</li>
+<li><a class="reference external" href="https://developer.mozilla.org/en/DOM/document.defaultView">document.defaultView</a>, returns a reference to the default AbstractView for document, or null if none available;</li>
+<li><a class="reference external" href="https://developer.mozilla.org/En/DOM/Node.ownerDocument">elem.ownerDocument</a>, return the top-level document object for this node, document.ownerDocument 为 null,</li>
+<li><a class="reference external" href="https://developer.mozilla.org/en/XUL/Attribute/selectedIndex">selectedIndex</a></li>
+</ul>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[DOM.offset]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/dom_offset.html"/>
+        <published>2010-09-12T11:09:50+08:00</published>
+        <updated>2012-11-20T15:31:49+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/dom_offset.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
+        <category scheme="http://sunsetsunrising.com/tag/#KISSY" term="KISSY" label="KISSY" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <div class="section" id="dom">
+<h2>DOM中位置/高宽基础</h2>
+<p>从外到内, 浏览器支持移步见 <a class="reference external" href="http://www.quirksmode.org/dom/w3c_cssom.html">http://www.quirksmode.org/dom/w3c_cssom.html</a>:</p>
+<img alt="https://cacoo.com/diagrams/dWWGTqryaNfi9MWr-58098.png" src="https://cacoo.com/diagrams/dWWGTqryaNfi9MWr-58098.png" />
+</div>
+<div class="section" id="screen">
+<h2>screen</h2>
+<p>screen.width/height : 屏幕宽高度(同屏幕分辨率), 如1280/1024, 如上图中 a;
+screen.availWidth/availHeight: 屏幕可用宽高度, 去除菜单栏,任务栏等的, 如1280/984, 如上图中 b;
+screen.colorDepth: 屏幕色深(位), 如32;
+screen.pixelDepth: 同上, 但IE不支持, 他与colorDepth的区别在于一些老的X-client允许应用程序自定义颜色语法, 那么他的colorDepth就取决于应用程序自己, pixelDepth则一直是显示器颜色位数;</p>
+</div>
+<div class="section" id="window">
+<h2>window</h2>
+<p>IE下都为undefined;
+window.innerWidth/innerHeight: 浏览器窗口内部宽高, 如1280/899, 如上图中 c 框的宽高;
+window.outerWidth/outerHeight: 整个浏览器窗口宽高, 包括任务菜单栏, 如窗口最大化时,1296/1000, 会超过屏幕宽度, 如上图中 d 框的宽高;
+window.pageXoffset/pageYoffset: 整个页面被滚动掉的像素数, 当出现滚动条并且被滚动区域的X/Y偏移, 如pageYoffset对应上图中 e 高度;
+window.screenX/screenY: 浏览器窗口在屏幕上的位置, 相对于左上角, 可能是负值, opera下不正确, 如上图点f在屏幕上的位置;</p>
+<p>另外一些window相关的方法:</p>
+<ol class="arabic simple">
+<li>window.resizeTo(x,y) : 重设窗口宽高;</li>
+<li>window.moveTo(x, y) : 移动到某位置;</li>
+<li>window.focuse() : 使窗口获得焦点;</li>
+<li>window.scroll(x,y)/scrollTo(x, y) : 窗口滚动到指定x,y距离;</li>
+<li>window.onload = ... : window加载完毕后;</li>
+</ol>
+</div>
+<div class="section" id="document-element">
+<h2>document/element</h2>
+<p>document.elementFromPoint(x, y): 获取文档上x,y坐标点对应的元素;
+document.documentElement.clientWidth/clientHeight: 文档内容的宽和高;
+document.documentElement.scrollTop/scrollLeft: 文档滚动了多少;</p>
+<p>elem.getBoundingClientRect(): 获得元素相对于 viewport 的区域, left, top, right, bottom围城的区域, 包含元素边距和边框的;
+elem.getClientRects(): 同上类似, 但可以获得这个elem内所有子 box 的区域;
+elem.scrollIntoView(): 将elem滚动到可视区域;</p>
+<p>elem.clientLeft/clientTop: 元素的内容左上角相对于整个元素左上角位置,(包含边框), 如上图 g处;
+elem.clientWidth/clientHeight: 不包含边框边距的内容宽高, 但有包含滚动条, 如上图 h 虚线框;
+elem.offsetLeft/offsetTop: 相对于 OffsetParent 的左上角位置, 如上图 i 位置;
+elem.offsetParent: 包含这个元素的父元素的位置, 这个父元素的position不能是 static, 如果不幸父元素们都是static, 就用body;
+elem.offsetWidth/offsetHeight: 元素的整个宽高, 包含边框, 如上图 j 框宽高;
+elem.scrollLeft/scrollTop: 元素滚动了多少像素, 可读写;
+elem.scrollWidth/scrollHeight: 内容宽高, 包含被overlfow:hidden掉的内容, 如果没有隐藏掉, 和clientWidth和clientHeight一致;</p>
+</div>
+<div class="section" id="e">
+<h2>e</h2>
+<p>e.clientX/clientY: 相对于 viewport 的位置, 如上图 k;
+e.offsetX/offsetY: 相对于 触发事件的目标元素的位置, 如上图 m;
+e.pageX/pageY: 相对于 document 的位置, 如上图 n;
+e.screenX/screenY: 相对于 屏幕 位置, 如上图 o;
+e.x/y: 同 clientX/clientY;</p>
+</div>
+<div class="section" id="s-dom-offset">
+<h2>S.DOM.offset</h2>
+<p>再来看 KISSY.DOM 是怎么实现的.</p>
+<p>dom-offset.js <a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-offset.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-offset.js</a></p>
+<p>DOM.scrollLeft / scrollTop 方法</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">S</span><span class="p">.</span><span class="nx">each</span><span class="p">([</span><span class="s1">&#39;Left&#39;</span><span class="p">,</span> <span class="s1">&#39;Top&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">method</span> <span class="o">=</span> <span class="nx">SCROLL</span> <span class="o">+</span> <span class="nx">name</span><span class="p">;</span>
+
+    <span class="nx">DOM</span><span class="p">[</span><span class="nx">method</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">w</span> <span class="o">=</span> <span class="nx">getWin</span><span class="p">(</span><span class="nx">elem</span><span class="p">),</span> <span class="nx">d</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">w</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">d</span> <span class="o">=</span> <span class="nx">w</span><span class="p">[</span><span class="nx">DOCUMENT</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">w</span><span class="p">[</span><span class="nx">i</span> <span class="o">?</span> <span class="s1">&#39;pageYOffset&#39;</span> <span class="o">:</span> <span class="s1">&#39;pageXOffset&#39;</span><span class="p">]</span>
+                <span class="o">||</span> <span class="nx">d</span><span class="p">[</span><span class="nx">DOC_ELEMENT</span><span class="p">][</span><span class="nx">method</span><span class="p">]</span>
+                <span class="o">||</span> <span class="nx">d</span><span class="p">[</span><span class="nx">BODY</span><span class="p">][</span><span class="nx">method</span><span class="p">]</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">isElementNode</span><span class="p">((</span><span class="nx">elem</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">elem</span><span class="p">))))</span> <span class="p">{</span>
+            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">[</span><span class="nx">method</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>如果是 window , 使用的是 window.pageXOffset/pageYOffset, 但IE下是undefined, 所以使用document.documentElement.scrollTop/scrollLeft (strict DOCTYPE) 或者 document.body.scrollTop/scrollLeft ( transitional DOCTYPE), 两者根据 DTD 的不同各自取到有效值, 见 <a class="reference external" href="http://javascript.about.com/library/bliebug.htm">http://javascript.about.com/library/bliebug.htm</a></li>
+<li>如果是普通 elem, 则用elem.scrollLeft/scrollTOp;</li>
+</ul>
+<p>DOM.docWidth/docHeight, DOM.viewportWidth/viewportHeight, 获取文档/可视区域宽高;</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">S</span><span class="p">.</span><span class="nx">each</span><span class="p">([</span><span class="s1">&#39;Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Height&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">DOM</span><span class="p">[</span><span class="s1">&#39;doc&#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">refDoc</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">refDoc</span> <span class="o">||</span> <span class="nx">doc</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">MAX</span><span class="p">(</span><span class="nx">isStrict</span> <span class="o">?</span> <span class="nx">d</span><span class="p">[</span><span class="nx">DOC_ELEMENT</span><span class="p">][</span><span class="nx">SCROLL</span> <span class="o">+</span> <span class="nx">name</span><span class="p">]</span> <span class="o">:</span> <span class="nx">d</span><span class="p">[</span><span class="nx">BODY</span><span class="p">][</span><span class="nx">SCROLL</span> <span class="o">+</span> <span class="nx">name</span><span class="p">],</span>
+            <span class="nx">DOM</span><span class="p">[</span><span class="nx">VIEWPORT</span> <span class="o">+</span> <span class="nx">name</span><span class="p">](</span><span class="nx">d</span><span class="p">));</span>
+    <span class="p">};</span>
+
+    <span class="nx">DOM</span><span class="p">[</span><span class="nx">VIEWPORT</span> <span class="o">+</span> <span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">refWin</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">prop</span> <span class="o">=</span> <span class="s1">&#39;inner&#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">,</span>
+            <span class="nx">w</span> <span class="o">=</span> <span class="nx">getWin</span><span class="p">(</span><span class="nx">refWin</span><span class="p">),</span>
+            <span class="nx">d</span> <span class="o">=</span> <span class="nx">w</span><span class="p">[</span><span class="nx">DOCUMENT</span><span class="p">];</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nx">prop</span> <span class="k">in</span> <span class="nx">w</span><span class="p">)</span> <span class="o">?</span> <span class="nx">w</span><span class="p">[</span><span class="nx">prop</span><span class="p">]</span> <span class="o">:</span>
+            <span class="p">(</span><span class="nx">isStrict</span> <span class="o">?</span> <span class="nx">d</span><span class="p">[</span><span class="nx">DOC_ELEMENT</span><span class="p">][</span><span class="nx">CLIENT</span> <span class="o">+</span> <span class="nx">name</span><span class="p">]</span> <span class="o">:</span> <span class="nx">d</span><span class="p">[</span><span class="nx">BODY</span><span class="p">][</span><span class="nx">CLIENT</span> <span class="o">+</span> <span class="nx">name</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>文档宽高, 使用 document.[documentElement|body].scrollWidth/Height , 当文档内容很少, 宽高就取可视区域的宽高;</li>
+<li>可视区域宽高, 支持window.innerWidth方式的用 window.innerWidth/innerHeight , 其他用document.[documentElement|body].clientWidth/clientHeight;</li>
+</ul>
+<p>DOM.getOffset , 获取elem在文档上的位置</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">getOffset</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">box</span><span class="p">,</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">w</span> <span class="o">=</span> <span class="nx">getWin</span><span class="p">(</span><span class="nx">elem</span><span class="p">[</span><span class="nx">OWNER_DOCUMENT</span><span class="p">]);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span><span class="p">[</span><span class="nx">GET_BOUNDING_CLIENT_RECT</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">box</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">[</span><span class="nx">GET_BOUNDING_CLIENT_RECT</span><span class="p">]();</span>
+
+        <span class="c1">// 注：jQuery 还考虑减去 docElem.clientLeft/clientTop</span>
+        <span class="c1">// 但测试发现，这样反而会导致当 html 和 body 有边距/边框样式时，获取的值不正确</span>
+        <span class="c1">// 此外，ie6 会忽略 html 的 margin 值，幸运地是没有谁会去设置 html 的 margin</span>
+
+        <span class="nx">x</span> <span class="o">=</span> <span class="nx">box</span><span class="p">[</span><span class="nx">LEFT</span><span class="p">];</span>
+        <span class="nx">y</span> <span class="o">=</span> <span class="nx">box</span><span class="p">[</span><span class="nx">TOP</span><span class="p">];</span>
+
+        <span class="c1">// iphone/ipad/itouch 下的 Safari 获取 getBoundingClientRect 时，已经加入 scrollTop</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">UA</span><span class="p">.</span><span class="nx">mobile</span> <span class="o">!==</span> <span class="s1">&#39;apple&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">x</span> <span class="o">+=</span> <span class="nx">DOM</span><span class="p">[</span><span class="nx">SCROLL_LEFT</span><span class="p">](</span><span class="nx">w</span><span class="p">);</span>
+            <span class="nx">y</span> <span class="o">+=</span> <span class="nx">DOM</span><span class="p">[</span><span class="nx">SCROLL_TOP</span><span class="p">](</span><span class="nx">w</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">{</span> <span class="nx">left</span><span class="o">:</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">top</span><span class="o">:</span> <span class="nx">y</span> <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>直接使用 getBoundingClientRect() , 除safari外, 补上 scrollLeft/scrollTop 值.</li>
+</ul>
+<p>DOM.setOffset</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">setOffset</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">offset</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// set position first, in-case top/left are set even on static elem</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">POSITION</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;static&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">elem</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">POSITION</span><span class="p">]</span> <span class="o">=</span> <span class="nx">RELATIVE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">old</span> <span class="o">=</span> <span class="nx">getOffset</span><span class="p">(</span><span class="nx">elem</span><span class="p">),</span> <span class="nx">ret</span> <span class="o">=</span> <span class="p">{</span> <span class="p">},</span> <span class="nx">current</span><span class="p">,</span> <span class="nx">key</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="nx">key</span> <span class="k">in</span> <span class="nx">offset</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">current</span> <span class="o">=</span> <span class="nx">PARSEINT</span><span class="p">(</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">key</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="nx">ret</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">current</span> <span class="o">+</span> <span class="nx">offset</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">-</span> <span class="nx">old</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="nx">DOM</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">ret</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>如果元素的position是static, 将其设置为relative, 因为 static时, left/top不起作用, 详细见CSS布局 <a class="reference external" href="http://www.w3.org/TR/CSS2/visuren.html#positioning-scheme">http://www.w3.org/TR/CSS2/visuren.html#positioning-scheme</a></li>
+<li>设置时, 如果 元素是 absolute 时, 直接可以设置 offset , 但如果是 relative 的话, 那元素的 css left/top 值就得是相对于自身的, 设置offset时, 需要变换计算css的left/top (PS: 这样一来, left和top都有可能是负值)</li>
+</ul>
+<p>DOM.scrollIntoView, 将元素滚动到可视区域, 原理及实现及为何不用原生elem.scrollIntoView详见 <a class="reference external" href="http://yiminghe.javaeye.com/blog/390732">http://yiminghe.javaeye.com/blog/390732</a></p>
+</div>
+<div class="section" id="id1">
+<h2>辅助函数</h2>
+<blockquote>
+<div class="highlight"><pre><span class="nx">_isElementNode</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">nodeTypeIs</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">},</span>
+
+<span class="nx">_getWin</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nx">elem</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="s1">&#39;scrollTo&#39;</span> <span class="k">in</span> <span class="nx">elem</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">elem</span><span class="p">[</span><span class="s1">&#39;document&#39;</span><span class="p">])</span> <span class="o">?</span>
+        <span class="nx">elem</span> <span class="o">:</span>
+        <span class="nx">nodeTypeIs</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="o">?</span>
+            <span class="nx">elem</span><span class="p">.</span><span class="nx">defaultView</span> <span class="o">||</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">parentWindow</span> <span class="o">:</span>
+            <span class="nx">elem</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">?</span>
+                <span class="nb">window</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">},</span>
+</pre></div>
+</blockquote>
+<ul>
+<li><p class="first">_isElementNode 用来判断是否是元素节点, 直接取 elem.nodeType, DOM中 不同的节点的nodeType也不同, 对应如下:</p>
+<blockquote>
+<ul class="simple">
+<li>Node.ELEMENT_NODE == 1</li>
+<li>Node.ATTRIBUTE_NODE == 2</li>
+<li>Node.TEXT_NODE == 3</li>
+<li>Node.CDATA_SECTION_NODE == 4</li>
+<li>Node.ENTITY_REFERENCE_NODE == 5</li>
+<li>Node.ENTITY_NODE == 6</li>
+<li>Node.PROCESSING_INSTRUCTION_NODE == 7</li>
+<li>Node.COMMENT_NODE == 8</li>
+<li>Node.DOCUMENT_NODE == 9</li>
+<li>Node.DOCUMENT_TYPE_NODE == 10</li>
+<li>Node.DOCUMENT_FRAGMENT_NODE == 11</li>
+<li>Node.NOTATION_NODE == 12</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>ps: KISSY 中的 node 的 nodeType 则为 '-ks-Node'</p>
+<ul class="simple">
+<li>_getWin 获取当前 window 对象 或 false, 如果 elem 具有 scrollTo 方法且 有 document 那就是 window , 如果 elem 是 DOCUMENT_NODE, 取 defaultView (非IE, <a class="reference external" href="https://developer.mozilla.org/en/DOM/document.defaultView">https://developer.mozilla.org/en/DOM/document.defaultView</a>) 或 parentWindow (IE, <a class="reference external" href="http://msdn.microsoft.com/en-us/library/ms534331(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms534331(VS.85).aspx</a>);</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>资源</h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.quirksmode.org/dom/w3c_cssom.html">http://www.quirksmode.org/dom/w3c_cssom.html</a></li>
+<li><a class="reference external" href="http://www.quirksmode.org/blog/archives/2008/02/the_cssom_view.html">http://www.quirksmode.org/blog/archives/2008/02/the_cssom_view.html</a></li>
+<li><a class="reference external" href="http://www.w3.org/TR/cssom-view/">http://www.w3.org/TR/cssom-view/</a></li>
+<li><a class="reference external" href="http://javascript.about.com/library/bliebug.htm">http://javascript.about.com/library/bliebug.htm</a></li>
+</ul>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[近期一些Tips]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/recent_tips.html"/>
+        <published>2010-09-03T13:09:32+08:00</published>
+        <updated>2012-11-20T15:34:22+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/recent_tips.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <ul>
+<li><p class="first">JS 访问被拒, 很有可能是跨域引起的.</p>
+</li>
+<li><p class="first">a的target值可取:</p>
+<blockquote>
+<ul class="simple">
+<li>_blank 总在一个新窗口/新标签页中打开文档.</li>
+<li>_self 默认值, 在当前这个页/框架上打开.</li>
+<li>_parent 在父窗口/框架中打开.</li>
+<li>_top 清除现有所有被包含的框架, 在整个窗口中打开.</li>
+<li>framename 在名字为framename的框架中打开.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">position</p>
+<blockquote>
+<ul class="simple">
+<li>position: relative, 是说相对于正常情况下该元素在文档流中的位置而言, 仍占据原来元素在文档流的位置. 设置left,top, right, bottom, 可是长度, 百分比, auto;</li>
+<li>position: absolute, 是**完全**移出文档流, 不占据元素原来在文档流中的位置;</li>
+<li>position: static, 默认值, 元素在预设的地方, 就是正常出现在文档流中的位置;</li>
+</ul>
+<p>父容器设置relative之后, 其内部元素随之relative, 如果再设置子元素absolute, 就可以定位到父元素的任意位置. <a class="reference external" href="http://www.w3.org/TR/CSS2/visuren.html#positioning-scheme">http://www.w3.org/TR/CSS2/visuren.html#positioning-scheme</a></p>
+</blockquote>
+</li>
+<li><p class="first">设置背景透明</p>
+<blockquote>
+<ul class="simple">
+<li>background: rgba(122, 122, 122, .5);</li>
+<li>不支持rgba的IE使用</li>
+</ul>
+<div class="highlight"><pre><span class="nt">filter</span><span class="o">:</span> <span class="nt">progid</span><span class="nd">:DXImageTransform</span><span class="nc">.Microsoft.gradient</span><span class="o">(</span><span class="nt">startColorStr</span><span class="o">=</span><span class="s1">&#39;#7f7A7A7A&#39;</span><span class="o">,</span><span class="nt">EndColorStr</span><span class="o">=</span><span class="s1">&#39;#7f7A7A7A&#39;</span><span class="o">);</span>
+</pre></div>
+<p>渐变使用的时候, 要注意被设置元素hasLayout, 加个zoom:1, 或者设置一下height就可以, 不然渐变会出不来, 估计渐变是需要计算高度才能渲染出来, 不然未知高度下也不好确定渐变幅度什么的.</p>
+</blockquote>
+</li>
+</ul>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[Doctype]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/doctype.html"/>
+        <published>2010-08-13T08:08:14+08:00</published>
+        <updated>2012-11-20T15:39:12+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/doctype.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#HTML" term="HTML" label="HTML" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>之前讲过如何使用 <a class="reference external" href="http://www.simile-widgets.org/timeplot/docs/">timeplot</a>  , 没想到时隔多日, 到线上之后出问题.</p>
+<ol class="arabic">
+<li><p class="first">问题: 区域背景不能透明, 导致显示在前面的数据遮盖了后面的数据.</p>
+<blockquote>
+<p>解决: 因为timeplot没有提供设置背景透明度的接口, 所以只能将fillcolor去掉, 只显示出线条颜色.</p>
+</blockquote>
+</li>
+<li><p class="first">问题: IE8下显示不出图形来, 但诡异的是IE6, IE7竟然可以显示.</p>
+<blockquote>
+<p>怀疑: 刚开始以为是不是js的问题, 或者是异步读取数据时错误, 导致没有读到数据, 但后来使用测试数据也是如此; 但诡异的是, 做的demo可以显示, 那就不应该是js的问题, 因为两者用的是同一个js文件. 后来看页面源代码. 哦!!! 才发现. demo当时简略, 没有写完整的html结构, 而线上页面结构完整.</p>
+<p>尝试: 于是乎, demo上加入 &lt;!doctype html&gt; 等, 之后, demo在IE8下也不能显示了. 而html标签没问题, 那就在于这个doctype标签了.</p>
+</blockquote>
+</li>
+</ol>
+<p>关于doctype, 是用来告诉浏览器, 当前文档使用哪个Html或者XHtml规范.
+HTML 4.01/XHTML 有strict, transitional, frameset; 不同浏览器支持的模式也不一样.
+详细的见 <a class="reference external" href="http://www.upsdell.com/BrowserNews/res_doctype.htm">http://www.upsdell.com/BrowserNews/res_doctype.htm</a></p>
+<p>IE系列 <a class="reference external" href="http://msdn.microsoft.com/en-us/library/cc288325%28VS.85%29.aspx">有点特殊</a>:</p>
+<p>IE6默认使用 &quot;Quirks mode&quot; 而不是 &quot;Standards mode&quot; , 或者当页面使用的doctype, 她不认识的话也会使用 &quot;Quirks mode&quot; ;
+IE7更加符合工业标准, 支持 quirks mode 和 standards mode, 但IE7 的 standards mode 替代 IE6的 standards mode ;
+IE8, 为了保持 document compatibility , 提供使用meta 添加 X-UA-Compatible 来让以前网页使用低版本的IE来解析.
+X-UA-Compatible的值有:</p>
+<ul class="simple">
+<li>Emulate IE8 mode : Standards mode directives are displayed in Internet Explorer 8 standards mode and quirks mode directives are displayed in IE5 mode.</li>
+<li>Emulate IE7 mode : Standards mode directives are displayed in Internet Explorer 7 standards mode and quirks mode directives are displayed in IE5 mode.</li>
+<li>IE5 mode : Internet Explorer 7's quirks mode</li>
+<li>IE7 mode renders content as if it were displayed by Internet Explorer 7's standards mode, whether or not the page contains a directive.</li>
+<li>IE8 mode provides the highest support available for industry standards,</li>
+</ul>
+<p>如</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=4&quot;</span><span class="nt">&gt;</span>   <span class="c">&lt;!-- IE5 mode --&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=7.5&quot;</span> <span class="nt">&gt;</span> <span class="c">&lt;!-- IE7 mode --&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=100&quot;</span> <span class="nt">&gt;</span> <span class="c">&lt;!-- IE8 mode --&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=a&quot;</span> <span class="nt">&gt;</span>   <span class="c">&lt;!-- IE5 mode --&gt;</span>
+
+<span class="c">&lt;!-- This header mimics Internet Explorer 7 and uses</span>
+<span class="c">     &lt;!DOCTYPE&gt; to determine how to display the Web page --&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=EmulateIE7&quot;</span> <span class="nt">&gt;</span>
+</pre></div>
+</blockquote>
+<p>而在下面, 我又看到了最为关键的一段话</p>
+<blockquote>
+<p>When Internet Explorer 8 encounters a Web page that does not contain an X-UA-Compatible header, it uses the &lt;!DOCTYPE&gt;  directive to determine how to display the page. If the directive is missing or does not specify a standards-based document type, Internet Explorer 8 displays the page in IE5 mode (quirks mode).</p>
+<p>IE8下如果没有X-UA-Compatible, 会使用doctype, 如果没有指定doctype, 那么会使用 quirks mode.</p>
+<p>If the &lt;!DOCTYPE&gt; directive specifies a standards-based document type, Internet Explorer 8 displays the page in IE8 mode, except in the following cases:
+除以下情况外, IE8都会使用标准模式, 主要是关于兼容性视图的.</p>
+<ul class="simple">
+<li>Compatibility View is enabled for the page.</li>
+<li>The page is loaded in the Intranet zone and Internet Explorer 8 is configured to pages in the Intranet zone in Compatibility View.</li>
+<li>Internet Explorer 8 is configured to display all Web sites in Compatibility View.</li>
+<li>Internet Explorer 8 is configured to use the Compatibility View List, which specifies a set of Web sites that are always displayed in Compatibility View.</li>
+<li>The Developer Tools are used to override the settings specified in the Web page.</li>
+<li>The Web page encountered a page layout error and Internet Explorer 8 is configured to automatically recover from such errors by reopening the page in Compatibility View.</li>
+</ul>
+</blockquote>
+<p>那既然这个timeplot产生的页面, IE7下ok, 那么就可以让IE8以IE7的模式显示.</p>
+<p>解决:</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=7.5&quot;</span> <span class="nt">&gt;</span>
+</pre></div>
+</blockquote>
+<p>timeplot使用canvas生成图形, 但如果对于那些不支持canvas的浏览器来说, 会产生一大堆的自定义标签, 可能就是因为这些, 导致如果IE8下只是用标准模式就不能正常解析了.</p>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[Input Padding]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/input_padding.html"/>
+        <published>2010-08-10T12:08:40+08:00</published>
+        <updated>2012-11-20T15:43:37+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/input_padding.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <div class="section" id="id1">
+<h2>现象</h2>
+<p>今天看到个以前从没注意到的现象.</p>
+<p>先看图1</p>
+<img alt="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGPm5AQw" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGPm5AQw" />
+<p>这是正常情况下的,</p>
+<p>再来看下图2</p>
+<img alt="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGOHBAQw" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGOHBAQw" />
+<p>看到问题了么?</p>
+<p>当输入框内的文字太长, IE6下导致 前面的搜索图片不见了.
+这里的小图片原本是设置成input元素的背景图, 再设置padding-left 调整文字的起始位置.</p>
+<p>这样实现, 在Firefox/chrome下完全没有问题, 但IE6,7, 后来测试在IE8 下也有这个问题.
+查找IE下的原因, 因为input的宽度固定, 当内容超过宽度时, 随着光标显示, 文字一直往左移, 同时也包括背景图片也一起往左移动, 所以展示出来图片消失.</p>
+<p>如果再深入一些, 就又要看css盒模型, 传统的盒模型, 如IE的实现, 盒子的宽度包含margin, border, padding, 内容. 而W3C的盒模型, 如Firefox的实现, 定义宽度只包含内容, 不包含margin, border, padding. 详细见http://www.quirksmode.org/css/box.html.
+而这边, 从input上可以看到, 背景图片设置在盒子上, Firefox中, 随着输入内容的增多, 文本内容不断伸展, 但不会影响到padding和margin, 所以看到背景图片还是在原来的位置上. 而IE下, 随着输入内容的增加, 整个盒子宽度伸展, 因为包括padding和margin, 伸展时也连同它们一起移动.</p>
+</div>
+<div class="section" id="id2">
+<h2>解决</h2>
+<p>为了解决这个问题, 做了以下尝试</p>
+<ol class="arabic simple">
+<li>首先想到的是IE下, 将背景图片的background-attachment: fixed; 见 <a class="reference external" href="http://liz.appspot.com/static/show.html">demo1</a> 但带来的问题是: 1) 文字覆盖在背景图片上, 2) ie7下图片不能显示出来</li>
+<li>有人说用将背景图片的位置设置为bottom right即可, 但这种方式需要你的背景图片大小和你的输入框一致; 见 <a class="reference external" href="http://liz.appspot.com/static/show.html">demo2</a> 出来的效果, 在IE下, 一个一个字符输入, 可以看到文字也会覆盖背景图片, 而且鼠标选择时还会出现背景图片位置不再原来的位置上了.</li>
+<li>将背景图片设置在input的父元素上, 但这就需要改变DOM结构了.</li>
+</ol>
+<p>不知道这个问题有没有更好的解决方式...</p>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[MyBuildUtil]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/mybuildutil.html"/>
+        <published>2010-08-07T11:08:02+08:00</published>
+        <updated>2012-11-20T15:51:42+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/mybuildutil.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Python" term="Python" label="Python" />
+        <category scheme="http://sunsetsunrising.com/tag/#Tools" term="Tools" label="Tools" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>话说Java ant实在用不惯, 而现有的build配置尝试了好久还是不懂, 再次鄙视下xml. 汗个那么多的标签~</p>
+<p>正因如此, 周末赶紧写了个js/css打包压缩小脚本, 目前能够已满足我的小需求:</p>
+<ul class="simple">
+<li>写个依赖(配置)文件, 定义哪些js/css合并成xx文件;</li>
+<li>生成压缩文件;</li>
+</ul>
+<p>暂时还不支持的功能:</p>
+<ul class="simple">
+<li>替换html的js/css, ps: 话说有时候, 程序并不能清楚的知道哪个页面上需要哪些功能, 这些功能在哪些文件中, 所以目前手工替换. 或许也可在生成html时根据配置替换调试时的js/css文件. 再议吧..</li>
+<li>自动检测文件编码功能, 目前默认都是utf-8, 可以考虑用chardet试试.</li>
+</ul>
+<p>这里不贴代码了, 完整的在 <a class="reference external" href="http://code.google.com/p/lizworkspace/source/browse/trunk/tools">http://code.google.com/p/lizworkspace/source/browse/trunk/tools</a>, 有兴趣的可以试一下.
+简单的使用:</p>
+<blockquote>
+<pre class="literal-block">
+D:\workspace\myserver\tools&gt;python mybuild.py --help
+Usage: mybuild.py [options] xxx
+
+Options:
+  -h, --help            show this help message and exit
+  -c CONFIG, --config=CONFIG
+                        config file # 配置文件
+  -z, --zip             zip or not # 需不需要压缩, 如果设置-z 就需要用到yuicompressor
+  -d DEST, --dest=DEST  dest dir # 生成目标目录, 默认是当前目录的tmp下
+
+
+如:
+D:\workspace\myserver\tools&gt;python mybuild.py -z -c configfile -d destdir
+</pre>
+</blockquote>
+<p>config的写法, 很简单</p>
+<blockquote>
+<pre class="literal-block">
+ks-mkt
+&lt;script src=&quot;../../libs/kissy/1.1.0/build/anim/anim-pkg-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../libs/kissy/1.1.0/build/datalazyload/datalazyload-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../libs/kissy/1.1.0/build/switchable/switchable-pkg-min.js&quot;&gt;&lt;/script&gt;
+
+=====
+mkt-base
+&lt;script src=&quot;../../src/js/market/m/base.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/pagenation.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/searchbox.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/imageshow.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/sortorder.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/starscore.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+=====
+mkt-dialog
+&lt;script src=&quot;../../libs/yui/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../libs/yui/2.8.1/build/connection/connection-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/tshop.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/ds/widgets/dialog.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/ds/request-manager.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/ds/widgets/dialogable.js&quot;&gt;&lt;/script&gt;
+
+=====
+mkt-editor
+&lt;script src=&quot;../../libs/yui/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../libs/yui/2.8.1/build/connection/connection-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../libs/kissy/1.0.4/build/editor/editor-min.js&quot;&gt;&lt;/script&gt;
+
+=====
+mkt-validate
+&lt;script src=&quot;../../src/js/market/m/signin.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/order4.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/report.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/upload1.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/upload2.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../src/js/market/m/close.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+</pre>
+</blockquote>
+<p>Note: <tt class="docutils literal"><span class="pre">=====</span></tt> 为分隔符, 接下来的第一行是压缩后的文件名字, 余下的都是所需原js文件,
+咔咔, 这里直接从html里拷贝过来(偷懒ing), 其实只要文件名就可以了, 路径是相对于config文件
+来说的, 不是运行时目录. 不然可能会找不到文件~</p>
+<p>最简单的实现. 以后需要再扩充吧~~</p>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[HasLayout]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/haslayout.html"/>
+        <published>2010-07-23T07:07:48+08:00</published>
+        <updated>2012-11-20T15:56:12+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/haslayout.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <div class="section" id="what-layout">
+<h2>what Layout?</h2>
+<p>“Layout” is an IE/Win proprietary concept that determines how elements draw and bound their content, interact with and relate to other elements, and react on and transmit application/user events.</p>
+</div>
+<div class="section" id="why-layout">
+<h2>why Layout?</h2>
+<p>A lot of Internet Explorer's rendering inconsistencies can be fixed by giving an element “layout.”
+Consequences of an element having, or not having “layout” can include:</p>
+<blockquote>
+<ul class="simple">
+<li>Many common IE float bugs.</li>
+<li>Boxes themselves treating basic properties differently.</li>
+<li>Margin collapsing between a container and its descendants.</li>
+<li>Various problems with the construction of lists.</li>
+<li>Differences in the positioning of background images.</li>
+<li>Differences between browsers when using scripting.</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="which-element">
+<h2>which element</h2>
+<p>body, html, table, tr, td, th, img, hr, input, button, file, select, textarea, fieldset, marquee, frameset, frame, iframe, objects, applets, embed</p>
+<p>Those other properties are:</p>
+<ul class="simple">
+<li>display: inline-block ##Sometimes a cure when the element is at inline level and needs layout.</li>
+<li>height: (any value except auto)</li>
+<li>float: (left or right)</li>
+<li>position: absolute</li>
+<li>width: (any value except auto)</li>
+<li>writing-mode: tb-rl</li>
+<li>zoom: (any value except normal) ## always triggers hasLayout.</li>
+</ul>
+<p>另外IE7</p>
+<ul>
+<li><p class="first">min-height: (any value)</p>
+</li>
+<li><p class="first">max-height: (any value except none)</p>
+</li>
+<li><p class="first">min-width: (any value)</p>
+</li>
+<li><p class="first">max-width: (any value except none)</p>
+</li>
+<li><p class="first">overflow: (any value except visible)</p>
+</li>
+<li><p class="first">overflow-x: (any value except visible)</p>
+</li>
+<li><p class="first">overflow-y: (any value except visible)5</p>
+</li>
+<li><p class="first">position: fixed</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">alert</span><span class="p">(</span><span class="nx">eid</span><span class="p">.</span><span class="nx">currentStyle</span><span class="p">.</span><span class="nx">hasLayout</span><span class="p">)</span>
+</pre></div>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="notes">
+<h2>Notes</h2>
+<ul class="simple">
+<li>It's not a good idea to give all elements a layout.</li>
+<li>the standard approach for triggering an element to gain a layout in IE6, set height to 1% as long as the overflow property is not set to anything except visible. overflow设置为默认的visible, 容器高度会尽可能的撑开(不管设置的高度是多少), 其他浏览器会遵循height为1%, 所以这种方式只针对IE6.</li>
+</ul>
+</div>
+<div class="section" id="ie">
+<h2>IE下条件注释</h2>
+<ul>
+<li><p class="first"><a class="reference external" href="http://reference.sitepoint.com/css/conditionalcomments">http://reference.sitepoint.com/css/conditionalcomments</a></p>
+<blockquote>
+<pre class="literal-block">
+&lt;!--[if IE ]&gt;
+...
+&lt;![endif]--&gt;
+
+if语句支持 lt, lte, gt, gte, !, &amp;, (), |, true, false
+
+&lt;!--[if !IE]&gt;--&gt;
+&lt;p&gt;...&lt;/p&gt;
+&lt;!--&lt;![endif]--&gt;
+</pre>
+</blockquote>
+</li>
+<li><p class="first"><a class="reference external" href="http://reference.sitepoint.com/css/haslayout">http://reference.sitepoint.com/css/haslayout</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://www.satzansatz.de/cssd/onhavinglayout.html">http://www.satzansatz.de/cssd/onhavinglayout.html</a> 这里末尾有很多有关layout引起的问题例子.</p>
+</li>
+</ul>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[threeCSSProperty]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/white_space_word_wrap_text_overflow.html"/>
+        <published>2010-07-21T12:07:50+08:00</published>
+        <updated>2012-11-20T15:59:18+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/white_space_word_wrap_text_overflow.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <div class="section" id="white-space">
+<h2>white-space</h2>
+<p><a class="reference external" href="https://developer.mozilla.org/en/CSS/white-space">https://developer.mozilla.org/en/CSS/white-space</a></p>
+<p>用于控制容器内的空格如何处理.
+针对所有元素, 可继承.</p>
+<p>值:</p>
+<ul class="simple">
+<li>normal(默认值): 空格序列被合并起来, 换行字符如同空格, 会断行(长单词内不会断行)以尽可能的填充整个盒子</li>
+<li>pre: 空格序列被保留, 一行只有碰到换行字符才换行, 文本内部不会换行(but suppresses line breaks (text wrapping) within text).</li>
+<li>nowrap: 空格被合并, 但文本内部不会被强行换行. 如果溢出容器也不会被换行.</li>
+<li>pre-wrap: firefox3+ 空格序列被保留, 一行只有碰到换行字符才换行, 也是尽可能填充行盒子, firefox2可以用-moz-pre-wrap.</li>
+<li>pre-line: firefox3.5+ 空格序列被合并. 碰到换行字符才换行, 尽可能填充行盒子.</li>
+</ul>
+</div>
+<div class="section" id="word-wrap">
+<h2>word-wrap</h2>
+<p><a class="reference external" href="https://developer.mozilla.org/en/CSS/word-wrap">https://developer.mozilla.org/en/CSS/word-wrap</a></p>
+<p>是否允许字内断行, 阻止文本太长而导致溢出(specify whether or not the browser is allowed to break lines within words in order to prevent overflow when an otherwise unbreakable string is too long to fit.)</p>
+<ul class="simple">
+<li>normal(默认值): 断行仅在正常词语结束后, 完整的一个词不会被强行截断;</li>
+<li>break-word: 词语可能会在任意点上被截断.</li>
+</ul>
+<p>white-space: nowrap 针对一行文本, 如果超出容器, 不要自动换行,,就是除非你手写换行字符是绝对不会换行的;</p>
+<p>word-wrap: break-word; 针对一行中的一个词, 本来这个词是不可断的, 但设置之后会强行截断.</p>
+</div>
+<div class="section" id="text-overflow">
+<h2>text-overflow</h2>
+<p>当文本内容溢出容器时, 是否显示...号. (杯具的firefox不支持)</p>
+<p>ellipse: 显示省略号
+clip: 默认值, 不显示</p>
+<p>例子: <a class="reference external" href="http://www.quirksmode.org/css/textoverflow.html">http://www.quirksmode.org/css/textoverflow.html</a></p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">p</span> <span class="p">{</span>
+    <span class="k">white-space</span><span class="o">:</span> <span class="k">nowrap</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>                   <span class="c">/* IE6 needs any width */</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>              <span class="c">/* &quot;overflow&quot; value must be different from &quot;visible&quot; */</span>
+
+    <span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="k">text</span><span class="o">-</span><span class="k">overflow</span><span class="o">:</span> <span class="n">ellipsis</span><span class="p">;</span>    <span class="c">/* Opera */</span>
+    <span class="k">text</span><span class="o">-</span><span class="k">overflow</span><span class="o">:</span>    <span class="n">ellipsis</span><span class="p">;</span>    <span class="c">/* IE, Safari (WebKit) */</span>
+
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<p>三个地方, 设置white-space, 设置width, 设置overflow, 最后的text-overflow.</p>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[reSub]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/python_resub.html"/>
+        <published>2010-07-17T10:07:33+08:00</published>
+        <updated>2012-11-20T16:03:26+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/python_resub.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Python" term="Python" label="Python" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>Python中, re的sub方法,</p>
+<p>doc <a class="reference external" href="http://docs.python.org/library/re.html#re.sub">http://docs.python.org/library/re.html#re.sub</a></p>
+<blockquote>
+<pre class="literal-block">
+re.sub(pattern, repl, string[, count, flags])
+Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl. If the pattern isn’t found, string is returned unchanged. repl can be a string or a function; if it is a string, any backslash escapes in it are processed. That is, \n is converted to a single newline character, \r is converted to a linefeed, and so forth. Unknown escapes such as \j are left alone. Backreferences, such as \6, are replaced with the substring matched by group 6 in the pattern.
+</pre>
+</blockquote>
+<ul class="simple">
+<li>pattern为目标替换串,</li>
+<li>repl为新的串,</li>
+<li>string为原始串,</li>
+<li>count为替换个数, 默认全部替换,</li>
+<li>flags为re的一些全局标志, 比如忽略大小写, 换行等</li>
+</ul>
+<p>得到的是, 在原串string中将符合一定模式pattern的字符串使用repl替换掉并返回.
+pattern, 没话好说, 就是一般的正则式,
+repl, 可以是正则, 也可以是一个函数, 如果是函数, 函数的传入参数就为match对象, 函数内可直接操作这个match对象, 返回处理后的字符串结果.</p>
+<p>看几个例子:</p>
+<ol class="arabic">
+<li><p class="first">最普通的:</p>
+<blockquote>
+<pre class="literal-block">
+&gt;&gt;&gt; re.sub(r'def\s+([a-zA-Z_][a-zA-Z_0-9]*)\s*\(\s*\):',
+...        r'static PyObject*\npy_\1(void)\n{',
+...        'def myfunc():')
+'static PyObject*\npy_myfunc(void)\n{'
+## \n会保留的
+</pre>
+</blockquote>
+</li>
+<li><p class="first">使用函数的例子:</p>
+<blockquote>
+<pre class="literal-block">
+&gt;&gt;&gt; def dashrepl(matchobj):
+...     if matchobj.group(0) == '-': return ' '
+...     else: return '-'
+&gt;&gt;&gt; re.sub('-{1,2}', dashrepl, 'pro----gram-files')
+'pro--gram files'
+</pre>
+</blockquote>
+</li>
+<li><p class="first">我的例子, 想把模板中生成出完整的html代码并保存下来, 在模板中有些不想输出, 用&lt;!-- delete ---&gt;和&lt;!-- delete END ---&gt;标记出来, 输出时将这之间的内容去除.</p>
+<blockquote>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">ac</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;. abcd &lt;!--delete--&gt; abcd. &lt;!--delete End--&gt;abcd &lt;!--delete--&gt; abcd. &lt;!--delete End--&gt;fs&quot;&quot;&quot;</span>
+<span class="n">ad</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">... abcd</span>
+<span class="s">... &lt;!--delete--&gt;</span>
+<span class="s">... abcd</span>
+<span class="s">... &lt;!--delete End--&gt;</span>
+<span class="s">abcd</span>
+
+<span class="s">... &lt;!--delete--&gt;</span>
+<span class="s">... abcd</span>
+<span class="s">... &lt;!--delete End--&gt;</span>
+<span class="s">abcd</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+<span class="c">#print re.sub(r&#39;&lt;!--delete--&gt;.*&lt;!--delete End--&gt;&#39;, r&#39;&#39;, ac)</span>
+<span class="c">#print re.sub(r&#39;&lt;!--delete--&gt;(.|\n)*&lt;!--delete End--&gt;&#39;, r&#39;&#39;, ac)</span>
+<span class="k">print</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;&lt;!--delete--&gt;(.|\n)*?&lt;!--delete End--&gt;&#39;</span><span class="p">,</span> <span class="s">r&#39;&#39;</span><span class="p">,</span> <span class="n">ac</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;---------------------&#39;</span>
+<span class="k">print</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;&lt;!--delete--&gt;(.|\n)*?&lt;!--delete End--&gt;&#39;</span><span class="p">,</span> <span class="s">r&#39;&#39;</span><span class="p">,</span> <span class="n">ad</span><span class="p">)</span>
+
+<span class="c">#print re.sub(r&#39;.*&#39;, r&#39;&#39;, ac) --- 机上python2.5, 还不支持flags=re.DOTALL, 所以换行的话压根替换不了. 但诡异的是, 文档上说2.4之后就能用flags, 但机器上2.5版本竟然不支持!</span>
+<span class="c">#print re.sub(r&#39;(.|\n)*&#39;, r&#39;&#39;, ac) --- 加上\n,支持换行了,,,不过是最大贪婪匹配了, 最前一个delete和最后一个delete END之间的完全替换掉了..</span>
+<span class="c">#print re.sub(r&#39;(.|\n)*?&#39;, r&#39;&#39;, ac) --- 嗯嗯, 加个?, 改成非贪婪模式就好了..</span>
+</pre></div>
+</blockquote>
+</li>
+</ol>
+<p>最后, re.subn(pattern, repl, string[, count, flags]) Perform the same operation as sub(), but return a tuple (new_string, number_of_subs_made). 和sub唯一的区别就是返回的是一个元组, 新字符串和被替换的次数.</p>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[ImageZoom]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2010/imagezoom.html"/>
+        <published>2010-07-15T13:07:37+08:00</published>
+        <updated>2012-11-20T16:09:11+08:00</updated>
+        <id>http://sunsetsunrising.com/2010/imagezoom.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
+        <category scheme="http://sunsetsunrising.com/tag/#KISSY" term="KISSY" label="KISSY" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>图片放大效果 imagezoom <a class="reference external" href="http://liz.appspot.com/static/imagezoom/my.html">slide</a></p>
+<p>组里的第二个小分享, 话说这个小组件是来公司后写的第一个程序..从刚开始不熟悉kissy, 就是通过编写这个慢慢熟悉起来.</p>
+<div class="section" id="id1">
+<h2>已有的实现</h2>
+<ul>
+<li><p class="first"><a class="reference external" href="http://www.mind-projects.it/projects/jqzoom/">jqzoom</a>: 基于jQuery的图片放大功能,</p>
+<blockquote>
+<ul class="simple">
+<li>实现了多种显示方式;</li>
+<li>图片预加载;</li>
+<li>提供n种配置参数, 方便设置, 也有些特效参数;</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first"><a class="reference external" href="http://www.cnblogs.com/cloudgamer/archive/2010/04/01/ImageZoom.html">imagezoom</a>:</p>
+<blockquote>
+<ul class="simple">
+<li>实现多种显示方式;</li>
+<li>可设置放大系数;</li>
+<li>支持滑轮滚动缩放;</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first"><a class="reference external" href="http://yiminghe.javaeye.com/blog/388872">imageScaler</a>: 基于Ext的,</p>
+<blockquote>
+<ul class="simple">
+<li>承玉实现的一款;</li>
+<li>也有缩放功能, 支持拖拽, 移动;</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first"><a class="reference external" href="http://css-tricks.com/examples/AnythingZoomer/image.php">AnythingZoomer</a>:</p>
+<blockquote>
+<ul class="simple">
+<li>功能比较简单, 只有跟随模式;</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>多种显示方式</h2>
+<p>. 最一般的:</p>
+<blockquote>
+图片放大效果, 鼠标移到那里的一个特定范围内的图片被放大显示, 显示框在原图旁边;
+file: pics/Snap3.gif</blockquote>
+<p>. 显示镜片(又称手柄模式):</p>
+<blockquote>
+同上类似, 但在原图上显示出半透明的镜片效果, 指明被放大的区域是哪个;
+file: pics/Snap4.gif</blockquote>
+<p>. 跟随模式:</p>
+<blockquote>
+显示框跟随鼠标移动, 即被放大的图片显示在原图上方, 并以鼠标为轴心; 如: AnythingZoomer
+file: pics/Snap2.gif</blockquote>
+<p>. 反转模式:</p>
+<blockquote>
+同第二种类似, 只是原图变成半透明, 镜片覆盖的区域清晰显示;
+file: pics/Snap1.gif</blockquote>
+</div>
+<div class="section" id="id4">
+<h2>其他考虑因素</h2>
+<p>. 放大系数</p>
+<blockquote>
+小图到大图的放大系数;</blockquote>
+<p>. 图片加载</p>
+<blockquote>
+大图片一般都会很大, 可以考虑预加载. 可仿照jqzoom;
+如果大图没有加载完成时, 可直接使用原图;</blockquote>
+<p>. 放大镜图标</p>
+<blockquote>
+如淘宝商品页面: 默认有一个放大镜在小图右下角，提醒用户有放大的功能，用户引导性比较好。鼠标移至小图上方，放大镜消失。</blockquote>
+<p>剩下的直接看 <a class="reference external" href="http://code.google.com/p/kissy/source/browse/#svn/trunk/experimental/imagezoom">这里</a> 吧</p>
+<p>顺便记下最近碰到的一些小问题:</p>
+<ul class="simple">
+<li>input检测变化, 最好不要用keyup, keypress, keydown等事件监听, 因为(有些情况下, 比如中文输入法, 在拼写中文字时会触发n多key事件,...), 而是使用定时器, focus是开启定时器, blur是关闭定时器, 定时器检测input值的变化;</li>
+<li>ajax请求如果很多的话, 可以在请求结束时将该script节点从DOM中删除, 如this.parentNode.removeChild(this), 防止DOM树越来越大.</li>
+<li>e.preventDefault(), e.halt(), 都可以阻止事件. e.stopPropagation()阻止冒泡, 但a链接触发的url转换, 不能阻止click事件的冒泡, 因为这是浏览器自己的行为, 只能先e.preventDefault(), 然后window.open;</li>
+<li>td, tr, tbody, 只读属性, 且不能为relative, 也不能设置margin, padding</li>
+</ul>
+</div>
+]]>
+        </content>
+    </entry>
+</feed>
