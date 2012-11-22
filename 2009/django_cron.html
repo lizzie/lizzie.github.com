@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Cron - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/django_cron.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Django Cron</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-05-21T04:05:05+08:00">
+        <a href="/2009/">2009-05-21</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <div class="section" id="djangoplug">
+<h2>DjangoPlug</h2>
+<p>Django Plugables: <a class="reference external" href="http://djangoplugables.com/">http://djangoplugables.com/</a>
+这上面有好多Django的第三方应用, 很多都在不断更新,,,</p>
+</div>
+<div class="section" id="id1">
+<h2>django-cron</h2>
+<p>在Django Plugables找到了一个django中使用定时任务的功能. 叫做django-cron: <a class="reference external" href="http://djangoplugables.com/projects/django-cron/">http://djangoplugables.com/projects/django-cron/</a></p>
+<ul>
+<li><p class="first">缘由</p>
+<blockquote>
+<ul class="simple">
+<li>可以实现cron的功能, 但这可以直接嵌入到Django中.</li>
+<li>这样一来的话, 比如操作数据库, 可以直接使用Django的orm, 写个定时操作数据库的函数注册到cron中, 就可以实现定时执行了.</li>
+<li>这比另外写python脚本, 再加入到crontab中, 方便多了, 其实就是想法子偷懒哈.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">使用介绍</p>
+<blockquote>
+<p>ReadMe中有相关介绍, 主要步骤:</p>
+<ol class="arabic">
+<li><p class="first">Put 'django_cron' into your python path ## 加入不加入无所谓, 但需保证里面的导入模块能够找到.</p>
+</li>
+<li><p class="first">Add 'django_cron' to INSTALLED_APPS in your settings.py file ## 将django_cron作为独立的app.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Add the following code to the beginning of your urls.py file (just after the imports):</dt>
+<dd><p class="first last">import django_cron
+django_cron.autodiscover()</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Create a file called 'cron.py' inside each installed app that you want to add a recurring job to. The app must be installed via the INSTALLED_APPS in your settings.py or the autodiscover will not find it. ## 创建各个app的cron.py脚本, 也就是一些定时任务.</p>
+</li>
+</ol>
+<p>这里, 在第三步中, 当打开首页时, 一直出现个错误;</p>
+<blockquote>
+<pre class="literal-block">
+UnboundLocalError at /
+local variable 'cron' referenced before assignment
+</pre>
+</blockquote>
+<p>也就是在django_cron.autodiscover()中的cronScheduler = cron抛出异常, 其相关源码</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">ebuy.django_cron.base</span> <span class="kn">import</span> <span class="n">Job</span><span class="p">,</span> <span class="n">cron</span>
+
+<span class="k">def</span> <span class="nf">autodiscover</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Auto-discover INSTALLED_APPS cron.py modules and fail silently when</span>
+<span class="sd">    not present. This forces an import on them to register any cron jobs they</span>
+<span class="sd">    may want.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">imp</span>
+    <span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+    <span class="c">##from ebuy.django_cron.base import Job, cron</span>
+
+    <span class="n">cronScheduler</span> <span class="o">=</span> <span class="n">cron</span>
+
+    <span class="k">for</span> <span class="n">app</span> <span class="ow">in</span> <span class="n">settings</span><span class="o">.</span><span class="n">INSTALLED_APPS</span><span class="p">:</span>
+    <span class="c">#...</span>
+</pre></div>
+<p>cron是导入的一个模块, 被赋值于cronScheduler, 但测试了下, 如果不在autodiscover()中导入cron模块, 就会产生这个错误. 照理说, 在文件头部导入就可以了的. 奇怪也.</p>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>后台进程</h2>
+<ul class="simple">
+<li>运行自带服务器上, 查看了后台进程, 在原来python manage.py基础上, 又增加了一个对应子进程. 这可能就是用于跑cron任务的吧.</li>
+<li>如果使用Apache以 mod_python 方式跑的话, 需要对http.conf设置 MaxRequestsPerChild 为 50, 100, 或者 200</li>
+<li>之后在lighttpd以fastcgi方式测试, 也可以正常使用.</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>其他</h2>
+<ul class="simple">
+<li>pstree: 以树形的方式列出进程.</li>
+<li>异步任务: <a class="reference external" href="http://code.google.com/p/django-queue-service/">http://code.google.com/p/django-queue-service/</a>, 这个还没开发好?</li>
+</ul>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a><a href="/tag/#CSS">CSS</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'Django Cron';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

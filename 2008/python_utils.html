@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search and Tag - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2008/python_utils.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Search and Tag</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2008-06-11T14:06:34+08:00">
+        <a href="/2008/">2008-06-11</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>今天把搜索，按日期和标签显示功能完成，但是效率不高，因为没有找到gae提供的api，所以我只能自己遍历寻找合适的。</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">get_posts_by</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">different_entry</span><span class="p">,</span> <span class="n">all_entry</span><span class="p">):</span>
+
+    <span class="c"># 所有Entry的分页显示</span>
+    <span class="n">paginator</span> <span class="o">=</span> <span class="n">ObjectPaginator</span><span class="p">(</span><span class="n">different_entry</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="c"># 所有Entry取前5个</span>
+    <span class="n">some_entry</span> <span class="o">=</span> <span class="n">all_entry</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="s">&#39;-pub_date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="c"># 所有tag</span>
+    <span class="n">all_tag</span> <span class="o">=</span> <span class="n">Tag</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="c"># 所有评论取前5个</span>
+    <span class="n">some_comment</span> <span class="o">=</span> <span class="n">Comment</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="s">&#39;-date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="c"># 取得commentset不为空的Entry</span>
+    <span class="c">#for en in all_entry:</span>
+    <span class="c">#    if en.comment_set:</span>
+    <span class="c">#        some_entry.append(en)</span>
+
+    <span class="c"># 获得所有Links</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">Links</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c"># 获得对应页面</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;page&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">))</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">except</span>  <span class="n">InvalidPage</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">Http404</span>
+    <span class="k">return</span> <span class="n">render_to_response</span><span class="p">(</span><span class="s">&quot;blog/main.html&quot;</span><span class="p">,{</span>
+                <span class="s">&#39;entry_list&#39;</span><span class="p">:</span> <span class="n">entry</span><span class="p">,</span>
+                <span class="s">&#39;latest_entry_list&#39;</span><span class="p">:</span> <span class="n">some_entry</span><span class="p">,</span>
+                <span class="s">&#39;is_paginated&#39;</span><span class="p">:</span> <span class="n">paginator</span><span class="o">.</span><span class="n">pages</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s">&#39;has_next&#39;</span><span class="p">:</span> <span class="n">paginator</span><span class="o">.</span><span class="n">has_next_page</span><span class="p">(</span><span class="n">page</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="s">&#39;has_previous&#39;</span><span class="p">:</span> <span class="n">paginator</span><span class="o">.</span><span class="n">has_previous_page</span><span class="p">(</span><span class="n">page</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="s">&#39;current_page&#39;</span><span class="p">:</span> <span class="n">page</span><span class="p">,</span>
+                <span class="s">&#39;next_page&#39;</span><span class="p">:</span> <span class="n">page</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s">&#39;previous_page&#39;</span><span class="p">:</span> <span class="n">page</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s">&#39;pages&#39;</span><span class="p">:</span> <span class="n">paginator</span><span class="o">.</span><span class="n">pages</span><span class="p">,</span>
+                <span class="s">&#39;page_numbers&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="n">paginator</span><span class="o">.</span><span class="n">pages</span><span class="o">+</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span>
+                <span class="s">&#39;comment_list&#39;</span><span class="p">:</span> <span class="n">some_comment</span><span class="p">,</span>
+                <span class="s">&#39;tags&#39;</span><span class="p">:</span> <span class="n">all_tag</span><span class="p">,</span>
+                <span class="s">&#39;link_list&#39;</span><span class="p">:</span> <span class="n">links</span><span class="p">})</span>
+</pre></div>
+<p>还有，似乎没有自动增1的选项，因为想把id自定义，而不是利用key.id，这样可以实现pre_entry和next_entry。</p>
+<p>修改models，会把原来已存记录因为BadValue Exception而无法显示，所以以后改models得想想清楚了，不过，这样来，不用数据库更方便。</p>
+<p>request中是否能够知道当前访问的url？</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Python">Python</a><a href="/tag/#GAE">GAE</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'Search and Tag';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

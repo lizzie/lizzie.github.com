@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HPWS 9 - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/hpws_9.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">HPWS 9</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-03-31T14:03:11+08:00">
+        <a href="/2009/">2009-03-31</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>Rule 10: Minify JavaScript</p>
+<p>Minification is the practice of removing unnecessary characters from code to reduce its size, thereby improving load times. all comments, whitespace, rename the variables.</p>
+<p>Obfuscation</p>
+<p>对js文件进行約简之后, 首先不易读, 维护困难, 出现Bugs的可能性增大, Debugging也困难.</p>
+<p>The Savings</p>
+<p>JSMin: <a class="reference external" href="http://crockford.com/javascript/jsmin">http://crockford.com/javascript/jsmin</a> 最流行js压缩工具. 这个将js源代码空格, 换行都去除了.</p>
+<p>Dojo compressor: <a class="reference external" href="http://dojotoolkit.org/docs/shrinksafe">http://dojotoolkit.org/docs/shrinksafe</a> 另一个比较好的. 这个变量名重新替换, 但保留了换行符, 所以看起来比较好. 这个压缩比例比jsmin高一点.</p>
+<p>Inlne Javascipt blocks should also be minified, though this practice is less evident on today's websites. 现在很多网站大多没有将嵌入式的js进行压缩.</p>
+<p>Gzip and Minification</p>
+<p>可以将js文件的物理压缩和js源代码的压缩结合起来. Gzip compression has the biggest impact, but minification further reduced file sizes, as the use and size of JavaScript increase, so will the savings gained by minifying your JavaScript code.</p>
+<p>Minifying CSS</p>
+<p>The savings from minifying CSS are typically less than the savings from minifying JavaScript because CSS generally has fewer comments and less whitespace than JavaScript. The greatest potential for size savings comes from optimizing CSS---merging identical classes, removing unused classes. But this is a complex problem, given the order-dependent nature of CSS (that is cascading). 最好的方法目前为止是, 移除注释, 空白, 使用缩写和移除不必要的字符串.</p>
+<p>Minify your JavaScript source code.</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a><a href="/tag/#note">note</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'HPWS 9';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

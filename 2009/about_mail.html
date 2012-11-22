@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Mail - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/about_mail.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">About Mail</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-03-19T11:03:06+08:00">
+        <a href="/2009/">2009-03-19</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>今天看了下python发送邮件是怎样使用的. 主要是可以利用python标准库中的smtplib, 首先列出一些资料:</p>
+<ul class="simple">
+<li>RFC 821: Simple Mail Transfer Protocol <a class="reference external" href="http://www.faqs.org/rfcs/rfc821.html">http://www.faqs.org/rfcs/rfc821.html</a></li>
+<li>RFC 1869: SMTP Service Extensions <a class="reference external" href="http://www.faqs.org/rfcs/rfc1869.html">http://www.faqs.org/rfcs/rfc1869.html</a></li>
+<li>标准库文档: smtplib <a class="reference external" href="http://docs.python.org/lib/module-smtplib.html">http://docs.python.org/lib/module-smtplib.html</a></li>
+<li>PyMOTW: smtplib <a class="reference external" href="http://www.vbarter.cn/pymotw/documents/smtplib.html">http://www.vbarter.cn/pymotw/documents/smtplib.html</a> 暂时不可用</li>
+<li>django发送邮件: <a class="reference external" href="http://docs.djangoproject.com/en/dev/topics/email/">http://docs.djangoproject.com/en/dev/topics/email/</a></li>
+</ul>
+<ol class="arabic simple">
+<li>使用SMTPServer的话, 可以类似如下的方式:</li>
+</ol>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">_send_mail</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">mailtype</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">smtplib</span>
+    <span class="kn">from</span> <span class="nn">email.utils</span> <span class="kn">import</span> <span class="n">formataddr</span>
+    <span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+    <span class="kn">import</span> <span class="nn">time</span>
+    <span class="kn">from</span> <span class="nn">settings</span> <span class="kn">import</span> <span class="n">EMAIL_HOST</span><span class="p">,</span> <span class="n">EMAIL_HOST_USER</span><span class="p">,</span> <span class="n">EMAIL_HOST_PASSWORD</span>  <span class="c"># setting中设置</span>
+    <span class="c">#...</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEText</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>                 <span class="c"># msg为一般纯文本</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formataddr</span><span class="p">((</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">))</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formataddr</span><span class="p">((</span><span class="n">EMAIL_HOST_USER</span><span class="p">,</span> <span class="n">EMAIL_HOST_USER</span><span class="p">))</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s">&#39;Subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subject</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="n">EMAIL_HOST</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">set_debuglevel</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">ehlo</span><span class="p">()</span>                   <span class="c"># 验证, 如, &#39;smtp.gmail.com&#39;需要处理认证和TLS(一种底层通讯的安全协议)加密。</span>
+        <span class="k">if</span> <span class="n">server</span><span class="o">.</span><span class="n">has_extn</span><span class="p">(</span><span class="s">&#39;STARTTLS&#39;</span><span class="p">):</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">starttls</span><span class="p">()</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">ehlo</span><span class="p">()</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">EMAIL_HOST_USER</span><span class="p">,</span> <span class="n">EMAIL_HOST_PASSWORD</span><span class="p">)</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">EMAIL_HOST_USER</span><span class="p">,</span> <span class="p">[</span><span class="n">email</span><span class="p">],</span> <span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">())</span>  <span class="c"># 这种方法的话, msg中有html代码无法解析, MIMEText估计需要设置</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+<ol class="arabic simple" start="2">
+<li>使用Django提供的</li>
+</ol>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">_send_mail</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">mailtype</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">time</span>
+    <span class="c">#from django.core.mail import send_mail</span>
+    <span class="c">#from django.core.mail import EmailMultiAlternatives</span>
+    <span class="kn">from</span> <span class="nn">django.core.mail</span> <span class="kn">import</span> <span class="n">EmailMessage</span>
+    <span class="kn">from</span> <span class="nn">settings</span> <span class="kn">import</span> <span class="n">EMAIL_HOST_USER</span><span class="p">,</span> <span class="n">QUQU_SITE_URL</span>
+    <span class="c"># ...</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c">#send_mail(subject, msg, EMAIL_HOST_USER,[email], fail_silently=False)  ## 直接使用send_mail</span>
+        <span class="c">#mm = EmailMultiAlternatives(subject, &#39;some text&#39;, EMAIL_HOST_USER,[email])</span>
+        <span class="c">#mm.attach_alternative(msg, &quot;text/html&quot;)   ## 这个可以设置类型</span>
+        <span class="n">mm</span> <span class="o">=</span> <span class="n">EmailMessage</span><span class="p">(</span><span class="n">subject</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">EMAIL_HOST_USER</span><span class="p">,</span> <span class="p">[</span><span class="n">email</span><span class="p">])</span>  <span class="c">##这个最方便</span>
+        <span class="n">mm</span><span class="o">.</span><span class="n">content_subtype</span> <span class="o">=</span> <span class="s">&quot;html&quot;</span>
+        <span class="n">mm</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+<p>所以说django中发送邮件是最简单的,什么都帮你弄好了.　傻瓜式的用现成的就能发送邮件了....</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Python">Python</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'About Mail';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

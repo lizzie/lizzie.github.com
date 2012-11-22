@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Some Tips - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/some_tips.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Some Tips</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-07-03T14:07:00+08:00">
+        <a href="/2009/">2009-07-03</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <ol class="arabic">
+<li><p class="first">生成缩略图时. 一般是保存原图, 之后直接生成缩略图保存. 网上很简单, 使用PIL的Image相关函数.</p>
+<blockquote>
+<p>比如, models中有个字段定义为:</p>
+<div class="highlight"><pre><span class="n">pic</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">IMAGE_DIR</span><span class="p">)</span> <span class="c"># 主要用于存放完整大图. 缩略图的话, 可以使用FilePathField来保存, 但我没有使用, 直接默认路径为IMAGE_DIR下的thumb目录. 然后在取路径时, 只需稍作处理就可以了.</span>
+</pre></div>
+<p>views中保存原始图片:</p>
+<div class="highlight"><pre><span class="n">pic</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;pic&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">newdn</span><span class="o">.</span><span class="n">pic</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">_get_upload_filename</span><span class="p">(</span><span class="n">pic</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">IMAGE_DIR</span><span class="p">),</span> <span class="n">pic</span><span class="p">)</span> <span class="c"># 直接保存就行, django底层利用的是一个叫做InMemoryUploadedFile类来保存.</span>
+<span class="n">_generate_thumb</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">IMAGE_DIR</span><span class="p">,</span> <span class="n">pic</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
+</pre></div>
+<p>生成缩略图:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">_generate_thumb</span><span class="p">(</span><span class="n">where</span><span class="p">,</span> <span class="n">pic</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span><span class="p">,</span> <span class="n">where</span><span class="p">,</span> <span class="s">&#39;thumb&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pic</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">pic</span><span class="p">)</span>
+        <span class="n">image</span><span class="o">.</span><span class="n">thumbnail</span><span class="p">(</span><span class="n">_get_is</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="n">Image</span><span class="o">.</span><span class="n">ANTIALIAS</span><span class="p">)</span>
+
+        <span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">fn</span><span class="p">),</span> <span class="n">image</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span><span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">e</span>
+</pre></div>
+<p>之前没写pic.seek(0) 导致一直产生错误: cannot identify image file, 后来找了半天才明白, 原来在先前保存大图时, pic文件指针读取已到文件末尾, 所以接下去再读的时候, 就不能读取任何信息了. 所以报这个错误.</p>
+</blockquote>
+</li>
+<li><p class="first">models中的默认值. 对于某个field加了auto_now_add的选项之后, 有个好玩的问题. 比如</p>
+<blockquote>
+<div class="highlight"><pre><span class="n">startDate</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>    <span class="c"># 开始时间</span>
+</pre></div>
+<p>然后对于新建的一个x= X()之后, 再x.createDate = newDate, 然后保存x.save(), 会:</p>
+<p>x仍然是之前的auto_now_add的值. 解决办法: 索性去掉auto_now_add, 但这样对于没有输入createDate来说的话,就是None值.</p>
+<p>或者x=X(); x.save(); x.createDate = newDate; 再x.save(); 也就是傻不拉唧的保存俩次.</p>
+</blockquote>
+</li>
+<li><p class="first">js中, 去掉字符串两端空格, 可以使用</p>
+<blockquote>
+<div class="highlight"><pre><span class="nb">String</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">trim</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(^\s*)|(\s*$)/g</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span> <span class="p">}</span>
+<span class="c1">// 后来发现可以直接使用 $j.trim(&quot; some string &quot;);</span>
+</pre></div>
+</blockquote>
+</li>
+</ol>
+<p>貌似还有些...不过忘了, 算了, 记得再添加吧～</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Python">Python</a><a href="/tag/#Javascript">Javascript</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'Some Tips';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

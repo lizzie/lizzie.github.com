@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery and Mootools - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/jquery_mootools.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">jQuery and Mootools</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-02-26T13:02:14+08:00">
+        <a href="/2009/">2009-02-26</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>jQuery 和 Mootools的冲突, 当同时使用两个库(还有其他的库)时, 会产生冲突, 也就是会只有一个库产生效果. 其主要是由于各库的命名空间产生冲突, 一些全局对象定义冲突, 特别是变量&quot;$&quot;, 更详细的原因 <a class="reference external" href="http://www.javaeye.com/topic/84683">http://www.javaeye.com/topic/84683</a></p>
+<p>解决方法: <a class="reference external" href="http://hi.baidu.com/beyondwebstudio/blog/item/e39105a8dc1ddefb1f17a27c.html">http://hi.baidu.com/beyondwebstudio/blog/item/e39105a8dc1ddefb1f17a27c.html</a></p>
+<p>方式一:</p>
+<div class="highlight"><pre><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;prototype.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+     <span class="nt">&lt;script&gt;</span>
+       <span class="nx">jQuery</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">();</span>
+
+      <span class="c1">// Use jQuery via jQuery(...)</span>
+       <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+         <span class="nx">jQuery</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+       <span class="p">});</span>
+
+      <span class="c1">// Use Prototype with $(...), etc.</span>
+       <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;someid&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+     <span class="nt">&lt;/script&gt;</span>
+ <span class="nt">&lt;/head&gt;</span>
+ <span class="nt">&lt;body&gt;&lt;/body&gt;</span>
+ <span class="nt">&lt;/html&gt;</span>
+</pre></div>
+<p>方式二:</p>
+<div class="highlight"><pre><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;prototype.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+      <span class="kd">var</span> <span class="nx">$j</span> <span class="o">=</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">();</span>
+
+     <span class="c1">// Use jQuery via $j(...)</span>
+      <span class="nx">$j</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">$j</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+      <span class="p">});</span>
+
+     <span class="c1">// Use Prototype with $(...), etc.</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;someid&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+<p>方式三：</p>
+<div class="highlight"><pre><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;prototype.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+     <span class="nt">&lt;script&gt;</span>
+       <span class="nx">jQuery</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">();</span>
+
+      <span class="c1">// Put all your code in your document ready area</span>
+       <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">){</span>
+        <span class="c1">// Do jQuery stuff using $</span>
+         <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+       <span class="p">});</span>
+
+      <span class="c1">// Use Prototype with $(...), etc.</span>
+       <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;someid&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+     <span class="nt">&lt;/script&gt;</span>
+ <span class="nt">&lt;/head&gt;</span>
+ <span class="nt">&lt;body&gt;&lt;/body&gt;</span>
+ <span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'jQuery and Mootools';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

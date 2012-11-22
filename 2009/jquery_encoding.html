@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Encode - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/jquery_encoding.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">jQuery Encode</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-06-05T06:06:28+08:00">
+        <a href="/2009/">2009-06-05</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>jQuery中的中文编码问题</p>
+<p>在页面中检测用户名可用时, 通过ajax发送数据给后台进行检测. 如果输入的用户名是中文, 后台接受到的中文编码混乱.</p>
+<p>举例下面的一段代码:</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">$j</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+       <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/checkusername&quot;</span><span class="p">,</span>
+       <span class="nx">data</span><span class="o">:</span> <span class="s2">&quot;user=&quot;</span><span class="o">+</span><span class="nx">$j</span><span class="p">(</span><span class="s2">&quot;input#user&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
+       <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+           <span class="nx">show_msg</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;检测中...&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+       <span class="p">},</span>
+<span class="c1">//...</span>
+</pre></div>
+</blockquote>
+<p>首先说在ff下, ajax发送过去的数据, 后台显示了请求的url, 如/checkusername?user=%E7%9B%9B%E8%89%B3, 也就是中文自动换成%形式, 当然编码是utf-8, 那在后台获取值时, 默认也是utf-8编码, 所以编码解码都没有任何问题. 同样如果在地址栏里直接输入/checkusername?user=中文, 之后后台也会成为%形式.</p>
+<p>而奇怪的IE下, ajax发送过去数据之后, 获得的url为/checkusername?user=中文, 后台接收到的值为u'ufffdufffd', 而真正的中文两字的unicode编码为u'u4e2du6587', 所以检测肯定不正确.
+IE发送数据已经设置为utf-8编码, 而url中的中文, IE没有进行转换. 所以需要在js中进行转换.</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">$j</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+       <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/checkusername&quot;</span><span class="p">,</span>
+       <span class="nx">data</span><span class="o">:</span> <span class="s2">&quot;user=&quot;</span><span class="o">+</span><span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">$j</span><span class="p">(</span><span class="s2">&quot;input#user&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()),</span>
+       <span class="nx">beforeSend</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+           <span class="nx">show_msg</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;检测中...&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+       <span class="p">},</span>
+</pre></div>
+</blockquote>
+<p>也就是使用encodeURIComponent将中文转换.</p>
+<p>这个问题终于解决了..小结一下的话. 变态ie总是比较变态. 考虑js兼容还真是麻烦. 所以为了减少麻烦. 尤其是中文编码带来的一系列问题. 建议, 全部使用utf-8编码. 包括html页头声明, 文件存储编码, 程序中的编码方式全部统一成utf-8方式.</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'jQuery Encode';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

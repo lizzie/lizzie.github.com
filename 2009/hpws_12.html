@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HPWS 12 - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/hpws_12.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">HPWS 12</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-04-07T14:04:45+08:00">
+        <a href="/2009/">2009-04-07</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>Rule 13: Configure ETags</p>
+<p>What's an ETag?
+Entity tags(ETags) are a mechanism that web servers and browsers use to validate cached components.</p>
+<p>Expires Header
+How far is &quot;far&quot; depends on the component in question.
+It's most efficient to avoid HTTP requests by setting the expiration date so far in the future that the components are unlikely to expire.</p>
+<p>Conditional GET Requests
+Last-Modified Date
+the browser uses the If-Modified-Since header to pass the last-modified date back to the origin server for comparison. If the last-modified date on the origin server matches that sent by the browser, a 304 response is returned.</p>
+<p>ETags provide another way to determine whether the component in the browser's cache matches the one on the origin server. An ETag is a string that uniquely identifies a specific version of a component(or called entity). 这个字符串必须使用引号.</p>
+<pre class="literal-block">
+HTTP/1.1 200 OK
+Last-Modified: ...
+ETag: &quot;10c24bc....&quot;
+Content-Length: 1195
+</pre>
+<p>ETags were added to provide a more flexible mechanism for validating entities than the last-modified date. If, for example, an entity changes based on the User-Agent or Accept-Language headers, the state of the entity can be reflected in the ETag.
+Later, if the browser has to validate a component, it uses the If-None-Match header to pass the ETag back to the origin server. If the ETags match, a 3.4 status code is returned, reducing the response by 1195 bytes.</p>
+<p>The problem with ETags
+很显然, 这个ETags构造的必须是唯一的标识.另外, ETags won't match when a browser gets the original component from one server and later makes a conditional GET request that goes to a different server--a situation that is all too common on web sites that use a cluster of servers to handle requests. By default, both Apache and IIS embed data in the ETag that drmatically reduces the odds of the validity test succeeding on web sites with multiple servers.</p>
+<p>IIS支持ETags格式为Filetimestamp:ChangeNumber</p>
+<p>剩下有很多看不懂...xx</p>
+<p>Reconfigure or remove ETags.</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a><a href="/tag/#note">note</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'HPWS 12';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

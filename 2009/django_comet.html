@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>django and comet - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/django_comet.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">django and comet</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-07-14T12:07:26+08:00">
+        <a href="/2009/">2009-07-14</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <div class="section" id="id1">
+<h2>一些介绍</h2>
+<p>原始需求, 想通过某个手段动态更新当前页面上的某些数据, 不通过刷新. 很容易想到的一种实现方式就是ajax不断请求服务器上数据, 若有更新则更改当前页面数据. 但这种方式比较笨. 于是乎, 想到之前听过comet, 想是否可以在这里实现服务器推送数据给客户端.</p>
+</div>
+<div class="section" id="orbited">
+<h2>Orbited</h2>
+<p>google上乱搜了一通django和comet,找到这个东西, 按其网站上说, 它提供了浏览器的即时通信, 支持多种协议, 如IRC, XMPP, STOMP(ActiveMQ, RabbitMQ). 那简单来说, 它提供了浏览器端的js/html socket, 用于与服务器交互. 而在后台也提供对应的服务.
+整个结构可以如下图所示:</p>
+<p>这是其中的一种实现方式(Orbited+MorbidQ+STOMP). 简单介绍下的话:</p>
+<ul class="simple">
+<li>浏览器通过订阅(subscribe)相关url, 而orbited服务器会记录客户端连接情况, 如果有新数据到达时会推送给相应客户端.</li>
+<li>而这些新的数据来自web应用框架, 其通过某中方式发送给orbited服务器.</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>具体使用</h2>
+<p>那具体来说, 使用django+orbited+morbidQ, 大概介绍下的话:</p>
+<ul class="simple">
+<li>Orbited服务器起到的作用是 记录来自客户端到服务器的请求信息.但不是所有客户端的请求路径都保存,只保存订阅页面的路径开头的请求的那些客户端. Orbited记录这些信息之后,才能再收到到django框架发过来的更新数据之后发送给对应的客户端. 发送更新数据给客户端之后,页面上的js代码接收数据并显示出来.</li>
+<li>那orbited的数据来源是从哪里来的呢？ 当然是希望直接从web框架过来,但是django没有这方面的功能.至少我不知道.所以中间用了一个代理.也就是relay.py. 他也相当于一个服务器,具体实现成一个RPC,也就是远程过程调用服务, 这里的作用是接收django中发送过来的数据,进行编码后发送给orbited. 这就是web框架通过relay与orbited进行单向通信.</li>
+<li>当然,这里利用的是orbited的MorbidQ,基于stomp协议, 还有基于其他协议的,比如xmpp等(ps, gmail是, 哲思也是用xmpp, 估计这个比较好.)</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>orbited</h2>
+<p>依次安装, python2.5+, twisted, orbited, stompservice, simplejson, ok之后,
+orbited有个配置文件, 叫做orbited.cfg,</p>
+<div class="highlight"><pre>shengyan@shengyan-desktop:~<span class="nv">$ </span>cat /etc/orbited.cfg
+<span class="c"># Example Orbited Configuration file</span>
+
+<span class="o">[</span>global<span class="o">]</span>
+<span class="nv">reactor</span><span class="o">=</span><span class="k">select</span>
+<span class="c"># reactor=kqueue</span>
+<span class="c"># reactor=epoll</span>
+<span class="c">#session.ping_interval = 40</span>
+session.ping_interval <span class="o">=</span> 300     <span class="c"># 服务器ping客户端时间间隔, 300秒</span>
+session.ping_timeout <span class="o">=</span> 30
+<span class="c"># once the sockets are open, orbited will drop its privileges to this user.</span>
+<span class="nv">user</span><span class="o">=</span>orbited
+
+<span class="o">[</span>listen<span class="o">]</span>
+<span class="c">#http://:8000</span>
+http://:9000           <span class="c"># 监听http协议的9000端口</span>
+stomp://:61613         <span class="c"># 监听stomp协议的61613端口</span>
+<span class="c"># uncomment to enable SSL on port 8043 using given .key and .crt files</span>
+<span class="c">#https://:8043</span>
+<span class="c">#</span>
+<span class="c">#[ssl]</span>
+<span class="c">#key=orbited.key</span>
+<span class="c">#crt=orbited.crt</span>
+
+<span class="o">[</span>static<span class="o">]</span>
+<span class="nv">prdt</span><span class="o">=</span>product.htm     <span class="c"># 相当于别名. 无关痛痒的个设置</span>
+
+<span class="o">[</span>access<span class="o">]</span>
+<span class="c">#localhost:8000 -&gt; irc.freenode.net:6667</span>
+<span class="c">#* -&gt; localhost:4747</span>
+* -&gt; localhost:61613    <span class="c"># 访问设置.</span>
+
+<span class="o">[</span>logging<span class="o">]</span>
+<span class="nv">debug</span><span class="o">=</span>STDERR,debug.log
+<span class="nv">info</span><span class="o">=</span>STDERR,info.log
+<span class="nv">access</span><span class="o">=</span>STDERR,info.log
+<span class="nv">warn</span><span class="o">=</span>STDERR,error.log
+<span class="nv">error</span><span class="o">=</span>STDERR,error.log
+
+<span class="c">#Don&#39;t enable debug by default</span>
+enabled.default<span class="o">=</span>info,access,warn,error
+
+<span class="c"># Turn debug on for the &quot;Proxy&quot; logger</span>
+<span class="o">[</span>loggers<span class="o">]</span>
+<span class="c">#Proxy=debug,info,access,warn,error</span>
+</pre></div>
+<p>ok之后, 启动 $ orbited -c /etc/orbited.cfg #服务器启动之后看到的输出信息就是不同客户端链接和断开情况,</p>
+</div>
+<div class="section" id="relay">
+<h2>relay</h2>
+<p>ralay是一个网上牛人写的RPCServer, 用户将django传送过来的数据编码, 后转发给orbited.</p>
+<div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
+<span class="c"># relay.py</span>
+<span class="c"># http://cometdaily.com/2008/10/10/scalable-real-time-web-architecture-part-2-a-live-graph-with-orbited-morbidq-and-jsio/ &amp; http://anirudhsanjeev.org/tutorialhow-to-django-comet-orbited-stomp-morbidq-jsio/</span>
+
+<span class="kn">from</span> <span class="nn">stompservice</span> <span class="kn">import</span> <span class="n">StompClientFactory</span>
+<span class="kn">from</span> <span class="nn">twisted.internet</span> <span class="kn">import</span> <span class="n">reactor</span>
+<span class="kn">from</span> <span class="nn">twisted.internet.task</span> <span class="kn">import</span> <span class="n">LoopingCall</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="kn">from</span> <span class="nn">orbited</span> <span class="kn">import</span> <span class="n">json</span>
+<span class="kn">from</span> <span class="nn">SimpleXMLRPCServer</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<span class="kn">import</span> <span class="nn">stompservice</span>
+<span class="kn">from</span> <span class="nn">settings</span> <span class="kn">import</span> <span class="n">RPC_HOSTNAME</span> <span class="k">as</span> <span class="n">HOSTNAME</span><span class="p">,</span> <span class="n">RPC_PORT</span> <span class="k">as</span> <span class="n">PORT</span><span class="p">,</span> <span class="n">STOMP_PORT</span>  <span class="c"># 主机名和端口号需要一致</span>
+
+<span class="n">INTERVAL</span> <span class="o">=</span> <span class="mi">1000</span><span class="c"># in ms</span>
+
+<span class="k">class</span> <span class="nc">DataProducer</span><span class="p">(</span><span class="n">StompClientFactory</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">recv_connected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+
+        <span class="k">print</span> <span class="s">&#39;Connected; producing data&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="n">LoopingCall</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">INTERVAL</span><span class="o">/</span><span class="mf">1000.0</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">send_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;Transmitting: </span><span class="si">%s</span><span class="s"> bytes&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="c">#self.send(channel, data.encode(&quot;utf8&quot;))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">test_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="n">orbited_proxy</span> <span class="o">=</span> <span class="n">DataProducer</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">RPCServer</span><span class="p">(</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orbited</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orbited</span> <span class="o">=</span> <span class="n">orbited</span>
+        <span class="n">Thread</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">class</span> <span class="nc">RequestHandler</span><span class="p">(</span><span class="n">SimpleXMLRPCRequestHandler</span><span class="p">):</span>
+            <span class="n">rpc_paths</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;/RPC2&#39;</span><span class="p">,)</span>
+        <span class="c">#create a server</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">SimpleXMLRPCServer</span><span class="p">((</span><span class="n">HOSTNAME</span><span class="p">,</span><span class="n">PORT</span><span class="p">),</span>
+                                    <span class="n">requestHandler</span> <span class="o">=</span> <span class="n">RequestHandler</span><span class="p">)</span>
+
+        <span class="n">server</span><span class="o">.</span><span class="n">register_introspection_functions</span><span class="p">()</span>
+        <span class="k">def</span> <span class="nf">transmit_orbited</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            @param channel: The stomp channel to send to</span>
+<span class="sd">            @param message: The message that needs to be transmitted</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">orbited</span><span class="o">.</span><span class="n">send_data</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s">&quot;&quot;</span>
+
+        <span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">transmit_orbited</span><span class="p">,</span> <span class="s">&#39;transmit&#39;</span><span class="p">)</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+        <span class="n">rpcthread</span> <span class="o">=</span> <span class="n">RPCServer</span><span class="p">(</span><span class="n">orbited_proxy</span><span class="p">)</span>
+        <span class="n">rpcthread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+        <span class="n">reactor</span><span class="o">.</span><span class="n">connectTCP</span><span class="p">(</span><span class="n">HOSTNAME</span><span class="p">,</span> <span class="n">STOMP_PORT</span><span class="p">,</span> <span class="n">orbited_proxy</span><span class="p">)</span>
+        <span class="n">reactor</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+
+<span class="c">#python relay.py 启动它.</span>
+</pre></div>
+</div>
+<div class="section" id="django">
+<h2>django</h2>
+<p>django中的view中, 如果某用户提交了数据, 更新数据库,或者其他的, 都可触发更新, 将更新后的数据发送给relay.
+这里直接封装数据, 并使用xmlrpclib中的ServerProxy发送.</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">_prdt</span><span class="p">(</span><span class="n">dnid</span><span class="o">=</span><span class="s">&#39;--&#39;</span><span class="p">,):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    handle an XMLHttpRequest</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">xmlrpclib</span>
+    <span class="n">proxy</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s">&quot;http://</span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">RPC_HOSTNAME</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">RPC_PORT</span><span class="p">))</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s">&#39;dnid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dnid</span>
+    <span class="c">#...</span>
+    <span class="n">proxy</span><span class="o">.</span><span class="n">transmit</span><span class="p">(</span><span class="s">&quot;/topic/prdt&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>  <span class="c"># 这个路径和js中订阅的路径一致</span>
+</pre></div>
+</div>
+<div class="section" id="js">
+<h2>js</h2>
+<p>页面中订阅及获取数据</p>
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/site_media/js/jquery-1.2.6.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/static/Orbited.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/static/protocols/stomp/stomp.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">domain</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">domain</span><span class="p">;</span>
+    <span class="nx">OrbitedHost</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>  <span class="c1">// 主机名</span>
+    <span class="nx">Orbited</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">port</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">;</span>  <span class="c1">// Orbited端口</span>
+    <span class="nx">Orbited</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">hostname</span> <span class="o">=</span> <span class="nx">OrbitedHost</span><span class="p">;</span>
+    <span class="nx">TCPSocket</span> <span class="o">=</span> <span class="nx">Orbited</span><span class="p">.</span><span class="nx">TCPSocket</span><span class="p">;</span>
+    <span class="nx">StompPort</span> <span class="o">=</span> <span class="mi">61613</span><span class="p">;</span>    <span class="c1">// STOMP端口, 这两个端口设置是和orbited配置中一致</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+<!-- sourcecode: js
+
+//...
+//orbited
+stomp = new STOMPClient();  // 新建一个STOMP客户端.
+stomp.onconnectedframe = function(){
+    stomp.subscribe("/topic/prdt");  // 订阅目标源
+};
+stomp.onmessageframe = function(frame){  // 有新数据到达时的处理
+    var result = eval('('+frame.body+')');
+    var dnid = parseInt(result.dnid);
+    var destid = parseInt($j("input[name='d']").val());
+    if (!isNaN(dnid) && !isNaN(destid) && dnid == destid) {
+        if (result.currenpric!= '- -') {
+            var mr = mcom(result.currenpric.toFixed(2));
+            $j("i#curp1").html(mr);
+        }
+    }
+};
+stomp.connect(OrbitedHost, StompPort);  // 连接orbited服务器. -->
+<p>ok, 启动django服务器.
+打开俩个相同页面的话, 在一个页面中更新数据, 另一个页面也会显示出来...</p>
+</div>
+<div class="section" id="json">
+<h2>JSON数据读取</h2>
+<p>js中读取JSON数据,</p>
+<!-- sourcecode: js
+
+var resp = req.responseText;
+// 构造返回JSON对象的方法
+   var func = new Function("return " + resp);
+  // 得到JSON对象
+   var json = func( );
+
+// 或者可以直接用：
+var json = eval('(' + req.responseText+ ')'); -->
+</div>
+<div class="section" id="id4">
+<h2>最后</h2>
+<p>前两天看到有人提到webqq, 好奇用了下, 的确做得很棒. 一句感叹,,,越来越多的这种类似的应用~~~</p>
+</div>
+<div class="section" id="id5">
+<h2>参考</h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.rkblog.rk.edu.pl/w/p/django-comet-and-irc-client/">http://www.rkblog.rk.edu.pl/w/p/django-comet-and-irc-client/</a></li>
+<li><a class="reference external" href="http://anirudhsanjeev.org/tutorialhow-to-django-comet-orbited-stomp-morbidq-jsio/">http://anirudhsanjeev.org/tutorialhow-to-django-comet-orbited-stomp-morbidq-jsio/</a> 简单入门教程</li>
+<li><a class="reference external" href="http://www.rkblog.rk.edu.pl/w/p/django-and-comet/">http://www.rkblog.rk.edu.pl/w/p/django-and-comet/</a></li>
+<li><a class="reference external" href="http://darkporter.com/?p=7#comment-5">http://darkporter.com/?p=7#comment-5</a></li>
+<li><a class="reference external" href="http://cometdaily.com/2008/10/10/scalable-real-time-web-architecture-part-2-a-live-graph-with-orbited-morbidq-and-jsio/">http://cometdaily.com/2008/10/10/scalable-real-time-web-architecture-part-2-a-live-graph-with-orbited-morbidq-and-jsio/</a> 实时图片</li>
+<li><a class="reference external" href="http://orbited.org/">http://orbited.org/</a></li>
+</ul>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Python">Python</a><a href="/tag/#Javascript">Javascript</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'django and comet';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

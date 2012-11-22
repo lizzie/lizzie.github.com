@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xapian - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/xapian.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Xapian</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-07-28T13:06:48+08:00">
+        <a href="/2009/">2009-07-28</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>Xapian is an Open Source Search Engine Library, released under the GPL. It's written in C++, with bindings to allow use from Perl, Python, PHP, Java, Tcl, C# and Ruby (so far!)</p>
+<p>ok, let's go!</p>
+<div class="section" id="install">
+<h2>Install</h2>
+<ul class="simple">
+<li>download xapian-core-1.0.13 and xapian-bindings-1.0.13, then compile them in general way.</li>
+<li>test xapian in python shell.</li>
+</ul>
+</div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+<p>It is very easy to use the api, like this:</p>
+<blockquote>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">job</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">MakeIndex</span><span class="o">.</span><span class="n">run_every</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+        <span class="n">new_dn</span> <span class="o">=</span> <span class="n">DN</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">createDate__gt</span><span class="o">=</span><span class="n">last</span><span class="p">,</span> <span class="n">createDate__lte</span><span class="o">=</span><span class="n">now</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">new_dn</span><span class="p">:</span>
+           <span class="n">database</span> <span class="o">=</span> <span class="n">xapian</span><span class="o">.</span><span class="n">WritableDatabase</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">SEARCH_INDEX_DB</span><span class="p">,</span> <span class="n">xapian</span><span class="o">.</span><span class="n">DB_CREATE_OR_OPEN</span><span class="p">)</span>   <span class="c">## the database will be created if it is not exists.</span>
+           <span class="n">stemmer</span> <span class="o">=</span> <span class="n">xapian</span><span class="o">.</span><span class="n">Stem</span><span class="p">(</span><span class="s">&quot;english&quot;</span><span class="p">)</span>  <span class="c">## the stemmer, can be none</span>
+
+           <span class="k">for</span> <span class="n">dn</span> <span class="ow">in</span> <span class="n">new_dn</span><span class="p">:</span>
+               <span class="n">name</span><span class="p">,</span> <span class="n">oname</span><span class="p">,</span> <span class="n">descrip</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="n">dn</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">dn</span><span class="o">.</span><span class="n">otherName</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">),</span> <span class="n">dn</span><span class="o">.</span><span class="n">domainDes</span><span class="p">,</span> <span class="n">dn</span><span class="o">.</span><span class="n">get_absolute_url</span><span class="p">()</span>
+               <span class="n">doc</span> <span class="o">=</span> <span class="n">xapian</span><span class="o">.</span><span class="n">Document</span><span class="p">()</span>   <span class="c">## new Document, like an object</span>
+               <span class="n">doc</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>         <span class="c">## set data, here i set the object&#39;s url</span>
+               <span class="n">doc</span><span class="o">.</span><span class="n">add_value</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>    <span class="c">## the value</span>
+               <span class="n">doc</span><span class="o">.</span><span class="n">add_term</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span><span class="c">## the term like features, no position info</span>
+               <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">oname</span><span class="p">:</span>
+                  <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+                      <span class="n">doc</span><span class="o">.</span><span class="n">add_term</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+               <span class="n">pos</span> <span class="o">=</span> <span class="mi">1</span>
+               <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">get_terms</span><span class="p">(</span><span class="n">descrip</span><span class="p">):</span>
+                   <span class="n">doc</span><span class="o">.</span><span class="n">add_posting</span><span class="p">(</span><span class="n">stemmer</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">pos</span><span class="p">)</span> <span class="c">## add term with position info</span>
+                   <span class="n">pos</span> <span class="o">+=</span> <span class="mi">1</span>
+               <span class="n">database</span><span class="o">.</span><span class="n">add_document</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>           <span class="c">## add the new document</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span><span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">e</span>
+</pre></div>
+</blockquote>
+<p>that's it, the indexer is ready. And then, is searching.</p>
+<blockquote>
+<div class="highlight"><pre><span class="n">keywords</span> <span class="o">=</span> <span class="n">keywords</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">keywords</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s">&#39;search&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">database</span> <span class="o">=</span> <span class="n">xapian</span><span class="o">.</span><span class="n">Database</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">SEARCH_INDEX_DB</span><span class="p">)</span>   <span class="c">## get the database</span>
+    <span class="n">enquire</span> <span class="o">=</span> <span class="n">xapian</span><span class="o">.</span><span class="n">Enquire</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>                     <span class="c">## This provides an interface to the ir system for searching</span>
+    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">xapian</span><span class="o">.</span><span class="n">Stem</span><span class="p">(</span><span class="s">&quot;english&quot;</span><span class="p">)</span>                       <span class="c">## still the stemmer</span>
+
+    <span class="n">terms</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="p">(</span><span class="n">term</span><span class="p">)</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">get_terms</span><span class="p">(</span><span class="n">keywords</span><span class="p">)]</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">xapian</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">xapian</span><span class="o">.</span><span class="n">Query</span><span class="o">.</span><span class="n">OP_OR</span><span class="p">,</span> <span class="n">terms</span><span class="p">)</span>        <span class="c">## query class</span>
+    <span class="n">enquire</span><span class="o">.</span><span class="n">set_query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>                               <span class="c">## set query for searching</span>
+    <span class="n">mset</span> <span class="o">=</span> <span class="n">enquire</span><span class="o">.</span><span class="n">get_mset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>                          <span class="c">## return the match set</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">MakoTemplate</span><span class="p">(</span><span class="n">templatename</span><span class="o">=</span><span class="s">&quot;search.htm&quot;</span><span class="p">,</span>
+
+                                     <span class="n">ruser</span><span class="o">=</span><span class="n">ruser</span><span class="p">,</span>
+
+                                     <span class="n">nexturl</span><span class="o">=</span><span class="n">urlquote</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">get_full_path</span><span class="p">()),</span>
+                                     <span class="n">mset</span> <span class="o">=</span> <span class="n">mset</span><span class="p">,</span>
+
+                                     <span class="p">))</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span><span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">e</span>
+
+<span class="c">## and the result in matchset is:</span>
+<span class="c">## 共有 ${mset.get_matches_estimated()} 个搜索结果</span>
+
+<span class="c">## {% for match in mset: %}</span>
+<span class="c">## &lt;% doc = match[xapian.MSET_DOCUMENT] %&gt;\</span>
+<span class="c">## ${match.rank}, ${doc.get_value(0)}, ${doc.get_data()}</span>
+<span class="c">## {% endfor %}</span>
+</pre></div>
+</blockquote>
+<p>ok, it's done!!! my search engine. hhe</p>
+</div>
+<div class="section" id="some-links">
+<h2>some links</h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.xapian.org/docs/">http://www.xapian.org/docs/</a></li>
+<li><a class="reference external" href="http://www.oschina.net/c/article/11205">http://www.oschina.net/c/article/11205</a></li>
+<li><a class="reference external" href="http://blog.csdn.net/visualcatsharp/archive/2009/05/13/4176083.aspx">http://blog.csdn.net/visualcatsharp/archive/2009/05/13/4176083.aspx</a></li>
+</ul>
+<p>ps: my poor poor...stupid english!!</p>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Python">Python</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'Xapian';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

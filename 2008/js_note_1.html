@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Note 1 - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2008/js_note_1.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">JS Note 1</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2008-12-01T03:12:11+08:00">
+        <a href="/2008/">2008-12-01</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <ol class="arabic">
+<li><p class="first">escape()可以将字符串,尤其是url中的特殊字符, 如空格, 问号...转换成对应acsii码的十六进制数.</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">escape</span><span class="p">(</span><span class="s2">&quot;?!=()#%&amp;&quot;</span><span class="p">);</span> <span class="c1">// 结果为%3F%21%3D%28%29%23%25%26``</span>
+</pre></div>
+<p>详细描述在 <a class="reference external" href="http://www.w3schools.com/jsref/jsref_escape.asp">http://www.w3schools.com/jsref/jsref_escape.asp</a></p>
+</blockquote>
+</li>
+<li><p class="first">document.write()使用</p>
+<blockquote>
+<div class="highlight"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">somehtmltext</span><span class="p">);</span>
+</pre></div>
+<p>直接将新的html代码写到页面上.</p>
+</blockquote>
+</li>
+<li><p class="first">replace()将符合一定模式的字符串替换成目标字符串</p>
+<blockquote>
+<p>引自: <a class="reference external" href="http://zhidao.baidu.com/question/12458171.html">http://zhidao.baidu.com/question/12458171.html</a>
+主要使用:
+语法: stringObj.replace(rgExp, replaceText)</p>
+<p>stringObj 必选项。要执行该替换的 String 对象或文字。该对象不会被 replace 方法修改。
+rgExp 必选项。描述要查找的内容的一个正则表达式对象。
+replaceText 必选项。是一个String 对象或文字，对于stringObj 中每个匹配 rgExp 中的位置都用该对象所包含的文字加以替换。</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">ReplaceDemo</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="kd">var</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">re</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;The quick brown fox jumped over the lazy yellow dog.&quot;</span><span class="p">;</span>
+<span class="nx">re</span> <span class="o">=</span> <span class="sr">/fox/i</span><span class="p">;</span>
+<span class="nx">r</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">re</span><span class="p">,</span> <span class="s2">&quot;pig&quot;</span><span class="p">);</span>
+<span class="k">return</span><span class="p">(</span><span class="nx">r</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>另外, replace 方法也可以替换模式中的子表达式。 下面的范例演示了交换字符串中的每一对单词：</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">ReplaceDemo</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="kd">var</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">re</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;The quick brown fox jumped over the lazy yellow dog.&quot;</span><span class="p">;</span>
+<span class="nx">re</span> <span class="o">=</span> <span class="sr">/(\S+)(\s+)(\S+)/g</span><span class="p">;</span>
+<span class="nx">r</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">re</span><span class="p">,</span> <span class="s2">&quot;$3$2$1&quot;</span><span class="p">);</span> <span class="c1">//交换每一对单词。</span>
+<span class="k">return</span><span class="p">(</span><span class="nx">r</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>JavaScript中replace() 方法如果直接用str.replace(&quot;-&quot;,&quot;!&quot;) 只会替换第一个匹配的字符. str.replace(/-/g,&quot;!&quot;)则可以替换掉全部匹配的字符（g为全局标志）。</p>
+</blockquote>
+</li>
+<li><p class="first">parseInt() 将字符串转成整型, 其他还有:</p>
+<blockquote>
+<p>引自: <a class="reference external" href="http://www.logang.com/article.asp?id=41">http://www.logang.com/article.asp?id=41</a>
+javascript有两种数据类型的转换方法：一种是将整个值从一种类型转换为另一种数据类型（称作基本数据类型转换），另一种方法是从一个值中提取另一种类型的值，并完成转换工作。</p>
+<p>基本数据类型转换的三种方法：</p>
+<p>1.转换为字符型：String(); 例：String(678)的结果为&quot;678&quot;
+2.转换为数值型：Number(); 例：Number(&quot;678&quot;)的结果为678
+3.转换为布尔型：Boolean(); 例：Boolean(&quot;aaa&quot;)的结果为true</p>
+<p>从一个值中提取另一种类型的值的方法：</p>
+<p>1.提取字符串中的整数：parseInt(); 例：parseInt(&quot;123zhang&quot;)的结果为123
+2.提取字符串中的浮点数：parseFloat(); 例：parseFloat(&quot;0.55zhang&quot;)的结果为0.55
+3.执行用字符串表示的一段javascript代码：eval(); 例：zhang=eval(&quot;1+1&quot;)的结果zhang=2</p>
+</blockquote>
+</li>
+</ol>
+<p>另外还有 <a class="reference external" href="http://shiningray.cn/type-cast-in-javascript.html">http://shiningray.cn/type-cast-in-javascript.html</a> 有点类似的内容.</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'JS Note 1';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

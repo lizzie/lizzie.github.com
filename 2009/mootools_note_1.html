@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mootools Note 1 - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/mootools_note_1.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Mootools Note 1</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-10-28T01:10:42+08:00">
+        <a href="/2009/">2009-10-28</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>Mootools文档: <a class="reference external" href="http://mootools.net/docs">http://mootools.net/docs</a></p>
+<p>第一部分是核心函数.</p>
+<p>$chk(item);</p>
+<blockquote>
+检查对象是否存在或者是否为0, 是的话返回true, 否则为false.</blockquote>
+<p>$clear(timer);</p>
+<blockquote>
+<p>清除一定时器或定时间隔, 和Function:delay, Function:periodical配合使用.
+timer为setInterval(periodical)和setTimeout(delay)的标识符. 返回为null.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">myTimer</span> <span class="o">=</span> <span class="nx">myFunction</span><span class="p">.</span><span class="nx">delay</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span> <span class="c1">//delay and periodical</span>
+<span class="nx">myTimer</span> <span class="o">=</span> <span class="nx">$clear</span><span class="p">(</span><span class="nx">myTimer</span><span class="p">);</span>
+</pre></div>
+</blockquote>
+<p>$defined(obj);</p>
+<blockquote>
+检测obj的值是否被定义.不为null和undefined时返回true, 否则返回false.</blockquote>
+<p>$arguments(i)</p>
+<blockquote>
+<p>返回一个函数的第index个参数.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">secondArgument</span> <span class="o">=</span> <span class="nx">$arguments</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">secondArgument</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">));</span> <span class="c1">// Alerts &quot;b&quot;</span>
+</pre></div>
+</blockquote>
+<p>$empty</p>
+<blockquote>
+<p>占位函数, 通常用作事件处理函数.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">myFunc</span> <span class="o">=</span> <span class="nx">$empty</span><span class="p">;</span>
+</pre></div>
+</blockquote>
+<p>$lambda(sth);</p>
+<blockquote>
+<p>返回一函数用于直接返回传入的值(其他什么都不做).</p>
+<div class="highlight"><pre><span class="nx">myLink</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">$lambda</span><span class="p">(</span><span class="kc">false</span><span class="p">));</span> <span class="c1">// 阻止click事件.</span>
+</pre></div>
+</blockquote>
+<p>$extend(original, extension);</p>
+<blockquote>
+<p>拷贝第二个对象的所有属性给第一个对象.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">firstObj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;lastName&#39;</span><span class="o">:</span> <span class="s1">&#39;Doe&#39;</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">secondObj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;age&#39;</span><span class="o">:</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sex&#39;</span><span class="o">:</span> <span class="s1">&#39;male&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;lastName&#39;</span><span class="o">:</span> <span class="s1">&#39;Dorian&#39;</span>
+<span class="p">};</span>
+<span class="nx">$extend</span><span class="p">(</span><span class="nx">firstObj</span><span class="p">,</span> <span class="nx">secondObj</span><span class="p">);</span>
+<span class="c1">//firstObj is now: {&#39;name&#39;: &#39;John&#39;, &#39;lastName&#39;: &#39;Dorian&#39;, &#39;age&#39;: &#39;20&#39;, &#39;sex&#39;: &#39;male&#39;};</span>
+</pre></div>
+</blockquote>
+<p>$merge();</p>
+<blockquote>
+<p>(递归)合并多个对象.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">nestedObj1</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="p">{</span><span class="nx">b</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">c</span><span class="o">:</span> <span class="mi">1</span><span class="p">}};</span>
+<span class="kd">var</span> <span class="nx">nestedObj2</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="p">{</span><span class="nx">b</span><span class="o">:</span> <span class="mi">2</span><span class="p">}};</span>
+<span class="kd">var</span> <span class="nx">nested</span> <span class="o">=</span> <span class="nx">$merge</span><span class="p">(</span><span class="nx">nestedObj1</span><span class="p">,</span> <span class="nx">nestedObj2</span><span class="p">);</span> <span class="c1">// {a: {b: 2, c: 1}} 其中的值是根据什么规则来计算的??</span>
+</pre></div>
+</blockquote>
+<p>$each(iterable, fn[, bind]);</p>
+<blockquote>
+<p>对于每个iterable中的元素执行fn, fn包含当前对象, 当前对象的位置, 和总对象.</p>
+<div class="highlight"><pre><span class="nx">fn</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">object</span><span class="p">)</span>
+<span class="c1">//Alerts &quot;The first day of the week is Sunday&quot;, &quot;The second day of the week is Monday&quot;, etc:</span>
+<span class="nx">$each</span><span class="p">({</span><span class="nx">first</span><span class="o">:</span> <span class="s2">&quot;Sunday&quot;</span><span class="p">,</span> <span class="nx">second</span><span class="o">:</span> <span class="s2">&quot;Monday&quot;</span><span class="p">,</span> <span class="nx">third</span><span class="o">:</span> <span class="s2">&quot;Tuesday&quot;</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">key</span><span class="p">){</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;The &quot;</span> <span class="o">+</span> <span class="nx">key</span> <span class="o">+</span> <span class="s2">&quot; day of the week is &quot;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<p>$pick</p>
+<blockquote>
+<p>返回第一个有效定义(不为null)的值.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">picked</span> <span class="o">=</span> <span class="nx">$pick</span><span class="p">(</span><span class="nx">var1</span><span class="p">[,</span> <span class="nx">var2</span><span class="p">[,</span> <span class="p">...]]);</span>
+</pre></div>
+</blockquote>
+<p>$random(min, max);</p>
+<blockquote>
+<p>随机返回min和max中的一个值. 闭区间.</p>
+<div class="highlight"><pre><span class="nx">alert</span><span class="p">(</span><span class="nx">$random</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">));</span>
+</pre></div>
+</blockquote>
+<p>$splat(obj);</p>
+<blockquote>
+<p>将obj转换成数组.</p>
+<div class="highlight"><pre><span class="nx">$splat</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">);</span> <span class="c1">//Returns [&#39;hello&#39;].</span>
+<span class="nx">$splat</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]);</span> <span class="c1">//Returns [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]. 汗...这个有何意义?</span>
+</pre></div>
+</blockquote>
+<p>$time();</p>
+<blockquote>
+返回当前时间.</blockquote>
+<p>$try(fn[, fn, fn, fn, ...]);</p>
+<blockquote>
+尝试执行多个fn, 返回的值为第一个正确执行的函数返回值.</blockquote>
+<p>$type(obj);</p>
+<blockquote>
+一字符串形式返回obj的类型</blockquote>
+<p>Browser</p>
+<blockquote>
+获得浏览器的相关信息, 使用引擎版本, 平台等.</blockquote>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'Mootools Note 1';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

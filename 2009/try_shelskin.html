@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShedSkin - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/try_shelskin.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">ShedSkin</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-05-20T03:05:48+08:00">
+        <a href="/2009/">2009-05-20</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p><a class="reference external" href="http://code.google.com/p/shedskin/">http://code.google.com/p/shedskin/</a></p>
+<p>这是个Google Code上的工程, 主要用于将Python代码自动转换成C++代码.</p>
+<p>嘿嘿, 找这个, 是因为自己几乎把C++忘的差不多了, 但现在要快速写些C++小程序, 一个偷懒的办法就是先用Python写好, 然后再转成C++代码.</p>
+<p>好了, 具体使用介绍下.</p>
+<div class="section" id="id1">
+<h2>安装</h2>
+<ol class="arabic simple">
+<li>将项目svn下载下来, 安装这些依赖: sudo apt-get install g++ libpcre3-dev libgc-dev</li>
+<li>进入工程目录, python setup.py之后, 生成一个叫shedskin的bash脚本, 其中主要是设定ShedSkin根目录, 和执行ss.py脚本.</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>使用</h2>
+<ol class="arabic">
+<li><p class="first">python脚本test.py放于shedskin同级目录,</p>
+</li>
+<li><p class="first">执行 shedskin test 之后, 会在当前目录下生成test.ss.py, test.cpp, test.hpp文件, .ss.py是一个中间文件, 用于标记变量类型.</p>
+<blockquote>
+<p>## 这里需要注意的地方: 如果将要转换的py脚本放在其他目录中, 比如./mytest/下, 执行./shedskin mytest/aabbcc会报*ERROR*:mytest/aabbcc.py: module names should consist of letters, digits and underscores, 所以还是放于工程目录下,</p>
+</blockquote>
+</li>
+<li><p class="first">make run, 生成test可执行文件test并运行它.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="python">
+<h2>Python支持</h2>
+<ol class="arabic simple">
+<li>不支持动态类型</li>
+</ol>
+<p>因为Python是动态类型语言, 而C++的类型需要在编译时就确定下来, 确定下来之后不能更改. 所以在编写Python程序的时候, 需要注意不能对某个变量类型改变, 比如, 刚开始一个变量类型为None, 之后赋予整型0, 这会在转换时, 出现warning:</p>
+<pre class="literal-block">
+*WARNING* lcs.py: variable (function find_lcs, 'd') has dynamic (sub)type: {None, int}
+</pre>
+<p>解决办法就是, 对于每个变量初始化成一个类型, 并且在程序运行时也不能改变该类型.</p>
+<ol class="arabic" start="2">
+<li><p class="first">除了类型固定外, 还有其他的限制:</p>
+<blockquote>
+<ul class="simple">
+<li>variable numbers of arguments and keyword arguments 可变参数</li>
+<li>arbitrary-size arithmetic (integers become 32-bit on most architectures!)</li>
+<li>reflection (getattr, hasattr), eval, or other really dynamic stuff</li>
+<li>multiple inheritance</li>
+<li>generator expressions</li>
+<li>nested functions and classes</li>
+<li>inheritance from builtins (excluding Exception and object)</li>
+<li>some builtins, such as map, filter and reduce</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p>等等, 这还是由于C++不是动态语言. 另外, Python的容器类型中包含的类型不能是混合的, 比如[1, '2']这种是不允许的.</p>
+<ol class="arabic simple" start="3">
+<li>当然, Python中提供的模块, 有很大一部分是不支持的. 不过对于小型程序来说, 不会涉及到很多模块.</li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>测试</h2>
+<ol class="arabic">
+<li><p class="first">测试了一个Longest Common Subsequence. 原来60行的python程序, 经过转换后, cpp和头文件超过100行. 看到生成的CPP代码中, 把原来Python中的字符串常量都表示成动态的str数组了, 而不是使用C++中的字符串常量,,这可能是因为Python的字符串对象还是有一些方法, 如果直接变成C++中的字符串常量, 那岂不对应的方法就不能用了.</p>
+</li>
+<li><p class="first">使用gcc 编译生成的lcs.cpp和lcs.hpp</p>
+<blockquote>
+<p>make lcs之后使用的g++命令, 看到</p>
+<pre class="literal-block">
+g++ -O2 -pipe -Wno-deprecated -I. -I/home/shengyan/workspace/shedskin-read-only/lib /home/shengyan/workspace/shedskin-read-only/lib/builtin.cpp lcs.cpp /home/shengyan/workspace/shedskin-read-only/lib/re.cpp -lgc -lpcre -o lcs
+</pre>
+<p>依赖的库有好多, lib下面主要是些python模块的cpp版本, 把这些依赖的库找到..
+而且还有gc,和pcre两个库, 一个Garbage Collection, 另一个是正则式的.</p>
+</blockquote>
+</li>
+<li><p class="first">make时间比较长,,,是否是cpp生成的东西太多了?</p>
+</li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h2>其他</h2>
+<p>命令行选项</p>
+<pre class="literal-block">
+-a --noann             Don't output annotated source code
+-b --nobounds          Disable bounds checking
+-d --dir               Specify alternate directory for output files 可将生成的文件放在一个目录中
+-e --extmod            Generate extension module
+-f --flags             Provide alternate Makefile flags
+-r --random            Use fast random number generator
+-w --nowrap            Disable wrap-around checking
+</pre>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Tools">Tools</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'ShedSkin';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

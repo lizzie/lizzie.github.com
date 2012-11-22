@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HPWS 5 - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/hpws_5.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">HPWS 5</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-03-19T13:03:13+08:00">
+        <a href="/2009/">2009-03-19</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>Rule 5: Put Stylesheets at the Top
+Rule 6: Put Scripts at the Bottom
+这两条比较简单,　就是将,　将样式放在页面的顶部,　而脚本放在页面的底部.</p>
+<p>一些原因:</p>
+<ol class="arabic simple">
+<li>页面各部分的下载顺序, 一般情况下是按照他们在文档中的出现顺序的.</li>
+<li>最好能让浏览器尽快的显示内容. This is especially important for pages with a lot of content and for users on slower Internet connections. When the browser loads the page progressively, the header, the navigation bar, the logo at the top, etc. all serve an visual feedback for the user who is waiting for the page.</li>
+<li>Rule 5 has less to do with the actual time to load the page's components and more to do with how the browser reacts to the order of those components. The browser delays showing any visible components while it and the user wait for the stylesheet at the bottom.----&quot;blank white screen.&quot;</li>
+</ol>
+<p>例子:</p>
+<ul class="simple">
+<li>CSS at the Bottom: <a class="reference external" href="http://stevesouders.com/hpws/css-bottom.php">http://stevesouders.com/hpws/css-bottom.php</a></li>
+<li>CSS at the Top: <a class="reference external" href="http://stevesouders.com/hpws/css-top.php">http://stevesouders.com/hpws/css-top.php</a></li>
+<li>CSS at the Top Using &#64;import: <a class="reference external" href="http://stevesouders.com/hpws/css-top-import.php">http://stevesouders.com/hpws/css-top-import.php</a> 这种显示所有图片最快</li>
+</ul>
+<div class="highlight"><pre><span class="nt">&lt;style&gt;</span>
+<span class="k">@import</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;style.css&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="nt">&lt;/style&gt;</span>
+</pre></div>
+<p>另外, Flash of Unstyled Content</p>
+<p>例子:</p>
+<ul class="simple">
+<li>CSS Flash of Unstyled Content: <a class="reference external" href="http://stevesouders.com/hpws/css-fouc.php">http://stevesouders.com/hpws/css-fouc.php</a> 看到了? 当页面下载完成后, 浏览器重新渲染页面.</li>
+</ul>
+<p>解决这两个问题的rule就是: Put your stylesheets in the document HEAD using the LINK tag.</p>
+<p>对于Scripts, 先看例子</p>
+<ul>
+<li><p class="first">Scripts in the Middle: <a class="reference external" href="http://stevesouders.com/hpws/js-middle.php">http://stevesouders.com/hpws/js-middle.php</a></p>
+<blockquote>
+<p>这导致两个问题1: Everything below the script won't render until the script is loaded;
+2:All components below the script don't start downloading until the script is done.</p>
+<p>可以并行的下载各个components, 这些components是具有不同的hostname,
+也就是说, browsers download two components in parallel per hostname.</p>
+</blockquote>
+</li>
+<li><p class="first">Scripts Block Downloads: <a class="reference external" href="http://stevesouders.com/hpws/js-blocking.php">http://stevesouders.com/hpws/js-blocking.php</a></p>
+<blockquote>
+<p>However, parallel downloading is actually disabled while a script is downloading--the browser won't start any other downloads, even on different hostnames.
+这是因为, the script may use document.write to alter the page content, so the browser waits to make sure the page is laid out appropriately. And the browser blocks parallel downloads then scripts are being loaded is to guarantee that the scripts are executed in the proper order.
+If multiple scripts were downloads in parallel, there's no guarantee the responses would arrive in the order specified. 就是说script的下载都是顺序执行的, 这才能满足之间的前后依赖关系.</p>
+<p>Scripts at the Top: <a class="reference external" href="http://stevesouders.com/hpws/js-top.php">http://stevesouders.com/hpws/js-top.php</a>
+可以看到, 整个页面一直被阻断, 直到scripts下载完毕. 如果这个script下载的很慢, 那么页面就一直显示着空白,,,这是太糟糕了.</p>
+<p>Scripts at the Bottom: <a class="reference external" href="http://stevesouders.com/hpws/js-bottom.php">http://stevesouders.com/hpws/js-bottom.php</a>
+这个明显快多了...</p>
+<p>Scripts Top vs Bottom: <a class="reference external" href="http://stevesouders.com/hpws/move-scripts.php">http://stevesouders.com/hpws/move-scripts.php</a>
+scripts在顶部和底部的对比. 结果非常明显.</p>
+<p>In some situations, it's not easy to move scripts to the bottom,
+eg, the scripts uses docuemnt.write to insert part of the pages's content, it can't be moved lower in the page....
+the way is using deferred scripts. The DEFER attibute indicates that the script does not contain document.write, and is a clue to browsers that they can continue rendering.</p>
+<p>Deferred Scripts: <a class="reference external" href="http://stevesouders.com/hpws/js-defer.php">http://stevesouders.com/hpws/js-defer.php</a>
+使用就是类似如下的</p>
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/bin/sleep.cgi?type=js&amp;sleep=10&amp;expires=-1&amp;last=0&quot;</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+</blockquote>
+</li>
+</ul>
+<p>But,,,,The DEFER attribute for scripts doesn't solve the issues.
+In Firefox, rendering and downloads are still blocked. In IE, the script is still downloaded, taking up one of the two download slots for that hostname.</p>
+<p>虽然最后一种情况比较特殊外, 总得来说,,Move scripts to the bottom of the page</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a><a href="/tag/#note">note</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'HPWS 5';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

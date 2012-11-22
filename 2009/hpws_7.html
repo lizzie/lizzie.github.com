@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HPWS 7 - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/hpws_7.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">HPWS 7</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-03-23T14:03:14+08:00">
+        <a href="/2009/">2009-03-23</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>Rule 8: Make JavaScript and CSS External</p>
+<p>Inline vs. External</p>
+<p>Inlined JS and CSS: <a class="reference external" href="http://stevesouders.com/hpws/inlined.php">http://stevesouders.com/hpws/inlined.php</a>
+External JS and CSS: <a class="reference external" href="http://stevesouders.com/hpws/external.php">http://stevesouders.com/hpws/external.php</a>
+可以看到Inline更快点.</p>
+<p>虽然inline的页面和external页面总得加起来的字节数是相同的, 但之前也说到过. 分成多个文件可以并行的下载. The inline example is faster than the external one is because the external example suffers from the overhead of multiple HTTP requests. But, the external example benefits from the stylesheet and scripts being downloaded in parallel.
+另外一方面, 涉及到cache. JavaScript和CSS文件可能会被浏览器缓存, 那么这样对html页面来说就快多了. 而不是每次都要下次inline在html页面中的js和css了.</p>
+<p>具体考虑还得结合以下几个实际因素:</p>
+<ul class="simple">
+<li>Page Views: 如果某个用户频繁访问, 那么, 浏览器很可能存在一些js和css文件,那么用External更有利, 反之, 用户的Page Views越少, 比如说一个月甚至更长时间才访问一次, 那么浏览器中估计全被冲掉了, 所以使用inline还是很好的.</li>
+<li>Empty Cache vs Primed Cache: 这里还是得考虑网站的类型, 和用户的访问习惯,,,</li>
+</ul>
+<p>Knowing these statistics helps in estimating the potential benefit of using external files versus inlining. If the nature of your site results in higher primed cache rates for your users, the benefit of using external files is greater. If a primed cache is less likely, inlining becomes a better choice.</p>
+<p>Component Reuse 重用</p>
+<p>很显然的, external方式更利于重用. 而这里, 文件的分割, 合并程度也比较重要. 如,到底是将所有页面的js放在一块,还是分开成各个部分, 分开了, 里面相同的部分是否提取出来放于独立的文件中. 放在一起好处是fewer files(请求少), 坏处是有些页面用不着这个文件中的所有东西, 这会增加数据下载字节数. 不放在一起好处就是重用程度高, 但the downside of this is that every page subjects the user to another set of external components and resulting HTTP requests that slow down response times.
+统一考虑, 也就是The best answer is a compromise.</p>
+<p>The Best of Both Worlds</p>
+<p>Post-Onload Download: <a class="reference external" href="http://stevesouders.com/hpws/post-onload.php">http://stevesouders.com/hpws/post-onload.php</a>
+像Home page, that are the first of many page views, we want to inline the js and css for the home page, but leverage external files for all secondary page views. This is accomplished by dynamically downloading the external components in the home page after it has completely loaded(via the onload event). 对应的js代码</p>
+<div class="highlight"><pre><span class="nt">&lt;script&gt;</span>
+<span class="kd">function</span> <span class="nx">doOnload</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Do the downloading awhile AFTER the onload.</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="s2">&quot;downloadComponents()&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="nx">doOnload</span><span class="p">;</span>
+
+<span class="c1">// Download external components dynamically using JavaScript.</span>
+<span class="kd">function</span> <span class="nx">downloadComponents</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">downloadCSS</span><span class="p">(</span><span class="s2">&quot;http://stevesouders.com/hpws/testsm.css?t=1237818511&quot;</span><span class="p">);</span>
+    <span class="nx">downloadJS</span><span class="p">(</span><span class="s2">&quot;http://stevesouders.com/hpws/testsma.js?t=1237818511&quot;</span><span class="p">);</span>
+    <span class="nx">downloadJS</span><span class="p">(</span><span class="s2">&quot;http://stevesouders.com/hpws/testsmb.js?t=1237818511&quot;</span><span class="p">);</span>
+    <span class="nx">downloadJS</span><span class="p">(</span><span class="s2">&quot;http://stevesouders.com/hpws/testsmc.js?t=1237818511&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Download a stylesheet dynamically.</span>
+<span class="kd">function</span> <span class="nx">downloadCSS</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;link&quot;</span><span class="p">);</span>
+    <span class="nx">elem</span><span class="p">.</span><span class="nx">rel</span> <span class="o">=</span> <span class="s2">&quot;stylesheet&quot;</span><span class="p">;</span>
+    <span class="nx">elem</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s2">&quot;text/css&quot;</span><span class="p">;</span>
+    <span class="nx">elem</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Download a script dynamically.</span>
+<span class="kd">function</span> <span class="nx">downloadJS</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">);</span>
+    <span class="nx">elem</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+<p>可以看到, 在页面load之后的1秒开始下载其他东西, 想想也是的, 用户在自己home页面浏览的同时去下载这些js和css, 那么进入相关的页面就快多了</p>
+<p>Dynamic Inlining
+The home page server can make a decision about inlining based on the absence or presence of the cookie. 为什么和cookie扯上关系呢? If the cookie is absent, the js or css is inlined. If cookie is present, it's likely the external component is in the browser's cache and external files are used. 也还是说, 如果cookie存在, 就有可能浏览器中已经包含相关静态文件, 如果不存在,那么可以用inline方式会更快.</p>
+<p>Dynamic Inline: <a class="reference external" href="http://stevesouders.com/hpws/dynamic-inlining.php">http://stevesouders.com/hpws/dynamic-inlining.php</a></p>
+<p>// 原文是php实现, 大概思想是
+判断cookie是否存在, 是:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">&lt;string&gt;</tt>, line 81)</p>
+Unexpected indentation.</div>
+<blockquote>
+包含css/js文件</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 82)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<dl class="docutils">
+<dt>不是:</dt>
+<dd>直接写入css/js内容, 同时在onload事件中加入下载静态文件的处理.</dd>
+</dl>
+<p>这个不错,,,根据cookie来选择, 不过这是基于存在cookies代表cache中已有相关文件的假设了.</p>
+<p>总结一下的话, 涉及到重用性, 速度, cookie, Page Views, Cache这么多.</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a><a href="/tag/#note">note</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'HPWS 7';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

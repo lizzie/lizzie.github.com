@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ARPDefense - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/arpdefense.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">ARPDefense</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-03-04T09:03:01+08:00">
+        <a href="/2009/">2009-03-04</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>局域网内ARP攻击, 导致无法上网个, 解决办法:</p>
+<ol class="arabic">
+<li><p class="first">sudo arp -s 192.168.0.1 00:d0:f8:fb:8a:63 ## 静态绑定网关mac地址</p>
+</li>
+<li><p class="first">sudo arp -a 查看显示</p>
+<blockquote>
+<pre class="literal-block">
+? (192.168.0.1) 位于 00:d0:f8:fb:8a:63 [ether] PERM 在 eth0
+</pre>
+</blockquote>
+</li>
+<li><p class="first">sudo vim /etc/ethers # 编辑加入</p>
+<blockquote>
+<pre class="literal-block">
+192.168.0.1 00:d0:f8:fb:8a:63
+</pre>
+</blockquote>
+</li>
+<li><p class="first">sudo vim /etc/init.d/rc.local #加入arp -f, 以便启动执行</p>
+</li>
+</ol>
+<p>其他一些命令:</p>
+<blockquote>
+<pre class="literal-block">
+arp -d #清除ARP缓存
+</pre>
+</blockquote>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Other">Other</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'ARPDefense';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

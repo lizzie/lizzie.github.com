@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排列与组合 - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2008/permutation_combination.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">排列与组合</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2008-07-02T14:07:23+08:00">
+        <a href="/2008/">2008-07-02</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>从M个数中取N个数进行排列或组合，即为选排列/组合
+抛弃递归，采用迭代更新。但是是顺序方法：</p>
+<div class="highlight"><pre><span class="c">#!/bin/python</span>
+<span class="c"># coding: utf-8</span>
+
+<span class="sd">&quot;&quot;&quot; Permutation</span>
+<span class="sd">@author: shengyan</span>
+<span class="sd">@license: ...</span>
+<span class="sd">@contract: shengyan1985@gmail.com</span>
+<span class="sd">@see: ...</span>
+<span class="sd">@version:0.1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">class</span> <span class="nc">Permutation</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; 产生组合</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;初始化</span>
+<span class="sd">        @param total: 所有要排列的数字个数</span>
+<span class="sd">        @type total: integer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalNum</span> <span class="o">=</span> <span class="n">total</span>
+
+    <span class="k">def</span> <span class="nf">perm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;对于total个数选取i个数进行选组合</span>
+<span class="sd">        @param i: 实际的数字个数</span>
+<span class="sd">        @type i: integer</span>
+<span class="sd">        @todo: 产生Pmn选排列，而不是组合，是一种组合对应有n!个排列</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="p">[]</span> <span class="c"># 初始的组合</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="p">[]</span> <span class="c"># 最终的组合</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="n">first</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+            <span class="n">end</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">totalNum</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span>
+
+        <span class="nb">all</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># 组合的个数</span>
+        <span class="n">change</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span> <span class="c"># 待改变的位置</span>
+        <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c">#for k in range(i):</span>
+            <span class="c">#    print first # 输出当前first组合，这里储存并可以进一步生成排列</span>
+            <span class="c"># print first</span>
+
+            <span class="k">for</span> <span class="n">kk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">24</span><span class="p">):</span>
+                <span class="k">pass</span>
+
+            <span class="nb">all</span> <span class="o">+=</span> <span class="mi">24</span>
+            <span class="k">if</span> <span class="n">first</span><span class="p">[</span><span class="n">change</span><span class="p">]</span> <span class="o">&lt;&gt;</span> <span class="n">end</span><span class="p">[</span><span class="n">change</span><span class="p">]:</span>
+                <span class="n">first</span><span class="p">[</span><span class="n">change</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">change</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">change</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="n">first</span><span class="p">[</span><span class="n">change</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">newchange</span> <span class="o">=</span> <span class="n">change</span>
+                <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">change</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+                    <span class="n">first</span><span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="o">=</span> <span class="n">first</span><span class="p">[</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">first</span><span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="o">&lt;&gt;</span> <span class="n">end</span><span class="p">[</span><span class="n">h</span><span class="p">]:</span>
+                        <span class="n">newchange</span> <span class="o">=</span> <span class="n">h</span>
+                <span class="n">change</span> <span class="o">=</span> <span class="n">newchange</span>
+        <span class="k">return</span> <span class="nb">all</span>
+    <span class="k">def</span> <span class="nf">perm2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;对于totalNum个数选取i个数进行选排列1...totalNum 选i个</span>
+<span class="sd">        @param i: 实际的数字个数</span>
+<span class="sd">        @type i: integer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="p">[]</span> <span class="c"># 初始的排列</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="p">[]</span> <span class="c"># 最终的排列，即 n, n-1, ..., n-m+1</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">totalNum</span><span class="p">)]</span> <span class="c"># 辅助标志数组 1为未使用，0为使用过</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="n">first</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">end</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">totalNum</span><span class="o">-</span><span class="n">j</span><span class="p">)</span> <span class="c"># -1</span>
+        <span class="c"># 排列个数</span>
+        <span class="nb">all</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="c"># print first</span>
+        <span class="c"># 初态递增到终态为止</span>
+        <span class="k">while</span> <span class="n">first</span> <span class="o">&lt;&gt;</span> <span class="n">end</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+                <span class="n">u</span><span class="p">[</span><span class="n">first</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">totalNum</span>
+            <span class="c"># 找未使用过的最大整数</span>
+            <span class="k">while</span> <span class="n">u</span><span class="p">[</span><span class="n">f</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&gt;</span> <span class="mi">1</span> <span class="p">:</span>
+                <span class="n">f</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="c"># 找最右可修改元素</span>
+            <span class="k">while</span> <span class="n">h</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">k</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">u</span><span class="p">[</span><span class="n">first</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">first</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="c"># 找满足first[k] &lt; j &lt;= totalNum且u[j] =1的最小下标j</span>
+                    <span class="n">j</span> <span class="o">=</span> <span class="n">first</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">jj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">first</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">totalNum</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="n">u</span><span class="p">[</span><span class="n">jj</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                            <span class="n">j</span> <span class="o">=</span> <span class="n">jj</span>
+                            <span class="k">break</span>
+                    <span class="n">h</span> <span class="o">=</span> <span class="n">k</span>
+                    <span class="n">first</span><span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+                    <span class="n">u</span><span class="p">[</span><span class="n">first</span><span class="p">[</span><span class="n">h</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">f</span> <span class="o">=</span> <span class="n">first</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="c"># 修改first[h]之右的元素</span>
+            <span class="k">for</span> <span class="n">ka</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="n">h</span><span class="p">):</span>
+                <span class="n">kk</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">totalNum</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">u</span><span class="p">[</span><span class="n">s</span><span class="p">]:</span>
+                        <span class="n">kk</span> <span class="o">+=</span> <span class="mi">1</span>
+                        <span class="k">if</span> <span class="n">kk</span> <span class="o">==</span> <span class="n">ka</span><span class="p">:</span>
+                            <span class="k">break</span>
+                <span class="n">first</span><span class="p">[</span><span class="n">h</span><span class="o">+</span><span class="n">ka</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="o">+</span><span class="mi">1</span>
+            <span class="k">for</span> <span class="n">kb</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
+                <span class="n">u</span><span class="p">[</span><span class="n">first</span><span class="p">[</span><span class="n">kb</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="c"># 产生输出</span>
+            <span class="c">#print u</span>
+            <span class="k">print</span> <span class="n">first</span>
+            <span class="nb">all</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="nb">all</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Permutation</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c">#for i in range(1, num):</span>
+    <span class="c">#    t += p.perm(i)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">perm2</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&#39;共有</span><span class="si">%d</span><span class="s">种组合&#39;</span> <span class="o">%</span> <span class="n">t</span>
+</pre></div>
+<p>该方法组合所花的时间还是很少的，但是排列效率不高，时间是列表中的一倍多。待改进</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Python">Python</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = '排列与组合';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

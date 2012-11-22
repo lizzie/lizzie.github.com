@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SedReplace - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/sed_replace.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">SedReplace</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-05-15T05:05:53+08:00">
+        <a href="/2009/">2009-05-15</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>将某目录下的一批文件中的某个单词替换成另一个单词, 之前碰到过, 忘了在哪了, 现记录下.</p>
+<div class="highlight"><pre><span class="k">for </span>i in <span class="sb">`</span>ls | grep -vE <span class="s2">&quot;converted\.sh&quot;</span><span class="sb">`</span>
+<span class="k">do</span>
+<span class="k">    </span><span class="nb">echo</span> <span class="nv">$i</span>
+    sed -e <span class="s1">&#39;s/\.\.\/_static\/doctools\.js/\/site_media\/\js\/pymotw\/doctools\.js/g&#39;</span> <span class="nv">$i</span> &gt; a
+    mv a <span class="nv">$i</span>
+<span class="k">done</span>
+</pre></div>
+<p>网上找到另一种一句命令就能搞定的方法:</p>
+<div class="highlight"><pre>find -name *.html -type f | xargs perl -pi -e <span class="s1">&#39;s|xxxxxxx|yyyyyyyy|&#39;</span>
+</pre></div>
+<p>ok</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Other">Other</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'SedReplace';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin/Debug - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2008/admin_debug.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Admin/Debug</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2008-06-24T14:06:11+08:00">
+        <a href="/2008/">2008-06-24</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <ol class="arabic simple">
+<li>增加Admin功能</li>
+</ol>
+<p>可以通过lizziesky.appspot.com/_admin/访问控制台，不过这个比较简单，没有GAE自带的功能多。具体做法是在工程文件夹下，增加下列代码到app.yaml中</p>
+<div class="highlight"><pre><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/_admin/.*</span>
+  <span class="l-Scalar-Plain">script</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">$PYTHON_LIB/google/appengine/ext/admin</span>
+  <span class="l-Scalar-Plain">login</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
+</pre></div>
+<p>可以看到主要是增加路径，然后脚本是用了gae自带的admin</p>
+<ol class="arabic simple" start="2">
+<li>Debug默认为True，现在改为False。因为在原来的Django工程中，只需将settings.py中的DEBUG改为False就可以了。但在GAE中，光光这样，在输入不能解析的路径时，会产生WSGI异常，产生之处在工程文件的主入口文件，我这儿是main.py的util.run_wsgi_app(application)中的某处抛出异常。那么，就在这个地方加个try...except语句吧，最终处理如下：</li>
+</ol>
+<div class="highlight"><pre><span class="c">#main.py</span>
+<span class="c">#...</span>
+
+<span class="kn">from</span> <span class="nn">google.appengine.ext</span> <span class="kn">import</span> <span class="n">webapp</span>
+<span class="kn">import</span> <span class="nn">wsgiref.handlers</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">google.appengine.ext.webapp</span> <span class="kn">import</span> <span class="n">template</span>
+
+<span class="k">class</span> <span class="nc">ErrorSth</span><span class="p">(</span><span class="n">webapp</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">template_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s">&#39;templates/404.html&#39;</span><span class="p">)</span>
+            <span class="c">#self.response.out.write(&#39;ERROR Oops From Bad URL &#39;)#%s&#39; % self.get_url())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">template_path</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="k">except</span> <span class="n">Error</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+  <span class="c"># Create a Django application for WSGI.</span>
+  <span class="n">application</span> <span class="o">=</span> <span class="n">django</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">wsgi</span><span class="o">.</span><span class="n">WSGIHandler</span><span class="p">()</span>
+  <span class="k">try</span><span class="p">:</span>
+      <span class="c"># Run the WSGI CGI handler with that application.</span>
+      <span class="n">util</span><span class="o">.</span><span class="n">run_wsgi_app</span><span class="p">(</span><span class="n">application</span><span class="p">)</span>
+  <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+      <span class="n">errorapp</span> <span class="o">=</span> <span class="n">webapp</span><span class="o">.</span><span class="n">WSGIApplication</span><span class="p">([(</span><span class="s">r&#39;/.*&#39;</span><span class="p">,</span> <span class="n">ErrorSth</span><span class="p">)],</span> <span class="n">debug</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+      <span class="n">wsgiref</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">CGIHandler</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">errorapp</span><span class="p">)</span>
+</pre></div>
+<p>这个办法不好，但目前没想到其他的。</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#GAE">GAE</a><a href="/tag/#Python">Python</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'Admin/Debug';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

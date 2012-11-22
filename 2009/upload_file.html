@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Files - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/upload_file.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Upload Files</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-05-01T13:05:07+08:00">
+        <a href="/2009/">2009-05-01</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>在django中, 实现上传文件或图片相关步骤:</p>
+<ol class="arabic">
+<li><p class="first">models中</p>
+<blockquote>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">PhotoRecommend</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">pic</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">PHOTORECOMM_IMAGE_DIR</span><span class="p">)</span>   <span class="c"># 图片</span>
+
+<span class="c"># settings中的PHOTORECOMM_IMAGE_DIR = 一个文件夹, 或者路径, 如&#39;photos&#39;, 就是需要将文件存放在哪里的路径</span>
+<span class="c"># 另外还需设置变量</span>
+<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="s">&#39;/home/shengyan/media/tmpimages/&#39;</span>  <span class="c">##　这个为上传后文件所在的物理基位置</span>
+
+<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s">&#39;http://127.0.0.1:8000/site_media/tmpimages/&#39;</span> <span class="c">## 为文件的访问基位置</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">views中</p>
+<blockquote>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="n">oldpicpath</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">prid</span><span class="p">:</span>
+        <span class="n">pr</span> <span class="o">=</span> <span class="n">PhotoRecommend</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pr</span> <span class="o">=</span> <span class="n">PhotoRecommend</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">prid</span><span class="p">)</span>
+        <span class="c"># 待删除原有的图片</span>
+        <span class="n">oldpicpath</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">pic</span><span class="o">.</span><span class="n">path</span>
+
+    <span class="n">placeid</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;placeid&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;url&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">pr</span><span class="o">.</span><span class="n">placeid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">placeid</span><span class="p">)</span>
+    <span class="n">pr</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
+
+    <span class="n">pic</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;pic&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pic</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">,</span> <span class="s">&quot;请上传图片&quot;</span>
+    <span class="n">pr</span><span class="o">.</span><span class="n">pic</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">pic</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">pic</span><span class="p">)</span>        <span class="c">## 主要是这句话, 可以将pic存储到MEDIA_ROOT/upload_to/这个位置, 并可以自动获得path, url等</span>
+    <span class="n">pr</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">oldpicpath</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">oldpicpath</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span><span class="n">e</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">e</span>
+    <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="s">&quot;/admin/photoRecommend/&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span><span class="n">e</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+<p>在pr.pic.save之前, 我采用上传文件函数, 如:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">_handle_uploaded_file</span><span class="p">(</span><span class="n">myfile</span><span class="p">,</span> <span class="n">where</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;上传文件处理</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="kn">import</span> <span class="nn">settings</span>
+
+    <span class="n">where</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">where</span><span class="p">):</span>
+
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">where</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">myfile</span><span class="o">.</span><span class="n">size</span><span class="o">&gt;</span><span class="mi">1048576</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="n">dot_index</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
+    <span class="n">fn</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">where</span><span class="p">,</span> <span class="n">myfile</span><span class="o">.</span><span class="n">name</span><span class="p">)):</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">name</span><span class="p">[:</span><span class="n">dot_index</span><span class="p">]</span><span class="o">+</span><span class="s">&#39;_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span><span class="o">+</span><span class="n">myfile</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="n">dot_index</span><span class="p">:]</span>
+    <span class="n">des</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">where</span><span class="p">,</span> <span class="n">fn</span><span class="p">),</span> <span class="s">&#39;wb+&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">myfile</span><span class="o">.</span><span class="n">chunks</span><span class="p">():</span>
+       <span class="n">des</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+    <span class="n">des</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+<p>这样是可以将文件保存到指定位置, 而且也可以重新命名文件, 但这样做以后, 使得稍后的pr.pic.path和pr.pic.url都只有MEDIA_ROOT/filename, 而没有放到upload_to中,,,,页面中所以无法找到...后来才知道, 不需自己写上传函数, 直接用pr.pic.save, 具体可以参考http://scottbarnham.com/blog/2008/08/25/dynamic-upload-paths-in-django/</p>
+</blockquote>
+</li>
+<li><p class="first">另外, upload_to可以是一个函数, 这样就可以自己定义文件路径, 动态的. 网上有很多资料, 如 <a class="reference external" href="http://oteam.cn/2008/10/4/dynamic-upload-paths-in-django/">资料1</a>, <a class="reference external" href="http://www.joshourisman.com/2008/11/18/dynamic-upload-path-django-filefieldimagefield/">资料2</a>, <a class="reference external" href="http://pandemoniumillusion.wordpress.com/2008/08/06/django-imagefield-and-filefield-dynamic-upload-path-in-newforms-admin/">资料3</a>, <a class="reference external" href="http://www.blogjava.net/rain1102/archive/2009/04/03/263806.html">资料4</a>, 总结一下子的话, 比较好的做法就是继承ImageStorage或者ImageField, 重载相关方法符合自己需要即可.</p>
+</li>
+<li><p class="first">Django中相关文档链接</p>
+<blockquote>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.djangoproject.com/en/dev/topics/files/">http://docs.djangoproject.com/en/dev/topics/files/</a></li>
+<li><a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/models/fields/#imagefield">http://docs.djangoproject.com/en/dev/ref/models/fields/#imagefield</a></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Python">Python</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'Upload Files';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

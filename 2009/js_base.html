@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Base - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/js_base.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">JS Base</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-02-20T12:02:26+08:00">
+        <a href="/2009/">2009-02-20</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>之前一直直接学的Jquery库, 而最基本的Javascript语法似乎都没真正学过, 现在觉得基础还是很重要的. 于是乎在网上找了些js基本语法, 整理下.</p>
+<p>参考自:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://blog.csdn.net/dxmdxs/archive/2005/08/12/452780.aspx">http://blog.csdn.net/dxmdxs/archive/2005/08/12/452780.aspx</a></li>
+<li><a class="reference external" href="http://www.9java.com/article/study/299">http://www.9java.com/article/study/299</a>.htm这有小例子和基本语法.</li>
+</ul>
+<ol class="arabic simple">
+<li>变量声明: var name=0;</li>
+<li>function(args){...}, return</li>
+<li>if(...){...}else{...}</li>
+</ol>
+<div class="highlight"><pre><span class="k">switch</span><span class="p">(</span><span class="nx">expression</span><span class="p">){</span>
+    <span class="k">case</span> <span class="nx">lable1</span><span class="o">:</span>
+    <span class="p">...</span>
+    <span class="k">case</span> <span class="nx">lable2</span><span class="o">:</span>
+    <span class="p">...</span>
+    <span class="k">default</span><span class="o">:</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+<ol class="arabic simple" start="4">
+<li>for (init; condition; update){ ... }</li>
+</ol>
+<div class="highlight"><pre><span class="k">do</span><span class="p">{</span> <span class="p">...</span> <span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="nx">condition</span><span class="p">)</span>
+
+<span class="k">break</span><span class="p">,</span> <span class="k">continue</span>
+</pre></div>
+<ol class="arabic" start="5">
+<li><p class="first">表达式和运算符: ＋, -, <a href="#id1"><span class="problematic" id="id2">*</span></a>, /, %, --, --, &amp;&amp;, ||, !, &lt;, &gt;, &lt;=, &gt;=, ==, !=, (10&gt;8)?&quot;big&quot;:&quot;small&quot;</p>
+<div class="system-message" id="id1">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 37); <em><a href="#id2">backlink</a></em></p>
+<p>Inline emphasis start-string without end-string.</p>
+</div>
+</li>
+<li><p class="first">js事件</p>
+<blockquote>
+<ul class="simple">
+<li>onClick=alert(&quot;hi&quot;)</li>
+<li>onChange</li>
+<li>onSelect</li>
+<li>onFocus</li>
+<li>onLoad</li>
+<li>onUnload</li>
+<li>onBlur: 当光标离开文本框中时发生的事件</li>
+<li>onMouseover</li>
+<li>onMouseout</li>
+<li>onDbclick</li>
+<li>onAbort: 当页面上图像没完全下载时,访问者单击浏览器上停止按钮的事件</li>
+<li>onAfterUpdate: 数据元素完成更新的事件</li>
+<li>onBeforeUpdate: 元素被改变且失去焦点</li>
+<li>onBounce: 移动的Marquee(?)文字到达移动区域边界</li>
+<li>onError: 页面或页面图像下载出错</li>
+<li>onFinish: 移动的Marquee文字完成一次移动</li>
+<li>onHelp: 访问者单击浏览器上帮助按钮</li>
+<li>onKeyDown: 按下键盘</li>
+<li>onKeyPress: 按下键盘且释放</li>
+<li>onKeyUp: 按下键盘且释放</li>
+<li>onMouseDown: 按下鼠标按钮</li>
+<li>onMouseMove</li>
+<li>onMouseUp: 松开鼠标</li>
+<li>onMove: 窗口被移动</li>
+<li>onReadyStateChange: 元素状态被改变</li>
+<li>onReset: 元素值被重置</li>
+<li>onResize: 改变窗口或框的大小</li>
+<li>onScroll: 使用滚动条</li>
+<li>onStart: Marquee文字开始移动</li>
+<li>onSubmit: 表单被提交</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">JS对象</p>
+</li>
+</ol>
+<ul>
+<li><p class="first">Navigator: 当前浏览器信息</p>
+<blockquote>
+<ul class="simple">
+<li>AppName: 提供字符串形式的浏览器名称. 在使用Navigator时, appName的值为NetScape, 在使用Internet Explorer时, appName的值为MSIE.</li>
+<li>AppVersion: 反映浏览器的版本号</li>
+<li>AppCodeName: 反映用字符串表示的当前浏览器的代码名字. 对于Navigator的所有版本, 这个值都是Mozilla</li>
+<li>UserAgent 返回当前浏览器用户代标志</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Windows对象: 处于整个从属表的最顶级位置, 每一个windows对象代表一个浏览器窗口</p>
+<blockquote>
+<ul class="simple">
+<li>open(URL,windowName,parameterList): open方法创建一个浏览器窗口, 并在新窗口中载入一个指定的URL地址, 如: window.open (&quot;9-1.htm&quot;, &quot;newwindow&quot;, &quot;height=400, width=400, top=100, left=100,toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no&quot;)</li>
+<li>close(): close方法关闭一个浏览器窗口</li>
+<li>alert(): 弹出一个消息框</li>
+<li>confirm(): 弹出一个确认框</li>
+<li>prompt(): 弹出一个提示框</li>
+<li>window.event.button==1/2/3 鼠标键左键等于1右键等于2两个键一起按为3</li>
+<li>window.screen.availWidth 返回当前屏幕宽度(空白空间)</li>
+<li>window.screen.availHeight 返回当前屏幕高度(空白空间)</li>
+<li>window.screen.width  返回当前屏幕宽度(分辨率值)</li>
+<li>window.screen.height  返回当前屏幕高度(分辨率值)</li>
+<li>window.document.body.offsetHeight; 返回当前网页高度</li>
+<li>window.document.body.offsetWidth; 返回当前网页宽度</li>
+<li>window.resizeTo(0,0)  将窗口设置宽高</li>
+<li>window.moveTo(0,0)  将窗口移到某位置</li>
+<li>window.focus()  使当前窗口获得焦点</li>
+<li>window.scroll(x,y) 窗口滚动条坐标，y控制上下移动，须与函数配合</li>
+<li>window.open()  window.open(&quot;地址&quot;,&quot;名称&quot;,&quot;属性&quot;)</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Location对象: 含有当前网页的URL地址</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;Input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">Value=</span><span class="s">&quot;click&quot;</span> <span class="na">onclick=</span><span class="s">&quot;window.location.href=&#39;/test/&#39;;&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">Document对象: 含有当前网页的各种特性, 页面上的内容</p>
+<blockquote>
+<ul class="simple">
+<li>document.my.elements[0].value=this.value;</li>
+<li>document.write (&quot;&lt;br&gt;&quot;)</li>
+<li>document.write(document.lastModified)  网页最后一次更新时间</li>
+<li>document.ondblclick=x  当双击鼠标产生事件</li>
+<li>document.onmousedown=x  单击鼠标键产生事件</li>
+<li>document.body.scrollTop; 返回和设置当前竖向滚动条的坐标值，须与函数配合,</li>
+<li>document.body.scrollLeft; 返回和设置当前横向滚动务的坐标值，须与函数配合，</li>
+<li>document.title  document.title=&quot;message&quot;; 当前窗口的标题栏文字</li>
+<li>document.bgcolor document.bgcolor=&quot;颜色值&quot;; 改变窗口背景颜色</li>
+<li>document.Fgcolor document.Fgcolor=&quot;颜色值&quot;; 改变正文颜色</li>
+<li>document.linkcolor document.linkcolor=&quot;颜色值&quot;; 改变超联接颜色</li>
+<li>document.alinkcolor document.alinkcolor=&quot;颜色值&quot;; 改变正点击联接的颜色</li>
+<li>document.VlinkColor document.VlinkColor=&quot;颜色值&quot;; 改变已访问联接的颜色</li>
+<li>document.forms.length 返回当前页form表单数</li>
+<li>document.anchors.length 返回当前页锚的数量</li>
+<li>document.links.length 返回当前页联接的数量</li>
+<li>document.onmousedown=x 单击鼠标触发事件</li>
+<li>document.ondblclick=x 双击鼠标触发事件</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">History对象: 含有以前访问过的网页的URL地址</p>
+<blockquote>
+<ul class="simple">
+<li>onClick=&quot;history.go(-1)&quot;</li>
+<li>onClick=&quot;history.go(1)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol class="arabic simple" start="8">
+<li>JS内置对象</li>
+</ol>
+<ul>
+<li><p class="first">String对象</p>
+<blockquote>
+<ul class="simple">
+<li>charAt(idx): 返回指定位置处的字符</li>
+<li>indexOf(Chr): 返回指定子字符串的位置,从左到右.找不到返回-1.</li>
+<li>lastIndexOf(chr): 返回指定子字符串的位置,从右到左.找不到返回-1.</li>
+<li>toLowerCase(): 将字符串中的字符全部转化成小写.</li>
+<li>toUpperCase(): 将字符串中的字符全部转化成大写.</li>
+<li>charAt(x)对象 反回指定对象的第多少位的字母</li>
+<li>lastIndexOf(&quot;string&quot;) 从右到左询找指定字符，没有返回-1</li>
+<li>indexOf(&quot;string&quot;) 从左到右询找指定字符，没有返回-1</li>
+<li>LowerCase()  将对象全部转为小写</li>
+<li>UpperCase()  将对象全部转为大写</li>
+<li>substring(0,5)  string.substring(x,x)  返回对象中从0到5的字符</li>
+<li>setTimeout(&quot;function&quot;,time) 设置一个超时对象</li>
+<li>setInterval(&quot;function&quot;,time) 设置一个超时对象</li>
+<li>x.toLocaleString()  从x时间对象中获取时间，以字符串型式存在</li>
+<li>typeof(变量名)   检查变量的类型，值有：String,Boolean,Object,Function,Underfined</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Math对象</p>
+<blockquote>
+<ul class="simple">
+<li>with(Match){ a=sin(1);} //在 with与语句的作用范围之内,凡是没有指出对象的属性和方法,都是指默认的对象,这个默认的对象在 with语句的开头给出</li>
+<li>Math.random() 随机涵数,只能是0到1之间的数,如果要得到其它数,可以为*10,再取整</li>
+<li>Math.floor(number) 将对象number转为整数，舍取所有小数</li>
+<li>Math.min(1,2)  返回1,2哪个小</li>
+<li>Math.max(1,2)  返回1,2哪个大</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Date对象</p>
+<blockquote>
+<ul class="simple">
+<li>var now=new Date();</li>
+</ul>
+<div class="highlight"><pre><span class="nx">now</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span><span class="c1">// getDay getHours getMinutes getMonth getSeconds getTime getTimeZoneOffset getYear</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">Array对象</p>
+<blockquote>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">my_array</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">my_array</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">my_array</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">Event对象</p>
+<blockquote>
+<ul class="simple">
+<li>event.clientX  返回最后一次点击鼠标X坐标值；</li>
+<li>event.clientY  返回最后一次点击鼠标Y坐标值；</li>
+<li>event.offsetX  返回当前鼠标悬停X坐标值</li>
+<li>event.offsetY  返回当前鼠标悬停Y坐标值</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">自定义对象</p>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">language=</span><span class="s">&quot;JavaScript&quot;</span><span class="nt">&gt;</span>
+    <span class="kd">function</span> <span class="nx">PCard</span><span class="p">()</span>
+    <span class="p">{</span> <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;&lt;b&gt;Name:&lt;/b&gt;&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;&lt;b&gt;Address:&lt;/b&gt;&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;&lt;b&gt;WorkPho:&lt;/b&gt;&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">work_phone</span><span class="p">,</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;&lt;b&gt;HomePhone:&lt;/b&gt;&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">home_phone</span><span class="p">,</span><span class="s2">&quot;&lt;hr&gt;&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">function</span> <span class="nx">Pname</span><span class="p">()</span>
+    <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;&lt;b&gt;Name:&lt;/b&gt;&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">function</span> <span class="nx">Card</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">address</span><span class="p">,</span><span class="nx">work</span><span class="p">,</span><span class="nx">home</span><span class="p">)</span> <span class="c1">//自定义的Card对象</span>
+    <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">address</span><span class="o">=</span><span class="nx">address</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">work_phone</span><span class="o">=</span><span class="nx">work</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">home_phone</span><span class="o">=</span><span class="nx">home</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">PrintCard</span><span class="o">=</span><span class="nx">PCard</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Pname</span><span class="o">=</span><span class="nx">Pname</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">language=</span><span class="s">&quot;JavaScript&quot;</span><span class="nt">&gt;</span>
+    <span class="nx">sue</span><span class="o">=</span><span class="k">new</span> <span class="nx">Card</span><span class="p">(</span><span class="s2">&quot;sueers&quot;</span><span class="p">,</span><span class="s2">&quot;123-street&quot;</span><span class="p">,</span><span class="s2">&quot;555-123&quot;</span><span class="p">,</span><span class="s2">&quot;555-134&quot;</span><span class="p">);</span>
+    <span class="nx">phr</span><span class="o">=</span><span class="k">new</span> <span class="nx">Card</span><span class="p">(</span><span class="s2">&quot;phre&quot;</span><span class="p">,</span><span class="s2">&quot;145-street&quot;</span><span class="p">,</span><span class="s2">&quot;555-137&quot;</span><span class="p">,</span><span class="s2">&quot;555-234&quot;</span><span class="p">);</span>
+    <span class="nx">henry</span><span class="o">=</span><span class="k">new</span> <span class="nx">Card</span><span class="p">(</span><span class="s2">&quot;heny&quot;</span><span class="p">,</span><span class="s2">&quot;134-street&quot;</span><span class="p">,</span><span class="s2">&quot;555-167&quot;</span><span class="p">,</span><span class="s2">&quot;555-234&quot;</span><span class="p">);</span>
+    <span class="nx">sue</span><span class="p">.</span><span class="nx">PrintCard</span><span class="p">();</span>
+    <span class="nx">phr</span><span class="p">.</span><span class="nx">PrintCard</span><span class="p">();</span>
+    <span class="nx">henry</span><span class="p">.</span><span class="nx">PrintCard</span><span class="p">();</span>
+    <span class="nx">sue</span><span class="p">.</span><span class="nx">Pname</span><span class="p">();</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+</blockquote>
+</li>
+</ul>
+<ol class="arabic" start="9">
+<li><p class="first">杂</p>
+<blockquote>
+<ul class="simple">
+<li>isNumeric  判断是否是数字</li>
+<li>innerHTML  xx=对象.innerHTML  输入某对象标签中的html源代码</li>
+<li>innerText  divid.innerText=xx  将以div定位以id命名的对象值设为XX</li>
+<li>defaultStatus  window.status=defaultStatus; 将状态栏设置默认显示</li>
+<li>location.reload(); 使本页刷新，target可等于一个刷新的网页</li>
+<li>click()   对象.click()   使对象被点击。</li>
+<li>closed   对象.closed   对象窗口是否已关闭true/false</li>
+<li>clearTimeout(对象) 清除已设置的setTimeout对象</li>
+<li>clearInterval(对象) 清除已设置的setInterval对象</li>
+<li>confirm(&quot;提示信息&quot;) 弹出确认框，确定返回true取消返回false</li>
+<li>cursor:样式  更改鼠标样式 hand crosshair text wait help default auto e/s/w/n-resize</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Javascript">Javascript</a><a href="/tag/#note">note</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'JS Base';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

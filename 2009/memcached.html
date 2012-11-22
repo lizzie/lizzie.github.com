@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memcached - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/memcached.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Memcached</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-09-16T05:09:57+08:00">
+        <a href="/2009/">2009-09-16</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p># libevent, <a class="reference external" href="http://www.monkey.org/~provos/libevent/">http://www.monkey.org/~provos/libevent/</a></p>
+<pre class="literal-block">
+ls /usr/local/lib/libevent-1.4.so.2
+</pre>
+<p># memcached, <a class="reference external" href="http://danga.com/memcached/">http://danga.com/memcached/</a></p>
+<pre class="literal-block">
+./configure --with-libevent=/usr/local/lib
+make
+sudo make install
+</pre>
+<p># memcached -d -m 100 -l 127.0.0.1 -p 11211
+###memcached: error while loading shared libraries: libevent-1.4.so.2: cannot open shared object file: No such file or directory</p>
+<p># python-binding <a class="reference external" href="http://gijsbert.org/cmemcache/">http://gijsbert.org/cmemcache/</a>
+# libmemcache-1.4.0 <a class="reference external" href="http://people.freebsd.org/~seanc/libmemcache">http://people.freebsd.org/~seanc/libmemcache</a>, 这边需要patch
+#wget <a class="reference external" href="http://people.freebsd.org/~seanc/libmemcache/libmemcache-1.4.0.rc2.tar.bz2">http://people.freebsd.org/~seanc/libmemcache/libmemcache-1.4.0.rc2.tar.bz2</a>
+#tar xvfj libmemcache-1.4.0.rc2.tar.bz2
+#cd libmemcache-1.4.0.rc2/
+#wget --no-check-certificate <a class="reference external" href="https://svn.pardus.org.tr/pardus/devel/programming/libs/libmemcache/files/libmemcache.patch">https://svn.pardus.org.tr/pardus/devel/programming/libs/libmemcache/files/libmemcache.patch</a>
+#patch -p1 &lt; libmemcache.patch</p>
+<pre class="literal-block">
+sudo apt-get install automake1.9
+./configure &amp;&amp; make
+sudo make install
+</pre>
+<p># cmemcache</p>
+<pre class="literal-block">
+sudo python setup.py install
+</pre>
+<p>## 如果上面的libmemcache没打补丁的话, 会出现下面的错误:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; import cmemcache
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/usr/lib/python2.5/site-packages/cmemcache.py&quot;, line 60, in &lt;module&gt;
+    from _cmemcache import StringClient
+ImportError: /usr/local/lib/libmemcache.so.0: undefined symbol: mcm_buf_len
+</pre>
+<p>settings的</p>
+<div class="highlight"><pre><span class="n">CACHE_BACKEND</span> <span class="o">=</span> <span class="s">&#39;memcached://127.0.0.1:11211/?timeout=60&#39;</span>
+<span class="n">MIDDLEWARE_CLASSES</span> <span class="o">=</span> <span class="p">(</span>
+<span class="s">&quot;django.middleware.cache.CacheMiddleware&quot;</span><span class="p">,</span>
+<span class="c">#...</span>
+<span class="p">}</span>
+<span class="c"># CACHE_MIDDLEWARE_SECONDS 每页缓存时间, 默认为600</span>
+<span class="c"># CACHE_MIDDLEWARE_KEY_PREFIX 默认为空</span>
+</pre></div>
+<p># 启动memcached</p>
+<pre class="literal-block">
+memcached -d -m 100 -l 127.0.0.1 -p 11211 # 127.0.0.1:11211 占用100mb内存，作为守护进程
+</pre>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Life">Life</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'Memcached';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

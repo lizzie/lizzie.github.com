@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Target Blank - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/target_blank.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Target Blank</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-07-10T10:07:22+08:00">
+        <a href="/2009/">2009-07-10</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>原先一直以为只有链接 a 才可以使用 target=&quot;_blank&quot; , 这也就让链接在另外一个窗口中打开.</p>
+<p>现在想实现个预览效果, 想让表单提交并在一个新窗口中显示, 而原来的窗口内容不变. google下, 发现有些直接是window.open(url...), 那这个就是直接打开对应的url. 而现在需要提交表单. 找到可以使用 target=&quot;_blank&quot; .就可.</p>
+<p>此为其一. 那现在 有一个 提交和预览按钮, 针对同一个form. 提交按钮不需要在新窗口中打开, 而预览则最好打开另一个窗口. 自然而然想到的是, 对提交按钮不需要form的target属性, 而预览需要. 简单js下:</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">$j</span><span class="p">(</span><span class="s2">&quot;input#preview&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+
+    <span class="nx">$j</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">);</span>
+    <span class="nx">$j</span><span class="p">(</span><span class="s2">&quot;form#frm&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="s2">&quot;_blank&quot;</span><span class="p">);</span>
+    <span class="nx">$j</span><span class="p">(</span><span class="s2">&quot;form#frm&quot;</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span>
+    <span class="nx">$j</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">);</span>
+    <span class="nx">$j</span><span class="p">(</span><span class="s2">&quot;form#frm&quot;</span><span class="p">).</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<p>可这段代码并不能在新窗口中打开, 而直接在当前窗口. 但测试submit前的确form是target为_blank.</p>
+<p>后来猜到是否需要有个延迟时间. 于是,</p>
+<blockquote>
+<div class="highlight"><pre><span class="nx">$j</span><span class="p">(</span><span class="s2">&quot;input#preview&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+
+    <span class="nx">$j</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$j</span><span class="p">(</span><span class="s2">&quot;input#prw&quot;</span><span class="p">).</span><span class="nx">length</span><span class="p">)</span> <span class="nx">$j</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">after</span><span class="p">(</span><span class="s1">&#39;&lt;input type=&quot;hidden&quot; name=&quot;preview&quot; value=&quot;1&quot; id=&quot;prw&quot; /&gt;&#39;</span><span class="p">);</span>
+
+    <span class="nx">$j</span><span class="p">(</span><span class="s2">&quot;form#frm&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="s2">&quot;_blank&quot;</span><span class="p">);</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">$j</span><span class="p">(</span><span class="s2">&quot;form#frm&quot;</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span>
+        <span class="nx">$j</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">);</span>
+        <span class="nx">$j</span><span class="p">(</span><span class="s2">&quot;form#frm&quot;</span><span class="p">).</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</blockquote>
+<p>果然可以~~~</p>
+<p>后来, 发现光光这样做. 打开IE时会提示弹出窗口的提示.这个不怎么好.</p>
+<p>所以换成.</p>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;btn&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;发  布&quot;</span> <span class="na">class=</span><span class="s">&quot;gBtnGreen&quot;</span> <span class="na">id=</span><span class="s">&quot;sbm&quot;</span> <span class="na">onmouseover=</span><span class="s">&quot;this.className=&#39;gBtnGreenHover&#39;&quot;</span> <span class="na">onmouseout=</span><span class="s">&quot;this.className=&#39;gBtnGreen&#39;&quot;</span> <span class="na">onclick=</span><span class="s">&quot;this.form.target=&#39;_parent&#39;;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;预  览&quot;</span> <span class="na">class=</span><span class="s">&quot;gBtnGray&quot;</span> <span class="na">onmouseover=</span><span class="s">&quot;this.className=&#39;gBtnGrayHover&#39;&quot;</span> <span class="na">onmouseout=</span><span class="s">&quot;this.className=&#39;gBtnGray&#39;&quot;</span> <span class="na">id=</span><span class="s">&quot;preview&quot;</span> <span class="na">onclick=</span><span class="s">&quot;this.form.target=&#39;_blank&#39;;&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+<p>也就是type为submit，而不是button，然后onclick上设置form的target属性。</p>
+<p>对应的js就不需要了。只要设置写不可用属性就可。</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#HTML">HTML</a><a href="/tag/#Javascript">Javascript</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'Target Blank';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

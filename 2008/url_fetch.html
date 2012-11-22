@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Fetch - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2008/url_fetch.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">URL Fetch</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2008-11-11T14:11:39+08:00">
+        <a href="/2008/">2008-11-11</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>URLFetch使用示例</p>
+<p>一般使用就是直接使用urlfetch.fetch(url), 返回一个ResponseObject,其中有content, status_code等,基本使用请看对应文档 <a class="reference external" href="http://code.google.com/appengine/docs/urlfetch/">http://code.google.com/appengine/docs/urlfetch/</a>
+其中想要fetch需要登录的页面,似乎不是那么简单.依次尝试以下:</p>
+<ol class="arabic simple">
+<li>使用curl</li>
+</ol>
+<p>使用现成的curl模块, 参考 <a class="reference external" href="http://curl.haxx.se/docs/httpscripting">http://curl.haxx.se/docs/httpscripting</a>.html还未尝试.</p>
+<ol class="arabic simple" start="2">
+<li>添加cookie进行自动登录</li>
+</ol>
+<p>网上一段示例代码片段</p>
+<div class="highlight"><pre><span class="n">cj</span> <span class="o">=</span> <span class="n">cookielib</span><span class="o">.</span><span class="n">CookieJar</span><span class="p">()</span>
+<span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cj</span><span class="p">))</span>
+<span class="n">exheaders</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&quot;User-Agent&quot;</span><span class="p">,</span><span class="s">&quot;Mozilla/4.0 (compatible; MSIE 7.1; Windows NT 5.1; SV1)&quot;</span><span class="p">),]</span>
+<span class="n">opener</span><span class="o">.</span><span class="n">addheaders</span><span class="o">=</span><span class="n">exheaders</span>
+<span class="n">url_login</span> <span class="o">=</span> <span class="s">&#39;http://xiaonei.com/Login.do&#39;</span>
+<span class="n">body</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;email&#39;</span><span class="p">,</span><span class="s">&#39;xxxxx@gmail.com&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;password&#39;</span><span class="p">,</span><span class="s">&#39;*********&#39;</span><span class="p">))</span> <span class="c">#TODO:更改登录名和密码</span>
+
+<span class="n">req1</span> <span class="o">=</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url_login</span><span class="p">,</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>  <span class="c">#这时，cookie已经进来了。</span>
+</pre></div>
+<p>可以看到,直接将用户名和密码放在请求头中了.</p>
+<ol class="arabic simple" start="3">
+<li>另外一个设置cookie实现登录</li>
+</ol>
+<div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c">#coding=utf-8</span>
+<span class="kn">import</span> <span class="nn">urllib2</span><span class="o">,</span><span class="nn">cookielib</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="n">cookie</span><span class="o">=</span><span class="n">cookielib</span><span class="o">.</span><span class="n">CookieJar</span><span class="p">()</span>
+<span class="n">opener</span><span class="o">=</span><span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span>
+<span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">))</span>
+<span class="n">urllib2</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">opener</span><span class="p">)</span>
+
+<span class="n">postdata</span><span class="o">=</span><span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">({</span><span class="s">&#39;username&#39;</span><span class="p">:</span><span class="s">&#39;python-</span>
+<span class="n">cn</span><span class="s">&#39;,&#39;</span><span class="n">password</span><span class="s">&#39;:&#39;</span><span class="n">aaaaaa</span><span class="s">&#39;})</span>
+<span class="n">login_response</span><span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;http://www.meizu.com/bbs/</span>
+<span class="n">login</span><span class="o">.</span><span class="n">asp</span><span class="s">&#39; ,postdata)</span>
+
+<span class="n">ww</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">&#39;f.html&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">url_us</span><span class="o">=</span><span class="s">r&quot;http://www.meizu.com/bbs/infolist.asp?t=toplist&amp;orders=7&quot;</span>
+<span class="n">page</span><span class="o">=</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url_us</span><span class="p">)</span>
+<span class="n">soup</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+<span class="n">ww</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">soup</span><span class="p">))</span>
+<span class="n">ww</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+<p>还是将帐号密码放在代码里了....</p>
+<p>以上都是直接增加cookies,,,而想要的认证方式,后来发现是例如这样的.</p>
+<ul class="simple">
+<li>google帐号授权 <a class="reference external" href="http://code.google.com/apis/accounts/docs/AuthSub.html">http://code.google.com/apis/accounts/docs/AuthSub.html</a></li>
+<li><a class="reference external" href="http://code.google.com/apis/gdata/auth.html#AuthSub">http://code.google.com/apis/gdata/auth.html#AuthSub</a></li>
+<li><a class="reference external" href="http://code.google.com/intl/zh-CN/appengine/articles/gdata.html">http://code.google.com/intl/zh-CN/appengine/articles/gdata.html</a></li>
+<li><a class="reference external" href="http://code.google.com/appengine/docs/usinggdataservices.html">http://code.google.com/appengine/docs/usinggdataservices.html</a></li>
+<li><a class="reference external" href="http://code.google.com/apis/gdata/articles/python_client_lib.html">http://code.google.com/apis/gdata/articles/python_client_lib.html</a></li>
+<li><a class="reference external" href="http://code.google.com/apis/gdata/authsub.html">http://code.google.com/apis/gdata/authsub.html</a></li>
+<li><a class="reference external" href="http://code.google.com/apis/gdata/">http://code.google.com/apis/gdata/</a></li>
+</ul>
+<p>,,,还没弄明白.待续...</p>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#GAE">GAE</a><a href="/tag/#Python">Python</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'URL Fetch';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

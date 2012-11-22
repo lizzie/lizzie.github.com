@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lighttpd - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/lighttpd.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Lighttpd</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-05-20T12:05:18+08:00">
+        <a href="/2009/">2009-05-20</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>今天终于面对这个问题了:)</p>
+<p>Lighttpd上以fastcgi方式部署Django工程.</p>
+<div class="section" id="id1">
+<h2>超级有用的几个链接</h2>
+<ul class="simple">
+<li>官方文档: <a class="reference external" href="http://docs.djangoproject.com/en/dev/howto/deployment/fastcgi/">http://docs.djangoproject.com/en/dev/howto/deployment/fastcgi/</a></li>
+<li><a class="reference external" href="http://www.javaeye.com/topic/381760">http://www.javaeye.com/topic/381760</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>安装过程</h2>
+<ol class="arabic">
+<li><p class="first">安装lighttpd, 下载, 编译, 安装. /usr/local/lighttpd/下</p>
+</li>
+<li><p class="first">flup安装, flup支持fastcgi, scgi, ajp. 直接easy_install flup</p>
+</li>
+<li><p class="first">lighttpd配置文件, 可从解压包中的doc/rc.lighttpd拷贝到/etc/lighttpd/lighttpd.conf, 做如下修改:</p>
+<blockquote>
+<pre class="literal-block">
+server.modules              = (
+                               &quot;mod_rewrite&quot;,
+                               &quot;mod_access&quot;,
+                               &quot;mod_fastcgi&quot;,
+                               &quot;mod_simple_vhost&quot;,
+                               &quot;mod_evhost&quot;,
+                               &quot;mod_accesslog&quot; )
+server.document-root        = &quot;/svn/trunk/mysite&quot;
+## 主要添加如下的fastcgi配置
+fastcgi.server = (
+    &quot;/mysite.fcgi&quot; =&gt; (
+        &quot;main&quot; =&gt; (
+            &quot;host&quot; =&gt; &quot;127.0.0.1&quot;,  ##　主机地址和端口需要和下面runfcgi指定的一致.
+            &quot;port&quot; =&gt; 3033,
+            &quot;check-local&quot; =&gt; &quot;disable&quot;,
+        )
+    ),
+)
+alias.url += (
+    &quot;/site_media/&quot; =&gt; &quot;/svn/trunk/mysite/site_media/&quot;
+)
+url.rewrite-once = (
+    &quot;^(/site_media.*)$&quot; =&gt; &quot;$1&quot;,
+    &quot;^/favicon\.ico$&quot; =&gt; &quot;/site_media/favicon.ico&quot;,
+    &quot;^(/.*)$&quot; =&gt; &quot;/mysite.fcgi$1&quot;,
+)  ## 这样子的url, 就把静态文件请求url直接交给lighttpd来处理, 而其他的剩余的交给manage.py来. 但也可以把所有的东西全部给manage. 这样这里的配置直接写成如下, 不需要alias_url:
+#url.rewrite-once = (
+#    &quot;^(/.*)$&quot; =&gt; &quot;/mysite.fcgi$1&quot;,
+#)
+</pre>
+</blockquote>
+</li>
+<li><p class="first">启动lighttpd, /usr/local/lighttpd/sbin$ sudo ./lighttpd -f /etc/lighttpd/lighttpd.conf &amp; 作为后台进程.</p>
+</li>
+</ol>
+<p>ok</p>
+</div>
+<div class="section" id="django">
+<h2>Django工程</h2>
+<ol class="arabic simple">
+<li>以fcgi方式执行: python manage.py runfcgi method=threaded host=127.0.0.1 port=3033 &amp; 同样作为后台进程. 不加&amp;也可.</li>
+<li>默认使用的是fastcgi, 也可以指定协议protocol=scgi, 或ajp.</li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>如果</h2>
+<p>如果以scgi协议来的话,</p>
+<ol class="arabic">
+<li><p class="first">python manage.py runfcgi protocol=scgi method=threaded host=127.0.0.1 port=3033 &amp;</p>
+</li>
+<li><p class="first">修改lighttpd.conf文件, 如下:</p>
+<blockquote>
+<pre class="literal-block">
+server.modules              = (
+                               &quot;mod_rewrite&quot;,
+                               &quot;mod_access&quot;,
+                               &quot;mod_fastcgi&quot;,
+                               &quot;mod_scgi&quot;,
+                               &quot;mod_simple_vhost&quot;,
+                               &quot;mod_evhost&quot;,
+                               &quot;mod_accesslog&quot; )
+scgi.server = (
+    &quot;/&quot; =&gt; (
+        &quot;ServerIPAddress&quot; =&gt; (
+            &quot;host&quot; =&gt; &quot;127.0.0.1&quot;,
+            &quot;port&quot; =&gt; 3033,
+            &quot;check-local&quot; =&gt; &quot;disable&quot;,
+        )
+    ),
+)
+#alias.url += (
+#    &quot;/site_media/&quot; =&gt; &quot;/svn/trunk/mysite/site_media/&quot;
+#)
+</pre>
+<p>但这样之后, 一些静态文件找不到, 尝试加上alias.url,,rewrite, 但貌似都不可以.可能还是哪边写错了.</p>
+</blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="scgi">
+<h2>SCGI</h2>
+<p>lighttpd的scgi服务器配置,</p>
+<pre class="literal-block">
+$HTTP[&quot;host&quot;] == &quot;127.0.0.1&quot; {
+$HTTP[&quot;url&quot;] =~ &quot;^/site_media/&quot; {
+    alias.url = (&quot;/site_media/&quot; =&gt; &quot;/svn/trunk/mysite/site_media/&quot;)
+}
+else $HTTP[&quot;url&quot;] !~ &quot;^/site_media/&quot; {
+    scgi.server = (&quot;/&quot; =&gt; (
+                           (&quot;host&quot; =&gt; &quot;127.0.0.1&quot;,
+                            &quot;port&quot; =&gt; 3033,
+                            &quot;check-local&quot; =&gt; &quot;disable&quot;
+                           )
+                          )
+                  )
+}
+}
+</pre>
+<p>可以通过scgi方式进行, 但一个问题是, 访问任何一个路径, 到达scgi服务器之后全解析成根url, 即/, 这应该不是lighttpd配置的问题, 而是scgi服务器中url解析的问题.</p>
+<p>通过修改wsgi中WSGIRequest的path和path_info---这似乎是django的一bug, 测试了下wsgi.py中self.path_info和self.path值, 和base.py中打印出callback,
+callback_args, callback_kwargs = resolver.resolve(request.path_info)的值, path_info不正确,导致url解析总是/, 返回的callback总是index的一个函数. 所以解决办法就是修改wsgi.py如下:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">WSGIRequest</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">HttpRequest</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environ</span><span class="p">):</span>
+        <span class="n">script_name</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">get_script_name</span><span class="p">(</span><span class="n">environ</span><span class="p">)</span>
+        <span class="n">path_info</span> <span class="o">=</span> <span class="n">force_unicode</span><span class="p">(</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;PATH_INFO&#39;</span><span class="p">,</span> <span class="s">u&#39;/&#39;</span><span class="p">))</span>
+        <span class="k">print</span> <span class="n">script_name</span><span class="p">,</span> <span class="n">path_info</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">path_info</span> <span class="ow">or</span> <span class="n">path_info</span> <span class="o">==</span> <span class="n">script_name</span><span class="p">:</span>
+            <span class="c"># Sometimes PATH_INFO exists, but is empty (e.g. accessing</span>
+            <span class="c"># the SCRIPT_NAME URL without a trailing slash). We really need to</span>
+            <span class="c"># operate as if they&#39;d requested &#39;/&#39;. Not amazingly nice to force</span>
+            <span class="c"># the path like this, but should be harmless.</span>
+            <span class="c">#</span>
+            <span class="c"># (The comparison of path_info to script_name is to work around an</span>
+            <span class="c"># apparent bug in flup 1.0.1. Se Django ticket #8490).</span>
+            <span class="n">path_info</span> <span class="o">=</span> <span class="s">u&#39;/&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">environ</span> <span class="o">=</span> <span class="n">environ</span>
+        <span class="c">#self.path_info = path_info</span>
+        <span class="c">#self.path = &#39;%s%s&#39; % (script_name, path_info)</span>
+        <span class="k">if</span> <span class="n">script_name</span> <span class="o">==</span> <span class="n">path_info</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path_info</span> <span class="o">=</span> <span class="n">path_info</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path_info</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%s%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">script_name</span><span class="p">,</span> <span class="n">path_info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path_info</span>
+        <span class="k">print</span> <span class="s">&#39;after&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path_info</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">META</span> <span class="o">=</span> <span class="n">environ</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">META</span><span class="p">[</span><span class="s">&#39;PATH_INFO&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">path_info</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">META</span><span class="p">[</span><span class="s">&#39;SCRIPT_NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">script_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">environ</span><span class="p">[</span><span class="s">&#39;REQUEST_METHOD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_post_parse_error</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="c">#...</span>
+</pre></div>
+<p>测试之后, 可以正确找到其他url的对应的函数, 但又有一个问题就是本来在fastcgi下为了禁用自动添加'/'而在settings中添加的一个FORCE_SCRIPT_NAME = ''值, 在这里scgi下必须去掉, 否则仍然转到/.</p>
+<p>这个问题非常奇怪, 为何在fcgi下可以, 而在scgi下的获得的path和path_info就不一致呢???</p>
+</div>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Linux">Linux</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'Lighttpd';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

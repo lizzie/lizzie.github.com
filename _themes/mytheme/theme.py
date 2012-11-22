@@ -16,9 +16,9 @@ navigation = [
     {'title': 'About', 'link': '/about.html'},
     ]
 
-twitter = 'lepture'
+twitter = 'lizziesky'
 github = None
-disqus = None
+disqus = "sunsetsunrising"
 analytics = None
 
 allow_comment_on_secret_post = False

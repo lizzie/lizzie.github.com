@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mako Line - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2009/mako_line.html" />
+
+
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/">SunsetSunrising</a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/about.html">About</a>
+    </nav>
+    <div id="search">
+        <form action="" id="J_search" class="form-search">
+            <input type="text" class="query" placeholder="Search"/>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</header>
+<div class="container"><h1 class="entry-title">Mako Line</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2009-05-31T14:05:41+08:00">
+        <a href="/2009/">2009-05-31</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>Mako中模板生成时, 会莫名其妙的生成换行符, 导致原来的html代码看起来很乱. 可以使用控制不要换行.</p>
+<p>以下的情况下, 可以使用 <tt class="docutils literal">\</tt> 命令mako不要换行.</p>
+<ul class="simple">
+<li><tt class="docutils literal">&lt;%def <span class="pre">name=&quot;cfg(section,</span> option, <span class="pre">cls)&quot;&gt;\</span> 函数定义语句后面,</tt></li>
+<li><tt class="docutils literal">&lt;%namespace <span class="pre">file=&quot;urlbase.htm&quot;</span> <span class="pre">name=&quot;urlcfg&quot;/&gt;\</span> 命名空间声明语句之后</tt></li>
+<li><tt class="docutils literal">html代码 \ 普通html代码之后</tt></li>
+<li><tt class="docutils literal">&lt;% #code %&gt;\ 普通python代码之后</tt></li>
+<li><tt class="docutils literal">&lt;%include <span class="pre">file=&quot;loginhead.htm&quot;/&gt;\</span> 包含文件之后</tt></li>
+<li><tt class="docutils literal">&lt;%!</tt></li>
+<li><tt class="docutils literal">%&gt;\</tt></li>
+<li>可能还有其他语句, 可以通过查看mako生成的对应html的py文件查看, 哪行生成了多余的换行.</li>
+<li>另外, 在这些语句之前出现的空格也会原样输出到最终的html文件中, 所以在写模板时, 这些语句之前的空格就好不要加上.</li>
+</ul>
+<p>以下的, 不需要使用 <tt class="docutils literal">\</tt> 命令</p>
+<ul class="simple">
+<li>% if, % else, % for 等流程控制语句, 后面加是没有必要的, 且前面的空格会忽略, 也就是这些语句不会自动生成空格和换行.</li>
+</ul>
+
+</div>
+<div class="entry-tags">
+    <a href="/tag/#Python">Python</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'Mako Line';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012 Liz.</p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>
