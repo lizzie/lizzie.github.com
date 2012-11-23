@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 
-name = 'mytheme'
-version = '2.0'
-website = 'https://github.com/lepture/liquidluck-theme-moment'
+name = 'sunsetsunrising'
+version = '1.0'
+website = 'http://sunsetsunrising.com'
 author = {
-    'name': 'Hsiaoming Yang',
+    'name': 'Yan Sheng',
     'website': 'http://lepture.com',
     }
-
 
 lang = 'en'
 
@@ -17,9 +16,9 @@ navigation = [
     ]
 
 twitter = 'lizziesky'
-github = None
+github = "https://github.com/lizzie/lizzie.github.com"
 disqus = "sunsetsunrising"
-analytics = None
+analytics = "UA-4419044-5"
 
 allow_comment_on_secret_post = False
 

@@ -18,7 +18,7 @@ config:
     static_prefix: /assets/
     permalink: "{{date.year}}/{{filename}}.html"
     relative_url: false
-    perpage: 30
+    perpage: 60
     feedcount: 20
     timezone: "+08:00"
 
@@ -65,15 +65,16 @@ writer:
 
 #: theme variables
 theme:
-    name: mytheme
+    name: sunsetsunrising
 
     # theme variables are defined by theme creator
     # you can access theme in template with ``theme`` namespace
     # for instance: {{theme.disqus}}
     vars:
-        #"disqus": "your_short_name",
-        "analytics": "UA-4419044-5"
-
+#      {
+#        "disqus": "sunsetsunrising",
+#        "analytics": "UA-4419044-5",
+#      }
 #: template variables
 template:
     vars:

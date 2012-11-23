@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <title>Tagcloud - SunsetSunrising</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
-    <link rel="stylesheet" href="/assets/style.css?v=a6013"/>
+    <link rel="stylesheet" href="/assets/style.css?v=c9d5b"/>
     <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
     
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
     
     
+
+    <script>
+        (function() {
+            var cx = '012347804910294994683:rsexabosj44';
+            var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                    '//www.google.com/cse/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
 </head>
 <body>
 <!--http://vimeo.com/53043267-->
@@ -21,22 +31,25 @@
         <a  href="/">Home</a>
         <a  href="/about.html">About</a>
     </nav>
-    <div id="search">
-        <form action="" id="J_search" class="form-search">
-            <input type="text" class="query" placeholder="Search"/>
-            <button type="submit" class="btn">Go</button>
-        </form>
-    </div>
 </header>
+<div id="search">
+    <gcse:searchbox enableHistory="true" autoCompleteMaxCompletions="5" autoCompleteMatchType='any'></gcse:searchbox>
+</div>
+<div id="search-results">
+    <gcse:searchresults refinementStyle="link"  adclient="pub-3716363443644786"></gcse:searchresults>
+</div>
 <div class="container">
 <nav class="tagcloud">
-    <a href="#Life">Life<span class="count">(10)</span></a><a href="#HTML">HTML<span class="count">(5)</span></a><a href="#Datamining">Datamining<span class="count">(7)</span></a><a href="#Mobile">Mobile<span class="count">(1)</span></a><a href="#KISSY">KISSY<span class="count">(6)</span></a><a href="#Javascript">Javascript<span class="count">(50)</span></a><a href="#Algorithm">Algorithm<span class="count">(2)</span></a><a href="#note">note<span class="count">(24)</span></a><a href="#Python">Python<span class="count">(42)</span></a><a href="#Javscript">Javscript<span class="count">(1)</span></a><a href="#Linux">Linux<span class="count">(3)</span></a><a href="#GAE">GAE<span class="count">(15)</span></a><a href="#Other">Other<span class="count">(10)</span></a><a href="#Tools">Tools<span class="count">(10)</span></a><a href="#CSS">CSS<span class="count">(17)</span></a>
+    <a href="#Life">Life<span class="count">(11)</span></a><a href="#HTML">HTML<span class="count">(5)</span></a><a href="#Datamining">Datamining<span class="count">(7)</span></a><a href="#Mobile">Mobile<span class="count">(1)</span></a><a href="#KISSY">KISSY<span class="count">(6)</span></a><a href="#Javascript">Javascript<span class="count">(50)</span></a><a href="#Algorithm">Algorithm<span class="count">(2)</span></a><a href="#note">note<span class="count">(24)</span></a><a href="#Python">Python<span class="count">(42)</span></a><a href="#Javscript">Javscript<span class="count">(1)</span></a><a href="#Linux">Linux<span class="count">(3)</span></a><a href="#GAE">GAE<span class="count">(15)</span></a><a href="#Other">Other<span class="count">(10)</span></a><a href="#Tools">Tools<span class="count">(10)</span></a><a href="#CSS">CSS<span class="count">(17)</span></a>
 </nav>
 <ul class="entry-list">
     <li id="Life" class="entry-item entry-item-title">
     <a href="#Life">Life</a>
     </li>
     <li class="entry-item">
+        <time class="updated" datetime="2012-11-23T15:36:02+08:00">2012-11-23</time>
+        <a href="/2012/my_new_blog.html">博客重开记</a>
+    </li><li class="entry-item">
         <time class="updated" datetime="2010-04-23T06:04:19+08:00">2010-04-23</time>
         <a href="/2010/how_to_become_a_hacker.html">How To Become A Hacker</a>
     </li><li class="entry-item">
@@ -692,7 +705,7 @@
 </div>
 <footer>
     <hr class="end"/>
-    <p>&copy;2008~2012 Liz.</p>
+    <p>&copy;2008~2012  <a href="https://github.com/lizzie/lizzie.github.com">Liz</a> </p>
 </footer>
 
 <script type="text/javascript">
