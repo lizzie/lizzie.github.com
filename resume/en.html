@@ -7,30 +7,11 @@
     <title>Liz's Resume</title>
     <link rel="stylesheet" href="http://intmat.sinaapp.com/static/bootstrap/css/bootstrap.min.css" />
     <style>
-        .navbar {
-            padding-top: 6px;
-            background-color: #2C2C2C;
-            background-image: -moz-linear-gradient(top,#333,#222);
-            background-image: -ms-linear-gradient(top,#333,#222);
-            background-image: -webkit-gradient(linear,0 0,0 100%,from(#333),to(#222));
-            background-image: -webkit-linear-gradient(top,#333,#222);
-            background-image: -o-linear-gradient(top,#333,#222);
-            background-image: linear-gradient(top,#333,#222);
-            background-repeat: repeat-x;
-        }
-        .navbar p {
-            background: transparent url(/assets/resume/bg-line.jpeg);
-            height: 3px;
-            margin-bottom: 0;
-        }
-        .navbar-bt {
-            padding-top: 0;
-            padding-bottom: 6px;
-            margin-bottom: 0;
-            margin-top: 40px;
-        }
-        .navbar-bt p {
-
+        #topbar {
+            margin-bottom: 10px;
+            width: 100%;
+            height: 10px;
+            background: black url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjEwMCUiPgogICAgPGRlZnM+CiAgICAgICAgPHBhdHRlcm4gaWQ9InJhaW5ib3ciIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSI1MDBweCIgaGVpZ2h0PSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIwcHgiIHk9IjAiIHdpZHRoPSI0cHgiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6IzE3MjMyNyIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSI0cHgiIHk9IjAiIHdpZHRoPSI5M3B4IiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiMxOTM3MmMiIC8+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgeD0iOTdweCIgeT0iMCIgd2lkdGg9IjIzcHgiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6IzMyNzM0NCIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIxMjBweCIgeT0iMCIgd2lkdGg9IjM0cHgiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6IzQzN2U0YyIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIxNTRweCIgeT0iMCIgd2lkdGg9IjQzcHgiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6Izg2OTk1NiIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIxOTdweCIgeT0iMCIgd2lkdGg9IjRweCIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojYjA4ZjQyIiAvPgogICAgICAgICAgICAgICAgICAgIDxyZWN0IHg9IjIwMXB4IiB5PSIwIiB3aWR0aD0iNXB4IiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNiNDY4MzkiIC8+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgeD0iMjA2cHgiIHk9IjAiIHdpZHRoPSIyMHB4IiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNhNDM5NDEiIC8+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgeD0iMjI2cHgiIHk9IjAiIHdpZHRoPSI0MXB4IiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiM5YzJjNTIiIC8+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgeD0iMjY3cHgiIHk9IjAiIHdpZHRoPSI1NHB4IiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNiYjQyNmIiIC8+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgeD0iMzIxcHgiIHk9IjAiIHdpZHRoPSIyM3B4IiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiM4YTJmNWMiIC8+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgeD0iMzQ0cHgiIHk9IjAiIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiM2ZDQxNmQiIC8+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgeD0iMzYycHgiIHk9IjAiIHdpZHRoPSIxcHgiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6IzQxMzI2NCIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIzNjNweCIgeT0iMCIgd2lkdGg9IjZweCIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojMjk0MTZlIiAvPgogICAgICAgICAgICAgICAgICAgIDxyZWN0IHg9IjM2OXB4IiB5PSIwIiB3aWR0aD0iMzNweCIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojNTY5MGE1IiAvPgogICAgICAgICAgICAgICAgICAgIDxyZWN0IHg9IjQwMnB4IiB5PSIwIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojMmU4NDlkIiAvPgogICAgICAgICAgICAgICAgICAgIDxyZWN0IHg9IjQxOHB4IiB5PSIwIiB3aWR0aD0iNTVweCIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojMjc2Njg2IiAvPgogICAgICAgICAgICAgICAgICAgIDxyZWN0IHg9IjQ3M3B4IiB5PSIwIiB3aWR0aD0iMjNweCIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojMjM0MzZlIiAvPgogICAgICAgICAgICAgICAgICAgIDxyZWN0IHg9IjQ5NnB4IiB5PSIwIiB3aWR0aD0iNHB4IiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiMxNDJhMDYiIC8+CiAgICAgICAgICAgICAgICA8L3BhdHRlcm4+CiAgICA8L2RlZnM+CiAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3JhaW5ib3cpIiAvPgo8L3N2Zz4K);
         }
         .hero-unit {
             position: relative;
@@ -97,9 +78,8 @@
     </style>
 </head>
 <body>
-<div class="navbar">
-    <p></p>
-</div>
+<div id="topbar"></div>
+
 <div class="container">
 <header>
     <div class="hero-unit">
