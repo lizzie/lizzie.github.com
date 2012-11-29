@@ -659,11 +659,11 @@ header #nav a:hover {
 footer {
   text-align: center;
   color: #dbdbdb;
+  font-size: 12px;
 }
 footer a,
 footer a:hover {
   color: #dbdbdb;
-  background: none;
   border: none;
 }
 footer .end {

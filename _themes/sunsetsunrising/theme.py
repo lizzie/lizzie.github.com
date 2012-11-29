@@ -5,14 +5,14 @@ version = '1.0'
 website = 'http://sunsetsunrising.com'
 author = {
     'name': 'Yan Sheng',
-    'website': 'http://lepture.com',
+    'website': 'http://sunsetsunrising.com',
     }
 
 lang = 'en'
 
 navigation = [
     {'title': 'Home', 'link': '/'},
-    {'title': 'About', 'link': '/resume/zh.html'},
+    {'title': 'Resume', 'link': '/resume/zh.html'},
     ]
 
 twitter = 'lizziesky'

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<style type="text/css">
+    .container h2 {
+        font: normal normal 12px "Helvetica", arial, sans-serif;
+        text-transform: uppercase;
+        color: #bcbcbc;
+    }
+    .container h3 {
+        font-family: "Helvetica", arial, sans-serif;
+    }
+</style>
+<div class="entry-content">
+    {{post.content}}
+</div>
+
+<h2>Recent Updates</h2>
+<div class="entry-list">
+    {% for post in resource.posts[:6] %}
+    <div class="entry-item">
+        <time class="updated" datetime="{{post.date|xmldatetime}}">{{post.date.strftime("%Y-%m-%d")}}</time>
+        <a href="{{ post|permalink }}">{{post.title}}</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -61,7 +61,7 @@ writer:
         - liquidluck.writers.core.TagCloudWriter
     vars:
         # uncomment if you want to reset archive page
-        # archive_output: archive.html
+        archive_output: archive.html
 
 #: theme variables
 theme:
