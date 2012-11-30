@@ -3,30 +3,15 @@
     <title>SunsetSunrising</title>
     <link href="http://sunsetsunrising.com/feed.xml" rel="self" />
     <link href="http://sunsetsunrising.com/" />
-    <updated>2012-11-30T13:25:02+08:00</updated>
+    <updated>2012-11-30T13:28:07+08:00</updated>
     <id>http://sunsetsunrising.com/</id>
     <entry>
-        <title type="html"><![CDATA[博客重开记]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2012/my_new_blog.html"/>
-        <published>2012-11-23T15:36:02+08:00</published>
-        <updated>2012-11-29T10:58:47+08:00</updated>
-        <id>http://sunsetsunrising.com/2012/my_new_blog.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <p>停了一年多的博客, 终于重开了~ 只因为有时想记录些东西, 特别是近来的读书笔记.</p>
-<p>花了三四天, 重新整样式, 迁内容. 目前采用了 <a class="reference external" href="http://lab.lepture.com/liquidluck/">Felix Felicis</a> 搭建, 简单方便, 写博客就类似于写文档.</p>
-<p>原先的 <a class="reference external" href="http://lizziesky.appspot.com">http://lizziesky.appspot.com</a> 抛弃之, 不过, 以前写的文字, 觉得丢了可惜, 于是, 花了三天时间把那些乱七八糟的内容迁到这里来. 幸好以前的内容存的不是 html, 而是类似于 rst 的格式. 这样, 只要稍加修改即可.</p>
-<p>功能上, 添加了 谷歌自定义搜索, diqus 评论等, 其他 JS 都不想加了. 蛮清爽的~</p>
-]]>
-        </content>
-    </entry><entry>
         <title type="html"><![CDATA[留痕&amp;笑看风云]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2011/liuhen.html"/>
-        <published>2011-11-30T13:10:07+08:00</published>
-        <updated>2012-11-30T13:25:02+08:00</updated>
-        <id>http://sunsetsunrising.com/2011/liuhen.html</id>
+        <link href="http://sunsetsunrising.com/2012/liuhen.html"/>
+        <published>2012-11-30T13:10:07+08:00</published>
+        <updated>2012-11-30T13:28:07+08:00</updated>
+        <id>http://sunsetsunrising.com/2012/liuhen.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Music" term="Music" label="Music" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
             <![CDATA[ <p>最近在听的两首歌</p>
@@ -125,6 +110,21 @@
 </pre>
 <p>才发现原来有些旧的粤语歌在现在听来也不是过时的, 反而别有一番味道. 是因为自己老了吗?</p>
 </div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[博客重开记]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2012/my_new_blog.html"/>
+        <published>2012-11-23T15:36:02+08:00</published>
+        <updated>2012-11-29T10:58:47+08:00</updated>
+        <id>http://sunsetsunrising.com/2012/my_new_blog.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>停了一年多的博客, 终于重开了~ 只因为有时想记录些东西, 特别是近来的读书笔记.</p>
+<p>花了三四天, 重新整样式, 迁内容. 目前采用了 <a class="reference external" href="http://lab.lepture.com/liquidluck/">Felix Felicis</a> 搭建, 简单方便, 写博客就类似于写文档.</p>
+<p>原先的 <a class="reference external" href="http://lizziesky.appspot.com">http://lizziesky.appspot.com</a> 抛弃之, 不过, 以前写的文字, 觉得丢了可惜, 于是, 花了三天时间把那些乱七八糟的内容迁到这里来. 幸好以前的内容存的不是 html, 而是类似于 rst 的格式. 这样, 只要稍加修改即可.</p>
+<p>功能上, 添加了 谷歌自定义搜索, diqus 评论等, 其他 JS 都不想加了. 蛮清爽的~</p>
 ]]>
         </content>
     </entry><entry>
