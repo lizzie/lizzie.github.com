@@ -570,6 +570,14 @@ header #logo a {
   color: rgba(0, 0, 0, 0.1);
   letter-spacing: 2px;
 }
+header #logo a img {
+  vertical-align: middle;
+  -moz-transform: scale(0.8) rotate(0);
+  -webkit-transform: scale(0.8) rotate(0);
+  -o-transform: scale(0.8) rotate(0);
+  -ms-transform: scale(0.8) rotate(0);
+  transform: scale(0.8) rotate(0);
+}
 header #logo a:hover {
   color: #666666;
 }
