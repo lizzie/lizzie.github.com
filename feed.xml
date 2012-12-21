@@ -3,7 +3,7 @@
     <title>SunsetSunrising</title>
     <link href="http://sunsetsunrising.com/feed.xml" rel="self" />
     <link href="http://sunsetsunrising.com/" />
-    <updated>2012-11-30T13:28:07+08:00</updated>
+    <updated>2012-12-21T14:05:21+08:00</updated>
     <id>http://sunsetsunrising.com/</id>
     <entry>
         <title type="html"><![CDATA[留痕&amp;笑看风云]]></title>
@@ -125,6 +125,308 @@
 <p>花了三四天, 重新整样式, 迁内容. 目前采用了 <a class="reference external" href="http://lab.lepture.com/liquidluck/">Felix Felicis</a> 搭建, 简单方便, 写博客就类似于写文档.</p>
 <p>原先的 <a class="reference external" href="http://lizziesky.appspot.com">http://lizziesky.appspot.com</a> 抛弃之, 不过, 以前写的文字, 觉得丢了可惜, 于是, 花了三天时间把那些乱七八糟的内容迁到这里来. 幸好以前的内容存的不是 html, 而是类似于 rst 的格式. 这样, 只要稍加修改即可.</p>
 <p>功能上, 添加了 谷歌自定义搜索, diqus 评论等, 其他 JS 都不想加了. 蛮清爽的~</p>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[&lt;Don't Make Me Think&gt;笔记]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2012/dont_make_me_think.html"/>
+        <published>2012-11-18T12:29:10+08:00</published>
+        <updated>2012-12-21T14:05:21+08:00</updated>
+        <id>http://sunsetsunrising.com/2012/dont_make_me_think.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/1440223/">豆瓣书单</a></p>
+<p>一本讲可用性相关的书, 摘录些.</p>
+<p>Internet的商业模式就像公共汽车, 如果你错过了一辆, 那么再等一会儿, 还会再来一辆.</p>
+<p>设计, 建立和维护一个好的网站一点都不容易. 就像打高尔夫球一样, 有少数几种方法可以把球打进洞里, 但也还有数不清的方法打不进去. 只要能达到一半的成功率, 就很令人羡慕了.</p>
+<p>重要的内容要放在两次点击之内.</p>
+<p>&quot;别让我思考!&quot;--设计者应该尽量做到, 当我看一个页面时, 它应该是不言而喻, 一目了然, 自我解释的.</p>
+<p>在Internet上, 竞争有时就在于一个点击的差别, 因此如果你得罪了用户, 他们会跑到别的地方去.</p>
+<p>大多数人会花比我们想象中少得多的时间来浏览网页. 如果要让网页有效, 他们必须在用户第一眼看到时将自己展示出来. 而要做到这一点, 最好的方法是创建不言而喻的网页, 或者至少也要做到自我解释.</p>
+<p>为什么东西总是在你找的最后一个地方找到? 因为你找到以后就不会再找.</p>
+<p>&quot;我们不是阅读, 而是扫描.&quot; 人们会花极少的时间来阅读大部分的页面, 其实, 我们只是扫描以下(或者匆匆掠过)网页, 寻找能吸引我们注意力的文字或词语.</p>
+<p>&quot;我们不做最佳选择, 而是满意即可&quot;.  大多数时间里我们不会选择最佳选项, 而是选择第一个合理的选项. 这就是Satisfice. 一旦我们发现一个链接, 看起来似乎能跳转到我们想去的地方, 那就是一个我们将会点击它的大好机会.</p>
+<p>页面载入速度比较慢, 会使我们更加谨慎的进行选择-- 这也是大多数Web用户不喜欢网页太慢的诸多理由之一.</p>
+<p>&quot;对选择进行权衡并不会改善我们的机会.&quot;</p>
+<p>&quot;我们不是追根究底, 而是勉强应付.&quot;</p>
+<p>如果发现某个事物能用, 我们会一直用它. 我们一旦发现某个事物能够用(不管有多难用), 我们也不太会去找同一种更好的方法. 如果偶然发现一种更好的方法, 我们会换用这种更好的方法, 但很好会主动寻找更好的方法.</p>
+<p>他们更容易找到自己需要的东西, 无论对用户还是对你都好. 他们会更容易理解你的网站提供哪些服务--不只是他们自己偶然看到的那些. 你更可能引导他们到网站上你更希望他们看到的地方. 在你的网站上, 他们会觉得自己更聪明, 更能把握全局, 这会让他们成为老用户. 只要有了一个让人们感觉更好的网站, 他们就会离开这种让人勉强应付的站点了: 鲤鱼脱却金钩去, 摇头摆尾不再来.</p>
+<p>在每个页面上建立清楚的视觉层次. 越重要的部分越突出. 逻辑上相关的部分在视觉上也相关.逻辑上包含的部分在视觉上进行嵌套</p>
+<p>尽量利用习惯用法. 习惯用法因为有用才会成为习惯用法. 如果不打算使用一种已有的Web习惯用法, 你必须确认你在使用一种1)同样清楚, 同样不言而喻, 没有学习曲线的方法--这样就跟习惯用法一样好了; 2) 带来很大的价值, 因为值得用户付出一点努力来学习的方法. 如果打算创新, 那么你必须理解你准备换用的方法的价值, 而很多设计师都低估了习惯用法提供的价值.  我的建议是, 在你清楚自己有一个更好的想法(而且每个看到的人都会说&quot;哇!&quot;)时进行创新, 否则请尽量利用习惯用法.</p>
+<p>把页面划分成明确定义的区域. 因为这可以让用户很快决定关注页面的哪些区域, 或者放心地跳过哪些区域.</p>
+<p>明显标识可以点击的地方. 因为人们在网络上所做的大多数事情就是找到下一个地方点击, 那么明确地标识哪些地方可以点击, 哪些地方不能点击, 这很重要. 如果你迫使用户去思考某些通过下意识就可以知道的东西, 例如什么地方可以点击, 那么你完全是在浪费每个用户对新站点有限的耐心和好感.</p>
+<p>最大限度降低干扰.避免眼花缭乱和背景噪声</p>
+<p>点击多少次都没关系, 只要每次点击都是无须思考, 明确无误的选择. 到达任何地方的点击次数通常是3次, 4次或是5次. 但是后来觉得真正的问题不是到达目标之前的点击的次数, 而是每次点击有多&quot;艰难&quot;--需要多少思考, 还有多大的不确定性来判断自己是否在进行正确的选择. &quot;三次无须思考, 明确无误的点击相当于一次需要思考的点击.&quot;</p>
+<p>去掉每个页面上一半的文字, 然后把剩下的文字再去掉一半. 可以降低页面的噪声. 让有用的内容更加突出. 让页面更简短, 让用户在每个页面上一眼就能看见更多的内容, 而不必滚动屏幕. 尽量减少欢迎词, 能减多少就减多少.</p>
+<p>如果在网站上找不到方向, 人们不会使用你的网站.</p>
+<p>导航的两个显而易见的用途, 帮助我们找到想要的任何东西和告诉我们现在身处何处. 它给了我们一些固定的感觉. 它告诉我们当前的位置.它告诉我们如何使用网站. 它给了我们对网站建造者的信心.</p>
+<p>持久导航, 除主页和表单外, 两个例外.</p>
+<p>网站的站点ID/logo相当于建筑物的名字.让它成为最显眼的内容, 或者让它涵盖页面所有其他元素.</p>
+<p>每个页面都需要一个名称. 和每个拐角都应该有一个路牌一样. 页面名称要出现在合适的位置. 页面名称应该出现在涵盖该页内容的位置.名称要引入注目. 它应该是页面最大的文字. 名称要和点击的链接一致. 名称一样, 感到安慰, 信任, 不需要思考. 有时候因为受到空间的限制, 你需要加以权衡. 如果我点击的文字和页面名称并不完全匹配, 那也要保证: 1) 它们尽可能匹配; 2) 不匹配的原因很明显.</p>
+<p>主页要完成的任务: 站点的标识和使命, 站点层次, 搜索, 导读, 内容更新, 友情链接, 快捷方式, 注册, 让我看到自己正在寻找的东西, 还有我没有寻找的, 告诉我从哪里开始, 建立可信度和信任感. 一些常见的约束: 每个人都想占一席之地, 想要参与的人太多, 一个尺寸要适合所有人.</p>
+<p>传达整体形象. 只要有人递给我一份主页设计, 我通常一眼就会看到他们没有表达清楚这个网站是什么. 越快越好, 越清楚越好, 在我第一次进入一个新网站时, 主页应回答我头脑里的四个问题: 这是什么网站? 我能在这里做什么? 网站上有些什么? 为什么我应该在这里, 而不是别的地方?</p>
+<p>口号, 欢迎广告, 需要多大空间就使用多大空间. 但也不要使用过多的空间, 不要把使命陈述当做欢迎广告.</p>
+<p>任何共享的资源(共有区域)都会因为过度使用而遭到破坏.</p>
+<p>农场主和牧牛人</p>
+<p>提高好感的几种方式: 直到人们在你网站上想做什么, 并让他们明白建议. 告诉我我想直到的. 尽量减少步骤. 花点心思. 知道我可能有哪些疑问, 并且给予解答. 为我提供协助, 例如打印友好页面. 容易从错误中恢复, 如有不确定, 记得道歉.</p>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[&lt;坤道&gt;读书笔记]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2012/kun_dao.html"/>
+        <published>2012-11-18T12:27:54+08:00</published>
+        <updated>2012-12-21T14:04:10+08:00</updated>
+        <id>http://sunsetsunrising.com/2012/kun_dao.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/1440223/">豆瓣书单</a></p>
+<p>这本书, 貌似看了近一个月, 讲了如何做好女人. 在爱情, 婚姻, 家庭, 事业中如何权衡等等. 书最后的结语概括的蛮好, 摘录下:</p>
+<div class="section" id="id3">
+<h2>重振坤道</h2>
+<p>家庭是社会和国家的基础, 一个一个的家庭合在一起才构成整个社会, 才构成我们的国家. 当然, 也可以讲先有国后有家, 那是站在整体来看的. 可是从一个人能力所及的范围来说, 只有先把自己的家庭搞好, 才有办法为国家做出贡献. 否则嘴巴讲得很好听, 家里搞得一塌糊涂, 制造各种社会问题, 国家的基础越来越脆弱, 还谈什么国与不国?</p>
+<p>我们把人与人之间的关系归纳为五伦, 分别为君臣, 父子, 夫妇, 兄弟, 朋友. 依据&lt;易经&gt;&quot;居中而吉&quot;的道理, 夫妇排在五伦的中央, 最为重要. 实际上没有夫妇, 哪里有父子? 没有父子, 又有什么君臣? 兄弟, 朋友就更不必谈了. 人与人之间由夫妇关系开始, 由内而外, 由亲及疏, 由近及远, 先照顾自己的家人, 然后惠及周围的邻居, 再去关心所在的社区, 一伦一伦像水波一样推广开去. &quot;推&quot;这个字在中国社会非常重要. 人一定会自私, 但是要学会推己及人, 按照对自己的想法去对待他人, 慢慢把自私的想法推开就变无私了.</p>
+<p>&quot;好男不吃分家饭, 好女不穿嫁时衣&quot;</p>
+<p>一个人过分地追求事业, 就没有办法顾虑到家庭. 一旦家庭发生问题, 事业迟早会被拖垮, 不可能持久. 其实成功的事业, 更需要稳固的婚姻, 美满的家庭作为支撑, 否则再怎么发展也是短暂的. 事业搞起来了, 钱也赚足了, 往往是到第二代就开始不稳固, 到第三代就整个垮掉了. 辛辛苦苦的努力是为了什么? 成功如果不能保持, 不能持续, 等于没有成功. 家庭亲情的力量是无限的, 而且可以延伸地很远很远. 花点心思研究一下怎样稳固家庭, 怎么使家庭美满, 不仅把事业做大, 而且把家庭的理念传承下去, 一代更比一代好, 人生才有价值.</p>
+<p>对人对事一定要看开, 但是千万不要看破. 看开跟看破差很远, 一单看破就心灰意懒, 什么都不想做了. 因为再好的人最后都是死, 都会分离, 两个人不可能永远在一起.</p>
+<p>在遇到一些不愉快的事情的时候, 我们最好学会做一下心理调试. 比如跟别人比一比, 人都是比上不足比下有余的. 人家得癌症照样要活, 你最起码身体还健康. 不要老跟比你强的人比, 那是虐待自己, 跟不如你的人比一比, 自然心安理得了. 很多事情都是一念之差的, 绝望还是不绝望都是自己决定的. 你认为完了, 没什么指望了, 只有死路一条, 最后你就会走上这条路; 你认为虽然不好, 但是碰上了就认了, 然后想办法活下去, 就真的可以走出一条路来.</p>
+<p>我们给大家的建议就是要走出一条中道, 什么叫中道? 中道就是不要走偏道. 世界上的道路是很宽的, 有中道就一定有偏道. 偏道就是极端, 就是偏激, 就是不能中庸, 就是不够合理, 所以中道也可以解释为合理的道路, 也就是正道. 正道越走越宽, 人一定要越走越宽, 才会自在. 一个人要求得好死, 只有一个办法, 就是时时刻刻走上正道, 时时刻刻求得事情有一个合理的解决.</p>
+<p>中国人常常讲&quot;好汉不提当年勇&quot;, 说的是人要紧的是活在现在, 而不是从前. 坦白讲, 未来是空的, 所以面对现在, 才是最重要的, 因为只有现在才是我们可以把握的. 求人不如求己, 要从现在开始, 把自己以前不对的地方调整过来, 做一个正常的人, 日新的人. 不要整体怨天尤人, 到处告诉别人你离婚了自由了, 让别人看到你就觉得怪怪的, 最后把人都吓跑了. 所以要通过自己的调整, 让人家感觉你这个人好像变成了另外一个人, 而且越变越好. 这样你的人生就相当于过了人家好几辈子的人生, 其实也是一种享受.</p>
+<p>当你恢复正常的生活, 姻缘到的时候, 自然就会有另一番作为. 我希望各位也不要抱着很强烈的希望, 不拒绝所有的机会. 该来的自然会来, 不该来的也不要强求. 因为强求, 就算最后求到了, 后果也不理想. 不能说这一切都是命定的, 但是最起码有一个因果律.</p>
+<p>要记住, 人生要做的事情很多很多, 任何时候都不要把人生看得太窄小. 你有事业有理想, 还需要去帮助别人, 这些都是值得做的, 不能因为一点点的失败就把其他事情全部一笔勾销, 否则对自己来说是很大的损失.</p>
+<p>理性看待过程结果. 人可以把握的是努力, 但是结果却不由自己, 而是老天在做决定. 人要努力, 但是不必太计较成败, 所以中国人会说&quot;尽人事而听天命&quot;. 记住, 自己不努力, 没有资格听天命.</p>
+<p>人生重要的是过程, 不是结果, 过程远比结果要重要. 人活着就是要享受生活, 就要不断地充实自己. 至于结果怎么样无所谓, 因为到最后谁都一样, 就是一副棺材而已. 我常常讲一句话, 人生最有趣的, 就是我们知道自己迟早要死, 但是没有知道什么时候死, 怎么死. 如果什么都知道了, 那还有什么乐趣? 人生是来享受每一分每一秒的过程, 这才是人生的乐趣, 而不是等待死亡的结果.</p>
+<p>没有人有绝对的把握一定能成功, 世界上根本没有&quot;一定&quot;这两个字, 谁也不能保证明天会怎么样. 好好吃饭, 好好过日子, 就一定可以长寿吗? 今天去体检完全没有问题, 明天一定还活着吗? 其实人生所有的苦恼和不愉快, 都来自这两个非常不可靠的字: 一定. 我对你那么好, 你一定要对我好. 结果他对你不好, 你就很生气. 有什么好生气的? 很多事情根本就是不一定的, 怎么能把它看成是一定的呢?</p>
+<p>未来充满了不一定, 这个观念我们要接受, 也没有理由不接受. 因为不接受就是跟自己过不去, 不相信未来是不一定的, 就是欺骗自己. 只要知道未来的一切本来就是不一定的. 唯有不一定才是一定的. 很多烦恼就能轻松解决.</p>
+<p>人最后都是一场空, 这是事实. 但是活着的时候, 只要有一口气在, 我们就要去运这口气. 人生就是在运这口气, 所以叫&quot;运气&quot;, 运得很好就是运气好, 运得不好就是运气不好, 就这么简单. 那我问你, &quot;气&quot;是谁在运? 当然是你自己. 既然是自己, 为什么还不好好运呢? 所以还是那四个字, 一切都是自作自受.</p>
+<p>人与人之间的关系不可能是静止的, 不是越来越好就是越来越坏, 不是越来越熟悉就是越来越陌生, 不是越来越接近就是越来越疏远, 不可能维持现状. 没有什么事情是不变的, 没有一家公司, 没有一个家庭, 没有一个人可以维持现状. 当你调整自己的时候, 对方也会跟着调整, 然后彼此之间谋求一个配合, 这样就好了.</p>
+<p>做好自己, 而不是去管别人. 我们现在就是浪费了太多时间, 太多精力去管别人. 从现在开始, 多花一点时间在自己身上, 好好调整自己的生活习惯, 好好使自己更加受别人欢迎, 好好约束自己的行为, 这个叫做自觉.</p>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[&lt;易经的智慧&gt; 语录之五]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2012/i_ching_5.html"/>
+        <published>2012-08-28T14:10:07+08:00</published>
+        <updated>2012-12-21T13:46:02+08:00</updated>
+        <id>http://sunsetsunrising.com/2012/i_ching_5.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
+        <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/5359679/">豆瓣书单</a></p>
+<div class="section" id="id3">
+<h2>谦卦</h2>
+<p>谦卦是唯一六爻皆吉的卦，六个爻的爻辞都是好的。可见，一个人从小到老，只要能够保持美好的谦德，做人谦虚，对人谦让，修养自己宽阔的心胸，不与人斤斤计较，对自己是非常有利的。</p>
+<p>地中有山，表示山把空间礼让出来，本来可以很伟大，却表现得很平凡，这是谦最大的功能。</p>
+<p>人生会经历持续的艰难险阻，而谦卦最主要的目的就是突破人生的各种艰难。我们要明白，不管碰到什么样的问题，什么样的阻碍，只要谦虚礼让，放低姿态，懂得委曲求全的道理，
+凡事都能化解。记住，退一步海阔天空，不要过于斤斤计较，以免弄得大家都很难堪。</p>
+<p>“谦”的意思就是每说一句话都要兼顾到他人的感受。如果一个人讲话没有顾忌，旁若无人，爱怎么样就怎么样，这个人就已经不谦了。人多的地方，讲话声音大的，不谦；看到什么事情，不顾别人感受就去批评人家的，不谦；其他人都安安静静，独自一人放声大笑影响他人的，更是不谦。。。</p>
+<p>一个有能力的人经常不表现则已，一表现都是很倒霉的。因为人性使然，一个表现好的人，他周围的人一定会看他不顺眼，会打击、抹黑他。现实生活中受到打击的都是有能力的人，
+而不是没有能力的人。所以，中国人要做有本事的人，而不是做有能力的人。本事是什么？本事就是虽然有能力，但是表现出来也不会受到打击，反而会受到欢迎。这就需要我们自己好好去斟酌，该讲的才讲，该做的才做，该讲到什么地步，该做到什么地步，都要用心拿捏之后再放手去做，否则的话，适可而止比较妥当。心平气和，才会很顺利地进入上卦。</p>
+<p>说话是谦卦地重点，只要我们一说话，别人就会感受到我们是不是谦虚的。所以，我们一定要说妥当话，只要我们把话说得很妥当，让对方听起来很顺耳，既不讨他的欢心，也不要拍他的马屁，而要让他听得进去，使得他自己能做出适当的调整，就会达到预期的效果。这才是真正会沟通的人。把谦德发挥在日常的沟通上面，我们彼此只见就可以得到很欢愉的感觉。</p>
+</div>
+<div class="section" id="id4">
+<h2>豫卦</h2>
+<p>一个人快乐的时候，往往会得意忘形，只顾到自己，根本照顾不到旁边人的感受，旁边人的怨气所造成的后遗症是要自己去承受的，所以我们要有所节制，否则会乐极生悲。
+第一，要众乐，不能独乐。第二，要适乐，要适当地娱乐，而不要过度。第三，要懂得真正的快乐。</p>
+</div>
+<div class="section" id="id5">
+<h2>随卦</h2>
+<p>随卦最要紧的就是慎始善终。当我们想要追随一个人或是一种潮流，开始的时候一定要慎始善终，这选择不应该是盲目和短见的，应该建立在理性和远见的基础之上。</p>
+</div>
+<div class="section" id="id6">
+<h2>蛊卦</h2>
+<p>犯错难免，不要后悔，后悔没有用，要面对错误，负起责任，勇敢地改过。
+第一，整治地动机要纯正；第二，过程要讲究；第三，前后任要彼此尊重。</p>
+</div>
+<div class="section" id="id7">
+<h2>临卦</h2>
+<p>“八月有凶”，就是在告诉我们，当人家说“欢迎光临”，让我们觉得很光彩，很有面子的时候，我们就要提高警觉，要好好表现，要一步一步很踏实地把自己该做地事情做好，等到了八月，把成果呈现出来，就没有凶了。一方面要我们警惕，八个月之后人家要验收成果，所以要好好表现才行；另一方面告诉我们不必急，还有大半年的时间。很多事情从各方面来考虑，才会给自己找到一条比较妥当、安全、有效的途径。</p>
+<p>月缺的时候，欣赏缺的美；月圆的时候，欣赏圆的美，这就叫平常心。</p>
+<p>“我对你好，你一定要对我好”，抱持这种心态的人，就表示他的出发点不纯正。一个动机不纯正的人，怎么会有好的结果呢？这就是前因后果没有搞清楚。大地无偿地提供给大家使用，从来没有要求回报；老天无偿地覆盖万物，从没有以此为条件，要求万物提供什么好处。天地是无私的，万物都受到天地的恩泽，所以，万物会发自内心地谢天谢地。</p>
+<p>我们不能改变任何人，人只能自己改变。一个人，如果自己想改变，说改就改了。</p>
+<p>我们要衡量自己的能力，看看能不能做，不能做的话，就干脆直接讲，自己没有办法，能力不足，做不了，并且要让领导知道，这不是推卸责任，而是能力有限。我们不会不喜欢这种
+很坦诚表示自己能力不足的人，我们最讨厌那种满口承担，最后不能完成，把时间都耽误掉了的人。我们并不怕一个人没有能力，我们只怕有人把时间耽误掉，想挽救都来不及，这才是最要命的。因为有时候一件事情没有做完，会连带到后面很多事情都不能完成。我们不要以为这样只耽误了自己的事情，结果往往是整个大局都会因此而垮掉。</p>
+</div>
+<div class="section" id="id8">
+<h2>观卦</h2>
+<p>坤卦就是一切很顺，人家要看，就让人家看，只要人家看得懂，自己不隐讳任何事情。巽是风，就是要抱有谦逊的态度，要像风一样慢慢地去吹拂，而不是很强烈地给看的人以很大的打击，要让看的人慢慢去领悟。</p>
+<p>一个人静不下来的时候，是看不清楚的，观过知仁，看一个人的过错，就知道他的心仁不仁。看了大家的过错，才知道为什么说“仁者，人也”，仁就是为人之道。</p>
+<p>有弹性才代表人是活着的，一旦没有弹性，僵化了，那就行将就木了。</p>
+<p>抱怨的人只会增加自己不好的情绪，如果受其影响，也情绪不好，那就是童观。</p>
+<p>看人看事，一定要去掉成见。</p>
+<p>人的一生无论贫穷还是富有，无论幸福还是痛苦，也就是几十年的时间。那么这几十年究竟应该如何度过？什么才是人生的最终追求？怎样才能不虚度一生？《易经》给我们的答案是：慎始善终。但是我们无法把握自己何时出生，更不知道自己会何时离去。</p>
+<p>有梦是不是美，要看能不能梦想成真。</p>
+<p>人生的目的是什么？其实每个人随着自己年岁的增长，一定会思考自己的一生到底要干什么。我看过全世界很多关于这方面的讨论。人生的目的，有人认为是快乐，有人认为是服务，现在更流行一句话，说人生的目的，就是创造自己被人家利用的价值。但是，我觉得如果从《易经》中去提炼人生的目的，会发现中国人的确有与众不同的思路。《易经》告诉我们，人生的目的是要求得好死。求得好死就是善终。人，不管怎么来的，要能够做到既来之，则安之，要明确自己现在面对的是死亡，因为出生已经过去了，要想从头再来一次，大概不可能，我们每过一天，就是向死亡迈进一步。与其害怕、担心、求神拜佛，保佑自己长命百岁，倒不如求个善终，也就是好死。什么叫好死？好死就是死得心安理得，毫无愧疚。</p>
+<p>生死由天不由人。所以，每一个人都要觉悟，时时刻刻都要小心，不能犯错。因为人是习惯得动物，常常谨慎，谨慎就会变成一种习惯，习惯就成自然，自然就很快乐。</p>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[&lt;易经的智慧&gt; 语录之四]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2012/i_ching_4.html"/>
+        <published>2012-08-28T13:55:07+08:00</published>
+        <updated>2012-12-21T13:45:09+08:00</updated>
+        <id>http://sunsetsunrising.com/2012/i_ching_4.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
+        <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/5359679/">豆瓣书单</a></p>
+<p>中国人有能屈能伸的民族性，这个能屈的部分就是坤，能伸的部分就是乾。乾告诉我们要自强不息，只要有机会就要抓住，只要有能量就要发挥。可是当环境不许可的时候，当你感觉到力不从心的时候，那你就要像坤卦一样的逆来顺受。所以中国人老是讲两局很矛盾的话－－自强不息，逆来顺受，合起来就叫做能屈能伸。</p>
+<div class="section" id="id3">
+<h2>小畜卦。</h2>
+<p>当你很有理想，却没有机会，发现这也行不通那也行不通的时候，就要向孔子学习：反求诸己。
+物质是小，精神才是大。因为物质迟早不见，精神却可以永久流传。</p>
+</div>
+<div class="section" id="id4">
+<h2>履卦。</h2>
+<p>富而有礼。一个人没有钱的时候，规规矩矩，实实在在，说话有信用，比较容易。有了钱以后就不一样了，人一有钱，讲话声音就大了，态度就蛮横了，到哪里都要享受特权－－大爷有的是钱！
+每个人的立场不一样，感受就不一样。
+一个人，没有吃过苦，没有受过累，走一小段路，就气喘如牛，满身大汗，感觉到辛苦得不得了。很多人会想：他从小没有吃过苦头，他真是好命。我觉得那才叫做坏命，就是白活了一生！这一生什么都没有经历，生出来是白纸一张，回去还是白纸一张，有什么意思？哭着来笑着去，是人生最圆满的结局。</p>
+</div>
+<div class="section" id="id5">
+<h2>泰卦</h2>
+<p>天下太平是天下人共同的责任。大家都知道了自己所肩负的这个责任，并且付诸实践，天下也就太平了。所以，理解天下太平，首先要明白两点：第一个，天下太平不是把所有的小人都消灭掉，因为那是不可能的事情，小人是跟君子相生的，只要有君子，就有小人；第二个，小人是永远存在的，天下太平不是说君子要团结起来压制小人。其实小人本来还没有很嚣张的，就是因为君子要团结起来置他们于死地，所以他们才特别团结，特别嚣张，这才是真相。
+作为君子，不能吝惜诚信，更不要觉得自己对大家有信用，大家就应该也讲信用。
+君子的责任，其实只要四个字就整个概括下来了，叫做修己安人。君子一定要修己，不修己算什么君子？在不同的阶段要有不同的修己方式，而后收到的效果就是安人。
+安人是既安自己，也是安别人，既安君子，也安小人，因为都是人。在安定当中求进步，这就是泰卦的主旨。</p>
+</div>
+<div class="section" id="id6">
+<h2>否卦</h2>
+<p>中国人跟外国人不太一样，外国人几乎是想讲什么就讲什么，而我们不会那样。中国人要讲一句话，最起码会先想三点。第一，我讲了之后，对方会怎么样？我们很重视听的人的感受－－对方听得进去我才讲，对方听不进去，我根本就懒得讲。第二，我讲了以后，对方听了，会不会产生效果？如果我讲了一两次，发现讲了等于没有讲，那就叫做对牛弹琴，我干脆就不讲了。所以为什么有的人碰到这个人会讲很多话，碰到那个人却一句话也不讲，就是他把那个人看透了－－反正我讲，你要么听不进去，要么听了也不会付诸行动，没有效果的事情我做它干什么？第三，如果我讲了以后会使得大家关系恶劣，增加不良的恶果，那我又何必制造问题呢？所以中国人讲话会想一想再讲，是有道理的，这跟否卦不无关系。</p>
+<p>否卦告诉我们，人本来是善良的，禁不起名利权势的引诱而变坏了，就变得没有修养了。难道这样就没有希望了吗？只有两种希望，一种是老天给他机会放纵再放纵，到最后四个字一来，叫做“恶贯满盈”，就把他收走了。另外一种要靠底下的人，这就是印度甘地所提倡的不合作主义－－我打不过你，我不跟你打，我不跟你合作。这样我们才了解，孔子苦口婆心劝我们，要亲君子而远小人。那个“远”是很和平的－－我怕你，不敢惹你，我惹不起，躲得起，我委屈一点，这才叫君子。我斗不过你，还要跟你斗，非要弄个鱼死网破，那两个都是小人。
+中华名族是爱好和平的，其实跟这些都有关系。</p>
+<p>泰卦是短暂的，因为一通泰，大家就不懂脑筋了。为什么我们有时候很容易睡着，有时候很不容易睡着？就是当你什么事都没有，一切都很顺利，你当然好睡，而当你有很多事情办不通、想不通、做不了，你就不好睡了。所以人到底是好睡才好，还是不好睡才好，大家也要去想一想，每个人都好睡，天下太平了，没有人未雨绸缪，那很快就否了。
+春天不做好准备，到了秋天，没有收获，冬天怎么过？过不了的。否卦是很重要的，不要说否不好。因为再否的困境里面，能够去否，才能够持泰。
+否卦告诉我们，在行不通的时候，最好装蒜，最好装傻，最好装愚笨，聪明不一定要外露。</p>
+<p>不要有机会就要把握，而是应该把握的才把握，该躲时要赶快躲。</p>
+</div>
+<div class="section" id="id7">
+<h2>同人卦</h2>
+<p>没有必要一定要求在自己这一代将所有事情都做完，留点事情给下代子孙做吧！</p>
+</div>
+<div class="section" id="id8">
+<h2>大有卦</h2>
+<p>人要安贫固然难，但是安享富贵比安贫更难。富而有礼，富而有仁。
+大有卦有四个重要的东西：第一，有公；第二，有智；第三，有仁；第四，有则。</p>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[&lt;易经的智慧&gt; 语录之三]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2012/i_ching_3.html"/>
+        <published>2012-08-27T14:08:07+08:00</published>
+        <updated>2012-12-21T13:46:50+08:00</updated>
+        <id>http://sunsetsunrising.com/2012/i_ching_3.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
+        <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/5359679/">豆瓣书单</a></p>
+<div class="section" id="id3">
+<h2>屯卦。</h2>
+<p>初九就是春天来了，雷也动了，种子也要开始启动了，可是启动的时候不是很顺利的，所以叫做磐桓，利居贞，利建侯。磐桓就是没有办法一下子就动得很顺利，要去找到最佳的立足点。慎选立足点是开始做任何事情的第一个原则。我们要打好根基。楼越高，地基要打得越深，只要地基没有打好，楼越高，将来越危险。利居贞，就是找到最佳的立足点以后就安安稳稳地，规规矩矩地，把它守住，这样才有利于建侯，建侯就是从这里发展出基地来。</p>
+<p>告诉我们姜太公钓鱼，不是要钓鱼的，他是志在文王，他是要把文王钓出来的。于是我们就知道大器晚成，姜太公到了七八十岁还在钓，还在找合适的对象，所以我们也不要急，这样才有利于定位。只要有实力，永远不会被埋没，否则一急就乱了，就不知道自己的位了。我们不是退却，不是懦弱，不是偏安，不是苟且，而是居正养德。姜太公居正养德，孔明居正养德，然后时机一到就会找到那个爆发点，一气呵成，大展宏图。</p>
+<p>从屯卦中我们得到的启示是：刚刚初创事业的时候，千万要记住谨守本分，步步为营，不要做夸大不实的广告，到处宣传，讲得天花乱坠。否则一下被戳破，
+所有的辛苦最后都会泡汤。</p>
+<p>蒙以养正，就是我们刚从事一个行业时，没有什么经验，就想到处扩展，那是不对的，我们应当先去了解，看看人家有什么长处，跟人家学习，不断地改善自己，使自己越来越正规、正当。这就是启蒙自己，启发自己，把自己的潜力慢慢激发出来。</p>
+</div>
+<div class="section" id="id4">
+<h2>蒙卦。</h2>
+<p>小孩刚出生的时候，懵里懵懂，固然是天真无邪，很可爱，可是我们忍心让这种天真无邪，一路随着他年龄的增大而保持不变吗？我相信大家都觉得那样不太妥当。小孩子幼稚对我们来讲是可爱，可是长成大人了还幼稚，我们就会觉得很可笑。所以这个泉水给我们的启示，是说后面的水一定是很甘美的，它能够自己找到一条路出来，因为水的特性是渗透，而且它会向低的地方流动。人就是利用这个原理把自身的潜力、本来的智慧启发出来，所以叫做启蒙。启蒙就是当我们看到前有山，后有源源不断的泉水出来，所得到的一种启示。</p>
+<p>“匪我求童蒙，童蒙求我”。意思是说，不是老师去求小孩要好好地学习，而是小孩来求老师，他来问地时候，老师才给他答案，否则老师一直教，他却越学越烦，越来越讨厌学习。
+“匪我求童蒙，童蒙求我”这句话才是教化地基本原理。我们一定要记住，学习是靠自己，父母、老师这些教化地人只是适度地启发学习者地兴趣。而启发兴趣也是要适度的，否则一过分，学习者就学不到东西了。</p>
+<p>人不能有成见，但是人难免有偏见，所以我们要常常提醒自己，我们都不够客观，我们都相当主观，这样我们就比较容易脱离蒙昧，否则拘泥于成见、偏见，那就始终跳不出蒙昧。</p>
+</div>
+<div class="section" id="id5">
+<h2>需卦。</h2>
+<p>人不可能没有需要，如果人完全没有需要，人还会有积极性吗？还会努力吗？还会用心吗？不会的。所以什么都不要的人也不见得好。因此我们发现世界上没有人主张纵欲，主张人要尽量地有欲望，尽量去满足，那是很危险地，但也没有人喜欢禁欲，倡导绝对不可以有欲望，说欲望都是可恶的，那也是过分的。人要节制自己的欲望，要掌控自己的需要，因为欲望太多的人不可能会得到满足，得不到满足就会苦恼，就开始抱怨，开始跟人家争夺，然后就走到了争讼之境。</p>
+<p>一切需要想要满足都要有个过程。</p>
+<p>要常常谨记险在前。其实我们还要牢记，人生的前面有四个字：艰、难、险、阻，没有一件事情是好做的，凡是很顺利的，我们就要知道快上当了。我们看山水、看风景，只看到它美的地方，不知道山就是阻，水就是险。我们说山好漂亮，其实山是老天在告诉我们，我们前面有很多阻碍，好像一座又一座的大山似的，把我们挡住，如果要一座山一座山去翻越，很难；水就是坎险，一不小心掉下去，性命堪虞。</p>
+<p>需卦给我们的启示：第一个不能想要就要；第二个不能能多要就多要；第三个要培养自己等待的习惯，才能心平气和。当我们打电话叫一部车子的时候，要知道它过来要有时间，不要急。吃饭时坐在那里要培养饮食的情绪。现在人不懂得生活，就是不会等待。</p>
+<p>需卦除了需要、等待之外，还有一个很重要的意义，叫做必需，就是一定要。男子汉大丈夫，必须要尽责任；生而为人，必须要学知识；为了会使用知识让它有效地帮助人家，必须要启发智慧，这些都是需卦，不能因为害怕麻烦，害怕承担风险，害怕吃苦受累就轻言放弃。但是千万记住，我们每个人都没有权力想要就要，我们要称称自己地分量，掂量掂量自己所赚的钱是从哪里来的，如果是从同胞血汗得来的，那么自己就要回馈他们。否则如果自己不照顾他们，不回馈故乡，还堂而皇之地地办移民，那就是需卦、蒙卦都出了问题。我们千万要记住，必需就是我们地责任。身为老板就必须要照顾自己的员工，身为知识分子，就必须要对社会尽一份责任，不能自私，自私就是无耻。</p>
+<p>我们现在随处都可以看到只顾自己不顾别人的人，自己要这要那，不把别人的死活放在眼里；自己全身都是名牌，别人的饥寒却看不到，这样的人是高度危险的。一个人要满足自己的需要，先认清别人有没有同样的需求，有的话会不会起冲突，别人的心理感受怎么样，自己会不会带给别人很大的刺激，如果会的话自己就要小心一点，这样就不会有后遗症，就叫做贞洁。我们有欲望，有需求，想得到满足，就要走正道，要用正常的心态来对待所有的人，来因应大家的感受，然后自己一步一步地不惹火大家，不引起大家的嫉妒，就会吉祥。任何事情先要了解自己的分在哪里，才知道该要的自己会用心去做，不该要的根本就不用去想，而且该要的不一定要得到。所以我们就应该从小教小孩，可以说该要，但是不能说一定要得到，因为天下没有公平，只有公正。而公正跟公平很多人是分不开的。</p>
+<p>“时也，命也”，时一到，很轻松，就好像命很好；时不到，搞了半天都是白费力气。时未到，我们就要储藏起来，充实自己，睁亮眼睛，让别人相信自己的品德，这才是最高明的。</p>
+</div>
+<div class="section" id="id6">
+<h2>讼卦。</h2>
+<p>当诚信出了问题，彼此越来越不相信的时候，我们要惕，惕就是警惕。惕这个字是讼卦全卦的重点。
+当小孩把钱拿出去的时候，大人不要直言说他是偷家里的钱，那是大人的不对。做大人的要告诉孩子：他可以用家里钱，因为你是我们家的一分子，爸爸妈妈可以花钱，你当然也可以花，但你要告诉爸爸妈妈一下，这样我们才知道不是外面人来偷的，是自己人拿的。而且你拿多少要跟爸爸妈妈商量一下。这才是教育。# 记得自己小学时，好像是二三年级吧。那次偷偷溜进爷爷房间里拿了他桌上的几块钱，买那时很流行的聪明豆吃，当时自己成绩实在是差，天真的想着自己若吃了这个聪明豆就能变的聪明起来。可后来被我爸爸发现了，爸爸怒斥了我番，说我从小就会偷家里钱了。。。我当时记得好伤心，从家里一直哭到学校。这种印象今年想来还是那么清晰。后来忘了自己是如何过来的。。。可现在回想起来，。。。</p>
+<p>我们所追求的是合理的不公平，不是现在一般人所讲的公平。天水讼，上面是天，下面是水，上面是天，天行健，底下人要去告上面的人，上面的人又是很刚健的人，有权有势，甚至打官司用公家的钱，而底下人打官司乖乖地用自己地钱，去跟上面人拼，划不来的。底下是水，水固然力道很强，但毕竟它是很柔弱的。老子讲得很清楚：上善若水。什么叫上善若水？就是水会滋润万物，但是完全不居功。你看下雨，雨下完了以后没有说人得到多少好处，要付多少钱。</p>
+</div>
+<div class="section" id="id7">
+<h2>师卦和比卦</h2>
+<p>师卦。就是兴师动众，遇到纷争时，最好别走这条路。</p>
+<p>比卦。比来比去，为什么人比人气死人？原因很简单，就是我们该比的不比，不该比的偏偏要去比，就错在这里而已。其实人只有一样东西可以比，就是品德修养，其他都没有必要比。我们看人要看这个人的品德修养好不好，把他当做一面镜子，如果他不如自己，也不能笑他，要加强自己，做榜样给他看，因为我们没有办法去改变一个人，但是如果他自己愿意向我们取经，以我们做参考，那他得道，我们都很高兴。如果他的道德比自己好，那我们更要反省自己哪些地方做得不够好，要加紧，以他为模范，向他看齐，这样才叫该比的才比，不该比的不比。</p>
+<p>如果一个民族很小，自然生态很艰苦，离开了就活不了，那这个民族的人们会很有强烈的归属感。但中国这么大，在这里合不来，过不下去，可以跑到别的地方去，中国人只有依附感，很难产生归属感。所谓依附感就是说你对我好，我没有理由不对你好；你值得我拥护，我一定全心配合你，但是如果你变了，或者我认为你不值得我拥护的时候，那就一句话讲完了，道不同不相为谋，我就告老还乡，或到山上去隐居，埋名隐姓，或漂流海外。这就是中国人。</p>
+<p>自然孕育。一切一切都是顺乎自然，很少是人为的做作，这叫人性。人性从哪里来？就从老天爷来，老天爷就是大自然，所以人性就是大自然赋予人类特有的共性。当然这里面有特殊的差异性，叫做个体差异，但我们在研究的时候，比较重视的是共性，就是人类共同体的特性。但是我们在对待每一个人的时候，要重视个别的差异性。象这样把共性跟个性合在一起来判断，就八九不离十了。</p>
+</div>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[&lt;易经的智慧&gt; 语录之二]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2012/i_ching_2.html"/>
+        <published>2012-08-23T15:16:07+08:00</published>
+        <updated>2012-12-21T13:43:16+08:00</updated>
+        <id>http://sunsetsunrising.com/2012/i_ching_2.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
+        <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/5359679/">豆瓣书单</a></p>
+<p>潜龙勿用，指的是人生的第一个阶段－－潜，意思是：在人生的初始阶段，不要急于表现，而应当放低姿态、努力积累能量，以待合适的机会再充分地表现，这样就能进入人生的第二个阶段－－见（现）。
+那么，我们应该选在什么样的时候来展现自我？在自我展现的时候，又应该注意些什么问题呢？</p>
+<p>一个人潜潜潜，潜到机会来的时候要抓住机会，这时很大的考验。有人一辈子没有得到机会，反而比较安全，了不起就是默默无闻，没有什么出息，但也不会做什么坏事，平平安安一辈子。可是一旦有机会，有人抓住了，这机会就有阴有阳了，到时候是抓住机会去做好事，还是抓住机会去做坏事？是抓住机会就表现得很好，还是抓住机会就表现得让人家贻笑大方？
+可见九二爻是蛮麻烦得。爻辞特别在见龙在田之后加上四个字，叫做利见大人，整个乾卦第二爻跟第五爻两个对应爻得爻辞都有利坚大人。意思就是说一个年轻人潜得够久了，时机到了，上面提拔，考试及格，被录用了，当了住惯了，所有人都会看这个人怎么表现。其实表现好与坏是谁在决定？很明显地大家就知道，是九五在决定，上面看他很顺眼他就表现得好，上面看他不顺眼他表现再好也是不行得。所以我们中国人到最后悟出来：朝中无人莫做官。上面没有人支持你，你怎么去表现，你怎么知道该怎么做？这是非常清楚得事情。</p>
+<p>乾卦的元、亨、利、贞四个字很容易理解，元就是动机要纯正，不管做人做事，动机不纯正的话，就不元了。亨就是处事要谨慎，有的人往往机会良好，却不一定做得很好，就是太大意了，关系很好被你搞坏了，品牌很好被你砸掉了，只要当中出一次事情就砸了，出两次事情人家就不信任了，怎么能亨呢？利是最大得考验。如何分享，如何使得大家心平气和，关键就在这个贞上面。贞才是关键。贞，就可以贞下起元，然后又有一个新的发展，比以前还好。不贞，那就不能再元了，就起不来了，公司是这样，个人也是这样的，事情更是如此，一旦方向错了，整个免谈，空忙一场。有了元、亨、利、贞的美德，才叫做乾卦。元、亨、利是自然给的，只有贞是人为的，人跟动物不同就在贞与不贞，动物没有贞。</p>
+<p>元者，善之长也。我们每一个人都要使自己做一个堂堂正正的人，这样才对得起老天给我们的这一口气。
+亨者，嘉之会也。每一个人要各尽所能，而又各取所需，不能因为自己有钱就什么事都不做，还专门去买人家的东西，甚至囤积居奇，那是不对的。钱是要流通的，货物是要交换的，任何东西都要考虑到别人也需要，而不是只想自己一个人独吞，否则人一聚集就乱了，就不和谐了，就开始争夺了，那样人和动物有什么不同？较之动物，人应该过一种更加合理的生活。
+利者，义之和也。利是老天对我们最大的考验，老天给我们利就是在考验我们。赚钱并不可耻，赚钱其实是可爱的，因为它对人类的生活有正面的贡献，可是怎么去用钱，这才是智慧。赚钱凭什么？有人说凭能力，我不认为有能力就能赚到钱，赚钱其实是靠机会。机会来了，钱怎么来的自己都不知道，可是用钱那是靠智慧。《易经》告诉我们怎么样去用钱，八个字就讲完了：当用不省，当省不用。
+贞者，事之干也。我们说经得起利的考验的人就叫贞，贞就是一个人赚了钱，还能规规矩矩。一班人在穷的时候保持规规矩矩都很难，因为穷会使人不择手段；可是有了钱，要保持规规矩矩就更难了，因为财大气粗。所以穷会害死人，富也会害死人，这样大家就体会到上天是用金钱，财富来考验我们每一个人的。</p>
+<p>乾是创造的，该怎么做就怎么做。而坤是配合的，必须要有方向，有导引，有正确的方法。所以利牝马之贞，就是说人的贞，要像母马一样。母马有一个特性，就是永远追随着公马，公马往哪里跑，它就跟着往哪里跑，公马跑多快它就跟多快，不会给公马一点点的负担，不会变成公马的累赘，反而会变成公马的伴侣。这就叫做夫唱妇随。</p>
+<p>乾是天，龙才能飞上天，所以乾用龙。坤是地，用马，因为马在地上跑得很快，只受一个限制，就是龙往哪里走，它就往哪里跟，这样就叫做龙马精神。而龙也有责任，要走向正确的方向，如果带错了，将来就会和马同归于尽。所以，龙马精神，就是要求领头的人要端正方向，要保持良好的速度，同时要看左右有什么障碍，并事先加以排除，这样牝马才有办法一路地追随上来。</p>
+<p>坤有个美德，就叫成全，我们现在很少有人懂得什么叫成全。太太虽然不一定比先生能力弱，但是为了整个家庭，要集中力量，所以太太要让先生没有后顾之忧，成全先生，这才是比创造更伟大地，叫做妇德。但是，因为现在大家只计较功劳，那种看不见功劳地事情都不愿做，当然就谈不上成全。</p>
+<p>不敢为天下先，就是要为天下先。先衡量状况，不该领先就不要领先，让给比较合理的人，这叫做礼让为先。可是如果让来让去发现自己先最合理，别人先可能会把事情搞糟，那就当仁不让。所以中国人让来让去，最后当仁不让，就是因为受到了坤卦的影响。</p>
+<p>男人的贞操就是责任。女人的贞操就是忠贞不二。</p>
+<p>任何事情做强做大不如做久。</p>
+<p>男有分，女有归。男人要走乾道，女人要走坤道，只有各尽其责，家庭才能和谐。女人要记住自己一辈子只嫁一个丈夫，跟了这个男人，就要一生一世都跟着他，不能够随便跟其他男的发生性关系，所以结婚要慎重。</p>
+<p>地有厚德载物的美德，但是同样是地，都是厚德载物，为什么有的就叫风水宝地？同样是女孩子，都是块地，但不是任何人都可以来种东西，这样才对。男生要自强不息，女生要厚德载物，要利永贞，就是说女生这辈子只打算结婚一次的，一定要跟从可靠的、可以长相厮守的男人。</p>
+<p>到此，乾坤两卦讲解结束。这两卦也是《易经》之门。</p>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[&lt;易经的智慧&gt; 语录之一]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2012/i_ching_1.html"/>
+        <published>2012-08-16T15:17:07+08:00</published>
+        <updated>2012-12-21T13:42:24+08:00</updated>
+        <id>http://sunsetsunrising.com/2012/i_ching_1.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
+        <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/5359679/">豆瓣书单</a></p>
+<p>嗜欲深者天机浅，嗜欲浅者天机深，就是说一个人如果一味沉溺于感官享受，这种人的智慧一定很浅薄。只有从声色繁华重超脱出来，宁静沉思的人，才能具有把握纷繁人生和无穷宇宙的大智慧。而浅薄或智慧，完全在自己。</p>
+<p>“易有太极，是生两仪”。这就是人们常说的“太极生两仪”，意思是太极中包含着一正一反两种力量，而这两种力量就是阴阳。</p>
+<p>今天生物科学家已经讲的很清楚了，世界之所以能够生生不息，就是因为物种多元化，有不同的因素相互激荡、相互作用。如果物种一元化，搞得所有种类都没有，只剩下人类，人类也会死亡的。一句话讲完了，没有矛盾，就不会起变化，不起变化，就是死路一条。这就是一阴一阳之谓道。</p>
+<p>世界上没有永远停止的东西，但可以暂停一下，休息是为了走更长的路。</p>
+<p>宇宙一切都是动态的，随时在改变，人的命运也是动态的，随时在改变。可能你会说“没有啊，我从来没有改变过”，那很不好意思，那就是告诉大家，你这个人实在太不长进了，从来没有变就是太不长进了。所以从现在开始，不要见面说“好久不见了，你都没有改变”，那是骂人的话。</p>
+<p>人应该有所畏惧，不能为了自己的需求，放纵自己，为所欲为。</p>
+<p>自天佑之，吉无不利，就是提醒我们要自己去了解天理，顺从自然，就会得到吉祥。</p>
+<p>一切事物变化过程中都会不断地出现险阻、艰难，是一样地道理。艰难险阻，不是很艰难就是很危险，常常受到阻碍，这样好不好？看起来不好，实际上这样才是好地，因为这样人类才能够学习，才能够磨练，才能够增进自己。一个人从小到死都很顺，他等于白活了，他来这一趟，就只学会了四个字：吃喝玩乐，其他什么都没有，这算什么人生？人生经过更多地磨练，才会更成熟。</p>
+<p>人是先讲义还是先讲仁？人要以义作基础，讲话合理，做事情合理，言行都合理就是合义。合乎义的要求，才能够证明人的心是有仁慈的，有仁爱的。</p>
+<p>一个人的新陈代谢，就好像卦的变化一样。每七天细胞大部分都改变了。所以，我们随时可以做一个新的人。《易经》给我们的启示就是，我们不要只看眼前，要知道未来的变化。就算我们现在的状况不是很好，这已经是既定的了，那我们抱怨也没有用，要想办法让它转好，才是要紧的。</p>
+<p>你看今天只要有一个人站起来说，这件事情承蒙上级领导的指示，大家就笑他拍马屁。哪有什么拍马屁呢？没有上级领导，我们有天大的本领也是无用武之地的。我们要把功劳给领导，让领导知道“我心中有你”，领导感觉到了下属心中有自己，就会放心地赞美下属。我们下属认为这件事情是自己地能力，自己地本事，自己所花地心思所出地成果，那领导就心想：我下次不给你做，我这次也不会赞美你表扬你。</p>
+<p>乾卦的大象是：天行健，君子以自强不息。天空最主要就是云行雨施。天空空无所有，所以叫天空，如果天上有物质，就会掉下来。但是，天上有云有雨，云雨要动，也就是说天要运行，否则空气不流通，天气凝固，草木也很难生长。所以，天空中的云要行，雨要施，所以焦作天行。健不只是刚而已，还要持久，才叫健。一个人很刚，很容易被折断的，因此持久地运行才叫做天行健。我们看到太阳持久地、不停地东升西落，空气不停地流动，有时候有云，有时候有雾，有时候下雨，从来没有停止过。我们就感觉到，要做一个君子，就应该向天学习自强不息地精神。</p>
+<p>潜龙勿用。你刚到一个地方就开始发表很多意见，当地人一听就知道你是刚来的，你对当地是完全不了解的，那你的处境岂不是很危险？一个人来到一个新的地方，一定要平心静气，多多了解，叫做入乡随俗，先搞清楚状况，有意见再说也不迟。
+潜龙勿用，有话暂时不讲，先听人家讲，如果自己一讲出来，人家马上给你难堪，或者你讲完后别人讲得都比你高明，那不糟糕了？你自己就无地可容了。所以中国人经常说“我没有意见，我没有意见”，听来听去听到大家意见都比自己好，很庆幸－－幸好我没有讲。如果听来听去觉得大家意见都不如自己，那要不要讲？也不一定，为什么？因为不一定非得现在公开讲，可以稍后偷偷地跟领导讲。像这些都是潜龙勿用在我们日常生活当中很灵活地运用。但是一直勿用，一直潜在里面，要不要现？要不要表现出来？答案很简单：应该表现的时候才要表现，如果不应该表现的时候还是不要表现。</p>
+<p>见龙在田，利见大人。潜了很久，一出来就是个大人的样子，不是说“抱歉抱歉，我刚下来，让我磨练个几年。。。”，那样人家请你干什么？一个人不表现则已，一表现就要做好心理准备，因为四四方八面的打击都来了。老实讲，你表现得不好，没有人打击你；但你表现得好，所有得人都不高兴，因为你抢到他的光彩了－－未来的机会都被你垄断掉了，老板的心也被你抓去了，我们算什么呢？我想这是人之常情，当一个人表现得越来越好，你就要知道自己已经进入第三个位阶了，叫做惕龙。</p>
+<p>一个人如果没有人把他当对手，这个人还有价值吗？所以很多人说中国人小气，见不得人家好，稍微好就嫉妒，就打击人家，其实就是因为这样，我们才会锻炼又锻炼，提升再提升，一点都不敢放松自己，否则的话到了九二以后就开始放纵，就自以为了不起，那就完了，这个人就提前报废掉了。人没有名，没有赚到钱，自我报废的机会比较小，有名有钱有势以后，就要知道自己快要自我爆破了。</p>
+<p>一个人要不要往上走最好自己决定，不要由人家摆布，拱你的人多半是为他自己好，他把你抬起来，让你坐在轿子上，他替你抬轿子，你就听他摆布，如果你愿意那样，我无话可说。但是如果你以为坐轿子可以为所欲为，那你就糟糕了，他把你抬到哪里你都不知道。</p>
+<p>飞龙在天可以说是人生最高的境界。但是说自由飞翔都是骗自己的。作为一个领导，下面有很多人，到底是他们再捧你，还是你在指导他们？其实这是双方面的，水能载舟，水也能覆舟，这是我们非常熟悉的一句话。今天捧你，替你抬轿子的，明天一不高兴一下把你从轿子上甩下来，那你只好自己爬着走了。</p>
+<p>乾卦六龙整个的发展状况大家在社会上随时可以看得到，做事情刚开始要了解现况，就是潜龙勿用。潜龙勿用不是叫我们不要做事，而是叫我们不要一味地求表现。现代人是一味地求表现，只要在公众场合，请他上台讲几句话，他拿了麦克风多半舍不得下台，即使按铃说时间到了，他也不理你。更妙的就是前面那个人把时间拖了，第二个站起来说，他超过五分钟，结果自己又拖了十五分钟还是不下来。人还不了解自己，不了解自己给人家的是那么难堪的样子。凡是一个人骂人的话最后都在自己身上表现出来，那就是丑态。把自己的丑态完全表现出来，就是连第一卦都没有学会，《易经》六十四卦的第一卦都过不去。一个人到了一个地方，先安静下来，了解当地的状况以及领导的个性，然后再熟悉一下环境，跟其他人打打交道，一句话讲完了，等到大家都支持你，你就放心地表现，就是见龙在田。如果你没有把握大家会支持你，你最好不要表现，你不表现才不会出丑，你一表现，肯定出丑。所有人都经历过这样的状况，但是大多数人一直骂别人小气、嫉妒、见不得人家好，却不知道检讨自己。</p>
 ]]>
         </content>
     </entry><entry>
@@ -1459,626 +1761,6 @@ PS: secret of javascript 说, elem.id 要比elem.getAttribute('id') 快很多, �
 <li><a class="reference external" href="https://developer.mozilla.org/En/DOM/Node.ownerDocument">elem.ownerDocument</a>, return the top-level document object for this node, document.ownerDocument 为 null,</li>
 <li><a class="reference external" href="https://developer.mozilla.org/en/XUL/Attribute/selectedIndex">selectedIndex</a></li>
 </ul>
-</div>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[DOM.offset]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/dom_offset.html"/>
-        <published>2010-09-12T11:09:50+08:00</published>
-        <updated>2012-11-20T15:31:49+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/dom_offset.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
-        <category scheme="http://sunsetsunrising.com/tag/#KISSY" term="KISSY" label="KISSY" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <div class="section" id="dom">
-<h2>DOM中位置/高宽基础</h2>
-<p>从外到内, 浏览器支持移步见 <a class="reference external" href="http://www.quirksmode.org/dom/w3c_cssom.html">http://www.quirksmode.org/dom/w3c_cssom.html</a>:</p>
-<img alt="https://cacoo.com/diagrams/dWWGTqryaNfi9MWr-58098.png" src="https://cacoo.com/diagrams/dWWGTqryaNfi9MWr-58098.png" />
-</div>
-<div class="section" id="screen">
-<h2>screen</h2>
-<p>screen.width/height : 屏幕宽高度(同屏幕分辨率), 如1280/1024, 如上图中 a;
-screen.availWidth/availHeight: 屏幕可用宽高度, 去除菜单栏,任务栏等的, 如1280/984, 如上图中 b;
-screen.colorDepth: 屏幕色深(位), 如32;
-screen.pixelDepth: 同上, 但IE不支持, 他与colorDepth的区别在于一些老的X-client允许应用程序自定义颜色语法, 那么他的colorDepth就取决于应用程序自己, pixelDepth则一直是显示器颜色位数;</p>
-</div>
-<div class="section" id="window">
-<h2>window</h2>
-<p>IE下都为undefined;
-window.innerWidth/innerHeight: 浏览器窗口内部宽高, 如1280/899, 如上图中 c 框的宽高;
-window.outerWidth/outerHeight: 整个浏览器窗口宽高, 包括任务菜单栏, 如窗口最大化时,1296/1000, 会超过屏幕宽度, 如上图中 d 框的宽高;
-window.pageXoffset/pageYoffset: 整个页面被滚动掉的像素数, 当出现滚动条并且被滚动区域的X/Y偏移, 如pageYoffset对应上图中 e 高度;
-window.screenX/screenY: 浏览器窗口在屏幕上的位置, 相对于左上角, 可能是负值, opera下不正确, 如上图点f在屏幕上的位置;</p>
-<p>另外一些window相关的方法:</p>
-<ol class="arabic simple">
-<li>window.resizeTo(x,y) : 重设窗口宽高;</li>
-<li>window.moveTo(x, y) : 移动到某位置;</li>
-<li>window.focuse() : 使窗口获得焦点;</li>
-<li>window.scroll(x,y)/scrollTo(x, y) : 窗口滚动到指定x,y距离;</li>
-<li>window.onload = ... : window加载完毕后;</li>
-</ol>
-</div>
-<div class="section" id="document-element">
-<h2>document/element</h2>
-<p>document.elementFromPoint(x, y): 获取文档上x,y坐标点对应的元素;
-document.documentElement.clientWidth/clientHeight: 文档内容的宽和高;
-document.documentElement.scrollTop/scrollLeft: 文档滚动了多少;</p>
-<p>elem.getBoundingClientRect(): 获得元素相对于 viewport 的区域, left, top, right, bottom围城的区域, 包含元素边距和边框的;
-elem.getClientRects(): 同上类似, 但可以获得这个elem内所有子 box 的区域;
-elem.scrollIntoView(): 将elem滚动到可视区域;</p>
-<p>elem.clientLeft/clientTop: 元素的内容左上角相对于整个元素左上角位置,(包含边框), 如上图 g处;
-elem.clientWidth/clientHeight: 不包含边框边距的内容宽高, 但有包含滚动条, 如上图 h 虚线框;
-elem.offsetLeft/offsetTop: 相对于 OffsetParent 的左上角位置, 如上图 i 位置;
-elem.offsetParent: 包含这个元素的父元素的位置, 这个父元素的position不能是 static, 如果不幸父元素们都是static, 就用body;
-elem.offsetWidth/offsetHeight: 元素的整个宽高, 包含边框, 如上图 j 框宽高;
-elem.scrollLeft/scrollTop: 元素滚动了多少像素, 可读写;
-elem.scrollWidth/scrollHeight: 内容宽高, 包含被overlfow:hidden掉的内容, 如果没有隐藏掉, 和clientWidth和clientHeight一致;</p>
-</div>
-<div class="section" id="e">
-<h2>e</h2>
-<p>e.clientX/clientY: 相对于 viewport 的位置, 如上图 k;
-e.offsetX/offsetY: 相对于 触发事件的目标元素的位置, 如上图 m;
-e.pageX/pageY: 相对于 document 的位置, 如上图 n;
-e.screenX/screenY: 相对于 屏幕 位置, 如上图 o;
-e.x/y: 同 clientX/clientY;</p>
-</div>
-<div class="section" id="s-dom-offset">
-<h2>S.DOM.offset</h2>
-<p>再来看 KISSY.DOM 是怎么实现的.</p>
-<p>dom-offset.js <a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-offset.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-offset.js</a></p>
-<p>DOM.scrollLeft / scrollTop 方法</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">S</span><span class="p">.</span><span class="nx">each</span><span class="p">([</span><span class="s1">&#39;Left&#39;</span><span class="p">,</span> <span class="s1">&#39;Top&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">method</span> <span class="o">=</span> <span class="nx">SCROLL</span> <span class="o">+</span> <span class="nx">name</span><span class="p">;</span>
-
-    <span class="nx">DOM</span><span class="p">[</span><span class="nx">method</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">w</span> <span class="o">=</span> <span class="nx">getWin</span><span class="p">(</span><span class="nx">elem</span><span class="p">),</span> <span class="nx">d</span><span class="p">;</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="nx">w</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">d</span> <span class="o">=</span> <span class="nx">w</span><span class="p">[</span><span class="nx">DOCUMENT</span><span class="p">]))</span> <span class="p">{</span>
-            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">w</span><span class="p">[</span><span class="nx">i</span> <span class="o">?</span> <span class="s1">&#39;pageYOffset&#39;</span> <span class="o">:</span> <span class="s1">&#39;pageXOffset&#39;</span><span class="p">]</span>
-                <span class="o">||</span> <span class="nx">d</span><span class="p">[</span><span class="nx">DOC_ELEMENT</span><span class="p">][</span><span class="nx">method</span><span class="p">]</span>
-                <span class="o">||</span> <span class="nx">d</span><span class="p">[</span><span class="nx">BODY</span><span class="p">][</span><span class="nx">method</span><span class="p">]</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">isElementNode</span><span class="p">((</span><span class="nx">elem</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">elem</span><span class="p">))))</span> <span class="p">{</span>
-            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">[</span><span class="nx">method</span><span class="p">];</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-</pre></div>
-</blockquote>
-<ul class="simple">
-<li>如果是 window , 使用的是 window.pageXOffset/pageYOffset, 但IE下是undefined, 所以使用document.documentElement.scrollTop/scrollLeft (strict DOCTYPE) 或者 document.body.scrollTop/scrollLeft ( transitional DOCTYPE), 两者根据 DTD 的不同各自取到有效值, 见 <a class="reference external" href="http://javascript.about.com/library/bliebug.htm">http://javascript.about.com/library/bliebug.htm</a></li>
-<li>如果是普通 elem, 则用elem.scrollLeft/scrollTOp;</li>
-</ul>
-<p>DOM.docWidth/docHeight, DOM.viewportWidth/viewportHeight, 获取文档/可视区域宽高;</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">S</span><span class="p">.</span><span class="nx">each</span><span class="p">([</span><span class="s1">&#39;Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Height&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">DOM</span><span class="p">[</span><span class="s1">&#39;doc&#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">refDoc</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">refDoc</span> <span class="o">||</span> <span class="nx">doc</span><span class="p">;</span>
-        <span class="k">return</span> <span class="nx">MAX</span><span class="p">(</span><span class="nx">isStrict</span> <span class="o">?</span> <span class="nx">d</span><span class="p">[</span><span class="nx">DOC_ELEMENT</span><span class="p">][</span><span class="nx">SCROLL</span> <span class="o">+</span> <span class="nx">name</span><span class="p">]</span> <span class="o">:</span> <span class="nx">d</span><span class="p">[</span><span class="nx">BODY</span><span class="p">][</span><span class="nx">SCROLL</span> <span class="o">+</span> <span class="nx">name</span><span class="p">],</span>
-            <span class="nx">DOM</span><span class="p">[</span><span class="nx">VIEWPORT</span> <span class="o">+</span> <span class="nx">name</span><span class="p">](</span><span class="nx">d</span><span class="p">));</span>
-    <span class="p">};</span>
-
-    <span class="nx">DOM</span><span class="p">[</span><span class="nx">VIEWPORT</span> <span class="o">+</span> <span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">refWin</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">prop</span> <span class="o">=</span> <span class="s1">&#39;inner&#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">,</span>
-            <span class="nx">w</span> <span class="o">=</span> <span class="nx">getWin</span><span class="p">(</span><span class="nx">refWin</span><span class="p">),</span>
-            <span class="nx">d</span> <span class="o">=</span> <span class="nx">w</span><span class="p">[</span><span class="nx">DOCUMENT</span><span class="p">];</span>
-        <span class="k">return</span> <span class="p">(</span><span class="nx">prop</span> <span class="k">in</span> <span class="nx">w</span><span class="p">)</span> <span class="o">?</span> <span class="nx">w</span><span class="p">[</span><span class="nx">prop</span><span class="p">]</span> <span class="o">:</span>
-            <span class="p">(</span><span class="nx">isStrict</span> <span class="o">?</span> <span class="nx">d</span><span class="p">[</span><span class="nx">DOC_ELEMENT</span><span class="p">][</span><span class="nx">CLIENT</span> <span class="o">+</span> <span class="nx">name</span><span class="p">]</span> <span class="o">:</span> <span class="nx">d</span><span class="p">[</span><span class="nx">BODY</span><span class="p">][</span><span class="nx">CLIENT</span> <span class="o">+</span> <span class="nx">name</span><span class="p">]);</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-</pre></div>
-</blockquote>
-<ul class="simple">
-<li>文档宽高, 使用 document.[documentElement|body].scrollWidth/Height , 当文档内容很少, 宽高就取可视区域的宽高;</li>
-<li>可视区域宽高, 支持window.innerWidth方式的用 window.innerWidth/innerHeight , 其他用document.[documentElement|body].clientWidth/clientHeight;</li>
-</ul>
-<p>DOM.getOffset , 获取elem在文档上的位置</p>
-<blockquote>
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">getOffset</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">box</span><span class="p">,</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nx">w</span> <span class="o">=</span> <span class="nx">getWin</span><span class="p">(</span><span class="nx">elem</span><span class="p">[</span><span class="nx">OWNER_DOCUMENT</span><span class="p">]);</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span><span class="p">[</span><span class="nx">GET_BOUNDING_CLIENT_RECT</span><span class="p">])</span> <span class="p">{</span>
-        <span class="nx">box</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">[</span><span class="nx">GET_BOUNDING_CLIENT_RECT</span><span class="p">]();</span>
-
-        <span class="c1">// 注：jQuery 还考虑减去 docElem.clientLeft/clientTop</span>
-        <span class="c1">// 但测试发现，这样反而会导致当 html 和 body 有边距/边框样式时，获取的值不正确</span>
-        <span class="c1">// 此外，ie6 会忽略 html 的 margin 值，幸运地是没有谁会去设置 html 的 margin</span>
-
-        <span class="nx">x</span> <span class="o">=</span> <span class="nx">box</span><span class="p">[</span><span class="nx">LEFT</span><span class="p">];</span>
-        <span class="nx">y</span> <span class="o">=</span> <span class="nx">box</span><span class="p">[</span><span class="nx">TOP</span><span class="p">];</span>
-
-        <span class="c1">// iphone/ipad/itouch 下的 Safari 获取 getBoundingClientRect 时，已经加入 scrollTop</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">UA</span><span class="p">.</span><span class="nx">mobile</span> <span class="o">!==</span> <span class="s1">&#39;apple&#39;</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">x</span> <span class="o">+=</span> <span class="nx">DOM</span><span class="p">[</span><span class="nx">SCROLL_LEFT</span><span class="p">](</span><span class="nx">w</span><span class="p">);</span>
-            <span class="nx">y</span> <span class="o">+=</span> <span class="nx">DOM</span><span class="p">[</span><span class="nx">SCROLL_TOP</span><span class="p">](</span><span class="nx">w</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="p">{</span> <span class="nx">left</span><span class="o">:</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">top</span><span class="o">:</span> <span class="nx">y</span> <span class="p">};</span>
-<span class="p">}</span>
-</pre></div>
-</blockquote>
-<ul class="simple">
-<li>直接使用 getBoundingClientRect() , 除safari外, 补上 scrollLeft/scrollTop 值.</li>
-</ul>
-<p>DOM.setOffset</p>
-<blockquote>
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">setOffset</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">offset</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// set position first, in-case top/left are set even on static elem</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">POSITION</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;static&#39;</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">elem</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">POSITION</span><span class="p">]</span> <span class="o">=</span> <span class="nx">RELATIVE</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="kd">var</span> <span class="nx">old</span> <span class="o">=</span> <span class="nx">getOffset</span><span class="p">(</span><span class="nx">elem</span><span class="p">),</span> <span class="nx">ret</span> <span class="o">=</span> <span class="p">{</span> <span class="p">},</span> <span class="nx">current</span><span class="p">,</span> <span class="nx">key</span><span class="p">;</span>
-
-    <span class="k">for</span> <span class="p">(</span><span class="nx">key</span> <span class="k">in</span> <span class="nx">offset</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">current</span> <span class="o">=</span> <span class="nx">PARSEINT</span><span class="p">(</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">key</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="nx">ret</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">current</span> <span class="o">+</span> <span class="nx">offset</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">-</span> <span class="nx">old</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
-    <span class="p">}</span>
-    <span class="nx">DOM</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">ret</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</blockquote>
-<ul class="simple">
-<li>如果元素的position是static, 将其设置为relative, 因为 static时, left/top不起作用, 详细见CSS布局 <a class="reference external" href="http://www.w3.org/TR/CSS2/visuren.html#positioning-scheme">http://www.w3.org/TR/CSS2/visuren.html#positioning-scheme</a></li>
-<li>设置时, 如果 元素是 absolute 时, 直接可以设置 offset , 但如果是 relative 的话, 那元素的 css left/top 值就得是相对于自身的, 设置offset时, 需要变换计算css的left/top (PS: 这样一来, left和top都有可能是负值)</li>
-</ul>
-<p>DOM.scrollIntoView, 将元素滚动到可视区域, 原理及实现及为何不用原生elem.scrollIntoView详见 <a class="reference external" href="http://yiminghe.javaeye.com/blog/390732">http://yiminghe.javaeye.com/blog/390732</a></p>
-</div>
-<div class="section" id="id1">
-<h2>辅助函数</h2>
-<blockquote>
-<div class="highlight"><pre><span class="nx">_isElementNode</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">nodeTypeIs</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-<span class="p">},</span>
-
-<span class="nx">_getWin</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="nx">elem</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="s1">&#39;scrollTo&#39;</span> <span class="k">in</span> <span class="nx">elem</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">elem</span><span class="p">[</span><span class="s1">&#39;document&#39;</span><span class="p">])</span> <span class="o">?</span>
-        <span class="nx">elem</span> <span class="o">:</span>
-        <span class="nx">nodeTypeIs</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="o">?</span>
-            <span class="nx">elem</span><span class="p">.</span><span class="nx">defaultView</span> <span class="o">||</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">parentWindow</span> <span class="o">:</span>
-            <span class="nx">elem</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">?</span>
-                <span class="nb">window</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
-<span class="p">},</span>
-</pre></div>
-</blockquote>
-<ul>
-<li><p class="first">_isElementNode 用来判断是否是元素节点, 直接取 elem.nodeType, DOM中 不同的节点的nodeType也不同, 对应如下:</p>
-<blockquote>
-<ul class="simple">
-<li>Node.ELEMENT_NODE == 1</li>
-<li>Node.ATTRIBUTE_NODE == 2</li>
-<li>Node.TEXT_NODE == 3</li>
-<li>Node.CDATA_SECTION_NODE == 4</li>
-<li>Node.ENTITY_REFERENCE_NODE == 5</li>
-<li>Node.ENTITY_NODE == 6</li>
-<li>Node.PROCESSING_INSTRUCTION_NODE == 7</li>
-<li>Node.COMMENT_NODE == 8</li>
-<li>Node.DOCUMENT_NODE == 9</li>
-<li>Node.DOCUMENT_TYPE_NODE == 10</li>
-<li>Node.DOCUMENT_FRAGMENT_NODE == 11</li>
-<li>Node.NOTATION_NODE == 12</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<p>ps: KISSY 中的 node 的 nodeType 则为 '-ks-Node'</p>
-<ul class="simple">
-<li>_getWin 获取当前 window 对象 或 false, 如果 elem 具有 scrollTo 方法且 有 document 那就是 window , 如果 elem 是 DOCUMENT_NODE, 取 defaultView (非IE, <a class="reference external" href="https://developer.mozilla.org/en/DOM/document.defaultView">https://developer.mozilla.org/en/DOM/document.defaultView</a>) 或 parentWindow (IE, <a class="reference external" href="http://msdn.microsoft.com/en-us/library/ms534331(VS.85).aspx">http://msdn.microsoft.com/en-us/library/ms534331(VS.85).aspx</a>);</li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h2>资源</h2>
-<ul class="simple">
-<li><a class="reference external" href="http://www.quirksmode.org/dom/w3c_cssom.html">http://www.quirksmode.org/dom/w3c_cssom.html</a></li>
-<li><a class="reference external" href="http://www.quirksmode.org/blog/archives/2008/02/the_cssom_view.html">http://www.quirksmode.org/blog/archives/2008/02/the_cssom_view.html</a></li>
-<li><a class="reference external" href="http://www.w3.org/TR/cssom-view/">http://www.w3.org/TR/cssom-view/</a></li>
-<li><a class="reference external" href="http://javascript.about.com/library/bliebug.htm">http://javascript.about.com/library/bliebug.htm</a></li>
-</ul>
-</div>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[近期一些Tips]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/recent_tips.html"/>
-        <published>2010-09-03T13:09:32+08:00</published>
-        <updated>2012-11-20T15:34:22+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/recent_tips.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <ul>
-<li><p class="first">JS 访问被拒, 很有可能是跨域引起的.</p>
-</li>
-<li><p class="first">a的target值可取:</p>
-<blockquote>
-<ul class="simple">
-<li>_blank 总在一个新窗口/新标签页中打开文档.</li>
-<li>_self 默认值, 在当前这个页/框架上打开.</li>
-<li>_parent 在父窗口/框架中打开.</li>
-<li>_top 清除现有所有被包含的框架, 在整个窗口中打开.</li>
-<li>framename 在名字为framename的框架中打开.</li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">position</p>
-<blockquote>
-<ul class="simple">
-<li>position: relative, 是说相对于正常情况下该元素在文档流中的位置而言, 仍占据原来元素在文档流的位置. 设置left,top, right, bottom, 可是长度, 百分比, auto;</li>
-<li>position: absolute, 是**完全**移出文档流, 不占据元素原来在文档流中的位置;</li>
-<li>position: static, 默认值, 元素在预设的地方, 就是正常出现在文档流中的位置;</li>
-</ul>
-<p>父容器设置relative之后, 其内部元素随之relative, 如果再设置子元素absolute, 就可以定位到父元素的任意位置. <a class="reference external" href="http://www.w3.org/TR/CSS2/visuren.html#positioning-scheme">http://www.w3.org/TR/CSS2/visuren.html#positioning-scheme</a></p>
-</blockquote>
-</li>
-<li><p class="first">设置背景透明</p>
-<blockquote>
-<ul class="simple">
-<li>background: rgba(122, 122, 122, .5);</li>
-<li>不支持rgba的IE使用</li>
-</ul>
-<div class="highlight"><pre><span class="nt">filter</span><span class="o">:</span> <span class="nt">progid</span><span class="nd">:DXImageTransform</span><span class="nc">.Microsoft.gradient</span><span class="o">(</span><span class="nt">startColorStr</span><span class="o">=</span><span class="s1">&#39;#7f7A7A7A&#39;</span><span class="o">,</span><span class="nt">EndColorStr</span><span class="o">=</span><span class="s1">&#39;#7f7A7A7A&#39;</span><span class="o">);</span>
-</pre></div>
-<p>渐变使用的时候, 要注意被设置元素hasLayout, 加个zoom:1, 或者设置一下height就可以, 不然渐变会出不来, 估计渐变是需要计算高度才能渲染出来, 不然未知高度下也不好确定渐变幅度什么的.</p>
-</blockquote>
-</li>
-</ul>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[Doctype]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/doctype.html"/>
-        <published>2010-08-13T08:08:14+08:00</published>
-        <updated>2012-11-20T15:39:12+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/doctype.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#HTML" term="HTML" label="HTML" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <p>之前讲过如何使用 <a class="reference external" href="http://www.simile-widgets.org/timeplot/docs/">timeplot</a>  , 没想到时隔多日, 到线上之后出问题.</p>
-<ol class="arabic">
-<li><p class="first">问题: 区域背景不能透明, 导致显示在前面的数据遮盖了后面的数据.</p>
-<blockquote>
-<p>解决: 因为timeplot没有提供设置背景透明度的接口, 所以只能将fillcolor去掉, 只显示出线条颜色.</p>
-</blockquote>
-</li>
-<li><p class="first">问题: IE8下显示不出图形来, 但诡异的是IE6, IE7竟然可以显示.</p>
-<blockquote>
-<p>怀疑: 刚开始以为是不是js的问题, 或者是异步读取数据时错误, 导致没有读到数据, 但后来使用测试数据也是如此; 但诡异的是, 做的demo可以显示, 那就不应该是js的问题, 因为两者用的是同一个js文件. 后来看页面源代码. 哦!!! 才发现. demo当时简略, 没有写完整的html结构, 而线上页面结构完整.</p>
-<p>尝试: 于是乎, demo上加入 &lt;!doctype html&gt; 等, 之后, demo在IE8下也不能显示了. 而html标签没问题, 那就在于这个doctype标签了.</p>
-</blockquote>
-</li>
-</ol>
-<p>关于doctype, 是用来告诉浏览器, 当前文档使用哪个Html或者XHtml规范.
-HTML 4.01/XHTML 有strict, transitional, frameset; 不同浏览器支持的模式也不一样.
-详细的见 <a class="reference external" href="http://www.upsdell.com/BrowserNews/res_doctype.htm">http://www.upsdell.com/BrowserNews/res_doctype.htm</a></p>
-<p>IE系列 <a class="reference external" href="http://msdn.microsoft.com/en-us/library/cc288325%28VS.85%29.aspx">有点特殊</a>:</p>
-<p>IE6默认使用 &quot;Quirks mode&quot; 而不是 &quot;Standards mode&quot; , 或者当页面使用的doctype, 她不认识的话也会使用 &quot;Quirks mode&quot; ;
-IE7更加符合工业标准, 支持 quirks mode 和 standards mode, 但IE7 的 standards mode 替代 IE6的 standards mode ;
-IE8, 为了保持 document compatibility , 提供使用meta 添加 X-UA-Compatible 来让以前网页使用低版本的IE来解析.
-X-UA-Compatible的值有:</p>
-<ul class="simple">
-<li>Emulate IE8 mode : Standards mode directives are displayed in Internet Explorer 8 standards mode and quirks mode directives are displayed in IE5 mode.</li>
-<li>Emulate IE7 mode : Standards mode directives are displayed in Internet Explorer 7 standards mode and quirks mode directives are displayed in IE5 mode.</li>
-<li>IE5 mode : Internet Explorer 7's quirks mode</li>
-<li>IE7 mode renders content as if it were displayed by Internet Explorer 7's standards mode, whether or not the page contains a directive.</li>
-<li>IE8 mode provides the highest support available for industry standards,</li>
-</ul>
-<p>如</p>
-<blockquote>
-<div class="highlight"><pre><span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=4&quot;</span><span class="nt">&gt;</span>   <span class="c">&lt;!-- IE5 mode --&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=7.5&quot;</span> <span class="nt">&gt;</span> <span class="c">&lt;!-- IE7 mode --&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=100&quot;</span> <span class="nt">&gt;</span> <span class="c">&lt;!-- IE8 mode --&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=a&quot;</span> <span class="nt">&gt;</span>   <span class="c">&lt;!-- IE5 mode --&gt;</span>
-
-<span class="c">&lt;!-- This header mimics Internet Explorer 7 and uses</span>
-<span class="c">     &lt;!DOCTYPE&gt; to determine how to display the Web page --&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=EmulateIE7&quot;</span> <span class="nt">&gt;</span>
-</pre></div>
-</blockquote>
-<p>而在下面, 我又看到了最为关键的一段话</p>
-<blockquote>
-<p>When Internet Explorer 8 encounters a Web page that does not contain an X-UA-Compatible header, it uses the &lt;!DOCTYPE&gt;  directive to determine how to display the page. If the directive is missing or does not specify a standards-based document type, Internet Explorer 8 displays the page in IE5 mode (quirks mode).</p>
-<p>IE8下如果没有X-UA-Compatible, 会使用doctype, 如果没有指定doctype, 那么会使用 quirks mode.</p>
-<p>If the &lt;!DOCTYPE&gt; directive specifies a standards-based document type, Internet Explorer 8 displays the page in IE8 mode, except in the following cases:
-除以下情况外, IE8都会使用标准模式, 主要是关于兼容性视图的.</p>
-<ul class="simple">
-<li>Compatibility View is enabled for the page.</li>
-<li>The page is loaded in the Intranet zone and Internet Explorer 8 is configured to pages in the Intranet zone in Compatibility View.</li>
-<li>Internet Explorer 8 is configured to display all Web sites in Compatibility View.</li>
-<li>Internet Explorer 8 is configured to use the Compatibility View List, which specifies a set of Web sites that are always displayed in Compatibility View.</li>
-<li>The Developer Tools are used to override the settings specified in the Web page.</li>
-<li>The Web page encountered a page layout error and Internet Explorer 8 is configured to automatically recover from such errors by reopening the page in Compatibility View.</li>
-</ul>
-</blockquote>
-<p>那既然这个timeplot产生的页面, IE7下ok, 那么就可以让IE8以IE7的模式显示.</p>
-<p>解决:</p>
-<blockquote>
-<div class="highlight"><pre><span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;IE=7.5&quot;</span> <span class="nt">&gt;</span>
-</pre></div>
-</blockquote>
-<p>timeplot使用canvas生成图形, 但如果对于那些不支持canvas的浏览器来说, 会产生一大堆的自定义标签, 可能就是因为这些, 导致如果IE8下只是用标准模式就不能正常解析了.</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[Input Padding]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/input_padding.html"/>
-        <published>2010-08-10T12:08:40+08:00</published>
-        <updated>2012-11-20T15:43:37+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/input_padding.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <div class="section" id="id1">
-<h2>现象</h2>
-<p>今天看到个以前从没注意到的现象.</p>
-<p>先看图1</p>
-<img alt="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGPm5AQw" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGPm5AQw" />
-<p>这是正常情况下的,</p>
-<p>再来看下图2</p>
-<img alt="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGOHBAQw" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGOHBAQw" />
-<p>看到问题了么?</p>
-<p>当输入框内的文字太长, IE6下导致 前面的搜索图片不见了.
-这里的小图片原本是设置成input元素的背景图, 再设置padding-left 调整文字的起始位置.</p>
-<p>这样实现, 在Firefox/chrome下完全没有问题, 但IE6,7, 后来测试在IE8 下也有这个问题.
-查找IE下的原因, 因为input的宽度固定, 当内容超过宽度时, 随着光标显示, 文字一直往左移, 同时也包括背景图片也一起往左移动, 所以展示出来图片消失.</p>
-<p>如果再深入一些, 就又要看css盒模型, 传统的盒模型, 如IE的实现, 盒子的宽度包含margin, border, padding, 内容. 而W3C的盒模型, 如Firefox的实现, 定义宽度只包含内容, 不包含margin, border, padding. 详细见http://www.quirksmode.org/css/box.html.
-而这边, 从input上可以看到, 背景图片设置在盒子上, Firefox中, 随着输入内容的增多, 文本内容不断伸展, 但不会影响到padding和margin, 所以看到背景图片还是在原来的位置上. 而IE下, 随着输入内容的增加, 整个盒子宽度伸展, 因为包括padding和margin, 伸展时也连同它们一起移动.</p>
-</div>
-<div class="section" id="id2">
-<h2>解决</h2>
-<p>为了解决这个问题, 做了以下尝试</p>
-<ol class="arabic simple">
-<li>首先想到的是IE下, 将背景图片的background-attachment: fixed; 见 <a class="reference external" href="http://liz.appspot.com/static/show.html">demo1</a> 但带来的问题是: 1) 文字覆盖在背景图片上, 2) ie7下图片不能显示出来</li>
-<li>有人说用将背景图片的位置设置为bottom right即可, 但这种方式需要你的背景图片大小和你的输入框一致; 见 <a class="reference external" href="http://liz.appspot.com/static/show.html">demo2</a> 出来的效果, 在IE下, 一个一个字符输入, 可以看到文字也会覆盖背景图片, 而且鼠标选择时还会出现背景图片位置不再原来的位置上了.</li>
-<li>将背景图片设置在input的父元素上, 但这就需要改变DOM结构了.</li>
-</ol>
-<p>不知道这个问题有没有更好的解决方式...</p>
-</div>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[MyBuildUtil]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/my_build_util.html"/>
-        <published>2010-08-07T11:08:02+08:00</published>
-        <updated>2012-11-20T15:51:42+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/my_build_util.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Python" term="Python" label="Python" />
-        <category scheme="http://sunsetsunrising.com/tag/#Tools" term="Tools" label="Tools" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <p>话说Java ant实在用不惯, 而现有的build配置尝试了好久还是不懂, 再次鄙视下xml. 汗个那么多的标签~</p>
-<p>正因如此, 周末赶紧写了个js/css打包压缩小脚本, 目前能够已满足我的小需求:</p>
-<ul class="simple">
-<li>写个依赖(配置)文件, 定义哪些js/css合并成xx文件;</li>
-<li>生成压缩文件;</li>
-</ul>
-<p>暂时还不支持的功能:</p>
-<ul class="simple">
-<li>替换html的js/css, ps: 话说有时候, 程序并不能清楚的知道哪个页面上需要哪些功能, 这些功能在哪些文件中, 所以目前手工替换. 或许也可在生成html时根据配置替换调试时的js/css文件. 再议吧..</li>
-<li>自动检测文件编码功能, 目前默认都是utf-8, 可以考虑用chardet试试.</li>
-</ul>
-<p>这里不贴代码了, 完整的在 <a class="reference external" href="http://code.google.com/p/lizworkspace/source/browse/trunk/tools">http://code.google.com/p/lizworkspace/source/browse/trunk/tools</a>, 有兴趣的可以试一下.
-简单的使用:</p>
-<blockquote>
-<pre class="literal-block">
-D:\workspace\myserver\tools&gt;python mybuild.py --help
-Usage: mybuild.py [options] xxx
-
-Options:
-  -h, --help            show this help message and exit
-  -c CONFIG, --config=CONFIG
-                        config file # 配置文件
-  -z, --zip             zip or not # 需不需要压缩, 如果设置-z 就需要用到yuicompressor
-  -d DEST, --dest=DEST  dest dir # 生成目标目录, 默认是当前目录的tmp下
-
-
-如:
-D:\workspace\myserver\tools&gt;python mybuild.py -z -c configfile -d destdir
-</pre>
-</blockquote>
-<p>config的写法, 很简单</p>
-<blockquote>
-<pre class="literal-block">
-ks-mkt
-&lt;script src=&quot;../../libs/kissy/1.1.0/build/anim/anim-pkg-min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../libs/kissy/1.1.0/build/datalazyload/datalazyload-min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../libs/kissy/1.1.0/build/switchable/switchable-pkg-min.js&quot;&gt;&lt;/script&gt;
-
-=====
-mkt-base
-&lt;script src=&quot;../../src/js/market/m/base.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/market/m/pagenation.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/market/m/searchbox.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/market/m/imageshow.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/market/m/sortorder.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/market/m/starscore.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-
-=====
-mkt-dialog
-&lt;script src=&quot;../../libs/yui/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../libs/yui/2.8.1/build/connection/connection-min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/tshop.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/ds/widgets/dialog.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/ds/request-manager.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/ds/widgets/dialogable.js&quot;&gt;&lt;/script&gt;
-
-=====
-mkt-editor
-&lt;script src=&quot;../../libs/yui/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../libs/yui/2.8.1/build/connection/connection-min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../libs/kissy/1.0.4/build/editor/editor-min.js&quot;&gt;&lt;/script&gt;
-
-=====
-mkt-validate
-&lt;script src=&quot;../../src/js/market/m/signin.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/market/m/order4.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/market/m/report.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/market/m/upload1.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/market/m/upload2.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../../src/js/market/m/close.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-</pre>
-</blockquote>
-<p>Note: <tt class="docutils literal"><span class="pre">=====</span></tt> 为分隔符, 接下来的第一行是压缩后的文件名字, 余下的都是所需原js文件,
-咔咔, 这里直接从html里拷贝过来(偷懒ing), 其实只要文件名就可以了, 路径是相对于config文件
-来说的, 不是运行时目录. 不然可能会找不到文件~</p>
-<p>最简单的实现. 以后需要再扩充吧~~</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[HasLayout]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/haslayout.html"/>
-        <published>2010-07-23T07:07:48+08:00</published>
-        <updated>2012-11-20T15:56:12+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/haslayout.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <div class="section" id="what-layout">
-<h2>what Layout?</h2>
-<p>“Layout” is an IE/Win proprietary concept that determines how elements draw and bound their content, interact with and relate to other elements, and react on and transmit application/user events.</p>
-</div>
-<div class="section" id="why-layout">
-<h2>why Layout?</h2>
-<p>A lot of Internet Explorer's rendering inconsistencies can be fixed by giving an element “layout.”
-Consequences of an element having, or not having “layout” can include:</p>
-<blockquote>
-<ul class="simple">
-<li>Many common IE float bugs.</li>
-<li>Boxes themselves treating basic properties differently.</li>
-<li>Margin collapsing between a container and its descendants.</li>
-<li>Various problems with the construction of lists.</li>
-<li>Differences in the positioning of background images.</li>
-<li>Differences between browsers when using scripting.</li>
-</ul>
-</blockquote>
-</div>
-<div class="section" id="which-element">
-<h2>which element</h2>
-<p>body, html, table, tr, td, th, img, hr, input, button, file, select, textarea, fieldset, marquee, frameset, frame, iframe, objects, applets, embed</p>
-<p>Those other properties are:</p>
-<ul class="simple">
-<li>display: inline-block ##Sometimes a cure when the element is at inline level and needs layout.</li>
-<li>height: (any value except auto)</li>
-<li>float: (left or right)</li>
-<li>position: absolute</li>
-<li>width: (any value except auto)</li>
-<li>writing-mode: tb-rl</li>
-<li>zoom: (any value except normal) ## always triggers hasLayout.</li>
-</ul>
-<p>另外IE7</p>
-<ul>
-<li><p class="first">min-height: (any value)</p>
-</li>
-<li><p class="first">max-height: (any value except none)</p>
-</li>
-<li><p class="first">min-width: (any value)</p>
-</li>
-<li><p class="first">max-width: (any value except none)</p>
-</li>
-<li><p class="first">overflow: (any value except visible)</p>
-</li>
-<li><p class="first">overflow-x: (any value except visible)</p>
-</li>
-<li><p class="first">overflow-y: (any value except visible)5</p>
-</li>
-<li><p class="first">position: fixed</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">alert</span><span class="p">(</span><span class="nx">eid</span><span class="p">.</span><span class="nx">currentStyle</span><span class="p">.</span><span class="nx">hasLayout</span><span class="p">)</span>
-</pre></div>
-</blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="notes">
-<h2>Notes</h2>
-<ul class="simple">
-<li>It's not a good idea to give all elements a layout.</li>
-<li>the standard approach for triggering an element to gain a layout in IE6, set height to 1% as long as the overflow property is not set to anything except visible. overflow设置为默认的visible, 容器高度会尽可能的撑开(不管设置的高度是多少), 其他浏览器会遵循height为1%, 所以这种方式只针对IE6.</li>
-</ul>
-</div>
-<div class="section" id="ie">
-<h2>IE下条件注释</h2>
-<ul>
-<li><p class="first"><a class="reference external" href="http://reference.sitepoint.com/css/conditionalcomments">http://reference.sitepoint.com/css/conditionalcomments</a></p>
-<blockquote>
-<pre class="literal-block">
-&lt;!--[if IE ]&gt;
-...
-&lt;![endif]--&gt;
-
-if语句支持 lt, lte, gt, gte, !, &amp;, (), |, true, false
-
-&lt;!--[if !IE]&gt;--&gt;
-&lt;p&gt;...&lt;/p&gt;
-&lt;!--&lt;![endif]--&gt;
-</pre>
-</blockquote>
-</li>
-<li><p class="first"><a class="reference external" href="http://reference.sitepoint.com/css/haslayout">http://reference.sitepoint.com/css/haslayout</a></p>
-</li>
-<li><p class="first"><a class="reference external" href="http://www.satzansatz.de/cssd/onhavinglayout.html">http://www.satzansatz.de/cssd/onhavinglayout.html</a> 这里末尾有很多有关layout引起的问题例子.</p>
-</li>
-</ul>
-</div>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[threeCSSProperty]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/white_space_word_wrap_text_overflow.html"/>
-        <published>2010-07-21T12:07:50+08:00</published>
-        <updated>2012-11-20T15:59:18+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/white_space_word_wrap_text_overflow.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <div class="section" id="white-space">
-<h2>white-space</h2>
-<p><a class="reference external" href="https://developer.mozilla.org/en/CSS/white-space">https://developer.mozilla.org/en/CSS/white-space</a></p>
-<p>用于控制容器内的空格如何处理.
-针对所有元素, 可继承.</p>
-<p>值:</p>
-<ul class="simple">
-<li>normal(默认值): 空格序列被合并起来, 换行字符如同空格, 会断行(长单词内不会断行)以尽可能的填充整个盒子</li>
-<li>pre: 空格序列被保留, 一行只有碰到换行字符才换行, 文本内部不会换行(but suppresses line breaks (text wrapping) within text).</li>
-<li>nowrap: 空格被合并, 但文本内部不会被强行换行. 如果溢出容器也不会被换行.</li>
-<li>pre-wrap: firefox3+ 空格序列被保留, 一行只有碰到换行字符才换行, 也是尽可能填充行盒子, firefox2可以用-moz-pre-wrap.</li>
-<li>pre-line: firefox3.5+ 空格序列被合并. 碰到换行字符才换行, 尽可能填充行盒子.</li>
-</ul>
-</div>
-<div class="section" id="word-wrap">
-<h2>word-wrap</h2>
-<p><a class="reference external" href="https://developer.mozilla.org/en/CSS/word-wrap">https://developer.mozilla.org/en/CSS/word-wrap</a></p>
-<p>是否允许字内断行, 阻止文本太长而导致溢出(specify whether or not the browser is allowed to break lines within words in order to prevent overflow when an otherwise unbreakable string is too long to fit.)</p>
-<ul class="simple">
-<li>normal(默认值): 断行仅在正常词语结束后, 完整的一个词不会被强行截断;</li>
-<li>break-word: 词语可能会在任意点上被截断.</li>
-</ul>
-<p>white-space: nowrap 针对一行文本, 如果超出容器, 不要自动换行,,就是除非你手写换行字符是绝对不会换行的;</p>
-<p>word-wrap: break-word; 针对一行中的一个词, 本来这个词是不可断的, 但设置之后会强行截断.</p>
-</div>
-<div class="section" id="text-overflow">
-<h2>text-overflow</h2>
-<p>当文本内容溢出容器时, 是否显示...号. (杯具的firefox不支持)</p>
-<p>ellipse: 显示省略号
-clip: 默认值, 不显示</p>
-<p>例子: <a class="reference external" href="http://www.quirksmode.org/css/textoverflow.html">http://www.quirksmode.org/css/textoverflow.html</a></p>
-<blockquote>
-<div class="highlight"><pre><span class="nt">p</span> <span class="p">{</span>
-    <span class="k">white-space</span><span class="o">:</span> <span class="k">nowrap</span><span class="p">;</span>
-    <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>                   <span class="c">/* IE6 needs any width */</span>
-    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>              <span class="c">/* &quot;overflow&quot; value must be different from &quot;visible&quot; */</span>
-
-    <span class="o">-</span><span class="err">o</span><span class="o">-</span><span class="k">text</span><span class="o">-</span><span class="k">overflow</span><span class="o">:</span> <span class="n">ellipsis</span><span class="p">;</span>    <span class="c">/* Opera */</span>
-    <span class="k">text</span><span class="o">-</span><span class="k">overflow</span><span class="o">:</span>    <span class="n">ellipsis</span><span class="p">;</span>    <span class="c">/* IE, Safari (WebKit) */</span>
-
-<span class="p">}</span>
-</pre></div>
-</blockquote>
-<p>三个地方, 设置white-space, 设置width, 设置overflow, 最后的text-overflow.</p>
 </div>
 ]]>
         </content>
