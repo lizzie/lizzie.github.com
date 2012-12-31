@@ -3,14 +3,70 @@
     <title>SunsetSunrising</title>
     <link href="http://sunsetsunrising.com/feed.xml" rel="self" />
     <link href="http://sunsetsunrising.com/" />
-    <updated>2012-12-28T11:30:46+08:00</updated>
+    <updated>2012-12-31T22:52:39+08:00</updated>
     <id>http://sunsetsunrising.com/</id>
     <entry>
+        <title type="html"><![CDATA[总结2012年与展望2013年]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2012/2012_summary_and_2013_outlook.html"/>
+        <published>2012-12-31T23:59:59+08:00</published>
+        <updated>2012-12-31T22:52:39+08:00</updated>
+        <id>http://sunsetsunrising.com/2012/2012_summary_and_2013_outlook.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
+        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>习惯了年底做总结, 以前都写在旧博客上, 今年的, 就搬到这边了吧~</p>
+<div class="section" id="id2">
+<h2>总结2012</h2>
+<p><strong>工作</strong></p>
+<ul class="simple">
+<li>辗转北京发现啦, 现在回想起来, 与其说那是创业, 还不如说是逃避. 终于逃避不下去了, 折返回苏.</li>
+<li>跟着臭鱼混了三个月, 与其说是和她做生意, 还不如说全身放松.</li>
+<li>接着, 重新开始工作, 来到了目前的不可靠互联网企业.</li>
+<li>前端技术没长进多少, 可尝试了做产品/交互/移动开发, 浅挖坑还是不行哇~</li>
+</ul>
+<p><strong>生活</strong></p>
+<p>这一年, 去了向往已久的北京, 看了故宫, 体验了下北漂.
+这一年, 了解了创业, 知道了什么是VC, 什么是A轮/B轮, 什么是IPO.
+这一年, 养了一只属于自己的萨摩耶, 可爱好动, 可... 最终离我而去, 可惜可恨&amp;无力. 但, 也让我彻底看清别人和自己.
+这一年, 逼着自己相了一次亲, 结果, 让我更加不相信男人, 世上怎有这种动物?! 自私虚伪.</p>
+<p>这一年, 看了哲学书&lt;易经的智慧&gt;系列, &lt;遇见未知的自己&gt;, &lt;苏菲的世界&gt;; 另外喜欢上了安意如, 喜欢上了&lt;人生若只如初见&gt;的那种意境.
+这一年, 学了手工钩针, 打了第一条大披肩, 并在etsy上开了家手工店. 虽说里面的宝贝不是我亲手制作的, 但以后目标是专卖我的手工作品.
+这一年, 一如既往的又回顾了下&lt;老友记&gt;.</p>
+<p><strong>其他</strong></p>
+<ul class="simple">
+<li>换了发型.</li>
+<li>买了Macbook air, 从以前的windows换到了mac.</li>
+<li>搬了三次家.</li>
+<li>学车了, 但目前学到一半.</li>
+<li>博客重开&amp;迁移&amp;换域名.</li>
+<li>ohlife 坚持写了俩年.</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>展望2013</h2>
+<ul class="simple">
+<li>手机换 iphone.</li>
+<li>深入学习前端技术, 好好做产品. 一件事情, 做到极致, 并认真做总结.</li>
+<li>学 ios app 开发, 并专心做 1-2 个 app 出来.</li>
+<li>学彩铅画.</li>
+<li>顺利拿到驾照.</li>
+<li>再看一遍老友记.</li>
+<li>坚持写 ohlife.</li>
+<li>攒钱! 去尼泊尔.</li>
+</ul>
+<p>好好努力!</p>
+<p>最后, 谢谢这一年中所有带给我快乐与悲伤的人~</p>
+<img alt="http://3.design-milk.com/images/2012/02/TY-Card-18-AndyPratt.jpg" src="http://3.design-milk.com/images/2012/02/TY-Card-18-AndyPratt.jpg" />
+</div>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[[转载]程序算法与人生选择]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2012/algorithm_and_choices.html"/>
         <published>2012-12-28T11:23:06+08:00</published>
-        <updated>2012-12-28T11:30:46+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2012/algorithm_and_choices.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
@@ -91,7 +147,7 @@
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2012/liuhen.html"/>
         <published>2012-11-30T13:10:07+08:00</published>
-        <updated>2012-11-30T13:28:07+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2012/liuhen.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Music" term="Music" label="Music" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
@@ -198,7 +254,7 @@
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2012/my_new_blog.html"/>
         <published>2012-11-23T15:36:02+08:00</published>
-        <updated>2012-11-29T10:58:47+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2012/my_new_blog.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
@@ -213,7 +269,7 @@
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2012/dont_make_me_think.html"/>
         <published>2012-11-18T12:29:10+08:00</published>
-        <updated>2012-12-21T14:05:21+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2012/dont_make_me_think.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
@@ -258,7 +314,7 @@
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2012/kun_dao.html"/>
         <published>2012-11-18T12:27:54+08:00</published>
-        <updated>2012-12-21T14:04:10+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2012/kun_dao.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
@@ -291,7 +347,7 @@
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2012/i_ching_5.html"/>
         <published>2012-08-28T14:10:07+08:00</published>
-        <updated>2012-12-21T13:46:02+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2012/i_ching_5.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
         <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
@@ -350,7 +406,7 @@
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2012/i_ching_4.html"/>
         <published>2012-08-28T13:55:07+08:00</published>
-        <updated>2012-12-21T13:45:09+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2012/i_ching_4.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
         <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
@@ -401,7 +457,7 @@
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2012/i_ching_3.html"/>
         <published>2012-08-27T14:08:07+08:00</published>
-        <updated>2012-12-21T13:46:50+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2012/i_ching_3.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
         <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
@@ -452,7 +508,7 @@
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2012/i_ching_2.html"/>
         <published>2012-08-23T15:16:07+08:00</published>
-        <updated>2012-12-21T13:43:16+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2012/i_ching_2.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
         <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
@@ -483,7 +539,7 @@
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2012/i_ching_1.html"/>
         <published>2012-08-16T15:17:07+08:00</published>
-        <updated>2012-12-21T13:42:24+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2012/i_ching_1.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
         <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
@@ -515,7 +571,7 @@
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2011/waterfall_layout.html"/>
         <published>2011-09-10T18:12:00+08:00</published>
-        <updated>2012-11-20T11:29:34+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2011/waterfall_layout.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
         <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
@@ -660,7 +716,7 @@
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2011/g10.html"/>
         <published>2011-03-20T11:03:54+08:00</published>
-        <updated>2012-11-20T12:22:31+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2011/g10.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Mobile" term="Mobile" label="Mobile" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
@@ -691,7 +747,7 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2011/imagezoom_refact.html"/>
         <published>2011-02-18T11:02:09+08:00</published>
-        <updated>2012-11-20T12:26:44+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2011/imagezoom_refact.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
         <category scheme="http://sunsetsunrising.com/tag/#KISSY" term="KISSY" label="KISSY" />
@@ -761,7 +817,7 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2011/css_button.html"/>
         <published>2011-01-18T11:01:30+08:00</published>
-        <updated>2012-11-21T12:43:37+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2011/css_button.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
@@ -778,7 +834,7 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2010/sliding_label.html"/>
         <published>2010-12-23T07:12:25+08:00</published>
-        <updated>2012-11-20T12:53:15+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2010/sliding_label.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#KISSY" term="KISSY" label="KISSY" />
         <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
@@ -820,7 +876,7 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2010/test_swarm.html"/>
         <published>2010-10-17T11:10:56+08:00</published>
-        <updated>2012-11-20T12:59:27+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2010/test_swarm.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Tools" term="Tools" label="Tools" />
         <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
@@ -903,7 +959,7 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2010/about_jasmine.html"/>
         <published>2010-10-17T11:10:07+08:00</published>
-        <updated>2012-11-20T13:27:51+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2010/about_jasmine.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Javscript" term="Javscript" label="Javscript" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
@@ -1080,7 +1136,7 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2010/three_problems.html"/>
         <published>2010-10-10T08:10:51+08:00</published>
-        <updated>2012-11-20T13:14:39+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2010/three_problems.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
         <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
@@ -1147,7 +1203,7 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2010/image_object.html"/>
         <published>2010-09-28T10:09:08+08:00</published>
-        <updated>2012-11-20T13:26:31+08:00</updated>
+        <updated>2012-12-31T22:00:42+08:00</updated>
         <id>http://sunsetsunrising.com/2010/image_object.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
@@ -1361,285 +1417,6 @@ The onload event occurs immediately after an image is loaded.</blockquote>
 <tr><td class="label">[6]</td><td><a class="reference external" href="http://www.w3schools.com/jsref/prop_img_complete.asp">http://www.w3schools.com/jsref/prop_img_complete.asp</a></td></tr>
 </tbody>
 </table>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[DOM.html]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/dom_html.html"/>
-        <published>2010-09-24T09:09:00+08:00</published>
-        <updated>2012-11-20T13:36:05+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/dom_html.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
-        <category scheme="http://sunsetsunrising.com/tag/#KISSY" term="KISSY" label="KISSY" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <p>KISSY DOM系列之三, 有关 html 内容的设置</p>
-<div class="section" id="dom-create-js">
-<h2>dom-create.js</h2>
-<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-create.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-create.js</a></p>
-<p>dom.create() 创建 DOM 元素</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">create</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="nx">props</span><span class="p">,</span> <span class="nx">ownerDoc</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">nodeTypeIs</span><span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">||</span> <span class="nx">nodeTypeIs</span><span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="k">return</span> <span class="nx">cloneNode</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">isKSNode</span><span class="p">(</span><span class="nx">html</span><span class="p">))</span> <span class="k">return</span> <span class="nx">cloneNode</span><span class="p">(</span><span class="nx">html</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">html</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">trim</span><span class="p">(</span><span class="nx">html</span><span class="p">)))</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
-
-    <span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">creators</span> <span class="o">=</span> <span class="nx">DOM</span><span class="p">.</span><span class="nx">_creators</span><span class="p">,</span>
-        <span class="nx">m</span><span class="p">,</span> <span class="nx">tag</span> <span class="o">=</span> <span class="nx">DIV</span><span class="p">,</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">nodes</span><span class="p">;</span>
-
-    <span class="c1">// 简单 tag, 比如 DOM.create(&#39;&lt;p&gt;&#39;)</span>
-    <span class="k">if</span> <span class="p">((</span><span class="nx">m</span> <span class="o">=</span> <span class="nx">RE_SIMPLE_TAG</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">html</span><span class="p">)))</span> <span class="p">{</span>
-        <span class="nx">ret</span> <span class="o">=</span> <span class="p">(</span><span class="nx">ownerDoc</span> <span class="o">||</span> <span class="nx">doc</span><span class="p">).</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-    <span class="p">}</span>
-    <span class="c1">// 复杂情况，比如 DOM.create(&#39;&lt;img src=&quot;sprite.png&quot; /&gt;&#39;)</span>
-    <span class="k">else</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">((</span><span class="nx">m</span> <span class="o">=</span> <span class="nx">RE_TAG</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">html</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">k</span> <span class="o">=</span> <span class="nx">m</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nx">S</span><span class="p">.</span><span class="nx">isFunction</span><span class="p">(</span><span class="nx">creators</span><span class="p">[(</span><span class="nx">k</span> <span class="o">=</span> <span class="nx">k</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())]))</span> <span class="p">{</span>
-            <span class="nx">tag</span> <span class="o">=</span> <span class="nx">k</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="nx">nodes</span> <span class="o">=</span> <span class="nx">creators</span><span class="p">[</span><span class="nx">tag</span><span class="p">](</span><span class="nx">html</span><span class="p">,</span> <span class="nx">ownerDoc</span><span class="p">).</span><span class="nx">childNodes</span><span class="p">;</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">// return single node, breaking parentNode ref from &quot;fragment&quot;</span>
-            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="nx">PARENT_NODE</span><span class="p">].</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="c1">// return multiple nodes as a fragment</span>
-            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">nl2frag</span><span class="p">(</span><span class="nx">nodes</span><span class="p">,</span> <span class="nx">ownerDoc</span> <span class="o">||</span> <span class="nx">doc</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="nx">attachProps</span><span class="p">(</span><span class="nx">ret</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
-<span class="p">},</span>
-</pre></div>
-</blockquote>
-<ul class="simple">
-<li>如果是文本或元素节点, 直接克隆返回, 使用 elem.cloneNode(true) , ie&lt;8时还需设置innerHTML;</li>
-<li>如果是 kissy 的 Node, 返回 克隆这个node 对应的 element;</li>
-<li>简单的html, 比如只有标签的, 使用 doc.createElement(xxx);</li>
-<li>比较复杂的html, 通过创建一个父元素(一般为div)包裹这些html, 获得这个父元素的所有孩子节点 nodelist (分开处理一个孩子或多个孩子), 还得将 nodelist 转换成 fragment 返回;</li>
-<li>如果有属性设置, 通过 DOM.attr 设置, 所以支持 DOM.create('tag', {text:'xxxx', title:'xxx', css:{color: 'white'}});</li>
-<li>还有如 table, thead, th, tfoot, 等元素, 需要特殊处理;</li>
-</ul>
-<p>dom.html() 获取/设置元素内的内容
-// getter
-* 取 elm.innerHTML
-// setter ----&gt; setHTML(elem, val, loadScripts, callback);</p>
-<blockquote>
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">setHTML</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">html</span><span class="p">,</span> <span class="nx">loadScripts</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">loadScripts</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">setHTMLSimple</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">html</span><span class="p">);</span>
-        <span class="nx">S</span><span class="p">.</span><span class="nx">isFunction</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">callback</span><span class="p">();</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">guid</span><span class="p">(</span><span class="s1">&#39;ks-tmp-&#39;</span><span class="p">),</span>
-        <span class="nx">re_script</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">RE_SCRIPT</span><span class="p">);</span> <span class="c1">// 防止</span>
-
-    <span class="nx">html</span> <span class="o">+=</span> <span class="s1">&#39;&lt;span id=&quot;&#39;</span> <span class="o">+</span> <span class="nx">id</span> <span class="o">+</span> <span class="s1">&#39;&quot;&gt;&lt;/span&gt;&#39;</span><span class="p">;</span>
-
-    <span class="c1">// 确保脚本执行时，相关联的 DOM 元素已经准备好</span>
-    <span class="nx">S</span><span class="p">.</span><span class="nx">available</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">hd</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">),</span>
-            <span class="nx">match</span><span class="p">,</span> <span class="nx">attrs</span><span class="p">,</span> <span class="nx">srcMatch</span><span class="p">,</span> <span class="nx">charsetMatch</span><span class="p">,</span>
-            <span class="nx">t</span><span class="p">,</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">text</span><span class="p">;</span>
-
-        <span class="nx">re_script</span><span class="p">.</span><span class="nx">lastIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">while</span> <span class="p">((</span><span class="nx">match</span> <span class="o">=</span> <span class="nx">re_script</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">html</span><span class="p">)))</span> <span class="p">{</span>
-            <span class="nx">attrs</span> <span class="o">=</span> <span class="nx">match</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-            <span class="nx">srcMatch</span> <span class="o">=</span> <span class="nx">attrs</span> <span class="o">?</span> <span class="nx">attrs</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">RE_SCRIPT_SRC</span><span class="p">)</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
-            <span class="c1">// script via src</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">srcMatch</span> <span class="o">&amp;&amp;</span> <span class="nx">srcMatch</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="p">{</span>
-                <span class="nx">s</span> <span class="o">=</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
-                <span class="nx">s</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">srcMatch</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-                <span class="c1">// set charset</span>
-                <span class="k">if</span> <span class="p">((</span><span class="nx">charsetMatch</span> <span class="o">=</span> <span class="nx">attrs</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">RE_SCRIPT_CHARSET</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="nx">charsetMatch</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="p">{</span>
-                    <span class="nx">s</span><span class="p">.</span><span class="nx">charset</span> <span class="o">=</span> <span class="nx">charsetMatch</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-                <span class="p">}</span>
-                <span class="nx">s</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// make sure async in gecko</span>
-                <span class="nx">hd</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="c1">// inline script</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="nx">text</span> <span class="o">=</span> <span class="nx">match</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nx">text</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">S</span><span class="p">.</span><span class="nx">globalEval</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="c1">// 删除探测节点</span>
-        <span class="p">(</span><span class="nx">t</span> <span class="o">=</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="nx">DOM</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
-
-        <span class="c1">// 回调</span>
-        <span class="nx">S</span><span class="p">.</span><span class="nx">isFunction</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">callback</span><span class="p">();</span>
-    <span class="p">});</span>
-
-    <span class="nx">setHTMLSimple</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">html</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</blockquote>
-<ul class="simple">
-<li>通过 elm.innerHTML 设置, 但一些特殊元素 table/tr/td 等在IE下, innerHTML 是只读属性, 不能通过它来设置, 而是先 removeChild, 然后再 appendChild;</li>
-<li>如果包含 script 脚本, 首先确保在 DOM ready 后执行(通过创建一个临时节点来判断是否 ready ), 若是脚本文件插入到 head 末尾, 且设置其 async 为 true, 即异步加载, 不阻塞浏览器, 若是内联脚本, 使用 S.globalEval(text) 立即执行该脚本;</li>
-</ul>
-<p>dom.remove()</p>
-<ul class="simple">
-<li>el.parentNode.removeChild(el);</li>
-<li>是否需要删除expando和event, 如 jQuery 的处理?</li>
-</ul>
-</div>
-<div class="section" id="dom-inseartion-js">
-<h2>dom-inseartion.js</h2>
-<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-insertion.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-insertion.js</a></p>
-<ul class="simple">
-<li>appendChild, removeChild, replaceChild 直接用原生的方法;</li>
-<li>添加 insertBefore/insertAfter 方法, 实现时转换成父元素的 insertBefore 来, 只是被参照的元素不同.</li>
-</ul>
-</div>
-<div class="section" id="dom-traversal-js">
-<h2>dom-traversal.js</h2>
-<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-traversal.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-traversal.js</a></p>
-<p>DOM 的遍历</p>
-<p>parent()/next()/prev() 这种只取单个元素的方法, ---&gt; nth(elem, filter, direction, extraFilter)</p>
-<ul class="simple">
-<li>获取 elem 满足 filter 的第一个 parentNode, nextSibling, previousSibling 元素.</li>
-<li>filter 为数字时, 表示深度, 从0开始, 0 表示当前 elem;</li>
-</ul>
-<p>siblings()/children() 这类取一批元素的方法, ---&gt; getSiblings(selector, filter, parent)</p>
-<ul class="simple">
-<li>获取 elem 满足条件的所有siblings</li>
-<li>利用 parentNode.firstChild 和 next.nextSibling , siblings() 取 elem.parentNode 的 孩子 且不是 elem 的元素.</li>
-</ul>
-<p>contains() 判断一个节点(contained)是否在另外一个节点(container)内</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">contains</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span> <span class="nx">contained</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-
-    <span class="k">if</span> <span class="p">((</span><span class="nx">container</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">container</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">contained</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">contained</span><span class="p">)))</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">contains</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nx">container</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="nx">contained</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">compareDocumentPosition</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="o">!!</span><span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">compareDocumentPosition</span><span class="p">(</span><span class="nx">contained</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">16</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">ret</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">contained</span> <span class="o">=</span> <span class="nx">contained</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">))</span> <span class="p">{</span>
-                <span class="nx">ret</span> <span class="o">=</span> <span class="nx">contained</span> <span class="o">==</span> <span class="nx">container</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</blockquote>
-<ul class="simple">
-<li>最容易想到的方法, 判断 contained.parentNode 是否为 container, 如果不是, 再次判断parentNode.parentNode,依次下去, ps: document.parentNode 为 null;</li>
-<li>Firefox, Opera 支持 compareDocumentPosition , 就可以直接使用该方法, 具体见下链接;</li>
-<li>如果对象已经包含 contains 方法, 则用他的 contains 方法;</li>
-</ul>
-</div>
-<div class="section" id="dom-class-js">
-<h2>dom-class.js</h2>
-<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/dom-class.js">http://github.com/kissyteam/kissy/blob/master/src/dom/dom-class.js</a></p>
-<p>hasClass()/addClass()/removeClass() 处理 elem.className
-replaceClass() 先删removeClass()后加addClass()
-toggleClass() 有某个 cls, 则removClass, 没有则addClass()</p>
-<ul class="simple">
-<li>这几个方法大多用到 batch(selector, value, fn, resultIsBool) 方法, 用于批量操作, 对符合条件的一批元素进行.</li>
-</ul>
-</div>
-<div class="section" id="selector-js">
-<h2>selector.js</h2>
-<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/dom/selector.js">http://github.com/kissyteam/kissy/blob/master/src/dom/selector.js</a></p>
-<p>终于到 selector 了. 可谓是 DOM 的核心了. 所以留到最后.
-S.get()/S.query()/S.filter()/S.test() ---&gt; query()
-优先级及先后处理顺序#id, cls, tag, 先出现的作为 context;</p>
-<ul>
-<li><p class="first">#id ----&gt; getElementById;</p>
-</li>
-<li><p class="first">#id .cls | #id tag.cls | .cls | tag.cls ----&gt; getElementsByClassName or querySelectorAll or getElementsByTagName 自个儿判断;</p>
-<blockquote>
-<div class="highlight"><pre><span class="c1">// query .cls</span>
-    <span class="kd">function</span> <span class="nx">getElementsByClassName</span><span class="p">(</span><span class="nx">cls</span><span class="p">,</span> <span class="nx">tag</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">els</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="nx">cls</span><span class="p">),</span>
-            <span class="nx">ret</span> <span class="o">=</span> <span class="nx">els</span><span class="p">,</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">els</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">el</span><span class="p">;</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="nx">tag</span> <span class="o">&amp;&amp;</span> <span class="nx">tag</span> <span class="o">!==</span> <span class="nx">ANY</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">ret</span> <span class="o">=</span> <span class="p">[];</span>
-            <span class="nx">tag</span> <span class="o">=</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
-            <span class="k">for</span> <span class="p">(;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">el</span> <span class="o">=</span> <span class="nx">els</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nx">el</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">===</span> <span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="nx">ret</span><span class="p">[</span><span class="nx">j</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nx">el</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">doc</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// 降级使用 querySelectorAll</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">getElementsByClassName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cls</span><span class="p">,</span> <span class="nx">tag</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="nx">context</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">((</span><span class="nx">tag</span> <span class="o">?</span> <span class="nx">tag</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">cls</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="c1">// 降级到普通方法</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">getElementsByClassName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cls</span><span class="p">,</span> <span class="nx">tag</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
-                <span class="kd">var</span> <span class="nx">els</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">tag</span> <span class="o">||</span> <span class="nx">ANY</span><span class="p">),</span>
-                    <span class="nx">ret</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">els</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">t</span><span class="p">;</span>
-
-                <span class="nx">cls</span> <span class="o">=</span> <span class="nx">SPACE</span> <span class="o">+</span> <span class="nx">cls</span> <span class="o">+</span> <span class="nx">SPACE</span><span class="p">;</span>
-                <span class="k">for</span> <span class="p">(;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="nx">el</span> <span class="o">=</span> <span class="nx">els</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-                    <span class="nx">t</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">className</span><span class="p">;</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="nx">t</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">SPACE</span> <span class="o">+</span> <span class="nx">t</span> <span class="o">+</span> <span class="nx">SPACE</span><span class="p">).</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">cls</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="nx">ret</span><span class="p">[</span><span class="nx">j</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nx">el</span><span class="p">;</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-                <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-</pre></div>
-</blockquote>
-</li>
-<li><p class="first">这里的 getElementsByClassName 方法, 处理比较复杂,</p>
-</li>
-<li><p class="first">传入 S.Node or S.NodeList, 会转成 DOM Node 返回;</p>
-</li>
-<li><p class="first">filter, 过滤满足条件的元素, 在 query 基础上;</p>
-</li>
-<li><p class="first">S.query('.x').each(fn, context) 等价于 S.each(S.query('.x'), fn, context)</p>
-</li>
-<li><p class="first">S.ExternalSelector 额外的选择器, 比如 sizzle.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="node-js-nodelist-js">
-<h2>node.js/nodelist.js</h2>
-<p><a class="reference external" href="http://github.com/kissyteam/kissy/blob/master/src/node">http://github.com/kissyteam/kissy/blob/master/src/node</a></p>
-<p>代替 DOM 原生的 Node, KISSY 的 Node/NodeList, 以支持链式操作.</p>
-<ul class="simple">
-<li>S.one()/S.all()</li>
-<li>node.getDOMNode(), nodelist.item(idx), .getDOMNodes(), .each(fn, context), 貌似没啥好说的.</li>
-</ul>
-</div>
-<div class="section" id="node-attach-js">
-<h2>node-attach.js</h2>
-<p>给 Node/NodeList, 添加一些 DOM 中实现的方法.</p>
-<ul class="simple">
-<li>.one/.all, 同S.one/S.all;</li>
-<li>.append/.appendTo, 追加html/添加到父节点的末尾上;</li>
-<li>核心: attach/normalGetterSetter, 用于将 Node/NodeList 的方法 转移到 DOM 方法实现.</li>
-</ul>
-</div>
-<div class="section" id="id1">
-<h2>相关资源链接</h2>
-<ul class="simple">
-<li><a class="reference external" href="https://developer.mozilla.org/en/DOM/Node.compareDocumentPosition">compareDocumentPosition: Compares the position of the current node against another node in any other document.</a></li>
-<li>DOM.contains(): <a class="reference external" href="http://ejohn.org/blog/comparing-document-position/">http://ejohn.org/blog/comparing-document-position/</a> 和 <a class="reference external" href="http://www.quirksmode.org/blog/archives/2006/01/contains_for_mo.html">http://www.quirksmode.org/blog/archives/2006/01/contains_for_mo.html</a></li>
-</ul>
-</div>
 ]]>
         </content>
     </entry>
