@@ -2,7 +2,7 @@
   Founder&Developer: Liz Sheng
   Contact: shengyan1985[at]gmail.com
   Site: https://github.com/lizzie
-  Location: Hangzhou China
+  Location: Suzhou China
 
 /* SITE */
   Last update: 2013/02/05
