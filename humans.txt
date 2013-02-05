@@ -1,0 +1,13 @@
+/* TEAM */
+  Founder&Developer: Liz Sheng
+  Contact: shengyan1985[at]gmail.com
+  Site: https://github.com/lizzie
+  Location: Hangzhou China
+
+/* SITE */
+  Last update: 2013/02/05
+  Language: Chinese
+  Doctype: HTML5
+  Standards: HTML5, CSS3
+  Core: Python
+  IDE: PyCharm

@@ -3,9 +3,26 @@
     <title>SunsetSunrising</title>
     <link href="http://sunsetsunrising.com/feed.xml" rel="self" />
     <link href="http://sunsetsunrising.com/" />
-    <updated>2013-01-09T18:40:44+08:00</updated>
+    <updated>2013-02-05T12:59:26+08:00</updated>
     <id>http://sunsetsunrising.com/</id>
     <entry>
+        <title type="html"><![CDATA[祖母毯]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2013/grandma_blanket.html"/>
+        <published>2013-02-05T18:23:06+08:00</published>
+        <updated>2013-02-05T12:59:26+08:00</updated>
+        <id>http://sunsetsunrising.com/2013/grandma_blanket.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#handmade" term="handmade" label="handmade" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>第二件手作—祖母毯, 耗时一个月, 一斤毛线, 边上的一圈可爱的狗牙针织的我手都酸了. 现在针法蛮熟练了, 速度也快了许多.</p>
+<p>小show下实物:</p>
+<img alt="http://ww3.sinaimg.cn/large/b5464cd5jw1e1fdoc8sm2j.jpg" src="http://ww3.sinaimg.cn/large/b5464cd5jw1e1fdoc8sm2j.jpg" />
+<p>图解:</p>
+<p>基本的块单元就不贴了, 很多地方都有, 块与块之间的连接还有有点小难度的, 从 <a class="reference external" href="http://blog.163.com/my_bianzhirensheng/blog/static/207427239201268101927650/">这里</a> 可以学到完整的连接步骤.</p>
+<p>PS: 今天把 humans.txt 信息加到这个站点上啦. 什么是 humans.txt? 不知道的朋友, 猛击 <a class="reference external" href="http://humanstxt.org.cn/">这个链接</a> 了解吧~</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[&lt;人生若只如初见&gt; -- 语录]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2013/life_at_the_beginning.html"/>
@@ -66,7 +83,7 @@
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2012/2012_summary_and_2013_outlook.html"/>
         <published>2012-12-31T23:59:59+08:00</published>
-        <updated>2013-01-08T14:22:44+08:00</updated>
+        <updated>2013-02-05T11:43:25+08:00</updated>
         <id>http://sunsetsunrising.com/2012/2012_summary_and_2013_outlook.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
         <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
@@ -88,13 +105,13 @@
 <li>这一年, 养了一只属于自己的萨摩耶, 可爱无敌超级好动, 可... 最终离我而去, 可惜&amp;可恨&amp;无力. 但, 也让我彻底看清别人和自己.</li>
 <li>这一年, 逼着自己相了一次亲, 结果, 让我更加不相信男人, 世上怎有这种动物?! 自私虚伪.</li>
 <li>这一年, 看了哲学书&lt;易经的智慧&gt;系列, &lt;遇见未知的自己&gt;, &lt;苏菲的世界&gt;; 另外喜欢上了安意如, 喜欢上了&lt;人生若只如初见&gt;的那种意境.</li>
-<li>这一年, 学了手工钩针, 打了第一条大披肩, 并在etsy上开了家手工店. 虽说里面的宝贝不是我亲手制作的, 但以后目标是专卖我的手工作品.</li>
+<li>这一年, 学了手工钩针, 打了第一条大披肩, 并在 etsy 上开了家手工店. 虽说里面的宝贝不是我亲手制作的, 但以后目标是专卖我的手工作品.</li>
 <li>这一年, 一如既往的又回顾了下&lt;老友记&gt;.</li>
 </ul>
 <p><strong>其他</strong></p>
 <ul class="simple">
 <li>换了发型.</li>
-<li>买了Macbook air, 从以前的windows换到了mac.</li>
+<li>买了 Macbook air, 从以前的 windows 换到了 mac.</li>
 <li>搬了三次家.</li>
 <li>学车了, 但目前学到一半.</li>
 <li>博客重开&amp;迁移&amp;换域名.</li>
@@ -1009,183 +1026,6 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
 <div class="section" id="server-side-test-running">
 <h2>Server-Side Test Running</h2>
 <p>另外一种替代方式是在仿浏览器(或模拟的浏览器环境, 如 Rhino )中执行测试. 他们存在的严重问题: 不是在真实的浏览器中执行, 结果就不可保证.</p>
-</div>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[Introduce to Jasmine]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/about_jasmine.html"/>
-        <published>2010-10-17T11:10:07+08:00</published>
-        <updated>2012-12-31T22:00:42+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/about_jasmine.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Javscript" term="Javscript" label="Javscript" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <p>上次报告中讲到的 Jasmine, 但由于自己讲的太烂 &amp; 没讲清楚, 估计没人在意了. 所以在这再次介绍一下这个工具~</p>
-<div class="section" id="jasmine">
-<h2>Jasmine 介绍</h2>
-<p>这单词本意是 &quot;茉莉花&quot; 的意思, 小而精致的一种花. 同样, JS 测试框架中的 Jasmine 也是一个小巧工具, 但功能不小巧~</p>
-<p>他是一个用于 JS 测试的行为驱动开发(BDD)框架. 独立存在, 不依赖其他 JS 框架.</p>
-<p>借一段文档上的代码:</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;Jasmine&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;makes testing JavaScript awesome!&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">yourCode</span><span class="p">).</span><span class="nx">toBeLotsBetter</span><span class="p">();</span>
-  <span class="p">});</span>
-<span class="p">});</span>
-</pre></div>
-</blockquote>
-<p>测试代码可以写成如上类似的样子, 代码看上去很自然语言了, 很易读~</p>
-</div>
-<div class="section" id="id1">
-<h2>Jasmine 使用</h2>
-<p>Specs: 说明, 使用 it(description, fn) 来描述;</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should increment a variable&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="nx">foo</span><span class="o">++</span><span class="p">;</span>
-<span class="p">});</span>
-</pre></div>
-</blockquote>
-<p>他用来说明 fn 中的动作要达到什么样的效果;</p>
-<p>Expecations: 期望, 存在于 spec 中, 用来描述某值的期望结果, 使用 expect() + matchers;</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should increment a variable&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>            <span class="c1">// set up the world</span>
-      <span class="nx">foo</span><span class="o">++</span><span class="p">;</span>                  <span class="c1">// call your application code</span>
-
-      <span class="nx">expect</span><span class="p">(</span><span class="nx">foo</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// passes because foo == 1</span>
-<span class="p">});</span>
-</pre></div>
-</blockquote>
-<p>Suites: Specs 的集合, 相当于 Test　Case, 使用 describe 语句;</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Calculator&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;can add a number&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="p">...</span>
-      <span class="p">});</span>
-
-      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;has multiply some numbers&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="p">...</span>
-      <span class="p">});</span>
-<span class="p">});</span>
-</pre></div>
-</blockquote>
-<ul class="simple">
-<li>Suites 的名字一般为你要测试的模块/组件/应用名字;</li>
-<li>Suites 中的每个 Spec 只执行一次, 一个 Suites, 一个作用域, 里面的 Spec 共享;</li>
-<li>支持嵌套的 Describes;</li>
-<li>beforeEach(fn)/afterEach(fn), 在每个 spec 执行之前/之后 执行;</li>
-<li>this.after(fn) 在特定的某个 spec 执行之后执行, 但没有 this.before !</li>
-<li>xit()/xdescribe() 设置 spec/describe 不可用.</li>
-</ul>
-<p>Matchers: 匹配者</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span> <span class="c1">// compares objects or primitives x and y and passes if they are equivalent</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>    <span class="c1">// compares objects or primitives x and y and passes if they are the same object</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toMatch</span><span class="p">(</span><span class="nx">pattern</span><span class="p">);</span> <span class="c1">// compares x to string or regular expression pattern and passes if they match</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>    <span class="c1">// passes if x is not undefined</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBeNull</span><span class="p">();</span>       <span class="c1">// passes if x is null</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBeTruthy</span><span class="p">();</span>     <span class="c1">// passes if x evaluates to true</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBeFalsy</span><span class="p">();</span>      <span class="c1">// passes if x evaluates to false</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toContain</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>     <span class="c1">// passes if array or string x contains y</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBeLessThan</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>  <span class="c1">// passes if x is less than y</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">toBeGreaterThan</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>  <span class="c1">// passes if x is greater than y</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">fn</span><span class="p">).</span><span class="nx">toThrow</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>         <span class="c1">// passes if function fn throws exception e when executed</span>
-</pre></div>
-</blockquote>
-<ul>
-<li><p class="first">否定只需加 not</p>
-<blockquote>
-<div class="system-message">
-<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">&lt;string&gt;</tt>, line 102)</p>
-<p>Content block expected for the &quot;sourcecode&quot; directive; none found.</p>
-<pre class="literal-block">
-.. sourcecode:: js
-    expect(x).not.toEqual(y);      // compares objects or primitives x and y and passes if they are not equivalent
-
-
-</pre>
-</div>
-</blockquote>
-</li>
-<li><p class="first">Matcher 是可以自定义的. 使用 <tt class="docutils literal">addMatchers(obj)</tt></p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">toBeLessThan</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">expected</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">actual</span> <span class="o">&lt;</span> <span class="nx">expected</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">addMatchers</span><span class="p">({</span>
-    <span class="nx">toBeVisible</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">actual</span><span class="p">.</span><span class="nx">isVisible</span><span class="p">();</span> <span class="p">}</span>
-  <span class="p">});</span>
-<span class="p">});</span>
-</pre></div>
-</blockquote>
-</li>
-</ul>
-<p>Spies/Asynchronous Specs</p>
-<ul>
-<li><p class="first">permit many spying, mocking, and faking behaviors. 用于模拟传参, 回调函数, 异步请求/行为监测</p>
-</li>
-<li><p class="first">支持异步测试, 测试 ajax api, 事件回调等, 就是针对在未来某个点上会发生的行为.</p>
-</li>
-<li><p class="first">runs() 阻塞执行, 就像是直接调用一样; 多个runs() 共享作用域.</p>
-</li>
-<li><p class="first">waits(timeout) 等待多长时间后再执行下面的语句.</p>
-</li>
-<li><p class="first">waitsFor(function, optional message, optional timeout) 直到 function 返回 true 才执行下去.</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Spreadsheet&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should calculate the total asynchronously&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">spreadsheet</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Spreadsheet</span><span class="p">();</span>
-    <span class="nx">spreadsheet</span><span class="p">.</span><span class="nx">fillWith</span><span class="p">(</span><span class="nx">lotsOfFixureDataValues</span><span class="p">());</span>
-    <span class="nx">spreadsheet</span><span class="p">.</span><span class="nx">asynchronouslyCalculateTotal</span><span class="p">();</span>
-
-    <span class="nx">waitsFor</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="nx">spreadsheet</span><span class="p">.</span><span class="nx">calculationIsComplete</span><span class="p">();</span>
-    <span class="p">},</span> <span class="s2">&quot;Spreadsheet calculation never completed&quot;</span><span class="p">,</span> <span class="mi">10000</span><span class="p">);</span>
-
-    <span class="nx">runs</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="nx">expect</span><span class="p">(</span><span class="nx">spreadsheet</span><span class="p">.</span><span class="nx">total</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">123456</span><span class="p">);</span>
-    <span class="p">});</span>
-  <span class="p">});</span>
-<span class="p">});</span>
-</pre></div>
-</blockquote>
-</li>
-<li><p class="first">关于 spies, 偶自己使用时, 有时很奇怪他的行为,,可能是没更好的用. 有待进一步研究. 更多资料参见 <a class="reference external" href="http://pivotal.github.com/jasmine/spies.html">http://pivotal.github.com/jasmine/spies.html</a>.</p>
-</li>
-</ul>
-<p>最后, 只要引入 jasmine 所需的css/js就可以让 Test Runner 跑起来</p>
-<blockquote>
-<div class="highlight"><pre><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;../../../tests/jasmine/jasmine.css&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../../../tests/jasmine/jasmine.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../../../tests/jasmine/jasmine-html.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../../../build/packages/kissy.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../test.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-
-<span class="nt">&lt;script&gt;</span>
-    <span class="nx">jasmine</span><span class="p">.</span><span class="nx">getEnv</span><span class="p">().</span><span class="nx">addReporter</span><span class="p">(</span><span class="k">new</span> <span class="nx">jasmine</span><span class="p">.</span><span class="nx">TrivialReporter</span><span class="p">());</span>
-    <span class="nx">jasmine</span><span class="p">.</span><span class="nx">getEnv</span><span class="p">().</span><span class="nx">execute</span><span class="p">();</span>
-<span class="nt">&lt;/script&gt;</span>
-</pre></div>
-</blockquote>
-<p>打开页面就可以看到对应的结果了. 这样就不用人肉地执行重复的工作了!</p>
-</div>
-<div class="section" id="id2">
-<h2>其他</h2>
-<p>既然 jasmine 本身不依赖什么, 那么就可以和现有的其他 JS 测试工具结合使用, 比如和 js-test-driver 结合起来, 这样更加自动化.</p>
-</div>
-<div class="section" id="id3">
-<h2>资料</h2>
-<ul class="simple">
-<li>Jasmine 文档: <a class="reference external" href="http://pivotal.github.com/jasmine/index.html">http://pivotal.github.com/jasmine/index.html</a></li>
-<li>JQuery 的 jasmine 插件: <a class="reference external" href="http://blog.davidpadbury.com/2010/10/11/bdd-testing-of-jquery-plugins-using-jasmine/">http://blog.davidpadbury.com/2010/10/11/bdd-testing-of-jquery-plugins-using-jasmine/</a></li>
-<li>BDD: <a class="reference external" href="http://en.wikipedia.org/wiki/Behavior_Driven_Development">http://en.wikipedia.org/wiki/Behavior_Driven_Development</a></li>
-</ul>
 </div>
 ]]>
         </content>
