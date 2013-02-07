@@ -3,9 +3,60 @@
     <title>SunsetSunrising</title>
     <link href="http://sunsetsunrising.com/feed.xml" rel="self" />
     <link href="http://sunsetsunrising.com/" />
-    <updated>2013-02-05T12:59:26+08:00</updated>
+    <updated>2013-02-07T16:51:28+08:00</updated>
     <id>http://sunsetsunrising.com/</id>
     <entry>
+        <title type="html"><![CDATA[NPAPI]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2013/npapi.html"/>
+        <published>2013-02-06T17:11:08+08:00</published>
+        <updated>2013-02-07T16:51:28+08:00</updated>
+        <id>http://sunsetsunrising.com/2013/npapi.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Chrome" term="Chrome" label="Chrome" />
+        <category scheme="http://sunsetsunrising.com/tag/#Plugins" term="Plugins" label="Plugins" />
+        <category scheme="http://sunsetsunrising.com/tag/#FireBreath" term="FireBreath" label="FireBreath" />
+        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>近来在写一个 Chrome 扩展, 大概需求是截取地图, 传到后台分析地图图片上的一些位置并返回给前台, 最后存坐标入数据库.
+其中分析这步, 是部署在IIS上的C#程序, C#再去调用底层的C++算法. 虽说 Chrome 扩展中可以发送跨域请求, 不过还是感觉绕了一大圈.
+偶尔看到扩展中可以载入 Plugin 并可以被 js 调用. 于是, 琢磨了下这类 Plugin 的写法. 如果可以的话, 那就可以在Chrome里面分析图片上的位置直接返回.</p>
+<p>这相关的资料, 网上找了一圈, 都比较零散, 要么就是非常成旧的, 以致刚开始看比较晕. 所以这边就整理下思路:</p>
+<p>首先, Chrome 扩展对 Plugin 的使用说明, 官方有 <a class="reference external" href="http://developer.chrome.com/extensions/npapi.html">Chrome扩展对NPAPI的使用说明</a> , 只要按照上面的写法就能载入 Plugin.</p>
+<p>但是如何去生成这个 Plugin 呢?  而且什么是 NPAPI 呢? 对于我这种刚开始连 Plugin 是干嘛的都不知道的人来说... 简直就是无从下手.</p>
+<p>网上胡乱搜了一圈的资料, 感觉比较有用的就是:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://en.wikipedia.org/wiki/Netscape_Plugin_Application_Programming_Interface">NPAPI的历史由来</a> , 主要包含 LiveConnect, XPConnect, NPRuntime 三个阶段</li>
+<li><a class="reference external" href="http://jldupont.blogspot.com/2009/11/notes-on-npapi-based-plugins.html">Plugin和Browser相互调用图解及步骤说明</a></li>
+</ul>
+<p>我自己总结下就是:</p>
+<ul class="simple">
+<li>Plugin 是让浏览器可以去执行桌面端程序的一种方式,</li>
+<li>比如说可以操作本地文件, 图像处理等. Plugin 本质上就是一些 .dll, .so,</li>
+<li>这些是针对不同操作系统上, 不同编译器上编译出来的可执行程序. 至于这些用什么语言来写的, 那就没关系了. 可生成的 .dll/.so 只是在桌面端来执行的.</li>
+<li>那如何在浏览器内执行呢? 是不是要专门定些接口? 不同的浏览器也有不同的实现,</li>
+<li>上面提到的 LiveConnect(类似于java applet, 要执行必须依赖于jvm, 就是说浏览器中得包含个jvm, 这样就能执行java代码了), XPConnect(mozilla提的一种), NPRuntime, 就是不同时期, 不同浏览器厂商提供的执行插件程序的API.</li>
+<li>最后的 NPRuntime 就是后来多个浏览器厂商都支持的一种规范 API, 目前都支持.</li>
+</ul>
+<p>那差不多了解了, 就可以依据 NPAPI 的规范来开发浏览器 Plugin 了.</p>
+<p>NPAPI 有 <a class="reference external" href="http://code.google.com/p/npapi-sdk/source/checkout">提供 SDK</a> , C代码, 看头文件的话, 定义了一些 initialize/new/destory等方法和数据类型(里面列出的所有API说明,
+可以在 <a class="reference external" href="http://colonelpanic.net/2009/05/building-a-firefox-plugin-part-two/">这篇博文</a> 中找到, 这也是一篇很少的文章).</p>
+<p>此sdk还包含 linux/mac 的示例代码. 尝试了 mac 下 xcodeproj, 编译之后可以生成一个 BasicPlugin, 然后把这个 .plugin 文件拷贝到用户目录下的 Internet Plugins 目录,
+重启浏览器, 打开示例页面, 照理应该可以载入了, 但我这边一直提示没有正确载入. 鉴于老早就把 C/C++ 语言忘得一干二净了, 所以也不知道该改哪边.</p>
+<p>这个 sdk, 不好的地方是, 需要对不同操作系统分别写代码, 分别编译生成. 针对我们开发者来说, 很不方便.</p>
+<p>另外, Mozilla 也提供了针对不同操作系统的 <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Gecko_SDK">Gecko_SDK</a> (和 npapi-sdk 的几个文件是同步的),
+不过光看文档, 里面就一大堆的依赖(<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Developer_Guide/Build_Instructions/Mac_OS_X_Prerequisites">真的是一大堆的依赖啊~~~</a>),
+没敢尝试下去.</p>
+<p>所以找了另一种方式, 使用 <a class="reference external" href="http://www.firebreath.org/">FireBreath</a></p>
+<pre class="literal-block">
+- 下载完他的sdk, 解压.
+- python fbgen.py                   # 生成新工程模板, 好处在于她把所有操作系统平台下的模板代码都生成好了, 爽, 基本上只要填空就行了.
+- ./prepmac.sh                      # 预编译过程, 在mac下会生成 xcodeproj.
+- 进入 build 目录, 执行 xcodebuild    # 真正编译, 生成 plugin. 搞定且成功载入到页面.
+</pre>
+<p>最后总结就是, 要快速开发跨平台跨浏览器插件, 使用 FireBreath 开发遵循 NPAPI 规范的插件.</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[祖母毯]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2013/grandma_blanket.html"/>
@@ -944,89 +995,6 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
 <p>等等, 具体可以看源码吧.</p>
 <p>简单Demo: <a class="reference external" href="http://kissyteam.github.com/kissy-gallery/slidinglabels/demo.html">http://kissyteam.github.com/kissy-gallery/slidinglabels/demo.html</a></p>
 <p>有兴趣的话, 可以在您的留言板中尝试下看~~</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[Test Swarm]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2010/test_swarm.html"/>
-        <published>2010-10-17T11:10:56+08:00</published>
-        <updated>2012-12-31T22:00:42+08:00</updated>
-        <id>http://sunsetsunrising.com/2010/test_swarm.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Tools" term="Tools" label="Tools" />
-        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <p>TestSwarm <a class="reference external" href="http://github.com/jeresig/testswarm/wiki">http://github.com/jeresig/testswarm/wiki</a></p>
-<p>上次调研 TestSwarm 时, 他官网上给了个使用教程, 后来稍加翻译了下,, 有兴趣玩玩.</p>
-<div class="section" id="id1">
-<h2>简介</h2>
-<p>TestSwarm 提供了 JavaScript 的分布式/持续集成测试功能. 它由 <a class="reference external" href="http://ejohn.org/">John Resig</a> 创建, 当初作为 jQuery 的支持工具, 现已成为 Mozilla Labs 项目之一.</p>
-<p>注意: TestSwarm 现在还处于 Aplha 状态. 主要存在问题: 1) 测试结果丢失数据, 2) 客户端连接断开, 3) 其他非预期的影响因素. 请在使用过程中记住这些问题的存在.</p>
-<p>TestSwarm 的初衷是要解决如下文章中提出的问题:</p>
-<ul class="simple">
-<li><a class="reference external" href="http://ejohn.org/blog/javascript-testing-does-not-scale/">JavaScript Testing Does Not Scale</a></li>
-<li><a class="reference external" href="http://ejohn.org/blog/jsconf-talk-games-performance-testswarm/">the following recorded presentation</a></li>
-</ul>
-<p>TestSwarm 主要的目标是为了简化原本多浏览器中执行很复杂的, 又耗时的 JavaScript test suites 测试过程. TestSwarm 的大致过程可在 <a class="reference external" href="http://www.vimeo.com/6281121">这个视频</a> 中了解到.</p>
-<p>TestSwarm 的最终结果是类似如下的页面:</p>
-<img alt="http://farm4.static.flickr.com/3500/3723002475_d628e85afb.jpg" src="http://farm4.static.flickr.com/3500/3723002475_d628e85afb.jpg" />
-<p>他显示了每次源代码提交(垂直方向上)后, 在不同浏览器(水平方向上)中的运行情况. 绿色表示100%通过, 红色表示至少有一个TC失败, 黑色表示包含了非常严重的错误, 灰色表示还没有进行测试.</p>
-</div>
-<div class="section" id="id3">
-<h2>架构</h2>
-<img alt="http://ejohn.org/files/ts-swarm.png" src="http://ejohn.org/files/ts-swarm.png" />
-<ul class="simple">
-<li>中心服务器, 客户端连接到这里, 并且任务也会被提交到这里(后端使用PHP/MySQL).</li>
-<li>客户端是被加载到浏览器中的 TestSwarm Test runner 实例. 一个用户(如 'john')可以运行多个客户端, 不同浏览器上或是同一浏览器上的不同标签页.</li>
-<li>Test runner 非常简单 - JS 实现. 它每30秒钟 ping 服务器, 查询是否有新的 test suite 需要执行, 如果有, 则执行它(在一个iframe中)并且把结果发送给服务器; 如果没有, 则睡眠/等待.</li>
-<li>一个任务(Job)包含两样东西: test suites 和 browsers. 当一个项目提交一个任务, 指明需要执行哪个 test suites 和需要在哪些浏览器中执行;</li>
-<li>最后, 产生一批 'runs' (一个 run 表示在特定浏览器上执行特定的 test suite 过程). 一个 run 至少执行一次.</li>
-</ul>
-<p>其实, 可以把服务器看成是一个巨大的队列. 任务被添加, 然后被推送到队列中, 客户端不断去取这些新来的任务并执行, 客户端执行之后, 收集这些返回的结果.</p>
-</div>
-<div class="section" id="id4">
-<h2>结果正确性</h2>
-<p>TestSwarm 的一个重要方面是它能主动纠正客户端不正确的结果. 浏览器不靠谱(不一致的结果, 浏览器bugs, 网络问题等), TestSwarm 做了一些尝试来尽可能生成靠谱的结果:</p>
-<ul class="simple">
-<li>如果客户端失去网络连接, 或者停止响应时, 自动被 swarm 清除;</li>
-<li>如果客户端不能与服务端通信, 它会重复尝试连接(甚至重载页面);</li>
-<li>客户端有一个全局的超时检测, 检查 test suites 是否不可通信;</li>
-<li>客户端可以检查自己的测试时间, 允许只发送部分结果给服务端;</li>
-<li>客户端提交的不正确的结果(错误, 失败, 超时等)自动会在一个新客户端中重新执行, 以尽可能通过测试(重复执行次数由提交任务时设定)</li>
-</ul>
-</div>
-<div class="section" id="swarm">
-<h2>设置你自己的Swarm</h2>
-<ul class="simple">
-<li><a class="reference external" href="http://github.com/jeresig/testswarm/tree/master">下载源码</a> . TestSwarm 依赖 PHP 和 MySQL, 确保 Apache 的 rewrite rules 可用. 通过编辑数据库的 useragents 表来配置浏览器列表.</li>
-<li>设置自动发送任务脚本, 'scripts' 目录下有样例脚本. 与 svn/git 一起, 也可作为 crob 任务.</li>
-<li>也可通过Web接口提交, 立即可用.</li>
-<li>TestSwarm 支持如下的测试框架: QUnit(JQuery), UnitTestJS(Prototype), JSSpec(MooTools), JSUnit, Selenium, 和 Dojo Objective Harness.</li>
-<li>示例脚本中有一点很重要, 就是你需要在 suite 中增加一个 script 元素, 其指向服务器上的 /js/inject.js -- 这个注入脚本用于允许 test suites 捕获并与 TestSwarm 通信.</li>
-<li>增加你自己的 test suite, 可以通过一个 HTML 序列化钩子, 重载 window.TestSwarm.serialize. 另外, 一个 test suites 完成后, 你需要调用 window.TestSwarm.submit , 加上 所有失败数, 错误数, 运行次数. 也可在每次测试完成后调用 window.TestSwarm.heartbeat() 来提供更好的测试超时时间.</li>
-<li>提交任务需要 AUTH 标记. 在数据库中的 users 表中查询获得 --- 是在生成用户时自动生成的.</li>
-<li>开始推送 test suites 到 swarm, 允许客户端连接并执行测试.</li>
-</ul>
-</div>
-<div class="section" id="testswarm">
-<h2>TestSwarm区别于</h2>
-<p><a class="reference external" href="http://seleniumhq.org/">Selenium</a> 功能比较全面. 包含 test suite, test driver, 自动启动浏览器, 多台机器上的分布式测试(使用他们的网格功能). 与 TestSwarm 的不同在于:</p>
-<ul class="simple">
-<li>TestSwarm 是不可知的 test suite. 不为特定 test runner 设计, 而是支持一般性 JavaScript test suite.</li>
-<li>TestSwarm 更分散. 任务可被提交到 TestSwarm时不需要客户端连接 -- 只会在最终连接上的客户端上执行一次.</li>
-<li>TestSwarm 自动纠正一些误导的结果.</li>
-<li>TestSwarm 从源码控制到浏览器, 保持连续的体验?</li>
-<li>TestSwarm 不需要任何浏览器插件/扩展 , 不需要在客户端安装任何软件.</li>
-</ul>
-</div>
-<div class="section" id="jstestdriver-and-other-browser-launchers">
-<h2>JSTestDriver and Other Browser Launchers</h2>
-<p>有很多浏览器启动工具( watir ), 但他们都有同样的如上的问题 -- 缺乏高级特征, 如连续集成.</p>
-</div>
-<div class="section" id="server-side-test-running">
-<h2>Server-Side Test Running</h2>
-<p>另外一种替代方式是在仿浏览器(或模拟的浏览器环境, 如 Rhino )中执行测试. 他们存在的严重问题: 不是在真实的浏览器中执行, 结果就不可保证.</p>
-</div>
 ]]>
         </content>
     </entry>
