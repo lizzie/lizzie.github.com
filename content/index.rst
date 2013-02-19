@@ -7,7 +7,7 @@ Home
 About Me
 -------------------------
 
-Hi, My name is Yan Sheng (Liz or Serendipity). I'm a Front-end engineer living in Suzhou now, which is a beautiful city. This website is just my some articles about life and note. So if you **are not** interested in these, please leave.
+Hi, My name is Yan Sheng (Liz or Serendipity). I'm a Front-end engineer living in Suzhou now, which is a beautiful city. This website is just my some articles about life and note.
 
 **All articles are belonged to me**, all rights reserved. They are not under any public domain.
 
