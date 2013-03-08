@@ -66,6 +66,10 @@
     color: grey;
 }
 
+.tag-list a {
+    white-space: nowrap;
+}
+
 body {
     /*overflow: hidden;*/
 }
