@@ -32,7 +32,7 @@ NPAPI
 
 
 NPAPI 有 `提供 SDK <http://code.google.com/p/npapi-sdk/source/checkout>`_ , C代码, 看头文件的话, 定义了一些 initialize/new/destory等方法和数据类型(里面列出的所有API说明,
-可以在 `这篇博文 <http://colonelpanic.net/2009/05/building-a-firefox-plugin-part-two/>`_ 中找到, 这也是一篇很少的文章).
+可以在 `这篇博文 <http://colonelpanic.net/2009/05/building-a-firefox-plugin-part-two/>`_ 中找到, 这也是一篇很好的文章).
 
 此sdk还包含 linux/mac 的示例代码. 尝试了 mac 下 xcodeproj, 编译之后可以生成一个 BasicPlugin, 然后把这个 .plugin 文件拷贝到用户目录下的 Internet Plugins 目录,
 重启浏览器, 打开示例页面, 照理应该可以载入了, 但我这边一直提示没有正确载入. 鉴于老早就把 C/C++ 语言忘得一干二净了, 所以也不知道该改哪边.
