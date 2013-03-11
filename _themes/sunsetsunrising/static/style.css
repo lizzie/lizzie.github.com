@@ -667,6 +667,7 @@ header #nav a:hover {
 footer {
   text-align: center;
   color: #dbdbdb;
+  font-family: Menlo, sans-serif;
   font-size: 12px;
 }
 footer a,
