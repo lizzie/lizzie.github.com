@@ -5,7 +5,7 @@
 :tags: note, friendship
 
 
-.. image:: http://img3.douban.com/view/photo/photo/public/p685191897.jpg
+.. image:: /assets/images/friends_1.jpg
 
 看了不下十遍的<老友记>, 感觉永远也看不腻, 永远那么的开心.
 
@@ -88,7 +88,7 @@ Why? Why? Why? 总结了, 大概以下几点:
 - 肯定还有其他原因吧.
 
 
-.. image:: http://img3.douban.com/view/photo/photo/public/p991773495.jpg
+.. image:: /assets/images/friends_2.jpg
 
 
 
