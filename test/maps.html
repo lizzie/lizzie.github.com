@@ -56,6 +56,10 @@
         var myIcon = new BMap.Icon("http://cdntest.aliyun.com/faxianla/wood/m731501-1357751862654.jpg", new BMap.Size(256,256));
         var marker = new BMap.Marker(pt,{icon:myIcon});
         map.addOverlay(marker);
+
+        marker.addEventListener("click", function(){
+            console.log(marker);
+        });
     })();
 
 
@@ -73,6 +77,10 @@
         var myIcon = new BMap.Icon("http://cdntest.aliyun.com/faxianla/wood/m731501-1357751862654.jpg", new BMap.Size(256,256));
         var marker = new BMap.Marker(pt,{icon:myIcon});
         map.addOverlay(marker);
+
+        marker.addEventListener("click", function(){
+
+        });
     })();
 </script>
 </body>
