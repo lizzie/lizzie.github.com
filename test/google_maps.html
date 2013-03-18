@@ -3,37 +3,53 @@
 <head>
     <meta charset="utf-8">
     <style>
-        #map-canvas {
+        #google-map, #baidu-map {
             width: 500px;
             height: 500px;
         }
     </style>
 </head>
 <body>
-<div id="map-canvas">
-
-</div>
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false">
-</script>
+<div id="google-map"></div>
+<br/>
+<div id="baidu-map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script>
     function initialize() {
-        var myLatlng = new google.maps.LatLng(-34.397, 150.644),
+        var myLatlng = new google.maps.LatLng(0, 0),
             mapOptions = {
-            zoom: 8,
+            zoom: 4,
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        var map = new google.maps.Map(document.getElementById("google-map"), mapOptions);
 
 
         var marker = new google.maps.Marker({
             position: myLatlng,
             map: map,
-            icon: "http://pic.paymapad.com/public/attachment/201303/51301b31716a6.jpg!100x100"
+            icon: new google.maps.MarkerImage("http://pic.paymapad.com/public/attachment/201303/51301b31716a6.jpg!100x100",
+                    new google.maps.Size(100, 100))
         });
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<script src="http://api.map.baidu.com/api?v=1.4"></script>
+<script>
+    (function() {
+        var map = new BMap.Map("baidu-map");
+        var point = new BMap.Point(0, 0);
+        map.centerAndZoom(point,4);
+        map.enableScrollWheelZoom();
+
+
+        var pt = new BMap.Point(0, 0);
+        var myIcon = new BMap.Icon("http://pic.paymapad.com/public/attachment/201303/51301b31716a6.jpg!100x100", new BMap.Size(100,100));
+        var marker = new BMap.Marker(pt,{icon:myIcon});
+        map.addOverlay(marker);
+    })();
 </script>
 </body>
 </html>
