@@ -40,9 +40,7 @@
 <script src="http://api.map.baidu.com/api?v=1.4"></script>
 <script>
     (function() {
-        var map = new BMap.Map("baidu-map", {
-            enableHighResolution: false
-        });
+        var map = new BMap.Map("baidu-map");
         var point = new BMap.Point(0, 0);
         map.centerAndZoom(point,4);
         map.enableScrollWheelZoom();
