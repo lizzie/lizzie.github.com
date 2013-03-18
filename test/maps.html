@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <style>
         #google-map, #baidu-map {
             width: 500px;
@@ -14,6 +14,8 @@
 <div id="google-map"></div>
 <br/>
 <div id="baidu-map"></div>
+<br/>
+<div id="baidu-map-low"></div>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script>
     function initialize() {
@@ -40,7 +42,22 @@
 <script src="http://api.map.baidu.com/api?v=1.4"></script>
 <script>
     (function() {
-        var map = new BMap.Map("baidu-map", {
+        var map = new BMap.Map("baidu-map");
+        var point = new BMap.Point(0, 0);
+        map.centerAndZoom(point,4);
+        map.enableScrollWheelZoom();
+        map.addControl(new BMap.NavigationControl());
+
+
+        var pt = new BMap.Point(0, 0);
+        var myIcon = new BMap.Icon("http://pic.paymapad.com/public/attachment/201303/51301b31716a6.jpg", new BMap.Size(256,256));
+        var marker = new BMap.Marker(pt,{icon:myIcon});
+        map.addOverlay(marker);
+    })();
+
+
+    (function() {
+        var map = new BMap.Map("baidu-map-low", {
             enableHighResolution: false
         });
         var point = new BMap.Point(0, 0);
