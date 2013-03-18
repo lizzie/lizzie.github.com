@@ -19,6 +19,15 @@
 <div id="baidu-map-low"></div>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script>
+    function show(elem) {
+        var s = [],
+                img = document.getElementById(elem).getElementsByTagName("img");
+        for (var i=0; i<img.length; i++) {
+            s.push(img[i].style.width);
+        }
+
+        alert(s.join(", "));
+    }
     function initialize() {
         var myLatlng = new google.maps.LatLng(0, 0),
             mapOptions = {
@@ -34,6 +43,10 @@
             map: map,
             icon: new google.maps.MarkerImage("http://cdntest.aliyun.com/faxianla/wood/m731501-1357751862654.jpg",
                     new google.maps.Size(256, 256))
+        });
+
+        google.maps.event.addListener(marker, "click", function () {
+            show("google-map");
         });
     }
 
@@ -56,13 +69,7 @@
         map.addOverlay(marker);
 
         marker.addEventListener("click", function(){
-            var s = [],
-                    img = document.getElementById("baidu-map").getElementsByTagName("img");
-            for (var i=0; i<img.length; i++) {
-                s.push(img[i].style.width);
-            }
-
-            alert(s.join(", "));
+            show("baidu-map");
         });
     })();
 
@@ -84,6 +91,7 @@
 
         marker.addEventListener("click", function(){
 
+            show("google-map-low");
         });
     })();
 </script>
