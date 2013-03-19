@@ -67,7 +67,9 @@
 }
 
 .tag-list a {
+    display: inline-block;
     white-space: nowrap;
+    padding: 2px;
 }
 
 body {

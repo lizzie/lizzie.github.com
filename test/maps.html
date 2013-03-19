@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -18,7 +18,53 @@
 <br/>
 <div id="baidu-map-low"></div>
 
-<!--<a href="https://mts1.googleapis.com/vt?lyrs=m@209000000&src=apiv3&hl=zh-CN&x=1&y=2&z=2&s=Galil&style=api%7Csmartmaps">google 256 size img</a>-->
+
+<!--<style>
+    .css-switchable {
+        position: relative;
+        width: 200px;
+        height: 100px;
+        background: #eddede;
+    }
+    .css-switchable .panel {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 60px;
+    }
+    .css-switchable #panel-2 {
+        left: 60px;
+    }
+    .css-switchable #panel-2 p {
+        left: -60px;
+    }
+
+
+    .css-switchable .panel p {
+        position: absolute;
+        left:0;
+        top: 20px;
+        display: none;
+        z-index: 1;
+    }
+    .css-switchable .panel:hover p {
+        display: block;
+        z-index: 10;
+    }
+
+
+</style>
+<div class="css-switchable">
+    <div class="panel" id="panel-1">
+        <a href="#">1</a>
+        <p>内容1</p>
+    </div>
+    <div class="panel" id="panel-2">
+        <a href="#">2</a>
+        <p>内容2</p>
+    </div>
+</div>
+<a href="https://mts1.googleapis.com/vt?lyrs=m@209000000&src=apiv3&hl=zh-CN&x=1&y=2&z=2&s=Galil&style=api%7Csmartmaps">google 256 size img</a>-->
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script>
     function show(elem) {
@@ -57,8 +103,8 @@
 
 <script src="http://api.map.baidu.com/api?v=1.4"></script>
 <script>
-    (function() {
-        var map = new BMap.Map("baidu-map");
+    (function(which) {
+        var map = new BMap.Map(which);
         var point = new BMap.Point(0, 0);
         map.centerAndZoom(point,4);
         map.enableScrollWheelZoom();
@@ -71,13 +117,13 @@
         map.addOverlay(marker);
 
         marker.addEventListener("click", function(){
-            show("baidu-map");
+            show(which);
         });
-    })();
+    })("baidu-map");
 
 
-    (function() {
-        var map = new BMap.Map("baidu-map-low", {
+    (function(which) {
+        var map = new BMap.Map(which, {
             enableHighResolution: false
         });
         var point = new BMap.Point(0, 0);
@@ -93,9 +139,9 @@
 
         marker.addEventListener("click", function(){
 
-            show("baidu-map-low");
+            show(which);
         });
-    })();
+    })("baidu-map-low");
 </script>
 </body>
 </html>
