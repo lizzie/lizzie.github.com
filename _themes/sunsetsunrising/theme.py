@@ -12,7 +12,7 @@ lang = 'en'
 
 navigation = [
     {'title': 'Home', 'link': '/'},
-    {'title': 'Resume', 'link': '/resume/zh.html'},
+    {'title': 'Archive', 'link': '/archive.html'},
     ]
 
 twitter = 'lizziesky'
