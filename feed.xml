@@ -3,9 +3,33 @@
     <title>SunsetSunrising</title>
     <link href="http://sunsetsunrising.com/feed.xml" rel="self" />
     <link href="http://sunsetsunrising.com/" />
-    <updated>2013-03-18T00:46:32+08:00</updated>
+    <updated>2013-03-22T17:33:36+08:00</updated>
     <id>http://sunsetsunrising.com/</id>
     <entry>
+        <title type="html"><![CDATA[IconFont]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2013/iconfont.html"/>
+        <published>2013-03-22T16:59:59+08:00</published>
+        <updated>2013-03-22T17:33:36+08:00</updated>
+        <id>http://sunsetsunrising.com/2013/iconfont.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>昨天看到 <a class="reference external" href="http://aliceui.org">AliceUI</a> 上提供了一套图标集 Rei, 起初我以为就是一个 CSS Sprites, 查看了下源代码, 发现原来是一套字体, 有专门的名称 -- Icon Font.
+这样, 只需自己制定一套字体, 页面载入这套字体, 直接输入对应的字符就能显示对应的图标. 因为是矢量的, 所以可以任意缩放, 着色也行, 非常方便. 具体在页面中如何使用, 可以查看这个 <a class="reference external" href="http://css-tricks.com/html-for-icon-font-usage/">简单的介绍</a> .</p>
+<p>不过我想学的是, 如何去做一套这样的字体? 因为小时候一直蛮喜欢各种西文字体的, 想着若以后能发明一套字体该多好, 有时, 也会在纸上涂鸦, 或者打开个 AI, 胡乱画一通, 可最终生成的只是一个图片, 没法和字体挂钩.</p>
+<p>现在看到了 icon font, 又继续有了我去学做字体的动力, 于是乎, 找到这篇 <a class="reference external" href="http://www.webdesignerdepot.com/2012/01/how-to-make-your-own-icon-webfont/">基础教程</a> .</p>
+<p>教程非常简单, 一步步也很详细:</p>
+<ul class="simple">
+<li>使用的是 Inkscape 的 SVG Font Editor, 来编辑最基本的图像, 最终生成的是一份标准的 SVG 文档;</li>
+<li>在使用 <a class="reference external" href="http://www.freefontconverter.com/">SVG转Font</a> 工具来生成 .ttf;</li>
+</ul>
+<p>这就搞定啦!</p>
+<p>秀下我画了两个小时的一个&quot;设计&quot;的字符 -- S.</p>
+<iframe src="/test/iconfont.html" width="300px" height="720px"></iframe><p>貌似还是很难看...只能继续努力提高自身的设计美感啦~</p>
+<p>PS: 找到一个网站 <a class="reference external" href="http://fontello.com/">fontello.com</a> 上有好多图标字体, 以后可以不用拼这种类似的图标啦;</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[回忆&lt;老友记&gt;]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2013/friends.html"/>
@@ -989,76 +1013,6 @@ MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http:/
 <li>翻墙;</li>
 <li>待熟悉了后再学刷机: 完整刷机教程 <a class="reference external" href="http://www.miui.com/a-57.html">http://www.miui.com/a-57.html</a></li>
 </ul>
-</div>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[ImageZoom重构记]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2011/imagezoom_refact.html"/>
-        <published>2011-02-18T11:02:09+08:00</published>
-        <updated>2012-12-31T22:00:42+08:00</updated>
-        <id>http://sunsetsunrising.com/2011/imagezoom_refact.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Javascript" term="Javascript" label="Javascript" />
-        <category scheme="http://sunsetsunrising.com/tag/#KISSY" term="KISSY" label="KISSY" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <p>年后回到公司, 花了些时间重构原来写的imagezoom, 主要是重构成基于uibase的组件模块化开发.</p>
-<p>首先, 如果不熟悉 uibase的话, 可以先看承玉写的:</p>
-<ul class="simple">
-<li>基于mixin的组件设计: <a class="reference external" href="http://yiminghe.javaeye.com/blog/808763">http://yiminghe.javaeye.com/blog/808763</a> 及里面的PPT ,</li>
-<li>selectbox的例子 <a class="reference external" href="http://yiminghe.javaeye.com/blog/897229">http://yiminghe.javaeye.com/blog/897229</a>,</li>
-</ul>
-<p>PS: 这两篇文章及里面的ppt, 值得多看几遍, 不然肯定会看不懂~~ 偶就看文章/PPT, 对着代码, 不下看了三四遍后, 终于被我折腾出新的imagezoom. 而且还发现旧版的一个比较严重的bug.</p>
-<div class="section" id="id1">
-<h2>分离</h2>
-<p>将原来放在一起的逻辑分离出来:</p>
-<ul class="simple">
-<li>imagezoom/base.js, 处理初始化逻辑, 及小图, 放大镜图标的DOM构建, 绑定鼠标移入事件 等</li>
-<li>imagezoom/zoomer.js, 放大显示逻辑, 放大层的DOM构建, 绑定鼠标移动事件, 显示对应的图像</li>
-</ul>
-<p>两者独立开来, 功能比较明确;</p>
-</div>
-<div class="section" id="id2">
-<h2>结构分离</h2>
-<p>整个结构如下图所示:</p>
-<img alt="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGJnZAQw" src="http://lizziepic.appspot.com/img?img_id=aglsaXp6aWVwaWNyDQsSBVBob3RvGJnZAQw" />
-<p>imagezoom主组件扩展于UIBase, 具有基本的box, position, align, mask 功能, 再加上扩展组件zoomer, 就可以写出新的 imagezoom, 而这里的扩展组件 zoomer 也方便其他组件使用.</p>
-<p>这样组织的好处是:</p>
-<ul class="simple">
-<li>利于已有组件, 快速搭建你所需要的新组件;</li>
-<li>设置变量和UI展现分离, 数据通过setter/getter 统一设置, 而数据更改带来的UI变化, 通过_uiSetXX方式自动被调用, 而完成对应的UI变化. 这样分离了便于思维逻辑上的分离;</li>
-<li>开发代码量减少, 因为组件可以重用, 我们自己只要写上对应的逻辑即可. 不过总的代码量没变多少, 重构后, 原先 imagezoom-pkg-min.js 7k , 重构后imagezoom-pkg-min.js, 6k 再加uibase-pkg-min.js 12k 共18k, 从这点上看, 貌似代码还可以优化..</li>
-</ul>
-<p>重构过程中, 还发现旧版本中的一个bug, 情况简化可以描述成, 当mouseenter到小图后, 绑定mousemove到body, 然后 mouseleave小图后, 删除body的mousemove事件, 大致想一下, 这逻辑没问题, 但是问题在小图上覆盖了一层镜片, 当显示大图时, 鼠标正在镜片元素上, 导致立即触发小图的mouseleave事件, 这样就会立刻hide()了, 但就是因为旧版本上, 在 mouseleave小图时, 没有正确删除body的mousemove事件, 即 原本是</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">image</span><span class="p">,</span> <span class="s1">&#39;mouseenter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">//..</span>
-    <span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="s1">&#39;mousemove&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">_onMouseMove</span><span class="p">,</span> <span class="nx">self</span><span class="p">);</span>
-    <span class="c1">//..</span>
-<span class="p">});</span>
-<span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">image</span><span class="p">,</span> <span class="s1">&#39;mouseleave&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">//..</span>
-    <span class="nx">Event</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="s1">&#39;mousemove&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">_onMouseMove</span><span class="p">);</span>
-    <span class="c1">//..</span>
-<span class="p">});</span>
-</pre></div>
-</blockquote>
-<p>而这里事件删除时, 后面的参数应该和on时完全一致, 如</p>
-<blockquote>
-<div class="highlight"><pre><span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">image</span><span class="p">,</span> <span class="s1">&#39;mouseenter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">//..</span>
-    <span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="s1">&#39;mousemove&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">_onMouseMove</span><span class="p">,</span> <span class="nx">self</span><span class="p">);</span>
-    <span class="c1">//..</span>
-<span class="p">});</span>
-<span class="nx">Event</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">image</span><span class="p">,</span> <span class="s1">&#39;mouseleave&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">//..</span>
-    <span class="nx">Event</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="s1">&#39;mousemove&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">_onMouseMove</span><span class="p">,</span> <span class="nx">self</span><span class="p">);</span>
-    <span class="c1">//..</span>
-<span class="p">});</span>
-</pre></div>
-</blockquote>
-<p>这样才对, 不然就body上一直存在mouseleave, 而且每次mouseenter后, 再一次绑定body的mousemove事件, 虽然视觉差异不大, 测试也注意到这个问题, 唉... 说到这里, 好惭愧啊...</p>
-<p>嗯嗯, 下次一定得记住了!</p>
 </div>
 ]]>
         </content>
