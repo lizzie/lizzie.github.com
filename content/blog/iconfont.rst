@@ -24,7 +24,7 @@ IconFont
 
 .. raw:: html
 
-    <iframe src="/test/iconfont.html" width="300px" height="720px"></iframe>
+    <iframe src="/test/iconfont.html" width="300px" height="728px"></iframe>
 
 貌似还是很难看...只能继续努力提高自身的设计美感啦~
 
