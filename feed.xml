@@ -3,9 +3,47 @@
     <title>SunsetSunrising</title>
     <link href="http://sunsetsunrising.com/feed.xml" rel="self" />
     <link href="http://sunsetsunrising.com/" />
-    <updated>2013-03-22T17:36:01+08:00</updated>
+    <updated>2013-04-17T15:56:38+08:00</updated>
     <id>http://sunsetsunrising.com/</id>
     <entry>
+        <title type="html"><![CDATA[雄狮的奔跑人生]]></title>
+        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
+        <link href="http://sunsetsunrising.com/2013/how_to_choose.html"/>
+        <published>2013-04-17T15:59:59+08:00</published>
+        <updated>2013-04-17T15:56:38+08:00</updated>
+        <id>http://sunsetsunrising.com/2013/how_to_choose.html</id>
+        <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
+        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+            <![CDATA[ <p>前几天看了 WTP 上的文章 <a class="reference external" href="https://github.com/lifesinger/lifesinger.github.com/issues/149">[6个残酷的人生事实]</a> ,
+开篇让我们列出5件引以为豪的事情. 我自个儿想了, 勉勉强强只能列出三件来:</p>
+<ol class="arabic simple">
+<li>2008春, 千里迢迢去珠海金山的 ZQ, 为的是争取 Python 的实习机会. 机会找来了, 可学校不同意, 找了院长和导师, 那时还以退学相逼, 可最终也没成. 现在想想好幼稚和自我, 不过当时那股劲还是挺让我佩服的.</li>
+<li>2009秋, 只身一人去上海交大参加校招并拿到淘宝 UED 的 offer -- 我的第一个也是唯一一个 offer, 那时的我多么坚定的选择啊, 非淘宝 UED 外不去的魄力.</li>
+<li>2007-2009, 自学 Python, 参与写 &lt;可爱的 Python&gt;, 还带动师弟师妹们一起学 -- 当时多么有师姐的范儿啊~</li>
+<li>其他的都不算引以为豪, 只能说是做了些一直想做的事情, 去旅游, 养大狗, 开网店, 坚持写日记, 记账, 学游泳 等...</li>
+</ol>
+<p>可自从工作了, 11年, 12年, 到现在, 以前的那股劲儿再也没出现过, 取而代之的是各种人生的悲观和消极. 11年末和整个12年更为厉害.</p>
+<p>再来看看上面文章中写的几段话吧~</p>
+<ol class="arabic simple">
+<li>&quot;这个世界只关心你能给予什么.&quot; -- 在别人看来, 只看你能给他带来什么, 因为人总是索取大于付出的动物. 自己既然是如此, 为何要苛求别人只求付出呢?! 所以那些觉得别人自私, 自己无私的人都是屁, 说这种话的人本身就是 TMD 的自私透顶.</li>
+<li>&quot;He was totally his job&quot; -- 每个人都有责任, 所以别再去逃避或质疑 Oh my god, why this happened on me?! Why me! Why me!</li>
+<li>&quot;你恨自己是因为你无所作为.&quot; -- 与其抱怨自己的各种失意, 还不如去找出那些避免失意的需求来, 改变自己总是比改变别人来得简单多.</li>
+<li>&quot;你的内在只有通过所做的事情才能表现出来.&quot; -- 这点是我恍然大悟的一点, 心底再好再好, 别人根本就不知道, 所以你只能通过表现出来的外在让别人感受到你的爱恨情仇. 别说那些我心地是好的, 但又懒得行动的屁话.</li>
+<li>&quot;人的内心其实一直在拒斥进步&quot; -- 其实人生真的挺累的, 因为你每走一步, 每过一天, 每过一秒钟, 你的内心都在不停的做选择, 做决定. 你内心想往积极乐观的方向去走, 可同时而来的是 N 多中负面消极的想法包围着你, 所以每下个决定都是那么需要勇气. 要么你就是个麻木的人, 这个无所谓, 那个无所谓, 这样你就无所谓该如何了.</li>
+<li>&quot;咱们应该努力去做任何一件事情——学习新的技能直到足够有用为止，或者随便选一件事情&quot; -- 到目前为止, 我一直蛮遗憾的事情, 就是想学设计, 哪怕就只是设计中的一个素描或优美的字体, 可我一直只是挂在嘴边...</li>
+</ol>
+<p>最后评论中还有这么一段话:</p>
+<pre class="literal-block">
+安稳的时候，虽然幸福但是惶恐。
+努力的时候，虽然疲惫但是坦然。
+</pre>
+<p>-- 多贴切的描述.</p>
+<p>最后的最后, 目前摆在我面前的两个选择, 仅此记录下, 让未来的我回忆下现在的我是到底选择了哪个, 其他的说多了没意思.</p>
+<img alt="https://f.cloud.github.com/assets/97227/380026/9af6c538-a5b4-11e2-9a31-ea89524c31bd.jpg" src="https://f.cloud.github.com/assets/97227/380026/9af6c538-a5b4-11e2-9a31-ea89524c31bd.jpg" />
+<p>题图：雄狮的奔跑人生。</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[IconFont]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2013/iconfont.html"/>
@@ -982,37 +1020,6 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
 <li><a class="reference external" href="http://docs.kissyui.com/docs/html/demo/component/waterfall/%3Cbr%20/%3E">示例</a>, 包含静态和动态两种;</li>
 </ul>
 <p>欢迎试用和提出意见~~</p>
-</div>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[G10入手]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2011/g10.html"/>
-        <published>2011-03-20T11:03:54+08:00</published>
-        <updated>2012-12-31T22:00:42+08:00</updated>
-        <id>http://sunsetsunrising.com/2011/g10.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Mobile" term="Mobile" label="Mobile" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <p>上周入手个 HTC Desire HD(G10, A9191), 纯粹白痴+新手, 从网上找了些资料, 补充下这方面知识;</p>
-<div class="section" id="id1">
-<h2>名词解释</h2>
-<p>名字: HTC Desire HD, G10, A9191 , 这几个名字貌似都是指同一款, 不知为何同一款要取3个名字? google了下, 原来分别是 官方名称, 民间叫法, 行货型号.</p>
-<p>港版/欧版/亚太版/欧版: 其实区别不大, 只有默认选择的语言不同, 比如亚太版的, 默认是中简, 欧版的就是英文, 但也可以刷成中简的,, 欧版的相对便宜些, 但貌似淘宝上很难买到, 问了好多家店, 都没欧版的货.</p>
-<p>刷机: 其实就是重新安装系统
-破解root: 是指获取root 最高权限, 以后你自己安装什么都可以了 , 没限制
-MIUI: 我的这款, 刷成MIUI系统 (<a class="reference external" href="http://www.miui.com">http://www.miui.com</a> 是个基于Android2.3原生系统深度开发, 针对中国用户使用习惯，原创特色的全套UI体系), 但因为电池原因, 刷之后充电总是充不上电, 只能通过USB充上, 据卖家说是因为MIUI的问题, 但我搜了下论坛帖子, 怀疑很可能是电池不是原电, 这等拿回来再查~</p>
-<p>OTA: <a class="reference external" href="http://zhidao.baidu.com/question/389270">http://zhidao.baidu.com/question/389270</a>, 一项基于短消息机制，通过手机终端或服务器（网上）方式实现SIM卡内业务菜单的动态下载、删除与更新，使用户获取个性化信息服务的数据增值业务（简称OTA业务）OTA（Over－the－Air Technology）空中下载技术.
-是通过移动通信（GSM或CDMA）的空中接口对SIM卡数据及应用进行远程管理的技术。空中接口可以采用WAP、GPRS、CDMA1X及短消息技术。OTA技术的应用，使得移动通信不仅可以提供语音和数据服务，而且还能提供新业务下载。这样，应用及内容服务商可以不受平台的局限，不断开发出更具个性化的贴近用户需求的服务，如信息点播、互动娱乐、位置服务以及银行交易等。通过OTA空中下载技术，手机用户只要进行简单操作，就可以按照个人喜好把网络所提供的各种业务菜单利用OTA机制下载到手机中，并且还可以根据自己的意愿定制具体业务。</p>
-<p>HD2 和 Desire HD: 两款不同的机型~ 他们最大的区别就是前者 OS 为 Windows mobile 6.5, 后者是 Android OS v2.2, 原先以为是同一款, 看名字挺像... 各参数见 <a class="reference external" href="http://detail.zol.com.cn/pk/248972_203330.shtml">http://detail.zol.com.cn/pk/248972_203330.shtml</a></p>
-<p>PS: DHD, 很耗电, 差不多隔天就要充一次电~</p>
-<p>接下来打算:</p>
-<ul class="simple">
-<li>附上一张照片;</li>
-<li>先熟悉下整个操作, 什么安装/卸载等等 ;</li>
-<li>翻墙;</li>
-<li>待熟悉了后再学刷机: 完整刷机教程 <a class="reference external" href="http://www.miui.com/a-57.html">http://www.miui.com/a-57.html</a></li>
-</ul>
 </div>
 ]]>
         </content>
