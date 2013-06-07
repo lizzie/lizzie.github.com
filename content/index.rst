@@ -21,9 +21,8 @@ Find Me On the WEB
 -------------------------
 
 - `G+ <https://plus.google.com/u/0/108153155800494346995/>`_
-- `Twitter <https://twitter.com/lizziesky>`_
 - `Github <https://github.com/lizzie>`_
 - `Douban <http://www.douban.com/people/lizziesky/>`_
-- `My old blog (private) <http://lizziesky.blogspot.com>`_
+- `Faxianla <http://serendipity.faxianla.com/>`_
 - `Sina Weibo <http://weibo.com/sunsetsunrising>`_
 - `My Shop on etsy <http://sunsetsunrising.etsy.com>`_
