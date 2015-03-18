@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>flexible boxes</title>
+  <style>
+    body {
+      display: flex;
+      flex-flow: row nowrap;
+      width: 2000px;
+    }
+    .container {
+      width: 200px;
+    }
+    .container > div {
+      display: flex;
+      flex-flow: row wrap;
+      width: 140px;
+      height: 140px;
+      background: linear-gradient(-45deg, #78ff8c, #b4ffc8);
+    }
+    .container > div > div {
+      margin: 2px;
+      width: 30px;
+      min-height: 30px;
+      background: linear-gradient(-45deg, #788cff, #b4c8ff);
+    }
+
+    #align-content-flex-start {
+      align-content: flex-start;
+    }
+    #align-content-center {
+      align-content: center;
+    }
+    #align-content-flex-end {
+      align-content: flex-end;
+    }
+    #align-content-space-between {
+      align-content: space-between;
+    }
+    #align-content-space-around {
+      align-content: space-around;
+    }
+    #align-content-stretch {
+      align-content: stretch;
+    }
+
+
+    #align-items-flex-start {
+      align-items: flex-start;
+    }
+    #align-items-center {
+      align-items: center;
+    }
+    #align-items-flex-end {
+      align-items: flex-end;
+    }
+    #align-items-baseline {
+      align-items: baseline;
+    }
+    #align-items-stretch {
+      align-items: stretch;
+    }
+
+    #align-self-flex-start > div {
+      align-self: flex-start;
+    }
+    #align-self-auto > div {
+      align-self: auto;
+    }
+    #align-self-center > div {
+      align-self: center;
+    }
+    #align-self-flex-end > div {
+      align-self: flex-end;
+    }
+    #align-self-baseline > div {
+      align-self: baseline;
+    }
+    #align-self-stretch > div {
+      align-self: stretch;
+    }
+
+
+    #flex-basis-auto > div {
+      flex-basis: auto;
+    }
+    #flex-basis-content > div {
+      flex-basis: content;
+    }
+    #flex-basis-width > div {
+      flex-basis: 28px;
+    }
+
+    #flex-grow-0 > div {
+      flex-grow: 0;
+    }
+    #flex-grow-1 > div {
+      flex-grow: 1;
+    }
+    #flex-grow-2 > div {
+      flex-grow: 2;
+    }
+
+    #flex-shrink-0 > div {
+      flex-shrink: 0;
+    }
+    #flex-shrink-1 > div {
+      flex-shrink: 1;
+    }
+    #flex-shrink-2 > div {
+      flex-shrink: 2;
+    }
+
+    #flex-direction-row {
+      flex-direction: row;
+    }
+    #flex-direction-row-reverse {
+      flex-direction: row-reverse;
+    }
+    #flex-direction-column {
+      flex-direction: column;
+    }
+    #flex-direction-column-reverse {
+      flex-direction: column-reverse;
+    }
+
+    #flex-wrap-nowrap {
+      flex-wrap: nowrap;
+    }
+    #flex-wrap-wrap {
+      flex-wrap: wrap;
+    }
+    #flex-wrap-wrap-reverse {
+      flex-wrap: wrap-reverse;
+    }
+
+
+    #justify-content-flex-start {
+      justify-content: flex-start;
+    }
+    #justify-content-center {
+      justify-content: center;
+    }
+    #justify-content-flex-end {
+      justify-content: flex-end;
+    }
+    #justify-content-space-between {
+      justify-content: space-between;
+    }
+    #justify-content-space-around {
+      justify-content: space-around;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <p>align-content: flex-start</p>
+
+  <div id="align-content-flex-start">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-content: center</p>
+
+  <div id="align-content-center">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-content: flex-end</p>
+
+  <div id="align-content-flex-end">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-content: space-between</p>
+
+  <div id="align-content-space-between">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-content: space-around</p>
+
+  <div id="align-content-space-around">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-content: stretch</p>
+
+  <div id="align-content-stretch">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="container">
+  <p>align-items: flex-start</p>
+
+  <div id="align-items-flex-start">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-items: center</p>
+
+  <div id="align-items-center">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-items: flex-end</p>
+
+  <div id="align-items-flex-end">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-items: baseline</p>
+
+  <div id="align-items-baseline">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-items: stretch</p>
+
+  <div id="align-items-stretch">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+
+</div>
+
+<div class="container">
+  <p>align-self: auto</p>
+
+  <div id="align-self-auto">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-self: flex-start</p>
+
+  <div id="align-self-flex-start">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-self: center</p>
+
+  <div id="align-self-center">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-self: flex-end</p>
+
+  <div id="align-self-flex-end">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-self: baseline</p>
+
+  <div id="align-self-baseline">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>align-self: stretch</p>
+
+  <div id="align-self-stretch">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+
+</div>
+
+<div class="container">
+  <p>flex-basis: auto</p>
+
+  <div id="flex-basis-auto">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>flex-basis: content</p>
+
+  <div id="flex-basis-content">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>flex-basis: width</p>
+
+  <div id="flex-basis-width">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+
+
+</div>
+
+<div class="container">
+  <p>flex-grow: 0</p>
+
+  <div id="flex-grow-0">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>flex-grow: 1</p>
+
+  <div id="flex-grow-1">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>flex-grow: 2</p>
+
+  <div id="flex-grow-2">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="container">
+  <p>flex-shrink: 0</p>
+
+  <div id="flex-shrink-0">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>flex-shrink: 1</p>
+
+  <div id="flex-shrink-1">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>flex-shrink: 2</p>
+
+  <div id="flex-shrink-2">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="container">
+  <p>flex-direction: row</p>
+
+  <div id="flex-direction-row">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>flex-direction: row-reverse</p>
+
+  <div id="flex-direction-row-reverse">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>flex-direction: column</p>
+
+  <div id="flex-direction-column">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>flex-direction: column-reverse</p>
+
+  <div id="flex-direction-column-reverse">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="container">
+  <p>flex-wrap: nowrap</p>
+
+  <div id="flex-wrap-nowrap">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>flex-wrap: wrap</p>
+
+  <div id="flex-wrap-wrap">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>flex-wrap: wrap-reverse</p>
+
+  <div id="flex-wrap-wrap-reverse">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="container">
+  <p>justify-content: flex-start</p>
+
+  <div id="justify-content-flex-start">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>justify-content: center</p>
+
+  <div id="justify-content-center">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>justify-content: flex-end</p>
+
+  <div id="justify-content-flex-end">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>justify-content: space-between</p>
+
+  <div id="justify-content-space-between">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <p>justify-content: space-around</p>
+
+  <div id="justify-content-space-around">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+
+<div class="container">
+  <p>order: different;</p>
+  <div id="order-different">
+    <div style="order: 3">3</div>
+    <div style="order: 2">2</div>
+    <div style="order: 4">4</div>
+    <div style="order: 6">6</div>
+    <div style="order: 1">1</div>
+    <div style="order: 5">5</div>
+  </div>
+
+  <p>order: same;</p>
+  <div id="order-same">
+    <div style="order: 2">3</div>
+    <div style="order: 2">4</div>
+    <div style="order: 3">5</div>
+    <div style="order: 3">6</div>
+    <div style="order: 1">1</div>
+    <div style="order: 1">2</div>
+  </div>
+</div>
+
+</body>
+</html>

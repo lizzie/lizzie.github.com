@@ -52,15 +52,15 @@
 </div>
 <div class="entry-content">
     <p>将某目录下的一批文件中的某个单词替换成另一个单词, 之前碰到过, 忘了在哪了, 现记录下.</p>
-<div class="highlight"><pre><span class="k">for </span>i in <span class="sb">`</span>ls | grep -vE <span class="s2">&quot;converted\.sh&quot;</span><span class="sb">`</span>
+<div class="highlight"><pre><span class="k">for</span> i in <span class="sb">`</span>ls <span class="p">|</span> grep -vE <span class="s2">&quot;converted\.sh&quot;</span><span class="sb">`</span>
 <span class="k">do</span>
-<span class="k">    </span><span class="nb">echo</span> <span class="nv">$i</span>
+    <span class="nb">echo</span> <span class="nv">$i</span>
     sed -e <span class="s1">&#39;s/\.\.\/_static\/doctools\.js/\/site_media\/\js\/pymotw\/doctools\.js/g&#39;</span> <span class="nv">$i</span> &gt; a
     mv a <span class="nv">$i</span>
 <span class="k">done</span>
 </pre></div>
 <p>网上找到另一种一句命令就能搞定的方法:</p>
-<div class="highlight"><pre>find -name *.html -type f | xargs perl -pi -e <span class="s1">&#39;s|xxxxxxx|yyyyyyyy|&#39;</span>
+<div class="highlight"><pre>find -name *.html -type f <span class="p">|</span> xargs perl -pi -e <span class="s1">&#39;s|xxxxxxx|yyyyyyyy|&#39;</span>
 </pre></div>
 <p>ok</p>
 
