@@ -87,4 +87,4 @@ CSS3 flexible boxes  https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flex
 
 .. raw:: html
 
-    <iframe src="/test/flex.html" width="1000px" height="800px"></iframe>
+    <iframe src="/test/flex.html" width="600px" height="800px"></iframe>
