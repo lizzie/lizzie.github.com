@@ -3,18 +3,18 @@
     <title>SunsetSunrising</title>
     <link href="http://sunsetsunrising.com/feed.xml" rel="self" />
     <link href="http://sunsetsunrising.com/" />
-    <updated>2015-03-18T22:33:11+08:00</updated>
+    <updated>2015-03-18T22:36:35+08:00</updated>
     <id>http://sunsetsunrising.com/</id>
     <entry>
         <title type="html"><![CDATA[Flex Boxes Cheatsheet]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2015/flex_boxes_cheatsheet.html"/>
         <published>2015-03-18T22:25:59+08:00</published>
-        <updated>2015-03-18T22:33:11+08:00</updated>
+        <updated>2015-03-18T22:36:35+08:00</updated>
         <id>http://sunsetsunrising.com/2015/flex_boxes_cheatsheet.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
         <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
-            <![CDATA[ <p>&gt; 一页纸能概括的内容不需要描述那么长篇。</p>
+            <![CDATA[ <p>&gt; 一页纸能概括的内容不需要像教程那样描述地那么长篇。</p>
 <p>CSS3 flexible boxes  <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes">https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes</a></p>
 <pre class="literal-block">
 display: flex | inline-flex

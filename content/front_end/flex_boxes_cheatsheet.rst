@@ -4,7 +4,7 @@ Flex Boxes Cheatsheet
 :date: 2015-03-18 22:25:59
 :tags: CSS
 
-> 一页纸能概括的内容不需要描述那么长篇。
+> 一页纸能概括的内容不需要像教程那样描述地那么长篇。
 
 CSS3 flexible boxes  https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes
 
