@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flex Boxes Cheatsheet - SunsetSunrising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="/assets/style.css?v=c2ae2"/>
+    <link rel="stylesheet" href="/assets/pygments.css?v=cedbb"/>
+    
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="SunsetSunrising"/>
+    
+<link rel="canonical" href="/2015/flex_boxes_cheatsheet.html" />
+
+
+
+    <script>
+        (function() {
+            var cx = '012347804910294994683:rsexabosj44';
+            var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                    '//www.google.com/cse/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
+</head>
+<body>
+<!--http://vimeo.com/53043267-->
+<div id="topbar"></div>
+<header>
+    <div id="logo"><a href="/"><img src="/assets/sunsetsunrising.png" alt="SunsetSunrising" /></a></div>
+    <nav id="nav" role="navigation">
+        
+        <a  href="/">Home</a>
+        <a  href="/archive.html">Archive</a>
+    </nav>
+</header>
+<div id="search">
+    <gcse:searchbox enableHistory="true" autoCompleteMaxCompletions="5" autoCompleteMatchType='any'></gcse:searchbox>
+</div>
+<div id="search-results">
+    <gcse:searchresults refinementStyle="link"  adclient="pub-3716363443644786"></gcse:searchresults>
+</div>
+<div class="container"><h1 class="entry-title">Flex Boxes Cheatsheet</h1>
+<div class="entry-meta">
+    <time class="updated" datetime="2015-03-18T22:25:59+08:00">
+        <a href="/2015/">2015-03-18</a>
+    </time>
+    <span class="author vcard">
+        by <a class="url fn" href="http://sunsetsunrising.com">Yan Sheng</a>
+        
+    </span>
+</div>
+<div class="entry-content">
+    <p>&gt; 一页纸能概括的内容不需要描述那么长篇。</p>
+<p>CSS3 flexible boxes  <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes">https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes</a></p>
+<pre class="literal-block">
+display: flex | inline-flex
+
+## 子元素在父元素中按照什么方式排列
+align-content: flex-start
+align-content: flex-end
+align-content: center
+align-content: space-between
+align-content: space-around
+align-content: stretch &lt;- 默认
+
+## 子元素在父元素中按照什么方式排列，但剩余的间距会被分掉
+align-items: flex-start
+align-items: flex-end
+align-items: center
+align-items: baseline
+align-items: stretch &lt;- 默认
+
+## 同上，但是定义在子元素上的。
+align-self: auto &lt;- 默认 依据父元素的设定，如果没设则为 stretch
+align-self: flex-start
+align-self: flex-end
+align-self: center
+align-self: baseline
+align-self: stretch
+
+
+## flex 为 flex-grow flex-shrink flex-basis 的简写
+
+flex: none /* value 'none' case */
+flex: &lt;'flex-grow'&gt; /* One value syntax, variation 1 */
+flex: &lt;'flex-basis'&gt; /* One value syntax, variation 2 */
+flex: &lt;'flex-grow'&gt; &lt;'flex-basis'&gt; /* Two values syntax, variation 1 */
+flex: &lt;'flex-grow'&gt; &lt;'flex-shrink'&gt; /* Two values syntax, variation 2 */
+flex: &lt;'flex-grow'&gt; &lt;'flex-shrink'&gt; &lt;'flex-basis'&gt; /* Three values syntax */
+
+## flex-basis 子元素在 main-axis 上的size
+flex-basis: 10em /* &lt;'width'&gt; */
+flex-basis: 3px /* &lt;'width'&gt; */
+flex-basis: auto /* &lt;'width'&gt; */
+flex-basis: content  /* 目前都不支持 */
+
+## flex-grow 子元素在剩余空间内如何填满
+flex-grow: 3
+
+## flex-shrink
+flex-shrink: 3
+
+
+## flex-direction  子元素在父元素内如何排列
+flex-direction: row
+flex-direction: row-reverse
+flex-direction: column
+flex-direction: column-reverse
+
+## flex-wrap 子元素在父元素内是否换行
+flex-wrap: nowrap
+flex-wrap: wrap
+flex-wrap: wrap-reverse
+
+## flex-flow flex-direction 和 flex-wrap 的简写，指明子元素在父元素内如何排列
+
+
+## justify-content 父元素怎么划分子元素见的空间
+justify-content: flex-start
+justify-content: flex-end
+justify-content: center
+justify-content: space-between
+justify-content: space-around
+
+## order 子元素在父元素中的先后顺序
+order: 5 默认为0. 统一order的多个子元素按照html中的书写顺序来觉得展示的顺序
+</pre>
+<p>更多请看例子吧。所有属性不同值的不同效果。</p>
+<iframe src="/test/flex.html" width="1000px" height="800px"></iframe>
+</div>
+<div class="entry-tags">
+    <a href="/tag/#CSS">CSS</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sunsetsunrising';
+    var disqus_title = 'Flex Boxes Cheatsheet';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+</div>
+<footer>
+    <hr class="end"/>
+    <p>&copy;2008~2012  <a href="https://github.com/lizzie/lizzie.github.com">Liz</a>  &hearts; <span class="software">Powered by <a href="http://lab.lepture.com/liquidluck/">Felix Felicis 3.5</a></span></p>
+</footer>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4419044-5']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>
