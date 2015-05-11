@@ -3,14 +3,14 @@
     <title>SunsetSunrising</title>
     <link href="http://sunsetsunrising.com/feed.xml" rel="self" />
     <link href="http://sunsetsunrising.com/" />
-    <updated>2015-05-11T20:44:15+08:00</updated>
+    <updated>2015-05-11T20:50:30+08:00</updated>
     <id>http://sunsetsunrising.com/</id>
     <entry>
         <title type="html"><![CDATA[迟到的2013、2014年总结]]></title>
         <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
         <link href="http://sunsetsunrising.com/2015/2014_summary_and_2015_outlook.html"/>
         <published>2015-05-11T23:59:59+08:00</published>
-        <updated>2015-05-11T20:44:15+08:00</updated>
+        <updated>2015-05-11T20:50:30+08:00</updated>
         <id>http://sunsetsunrising.com/2015/2014_summary_and_2015_outlook.html</id>
         <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
         <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
@@ -43,6 +43,7 @@
 <li>生活上开心了不少，工作上不快乐了很多</li>
 <li>Ohlife 倒闭了，偶的每天一日记习惯也随之丢了，囧</li>
 <li>两年内只出国玩了一次，plus，自从结婚后，旅游时间严重缩水。好在已经定好了6月底的日本之行，总算至少不会在总结15年时又得叹气了</li>
+<li>github contribute 数急剧下降</li>
 </ul>
 </div>
 <div class="section" id="id5">
@@ -51,6 +52,8 @@
 <li>好好锻炼身体，让自己勤快一点</li>
 <li>好好说话，控制好自己的脾气。即使有时候真的很气人时，也要控制住，把持住</li>
 <li>多写属于自己的代码，好好积累。比如一些小而美的产品</li>
+<li>多多 github ，恢复 commit 数</li>
+<li>学英语</li>
 <li>再养成一个习惯并坚持</li>
 <li>希望自己恢复以前的开心快乐，碰到任何事都要一笑淡之</li>
 </ul>
