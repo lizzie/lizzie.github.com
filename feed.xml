@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>SunsetSunrising</title>
-    <link href="http://sunsetsunrising.com/feed.xml" rel="self" />
-    <link href="http://sunsetsunrising.com/" />
+    <title>LIZZIE</title>
+    <link href="https://lizzie.github.io/feed.xml" rel="self" />
+    <link href="https://lizzie.github.io/" />
     <updated>2015-05-11T20:50:30+08:00</updated>
-    <id>http://sunsetsunrising.com/</id>
+    <id>https://lizzie.github.io/</id>
     <entry>
         <title type="html"><![CDATA[迟到的2013、2014年总结]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2015/2014_summary_and_2015_outlook.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2015/2014_summary_and_2015_outlook.html"/>
         <published>2015-05-11T23:59:59+08:00</published>
         <updated>2015-05-11T20:50:30+08:00</updated>
-        <id>http://sunsetsunrising.com/2015/2014_summary_and_2015_outlook.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
-        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2015/2014_summary_and_2015_outlook.html</id>
+        <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
+        <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p>14年的总结，现在做是否太晚了:-P 这不符合我一贯想到就要做到、急性子的风格。或许是因为，自己老是跟自己说：好忙啊，总结都没时间做了。又或许是，有太多想说的了，可又不知道从哪里开始讲。好吧。今天趁着意外休假的时机，把这事儿给了结了。</p>
 <div class="section" id="id2">
 <h2>总体</h2>
@@ -64,13 +64,13 @@
         </content>
     </entry><entry>
         <title type="html"><![CDATA[Flex Boxes Cheatsheet]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2015/flex_boxes_cheatsheet.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2015/flex_boxes_cheatsheet.html"/>
         <published>2015-03-18T22:25:59+08:00</published>
         <updated>2015-03-18T22:37:56+08:00</updated>
-        <id>http://sunsetsunrising.com/2015/flex_boxes_cheatsheet.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#CSS" term="CSS" label="CSS" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2015/flex_boxes_cheatsheet.html</id>
+        <category scheme="https://lizzie.github.io/tag/#CSS" term="CSS" label="CSS" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p>&gt; 一页纸能概括的内容不需要像教程那样描述地那么长篇。</p>
 <p>CSS3 flexible boxes  <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes">https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes</a></p>
 <pre class="literal-block">
@@ -151,14 +151,14 @@ order: 5 默认为0. 统一order的多个子元素按照html中的书写顺序�
         </content>
     </entry><entry>
         <title type="html"><![CDATA[深秋马来西亚之旅]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2013/to-malaysia.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2013/to-malaysia.html"/>
         <published>2013-12-01T13:59:59+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2013/to-malaysia.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
-        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2013/to-malaysia.html</id>
+        <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
+        <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <div class="section" id="id2">
 <h2>初语</h2>
 <p>很多年之前的一个晚上, 无意间看到网上的一张照片:</p>
@@ -237,13 +237,13 @@ order: 5 默认为0. 统一order的多个子元素按照html中的书写顺序�
         </content>
     </entry><entry>
         <title type="html"><![CDATA[My New Life in Alipay]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2013/alipay.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2013/alipay.html"/>
         <published>2013-06-07T22:10:42+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2013/alipay.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2013/alipay.html</id>
+        <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p>重新回到杭州, 回到阿里, 回到这个让人又爱又恨的地方, 已经整整一个月了. 日子过得是那么地快. 所以, 总该记录点什么吧.</p>
 <p>这个月, 到了新的团队, 就像三年前入职淘宝那样, 同在玉伯这位牛叉的领导下, 同在一个牛叉的团队, 也同样是做基础类库... 只是自个儿心里少了许多迷茫.</p>
 <p>遇到了许多以前的老同事老朋友, 正好来杭州出差的布可, 承玉还是那么的专注, 季札还是有那可爱的机器猫, 妙净变漂亮也瘦了许多, 云谦还是以前那个笑时有点小傻的样子, 沉鱼还是那么的姐范儿,
@@ -265,13 +265,13 @@ order: 5 默认为0. 统一order的多个子元素按照html中的书写顺序�
         </content>
     </entry><entry>
         <title type="html"><![CDATA[雄狮的奔跑人生]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2013/how_to_choose.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2013/how_to_choose.html"/>
         <published>2013-04-17T15:59:59+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2013/how_to_choose.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2013/how_to_choose.html</id>
+        <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p>前几天看了 WTP 上的文章 <a class="reference external" href="https://github.com/lifesinger/lifesinger.github.com/issues/149">[6个残酷的人生事实]</a> ,
 开篇让我们列出5件引以为豪的事情. 我自个儿想了, 勉勉强强只能列出三件来:</p>
 <ol class="arabic simple">
@@ -303,13 +303,13 @@ order: 5 默认为0. 统一order的多个子元素按照html中的书写顺序�
         </content>
     </entry><entry>
         <title type="html"><![CDATA[IconFont]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2013/iconfont.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2013/iconfont.html"/>
         <published>2013-03-22T16:59:59+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2013/iconfont.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2013/iconfont.html</id>
+        <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p>昨天看到 <a class="reference external" href="http://aliceui.org">AliceUI</a> 上提供了一套图标集 Rei, 起初我以为就是一个 CSS Sprites, 查看了下源代码, 发现原来是一套字体, 有专门的名称 -- Icon Font.
 这样, 只需自己制定一套字体, 页面载入这套字体, 直接输入对应的字符就能显示对应的图标. 因为是矢量的, 所以可以任意缩放, 着色也行, 非常方便. 具体在页面中如何使用, 可以查看这个 <a class="reference external" href="http://css-tricks.com/html-for-icon-font-usage/">简单的介绍</a> .</p>
 <p>不过我想学的是, 如何去做一套这样的字体? 因为小时候一直蛮喜欢各种西文字体的, 想着若以后能发明一套字体该多好, 有时, 也会在纸上涂鸦, 或者打开个 AI, 胡乱画一通, 可最终生成的只是一个图片, 没法和字体挂钩.</p>
@@ -327,14 +327,14 @@ order: 5 默认为0. 统一order的多个子元素按照html中的书写顺序�
         </content>
     </entry><entry>
         <title type="html"><![CDATA[回忆&lt;老友记&gt;]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2013/friends.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2013/friends.html"/>
         <published>2013-03-17T22:17:07+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2013/friends.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
-        <category scheme="http://sunsetsunrising.com/tag/#friendship" term="friendship" label="friendship" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2013/friends.html</id>
+        <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
+        <category scheme="https://lizzie.github.io/tag/#friendship" term="friendship" label="friendship" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <img alt="/assets/images/friends_1.jpg" src="/assets/images/friends_1.jpg" />
 <p>看了不下十遍的&lt;老友记&gt;, 感觉永远也看不腻, 永远那么的开心.</p>
 <div class="section" id="id2">
@@ -410,14 +410,14 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[&lt;看见&gt; 语录]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2013/kanjian.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2013/kanjian.html"/>
         <published>2013-02-17T20:17:07+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2013/kanjian.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
-        <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2013/kanjian.html</id>
+        <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
+        <category scheme="https://lizzie.github.io/tag/#philosophy" term="philosophy" label="philosophy" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/20427187/">豆瓣书单</a></p>
 <p>现实是残酷的, 只是我们往往不愿相信. -- 这是我看完整本书之后的第一感觉. 以下照例摘录些句子.</p>
 <ol class="arabic simple">
@@ -451,16 +451,16 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[NPAPI]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2013/npapi.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2013/npapi.html"/>
         <published>2013-02-06T17:11:08+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2013/npapi.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Chrome" term="Chrome" label="Chrome" />
-        <category scheme="http://sunsetsunrising.com/tag/#Plugins" term="Plugins" label="Plugins" />
-        <category scheme="http://sunsetsunrising.com/tag/#FireBreath" term="FireBreath" label="FireBreath" />
-        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2013/npapi.html</id>
+        <category scheme="https://lizzie.github.io/tag/#Chrome" term="Chrome" label="Chrome" />
+        <category scheme="https://lizzie.github.io/tag/#Plugins" term="Plugins" label="Plugins" />
+        <category scheme="https://lizzie.github.io/tag/#FireBreath" term="FireBreath" label="FireBreath" />
+        <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p>近来在写一个 Chrome 扩展, 大概需求是截取地图, 传到后台分析地图图片上的一些位置并返回给前台, 最后存坐标入数据库.
 其中分析这步, 是部署在IIS上的C#程序, C#再去调用底层的C++算法. 虽说 Chrome 扩展中可以发送跨域请求, 不过还是感觉绕了一大圈.
 偶尔看到扩展中可以载入 Plugin 并可以被 js 调用. 于是, 琢磨了下这类 Plugin 的写法. 如果可以的话, 那就可以在Chrome里面分析图片上的位置直接返回.</p>
@@ -502,13 +502,13 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[祖母毯]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2013/grandma_blanket.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2013/grandma_blanket.html"/>
         <published>2013-02-05T18:23:06+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2013/grandma_blanket.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#handmade" term="handmade" label="handmade" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2013/grandma_blanket.html</id>
+        <category scheme="https://lizzie.github.io/tag/#handmade" term="handmade" label="handmade" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p>第二件手作—祖母毯, 耗时一个月, 一斤毛线, 边上的一圈可爱的狗牙针织的我手都酸了. 现在针法蛮熟练了, 速度也快了许多.</p>
 <p>小show下实物:</p>
 <img alt="http://ww3.sinaimg.cn/large/b5464cd5jw1e1fdoc8sm2j.jpg" src="http://ww3.sinaimg.cn/large/b5464cd5jw1e1fdoc8sm2j.jpg" />
@@ -522,14 +522,14 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[&lt;人生若只如初见&gt; 语录]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2013/chujian.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2013/chujian.html"/>
         <published>2013-01-09T18:17:07+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2013/chujian.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
-        <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2013/chujian.html</id>
+        <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
+        <category scheme="https://lizzie.github.io/tag/#philosophy" term="philosophy" label="philosophy" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/1856285/">豆瓣书单</a></p>
 <p>陆陆续续看了三个月, 安意如的&lt;人生若只如初见&gt;. 自古, 多是哀愁之事. 可能哀愁比快乐更容易让人记住吧.</p>
 <p>全书的第一句: &quot;此一生, 与谁初见?&quot; 到老了, 回想下, 我这一生, 又有多少个初见. 我记得, 你又是否还记得?</p>
@@ -562,13 +562,13 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[红色大披肩]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2013/red_shawl.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2013/red_shawl.html"/>
         <published>2013-01-06T18:23:06+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2013/red_shawl.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#handmade" term="handmade" label="handmade" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2013/red_shawl.html</id>
+        <category scheme="https://lizzie.github.io/tag/#handmade" term="handmade" label="handmade" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p>第一次手工作的大披肩, 花了大概两个星期的晚上时间, 期间织错了还拆了好多, 不过最后还蛮好的, 就送给了好友gy.</p>
 <p>小show下实物:</p>
 <img alt="http://ww2.sinaimg.cn/large/b5464cd5jw1e0ksawg8yyj.jpg" src="http://ww2.sinaimg.cn/large/b5464cd5jw1e0ksawg8yyj.jpg" />
@@ -578,14 +578,14 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[总结2012年与展望2013年]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2012/2012_summary_and_2013_outlook.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2012/2012_summary_and_2013_outlook.html"/>
         <published>2012-12-31T23:59:59+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2012/2012_summary_and_2013_outlook.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
-        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2012/2012_summary_and_2013_outlook.html</id>
+        <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
+        <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p>习惯了年底做总结, 以前都写在旧博客上, 今年的, 就搬到这边了吧~</p>
 <div class="section" id="id2">
 <h2>总结2012</h2>
@@ -636,13 +636,13 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[[转载]程序算法与人生选择]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2012/algorithm_and_choices.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2012/algorithm_and_choices.html"/>
         <published>2012-12-28T11:23:06+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2012/algorithm_and_choices.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2012/algorithm_and_choices.html</id>
+        <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p><a class="reference external" href="http://coolshell.cn/articles/8790.html">原文</a></p>
 <p>每年一到要找工作的时候，我就能收到很多人给我发来的邮件，总是问我怎么选择他们的offer，去腾讯还是去豆瓣，去外企还是去国内的企业，去创业还是去考研，来北京还是回老家，该不该去创新工场？该不该去thoughtworks？……等等，等等。今年从7月份到现在，我收到并回复了60多封这样的邮件。我更多帮他们整理思路，帮他们明白自己最想要的是什么。（注：我以后不再回复类似的邮件了）。</p>
 <p>我深深地发现，对于我国这样从小被父母和老师安排各种事情长大的人，当有一天，父母和老师都跟不上的时候，我们几乎完全不知道怎么去做选择。而我最近也离开了亚马逊，换了一个工作。又正值年底，就像去年的那篇 <a class="reference external" href="http://coolshell.cn/articles/6142.html">《三个故事和三个问题》</a> 一样，让我想到写一篇这样的文章。</p>
@@ -717,13 +717,13 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[留痕&amp;笑看风云]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2012/liuhen.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2012/liuhen.html"/>
         <published>2012-11-30T13:10:07+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2012/liuhen.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Music" term="Music" label="Music" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2012/liuhen.html</id>
+        <category scheme="https://lizzie.github.io/tag/#Music" term="Music" label="Music" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p>最近在听的两首歌</p>
 <div class="section" id="id3">
 <h2><a class="reference external" href="http://music.baidu.com/song/10308870">留痕 ----梁汉文</a></h2>
@@ -824,13 +824,13 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[博客重开记]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2012/my_new_blog.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2012/my_new_blog.html"/>
         <published>2012-11-23T15:36:02+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2012/my_new_blog.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#Life" term="Life" label="Life" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2012/my_new_blog.html</id>
+        <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p>停了一年多的博客, 终于重开了~ 只因为有时想记录些东西, 特别是近来的读书笔记.</p>
 <p>花了三四天, 重新整样式, 迁内容. 目前采用了 <a class="reference external" href="http://lab.lepture.com/liquidluck/">Felix Felicis</a> 搭建, 简单方便, 写博客就类似于写文档.</p>
 <p>原先的 <a class="reference external" href="http://lizziesky.appspot.com">http://lizziesky.appspot.com</a> 抛弃之, 不过, 以前写的文字, 觉得丢了可惜, 于是, 花了三天时间把那些乱七八糟的内容迁到这里来. 幸好以前的内容存的不是 html, 而是类似于 rst 的格式. 这样, 只要稍加修改即可.</p>
@@ -839,13 +839,13 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[&lt;Don't Make Me Think&gt;笔记]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2012/dont_make_me_think.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2012/dont_make_me_think.html"/>
         <published>2012-11-18T12:29:10+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2012/dont_make_me_think.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2012/dont_make_me_think.html</id>
+        <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/1440223/">豆瓣书单</a></p>
 <p>一本讲可用性相关的书, 摘录些.</p>
 <p>Internet的商业模式就像公共汽车, 如果你错过了一辆, 那么再等一会儿, 还会再来一辆.</p>
@@ -884,13 +884,13 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[&lt;坤道&gt;读书笔记]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2012/kun_dao.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2012/kun_dao.html"/>
         <published>2012-11-18T12:27:54+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2012/kun_dao.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2012/kun_dao.html</id>
+        <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/1440223/">豆瓣书单</a></p>
 <p>这本书, 貌似看了近一个月, 讲了如何做好女人. 在爱情, 婚姻, 家庭, 事业中如何权衡等等. 书最后的结语概括的蛮好, 摘录下:</p>
 <div class="section" id="id3">
@@ -917,14 +917,14 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[&lt;易经的智慧&gt; 语录之五]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2012/i_ching_5.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2012/i_ching_5.html"/>
         <published>2012-08-28T14:10:07+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2012/i_ching_5.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
-        <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2012/i_ching_5.html</id>
+        <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
+        <category scheme="https://lizzie.github.io/tag/#philosophy" term="philosophy" label="philosophy" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/5359679/">豆瓣书单</a></p>
 <div class="section" id="id3">
 <h2>谦卦</h2>
@@ -976,14 +976,14 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         </content>
     </entry><entry>
         <title type="html"><![CDATA[&lt;易经的智慧&gt; 语录之四]]></title>
-        <author><name>Yan Sheng</name><uri>http://sunsetsunrising.com</uri></author>
-        <link href="http://sunsetsunrising.com/2012/i_ching_4.html"/>
+        <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
+        <link href="https://lizzie.github.io/2012/i_ching_4.html"/>
         <published>2012-08-28T13:55:07+08:00</published>
         <updated>2015-03-17T21:46:13+08:00</updated>
-        <id>http://sunsetsunrising.com/2012/i_ching_4.html</id>
-        <category scheme="http://sunsetsunrising.com/tag/#note" term="note" label="note" />
-        <category scheme="http://sunsetsunrising.com/tag/#philosophy" term="philosophy" label="philosophy" />
-        <content type="html" xml:base="http://sunsetsunrising.com/" xml:lang="en">
+        <id>https://lizzie.github.io/2012/i_ching_4.html</id>
+        <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
+        <category scheme="https://lizzie.github.io/tag/#philosophy" term="philosophy" label="philosophy" />
+        <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
             <![CDATA[ <p><a class="reference external" href="http://book.douban.com/subject/5359679/">豆瓣书单</a></p>
 <p>中国人有能屈能伸的民族性，这个能屈的部分就是坤，能伸的部分就是乾。乾告诉我们要自强不息，只要有机会就要抓住，只要有能量就要发挥。可是当环境不许可的时候，当你感觉到力不从心的时候，那你就要像坤卦一样的逆来顺受。所以中国人老是讲两局很矛盾的话－－自强不息，逆来顺受，合起来就叫做能屈能伸。</p>
 <div class="section" id="id3">
