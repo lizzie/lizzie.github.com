@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-name = 'sunsetsunrising'
+name = 'Lizzie'
 version = '1.0'
-website = 'http://sunsetsunrising.com'
+website = 'https://lizzie.github.io'
 author = {
     'name': 'Yan Sheng',
-    'website': 'http://sunsetsunrising.com',
+    'website': 'https://lizzie.github.io',
     }
 
 lang = 'en'

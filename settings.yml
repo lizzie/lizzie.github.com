@@ -5,8 +5,8 @@
 #: all variables can be accessed in template with ``site`` namespace.
 #: for instance: {{site.name}}
 site:
-    name: SunsetSunrising  # your site name
-    url: "http://sunsetsunrising.com/"  # your site url
+    name: LIZZIE  # your site name
+    url: "https://lizzie.github.io/"  # your site url
     # "prefix": "blog",
 
 #: this config defined information of your site
@@ -30,7 +30,7 @@ author:
         {
         'liz': {
                     'name': 'Yan Sheng',
-                    'website': 'http://sunsetsunrising.com',
+                    'website': 'https://lizzie.github.io',
                     'email': 'shengyan1985@gmail.com',
                 }
         }
@@ -65,7 +65,7 @@ writer:
 
 #: theme variables
 theme:
-    name: sunsetsunrising
+    name: white
 
     # theme variables are defined by theme creator
     # you can access theme in template with ``theme`` namespace
