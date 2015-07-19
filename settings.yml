@@ -14,7 +14,7 @@ site:
 config:
     source: content
     output: ./_site
-    static: ./assets
+    static: ./_site/assets
     static_prefix: /assets/
     permalink: "{{date.year}}/{{filename}}.html"
     relative_url: false
