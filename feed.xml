@@ -3,14 +3,14 @@
     <title>LIZZIE</title>
     <link href="https://lizzie.github.io/feed.xml" rel="self" />
     <link href="https://lizzie.github.io/" />
-    <updated>2015-07-17T21:28:08+08:00</updated>
+    <updated>2015-07-19T09:45:05+08:00</updated>
     <id>https://lizzie.github.io/</id>
     <entry>
         <title type="html"><![CDATA[霓虹国的绣球花之旅]]></title>
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2015/to-japan.html"/>
         <published>2015-07-17T21:59:59+08:00</published>
-        <updated>2015-07-17T21:28:08+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2015/to-japan.html</id>
         <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
         <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
@@ -142,7 +142,7 @@
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2015/to-xiamen.html"/>
         <published>2015-07-03T21:59:59+08:00</published>
-        <updated>2015-07-16T21:47:47+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2015/to-xiamen.html</id>
         <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
         <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
@@ -201,7 +201,7 @@
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2015/2014_summary_and_2015_outlook.html"/>
         <published>2015-05-11T23:59:59+08:00</published>
-        <updated>2015-05-11T20:50:30+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2015/2014_summary_and_2015_outlook.html</id>
         <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
         <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
@@ -258,7 +258,7 @@
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2015/flex_boxes_cheatsheet.html"/>
         <published>2015-03-18T22:25:59+08:00</published>
-        <updated>2015-03-18T22:37:56+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2015/flex_boxes_cheatsheet.html</id>
         <category scheme="https://lizzie.github.io/tag/#CSS" term="CSS" label="CSS" />
         <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
@@ -345,7 +345,7 @@ order: 5 默认为0. 统一order的多个子元素按照html中的书写顺序�
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2013/to-malaysia.html"/>
         <published>2013-12-01T13:59:59+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2013/to-malaysia.html</id>
         <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
         <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
@@ -431,7 +431,7 @@ order: 5 默认为0. 统一order的多个子元素按照html中的书写顺序�
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2013/alipay.html"/>
         <published>2013-06-07T22:10:42+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2013/alipay.html</id>
         <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
         <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
@@ -459,7 +459,7 @@ order: 5 默认为0. 统一order的多个子元素按照html中的书写顺序�
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2013/how_to_choose.html"/>
         <published>2013-04-17T15:59:59+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2013/how_to_choose.html</id>
         <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
         <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
@@ -497,7 +497,7 @@ order: 5 默认为0. 统一order的多个子元素按照html中的书写顺序�
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2013/iconfont.html"/>
         <published>2013-03-22T16:59:59+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2013/iconfont.html</id>
         <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
         <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
@@ -521,7 +521,7 @@ order: 5 默认为0. 统一order的多个子元素按照html中的书写顺序�
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2013/friends.html"/>
         <published>2013-03-17T22:17:07+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2013/friends.html</id>
         <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
         <category scheme="https://lizzie.github.io/tag/#friendship" term="friendship" label="friendship" />
@@ -604,7 +604,7 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2013/kanjian.html"/>
         <published>2013-02-17T20:17:07+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2013/kanjian.html</id>
         <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
         <category scheme="https://lizzie.github.io/tag/#philosophy" term="philosophy" label="philosophy" />
@@ -645,7 +645,7 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2013/npapi.html"/>
         <published>2013-02-06T17:11:08+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2013/npapi.html</id>
         <category scheme="https://lizzie.github.io/tag/#Chrome" term="Chrome" label="Chrome" />
         <category scheme="https://lizzie.github.io/tag/#Plugins" term="Plugins" label="Plugins" />
@@ -696,7 +696,7 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2013/grandma_blanket.html"/>
         <published>2013-02-05T18:23:06+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2013/grandma_blanket.html</id>
         <category scheme="https://lizzie.github.io/tag/#handmade" term="handmade" label="handmade" />
         <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
@@ -716,7 +716,7 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2013/chujian.html"/>
         <published>2013-01-09T18:17:07+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2013/chujian.html</id>
         <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
         <category scheme="https://lizzie.github.io/tag/#philosophy" term="philosophy" label="philosophy" />
@@ -756,7 +756,7 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2013/red_shawl.html"/>
         <published>2013-01-06T18:23:06+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2013/red_shawl.html</id>
         <category scheme="https://lizzie.github.io/tag/#handmade" term="handmade" label="handmade" />
         <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
@@ -772,7 +772,7 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2012/2012_summary_and_2013_outlook.html"/>
         <published>2012-12-31T23:59:59+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2012/2012_summary_and_2013_outlook.html</id>
         <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
         <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
@@ -830,7 +830,7 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2012/algorithm_and_choices.html"/>
         <published>2012-12-28T11:23:06+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2012/algorithm_and_choices.html</id>
         <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
         <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
@@ -911,7 +911,7 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2012/liuhen.html"/>
         <published>2012-11-30T13:10:07+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2012/liuhen.html</id>
         <category scheme="https://lizzie.github.io/tag/#Music" term="Music" label="Music" />
         <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
@@ -1018,7 +1018,7 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2012/my_new_blog.html"/>
         <published>2012-11-23T15:36:02+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2012/my_new_blog.html</id>
         <category scheme="https://lizzie.github.io/tag/#Life" term="Life" label="Life" />
         <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
@@ -1033,7 +1033,7 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2012/dont_make_me_think.html"/>
         <published>2012-11-18T12:29:10+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2012/dont_make_me_think.html</id>
         <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
         <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
@@ -1078,7 +1078,7 @@ PS: 不喜欢第九季第十季, 让瑞秋喜欢乔伊的那段剧情, 实在搞
         <author><name>Yan Sheng</name><uri>https://lizzie.github.io</uri></author>
         <link href="https://lizzie.github.io/2012/kun_dao.html"/>
         <published>2012-11-18T12:27:54+08:00</published>
-        <updated>2015-03-17T21:46:13+08:00</updated>
+        <updated>2015-07-19T09:45:05+08:00</updated>
         <id>https://lizzie.github.io/2012/kun_dao.html</id>
         <category scheme="https://lizzie.github.io/tag/#note" term="note" label="note" />
         <content type="html" xml:base="https://lizzie.github.io/" xml:lang="en">
