@@ -13,8 +13,4 @@
 
 图解:
 
-.. image:: /assets/images/red_shawl.jpg
-
-
-
-
+.. image:: https://cloud.githubusercontent.com/assets/36899/8765014/550fe66a-2e2b-11e5-8335-404371bef524.jpg

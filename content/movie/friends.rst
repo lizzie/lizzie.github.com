@@ -5,7 +5,7 @@
 :tags: note, friendship
 
 
-.. image:: /assets/images/friends_1.jpg
+.. image:: https://cloud.githubusercontent.com/assets/36899/8765012/54d02da4-2e2b-11e5-8d4a-cf39f87e0554.jpg
 
 看了不下十遍的<老友记>, 感觉永远也看不腻, 永远那么的开心.
 
@@ -88,7 +88,7 @@ Why? Why? Why? 总结了, 大概以下几点:
 - 肯定还有其他原因吧.
 
 
-.. image:: /assets/images/friends_2.jpg
+.. image:: https://cloud.githubusercontent.com/assets/36899/8765013/5504cc3a-2e2b-11e5-923d-d38afd6edd27.jpg
 
 
 
@@ -101,6 +101,3 @@ Why? Why? Why? 总结了, 大概以下几点:
 就像以前我说过的那样: 只有在超级无聊和非常不开心时, 才会看老友记.
 
 所以千万不要花太多时间在看电视上哦, 人生苦短, 珍惜时间.
-
-
-
