@@ -13,7 +13,7 @@ site:
 #: 1. where the resources  2. how should the site be generated
 config:
     source: content
-    output: .
+    output: ./_site
     static: ./assets
     static_prefix: /assets/
     permalink: "{{date.year}}/{{filename}}.html"
