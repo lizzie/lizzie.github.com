@@ -1,0 +1,122 @@
+.ks-hidden { display: none; }
+.ks-invisible { visibility: hidden; }
+
+.ks-clear:after { content: '\20'; display: block; height: 0; clear: both; }
+.ks-clear { *zoom: 1; }
+
+
+
+/* scrollbars
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+  display: block;
+  height: 10px;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #eee;
+  -webkit-border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 50px;
+  background-color: #ccc;
+  -webkit-border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  width: 50px;
+  background-color: #ccc;
+  -webkit-border-radius: 3px;
+}
+
+*/
+
+
+@linkColor: #666;
+@linkHoverColor: #4bf;
+@lightGray: #F4F4F4;
+@bgGray: #F4F4F4;
+@headerHeight: 50px;
+@maxWidth: 600px;
+
+
+a {
+  color: @linkColor;
+  text-decoration: none;
+  border-bottom: 1px dotted @linkColor;
+
+  &:hover {
+    color: @linkHoverColor;
+    text-decoration: none;
+    border-bottom: 1px dashed @linkHoverColor;
+    background: @lightGray;
+  }
+}
+
+.box-shadow(@x: 0, @y: 0, @blur: 1px, @color: #000) {
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  -ms-box-shadow: @arguments;
+  -o-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+.inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom:1;
+}
+
+body {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+}
+
+@liLeftPadding: 16px;
+ol, ul {
+  padding: 0;
+
+  li {
+    padding-left: @liLeftPadding;
+    background: transparent url(bullet_black.png) left 6px no-repeat;
+    list-style: none;
+
+    li {
+      background-image: url(bullet_black_in.png);
+    }
+  }
+}
+dd ul {
+  padding-left: 0;
+
+  li {
+    background-image: url(bullet_black_in.png);
+  }
+}
+
+iframe {
+  border: none;
+}
+
+.highlight pre {
+  font-size: 12px;
+  white-space: pre;
+  word-wrap: normal;
+
+  overflow: auto;
+}
+body {
+  font-family: Optima, Georgia, "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", serif;
+}
